@@ -1,0 +1,122 @@
+<!-- <ion-header class="ion-hide-lg-up">
+  <ion-toolbar color="darkred"  text-uppercase>
+ <ion-buttons slot="start">
+      <ion-back-button defaultHref="user-contacts"></ion-back-button>
+    </ion-buttons>
+		<ion-buttons slot="end">
+  <ion-icon name="videocam"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+     <ion-item no-padding lines="none" style="--background:transparent;color:var(--ion-color-white)">
+		  <ion-avatar slot="start">
+			<img src="assets/images/avatar.png">
+			<span></span>
+		  </ion-avatar>
+		  <ion-label>
+		  <h3>John Smith</h3>
+		  <p>Online</p>
+		  </ion-label>
+		</ion-item>
+    </ion-title>
+  </ion-toolbar>
+</ion-header> --> 
+<ion-content>
+<div header_height></div>
+	<!-- Breadcrumb Start -->
+		<div breadcrumb  class="ion-hide-md-down">		
+			<div breadcrumb-inner>
+				<ul list-inline list-unstyled>
+					<li><a routerLink="/home">Home</a></li>
+					<li class="active">messages</li>
+				</ul>
+			</div><!-- /.breadcrumb-inner -->
+		</div>
+<!-- Breadcrumb Ends -->
+		   <ion-row>
+		   <ion-col size-lg="4" size-md="3">
+		   		<div class="headind_srch">
+					<div class="recent_heading">
+					  <h4>Recent</h4>
+					</div>
+					<div class="srch_bar">
+					  <div class="stylish-input-group">
+						<input type="text" class="search-bar"  placeholder="Search" >
+						</div>
+					</div>
+				</div>
+
+				<div class="inbox_chat scroll" *ngFor="let user of chat_users">
+					<div class="chat_list active_chat" (click)="getChat(user)">
+					  <div class="chat_people">
+						<div class="chat_img"> 
+							<img *ngIf="errors.indexOf(user?.profile_picture) >= 0" src="assets/images/default.png">
+							<img *ngIf="errors.indexOf(user?.profile_picture) == -1" src="{{IMAGES_URL}}/userprofile/{{user?.profile_picture}}">
+						</div>
+						<div class="chat_ib">
+						  <h5>{{user.to_user_type}} <span class="chat_date">{{user.created_at | timeAgo}}</span></h5>
+						  <p>{{user.message}}</p>
+						</div>
+					  </div>
+					</div>
+				</div>
+
+		    </ion-col>
+			<ion-col size-lg="8" size-md="9">
+				<div messages-list>	
+					<ng-container *ngIf="is_chat_window == true">					
+						<ng-container *ngIf="is_chat_loaded == true">				
+							<div chat-head class="ion-hide-sm-down">				
+								<h3 chat-title> name name </h3>
+							</div>	
+		                    <div top-chat>
+		                    	<ng-container *ngFor="let chat of chat_list">		
+								<ion-item lines="none" [ngClass]="chat.from_user_id == userId ? 'chat-right' : 'chat-left'" no-padding>
+									<ion-avatar slot="{{chat.from_user_id == userId ? 'end' : 'start'}}">
+										<ng-container *ngIf="chat.from_user_id == userId">
+											<img *ngIf="errors.indexOf(chat?.user_profile_picture) >= 0" src="assets/images/default.png">
+											<img *ngIf="errors.indexOf(chat?.user_profile_picture) == -1" src="{{IMAGES_URL}}/userprofile/{{chat?.user_profile_picture}}">
+										</ng-container>
+										<ng-container *ngIf="chat.from_user_id != userId">
+											<img *ngIf="errors.indexOf(chat?.profile_picture) >= 0" src="assets/images/default.png">
+											<img *ngIf="errors.indexOf(chat?.profile_picture) == -1" src="{{IMAGES_URL}}/{{chat?.from_user_type == 'vendor' ? 'vendors' : 'sub_users'}}/{{chat?.profile_picture}}">
+										</ng-container>
+									</ion-avatar>
+									<ion-label>
+										<p>{{chat.message}}</p>
+										<ion-note><ion-icon name="timer"></ion-icon> {{chat.created_at | timeAgo}}</ion-note>
+									</ion-label>
+								</ion-item>
+								</ng-container>
+							</div>
+							<div chat-bottom class="ion-hide-sm-down">
+								<form (ngSubmit)="addChat(message)" name="chat_form_web">
+									<ion-input [(ngModel)]="message" name="message" placeholder="Send a Message"></ion-input>
+									<ion-button type="submit" color="darkred"> <ion-icon name="paper-plane"></ion-icon></ion-button>
+								</form>
+							</div>
+						</ng-container>
+						<ng-container *ngIf="is_chat_loaded == false">
+							<div top-chat>				
+								<h3 chat-title> Loading chat... </h3>
+							</div>
+						</ng-container>
+					</ng-container>
+					<ng-container *ngIf="is_chat_window == false">
+						<div top-chat>				
+							<h3 chat-title> Click on users list to chat... </h3>
+						</div>
+					</ng-container>
+				</div>
+			</ion-col>
+		 </ion-row>	
+<ion-footer class="ion-hide-md-up">	
+	<form (ngSubmit)="addChat(message)" name="chat_form">
+		<div chat-bottom>            
+			<ion-icon attach-icon name="attach"></ion-icon>
+			<ion-input [(ngModel)]="message" name="message" placeholder="Send a Message"></ion-input>
+			<ion-button type="submit" color="darkred"> <ion-icon name="paper-plane"></ion-icon></ion-button>
+		</div>
+	</form>	 
+</ion-footer>
+<app-footer></app-footer>								 
+</ion-content>

@@ -1,0 +1,111 @@
+h1.payment-head {
+    padding: 15px 20px;
+    font-size: 17px;
+    font-weight: 700;
+    background: #232f3e;
+    margin: 0;
+    color: #fff;
+    text-align: left;
+}
+.cost-sum {
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+    padding: 0;
+    margin-bottom: 20px;
+}
+.cost-sum .cart-shopping-total table tbody tr.cart-grand-total td {
+    color:#84b943;
+}
+.cost-sum .cart-shopping-total table tbody tr td {
+    padding: 5px 15px;
+    font-weight: 700;
+}
+.cost-sum .cart-shopping-total {
+    padding: 10px 0;
+}
+.mb-15 {
+    margin-bottom:15px;
+}
+.action-icons {
+    cursor: pointer;
+    background: #5cb85c;
+    text-align: center;
+    color: #fff;
+    width: 30px !important;
+    height: 30px;
+    display: inline-block;
+    line-height: 30px;
+    border-radius: 50%;
+    font-size: 14px !important;
+    padding: 0;
+    border: 0;
+    color:#fff !important;
+}
+.invoic-ia {
+    padding: 20px;
+    float: left;
+    width: 100%;
+}
+.box-invoice-shw {display:none !important; }
+@media only screen and (max-width:767px) {
+.dt-time span {
+    min-width: 50%;
+    display: inline-block;
+        font-size: 12px;
+    margin: 3px 0;
+}
+.box-invoice-shw .itrm-invos h4 {
+    margin: 4px 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+.box-invoice-shw .itrm-invos {
+    background: #f5f5f5;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.05);
+    border: 1px solid #ececec;
+}
+.box-invoice-shw .tootl-cst {
+    font-size: 15px;
+    border-top: 1px solid rgba(35, 47, 62, 0.15);
+    padding-top: 6px;
+    margin-top: 6px;
+}
+.box-invoice-shw {
+	margin-bottom: 10px;
+	float: left;
+    width: 100%; 
+}
+.hide-smal-s {display:none !important;}
+.box-invoice-shw {display:block !important; }
+.table-responsive.tbl-brs  {
+    border: none;
+}
+.table-responsive.tbl-brs .cart-shopping-total {    padding: 0px; }
+.font-smalla {
+    font-size: 13px;
+}
+
+}
+
+.cost-sum {
+	background: #f8f8f8;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+    padding: 0;
+    margin-bottom: 20px;
+}
+.cost-sum .cart-shopping-total table tbody tr td {
+    padding: 5px 15px;
+    font-weight: 700;
+}
+.cost-sum table.table tr td {border:none;}
+.shopping-cart .cart-shopping-total table.table {
+    margin: 0;
+}
+.borStyle{
+    border:1px solid #eee;
+}
+.discountColor{
+    color:green;
+}

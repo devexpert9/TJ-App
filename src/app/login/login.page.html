@@ -1,0 +1,66 @@
+<ion-content>
+    <div class="login-wrapper pb-70">
+        <div class="container-fluid">
+            <div class="row login-box">
+				<div class="col-lg-5 col-md-12 col-sm-12 col-pad-0 bg-img align-self-center none-992 mobile-none">
+                    <a (click)='goToHome()'>
+                        <img src="assets/img/footer-logo.png" class="logo" alt="logo">
+                    </a>
+					<h4>Connect.Shop.Share</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt Lorem Ipsum</p>
+                    <a href="javascript:void(0)" routerLink="/register" class="btn-outline">Register</a>                    
+                </div>
+				<div class="col-lg-7 col-md-12 col-sm-12 col-pad-0 align-self-center">
+                    <div class="login-inner-form pl60" sign-in>
+                        <div class="details">
+							<div mnhead-sec>
+								<span (click)='goToHome()' style="
+    float: right;
+    margin: -14px -54px 0 27px;
+    background: #f1948f;
+    color: #fff;
+    padding: 0 9px 2px 9px;
+    border-radius: 100%;cursor: pointer;
+">x</span>
+							    <img src="assets/img/user-logo.png" class="logo" alt="logo">
+								<h3>Sign In to Your <span>Account</span></h3>
+								<p>Enter your email address and password to login</p>
+							</div>
+                            <div form-group>
+									<label>Email Address</label>
+									<ion-item lines="none">
+										<ion-label>
+											<ion-icon name="mail"></ion-icon>
+										</ion-label>
+										<ion-input type="text" [(ngModel)]="email" placeholder="Enter Email Address / Phone" ></ion-input>
+									</ion-item>
+								</div>	
+								<div form-group>
+									<label>Password</label>
+									<ion-item lines="none">
+										<ion-label>
+											<ion-icon name="lock"></ion-icon>
+										</ion-label>
+										<ion-input type="password" [(ngModel)]="password" placeholder="Enter Password"></ion-input>
+									</ion-item>
+								</div>	
+                                <div class="checkbox">
+                                    <div class="form-check checkbox-theme">
+										<ion-item lines="none">
+											<ion-label>Remember me</ion-label>
+											<ion-checkbox slot="start"></ion-checkbox>
+										</ion-item>
+                                    </div>
+                                    <a routerLink="/forgotpassword" href="javascript:void(0)">Forgot Password?</a>
+                                </div>
+                                <div class="form-group">                                  
+                                    <a href="javascript:void(0)" class="btn-md btn-theme btn-block" (click)="login(email,password)">Login</a>
+                                </div>
+                            <p class="register-here-btn">Don't have an account?<a routerLink="/register" href="javascript:void(0)"> Register Here</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div> 
+    </div>
+</ion-content>

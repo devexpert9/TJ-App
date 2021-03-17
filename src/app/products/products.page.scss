@@ -1,0 +1,286 @@
+ion-header{
+&::after
+{
+display:none!important;
+}
+ ion-toolbar
+ {
+    ion-menu-button
+	{
+		height: 35px;
+		position: inherit;
+		top: inherit;
+		right: inherit;
+		transition: inherit;
+		transition-delay: .1s;
+        img
+        {
+		    max-width: 20px;
+		}		
+	}
+	ion-title
+	{
+		font-weight:700;
+	} 
+    ion-buttons
+	{font-size:22px;
+	  &[mar-10]
+	  {
+	   margin-right:10px;
+	  }
+	}
+ }
+
+}
+@media (min-width: 768px) {
+	ion-content
+	{
+	    [filerweb-none]
+		{
+            display:none;		     
+		}
+		.logo-rating-sec
+		{
+		    display:none;
+		}
+	}
+}
+@media (max-width: 767px) {
+	ion-content
+	{
+	.productdisplayed 
+	{
+		ion-select 
+		{
+			--padding-start: 12px;
+			--padding-end: 7px;
+			font-size: 11px;
+			--padding-bottom: 5px;
+			--padding-top: 5px;
+		}	
+	}	
+	    .logo-rating-sec
+		{
+			display: block;
+			padding: 20px 5px;
+			position: relative;
+			background: url(../../assets/img/header-bg.jpg) no-repeat center center/cover;	
+			.vendor-profile-img1 
+			{
+				img 
+				{
+					width: 48px;
+					height: 48px;
+					border: 1px solid #fff;
+					margin-right: 5px;
+					padding: 4px;
+				}
+				span 
+				{
+					font-size: 14px;
+				}				
+			}
+			.logo-mn-sec
+            {
+				display: flex;
+				align-items: center;
+                .logo-rating
+                {
+					[name-logo] 
+					{
+						font-size: 13px;
+						color: #fff;
+					}
+					.rating-icon
+					{ 
+						color: #fff;
+						font-size: 12px;
+						margin-top: 1px;					
+						i 
+						{
+							color: var(--ion-color-primary);
+						}	
+						span 
+						{
+							margin-left: 4px;
+						}						
+					}					
+				}				
+			}
+			.header-call-action 
+			{
+				.menu-right-ul 
+				{
+					li 
+					{
+						a 
+						{
+							font-size: 18px;
+							padding: 0px 3px;
+						}			
+					}			
+				}			
+			}			
+		}
+		.shop-product-wrap 
+		{
+			.product-item
+			{ 
+				display: flex;
+				align-items: center;
+				background: #f9f9f9;
+				padding: 12px 10px;	
+                margin-bottom: 20px;				
+				.product-thumb
+				{ 
+					img 
+					{
+						max-height: 120px;
+						min-height: 120px;
+						width: 120px;
+						min-width: 120px;
+						object-fit: cover;
+					}	
+					.action-links 
+					{
+						right: 5px;
+						top: 5px;
+						a 
+						{
+							font-size: 14px;
+							height: 28px;
+							width: 28px;
+							i 
+							{
+								line-height: 28px;
+							}	
+						}	
+					}	
+					.box-label
+					{
+						.label-product 
+						{
+							top: 5px;
+							font-size: 10px;
+							line-height: 20px;
+							min-width: 30px;
+							padding: 0 8px;							
+						}	
+					}					
+				}			
+				.product-caption
+				{ 
+                    padding: 0px 4px 0px 10px;				
+					.manufacture-product 
+					{
+						p 
+						{
+							line-height: 18px;
+							a 
+							{
+								color: #979797;
+								font-size: 12px;
+								line-height: 17px;
+							}							
+						}
+					}			
+					.product-name 
+					{
+						h4 
+						{
+							font-size: 12px;
+							font-weight: 600;
+							line-height: 19px;
+							padding: 3px 0;						
+						}
+					}			
+					.ratings 
+					{
+					    padding: 2px 0;
+						span 
+						{
+							font-size: 12px;
+							margin-right: 1px;
+							color: #7c7c7c;
+                            &.yellow
+                            {
+							    color: var(--ion-color-secondary);
+							}							
+						}
+					}			
+					.price-box 
+					{
+						.regular-price 
+						{
+							color: #7c7c7c;
+							font-size: 13px;
+							font-weight: 600;
+						}
+					}
+					.btn-cart 
+					{
+						font-size: 12px;
+						line-height: 30px;
+						padding: 0 18px;
+						bottom: 2px;
+					}					
+				}		
+			}		
+		}	
+		.shop-sidebar-inner
+		{
+			&.shopsidebar
+			{
+				position: fixed;
+				top: 56px;
+				left: 0px;
+				right: 0px;				
+				background: #fff;
+				z-index: 999;
+				display: block;
+				border-radius: 0px;
+			    padding: 15px 15px 30px;	
+				.single-sidebar 
+				{
+					display: inline-block;
+					width: 47%;
+					margin: 0px 4px;
+					box-sizing: border-box;
+					.dropdown
+					{
+					display:block;
+						.dropdown-toggle 
+						{
+							min-width: 100%;
+							font-size: 14px;
+							height: 42px;
+						}
+					}
+					.applybtn 
+					{
+						height: 42px;
+						min-width: 100%;
+					}			
+				}		
+			}
+		}
+		[filermob-none]
+		{
+		    display:none;
+		}
+	}
+}
+.cont-str {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+	button.btn {
+		margin-left: 10px;
+		min-width: 70px;
+	}
+	.dropdown-menu li {
+		padding: 7px 10px;
+		font-size: 14px;
+		min-width: 120px;
+	}
+} 

@@ -1,0 +1,2635 @@
+<!-- <ion-header class="ion-hide-lg-up">
+  <ion-toolbar color="darkred" text-uppercase>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+     	<img  class="ion-hide-lg-up"  src="assets/images/sign-logo.png" width="80px"/>
+    </ion-title>
+      <ion-buttons slot="end" > 
+	        <ion-icon name="search"></ion-icon>
+	 </ion-buttons>
+      <ion-buttons slot="end" > 
+
+	        <ion-icon user-drop name="contact" (click)="onButtonClickdrop()"></ion-icon>
+	 </ion-buttons>
+  </ion-toolbar>
+      <div drop-down-menu *ngIf="buttonClickeddrop">
+	              <a routerLink="/your-account"><ion-icon name="person"></ion-icon> My Account</a>
+	              <a routerLink="/wishlist"><ion-icon name="heart"></ion-icon>  Wishlist</a>
+	              <a routerLink="/cart"><ion-icon name="cart"></ion-icon>  Cart</a>
+	              <a routerLink="/notification"><ion-icon name="notifications"></ion-icon> Notification</a>
+	   </div>
+</ion-header>  -->
+<ion-content>
+<div header_height></div>
+		 <ion-card no-margin  no-padding>
+				
+					 <h4 mob-head mob-head2 text-left text-uppercase  class="ion-hide-lg-up">
+					  Shop By Category
+			         </h4>
+						 <div  panel panel-default>
+								 <div panel-heading  checkout-head>
+									<h4>
+									   <a href="javascript:void(0)"      [ngClass]="{'active': selectedItem === 'item1'}"  (click)="selectedItem = 'item1'">
+										<img src="assets/images/child.png"/> Children    
+										<ion-icon name="add-circle-outline" float-right icon-plus></ion-icon>
+										<ion-icon name="remove-circle-outline" float-right icon-minus style="display:none"></ion-icon>
+									   </a>
+									</h4>					 
+								 </div>
+								 <div panel-body   [ngClass]="{'active': selectedItem === 'item1'}" style="display:none">										  
+								  <ion-row>
+								     <ion-col size="6">
+									     <ion-item lines="none" no-padding routerLink="/products">		
+										<ion-thumbnail>
+										<img src="assets/images/toys.jpg"/>
+										</ion-thumbnail>										 
+											 <label>
+											 Toys
+											 </label>
+											
+										 </ion-item>
+									 </ion-col>
+								   <ion-col size="6">
+									     	     <ion-item lines="none" no-padding routerLink="/products">		
+										    <ion-thumbnail>
+											<img src="assets/images/baby.jpg"/>
+											</ion-thumbnail>
+											 <label>
+											 Baby
+											 </label>
+											 	
+										 </ion-item>
+									 </ion-col>
+									  <ion-col size="6">
+									   	  	     <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/diaper.jpg"/>
+												</ion-thumbnail>
+											 <label>
+											 Diapering
+											 </label>
+											 	
+										 </ion-item>
+									 </ion-col>
+									 	  <ion-col size="6">
+									  	 	     <ion-item lines="none" no-padding routerLink="/products">		
+												   <ion-thumbnail>
+													<img src="assets/images/toys.jpg"/>
+													</ion-thumbnail>
+											 <label>
+											 Video Games for Kids
+											 </label>
+											 	
+										 </ion-item>
+									 </ion-col>
+
+									 	  <ion-col size="6">
+									 	     <ion-item lines="none" no-padding>		
+ <ion-thumbnail>
+											<img src="assets/images/baby.jpg"/>
+											</ion-thumbnail>											 
+												 <label>
+												   Baby Wishlist 
+												 </label>
+										     </ion-item>
+									      </ion-col>
+									 	  <ion-col size="6">
+									  	     <ion-item lines="none" no-padding>
+											  <ion-thumbnail>
+											<img src="assets/images/toys.jpg"/>
+											</ion-thumbnail>
+												 <label>
+												 Kids Birthdays
+												 </label>
+										    </ion-item>
+									 </ion-col>
+									 <ion-col size="6">
+										 <ion-item lines="none" no-padding>
+										    <ion-thumbnail>
+											<img src="assets/images/kids.jpg"/>
+											</ion-thumbnail>	
+											 <label>
+											   For Girls
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									 <ion-col size="6">
+										 <ion-item lines="none" no-padding>	
+                                            <ion-thumbnail>
+											<img src="assets/images/toys.jpg"/>
+											</ion-thumbnail>										 
+											 <label>
+											   For Boys
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									 <ion-col size="6">
+									  	 <ion-item lines="none" no-padding>			
+                                        <ion-thumbnail>
+											<img src="assets/images/baby.jpg"/>
+											</ion-thumbnail>											 
+											 <label>
+											    For Baby
+											 </label>
+										 </ion-item>
+									 </ion-col>
+								  </ion-row>
+								
+								 </div>		 
+						</div>
+			            <div  panel panel-default>
+								 <div panel-heading  checkout-head>
+									<h4>
+									   <a href="javascript:void(0)"      [ngClass]="{'active': selectedItem === 'item2'}"  (click)="selectedItem = 'item2'">
+										<img src="assets/images/home.png"/> Home,  Tools and Gardens     
+										<ion-icon name="add-circle-outline" float-right icon-plus></ion-icon>
+										<ion-icon name="remove-circle-outline" float-right icon-minus style="display:none"></ion-icon>
+									   </a>
+									</h4>					 
+								 </div>
+								 <div panel-body   [ngClass]="{'active': selectedItem === 'item2'}" style="display:none">										  
+								  <ion-row>
+
+								     <ion-col size="6">
+									    	     <ion-item lines="none" no-padding routerLink="/products">		
+										    		    <ion-thumbnail>
+														<img src="assets/images/home.jpg"/>
+														</ion-thumbnail>
+											 <label>
+											  Home
+											 </label>
+
+										 </ion-item>
+									 </ion-col>
+								   <ion-col size="6">
+									   	     <ion-item lines="none" no-padding routerLink="/products">		
+										    		<ion-thumbnail>
+													  <img src="assets/images/room.jpg"/>
+													</ion-thumbnail>
+											 <label>
+											 Shop by Room
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									  <ion-col size="6">
+									   		     <ion-item lines="none" no-padding routerLink="/products">		
+										    				<ion-thumbnail>
+															<img src="assets/images/decor.jpg"/>
+															</ion-thumbnail>
+											 <label>
+											 Home Décor
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									 	  <ion-col size="6">
+									  	   	     <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/furniture.jpg"/>
+													</ion-thumbnail>
+											 <label>
+											Furniture
+											 </label>
+										 </ion-item>
+									 </ion-col>
+
+									 	  <ion-col size="6">
+									 	     <ion-item lines="none" no-padding>
+										     <ion-thumbnail>
+														<img src="assets/images/home2.jpg"/>
+														</ion-thumbnail>
+
+											 <label>
+										Kitchen & Dining
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									 	  <ion-col size="6">
+									  	     <ion-item lines="none" no-padding>
+
+										      <ion-thumbnail>
+														<img src="assets/images/decor.jpg"/>
+														</ion-thumbnail>
+											
+											 <label>
+											  Bed & Bath
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									 <ion-col size="6">
+									    	     <ion-item lines="none" no-padding>
+
+										    <ion-thumbnail>
+														<img src="assets/images/garden.jpg"/>
+														</ion-thumbnail>
+											 <label>
+											Garden & Outdoor
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									 <ion-col size="6">
+										     <ion-item lines="none" no-padding>
+										     <ion-thumbnail>
+														<img src="assets/images/decor.jpg"/>
+														</ion-thumbnail>
+											 <label>
+											Mattresses
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									 <ion-col size="6">
+									  	     <ion-item lines="none" no-padding>
+										     <ion-thumbnail>
+														<img src="assets/images/light.jpg"/>
+														</ion-thumbnail>
+											 <label>
+											Lighting 
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									 
+									  <ion-col size="6">
+										     <ion-item lines="none" no-padding>
+										      <ion-thumbnail>
+														<img src="assets/images/light.jpg"/>
+														</ion-thumbnail>
+											 <label>
+											Storage & Organization
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									 <ion-col size="6">
+									  	     <ion-item lines="none" no-padding>
+										      <ion-thumbnail>
+														<img src="assets/images/light.jpg"/>
+														</ion-thumbnail>
+											 <label>
+											Appliances 
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									  <ion-col size="6">
+										     <ion-item lines="none" no-padding>
+										      <ion-thumbnail>
+														<img src="assets/images/garden.jpg"/>
+														</ion-thumbnail>
+											 <label>
+											Fine Art
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									 <ion-col size="6">
+									  	     <ion-item lines="none" no-padding>
+
+										      <ion-thumbnail>
+														<img src="assets/images/garden.jpg"/>
+														</ion-thumbnail>
+
+											 <label>
+											Collectibles & Fine Art 
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									  <ion-col size="6">
+										     <ion-item lines="none" no-padding>
+
+										      <ion-thumbnail>
+														<img src="assets/images/garden.jpg"/>
+														</ion-thumbnail>
+
+											 <label>
+											Arts, Crafts & Sewing
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									 <ion-col size="6">
+									  	     <ion-item lines="none" no-padding>
+
+										      <ion-thumbnail>
+														<img src="assets/images/decor.jpg"/>
+														</ion-thumbnail>
+											 <label>
+											Event & Party Supplies 
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									  <ion-col size="6">
+										     <ion-item lines="none" no-padding>
+										      <ion-thumbnail>
+														<img src="assets/images/furniture.jpg"/>
+														</ion-thumbnail>
+											 <label>
+											Home Improvement
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									 <ion-col size="6">
+									  	     <ion-item lines="none" no-padding>
+										      <ion-thumbnail>
+														<img src="assets/images/home1.jpg"/>
+														</ion-thumbnail>
+											 <label>
+											Power & Hand Tools 
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									  <ion-col size="6">
+										     <ion-item lines="none" no-padding>
+										      <ion-thumbnail>
+														<img src="assets/images/light.jpg"/>
+														</ion-thumbnail>
+											 <label>
+											Lamps & Light Fixtures
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									 <ion-col size="6">
+									  	     <ion-item lines="none" no-padding>
+
+										      <ion-thumbnail>
+														<img src="assets/images/home2.jpg"/>
+														</ion-thumbnail>
+											 <label>
+											Kitchen & Bath Fixtures  
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									  <ion-col size="6">
+										     <ion-item lines="none" no-padding>
+
+										      <ion-thumbnail>
+														<img src="assets/images/home2.jpg"/>
+														</ion-thumbnail>
+
+											 <label>
+											Cookware
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									 <ion-col size="6">
+									  	     <ion-item lines="none" no-padding>
+
+										      <ion-thumbnail>
+														<img src="assets/images/light.jpg"/>
+														</ion-thumbnail>
+
+											 <label>
+											 Hardware
+											 </label>
+										 </ion-item>
+									 </ion-col>
+									 <ion-col size="6">
+
+									  	     <ion-item lines="none" no-padding>			
+                                                       <ion-thumbnail>
+														<img src="assets/images/decor.jpg"/>
+														</ion-thumbnail>											 
+
+											 <label>
+										     Smart Home
+											 </label>
+										 </ion-item>
+
+									 </ion-col>
+
+								  </ion-row>
+								
+								 </div>		 
+						</div>
+                       <div  panel panel-default>
+								 <div panel-heading  checkout-head>
+									<h4>
+									   <a href="javascript:void(0)"      [ngClass]="{'active': selectedItem === 'item3'}"  (click)="selectedItem = 'item3'">
+										<img src="assets/images/clothing.png"/> Clothing      
+										<ion-icon name="add-circle-outline" float-right icon-plus></ion-icon>
+										<ion-icon name="remove-circle-outline" float-right icon-minus style="display:none"></ion-icon>
+									   </a>
+									</h4>					 
+								 </div>
+								 <div panel-body   [ngClass]="{'active': selectedItem === 'item3'}" style="display:none">										  
+								        <ion-row>
+											 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe10.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													  Men
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											 		 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe1.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Women
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											 		
+											 		 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe2.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Teens
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											 		 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe8.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Kids
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											 		 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe2.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Dresses
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											 		 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe2.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Tops & Tees
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											 		 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe7.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Sweaters
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											 		 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe8.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Jeans 
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											 		 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe11.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Hijabi 
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											 		 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe5.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Abaya
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											 		 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe8.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Pants
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											 		 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe2.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Skirts
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											 		 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe11.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Activewear
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											 		 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe2.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Swimsuits & Cover Ups
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											 		 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe1.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Lingerie, Sleep & Lounge
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											 		 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe10.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Coats & Jackets 
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											 		 <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe2.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Suiting & Blazers
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+											  <ion-col size="6">
+												 <ion-item lines="none" no-padding routerLink="/products">		
+												<ion-thumbnail>
+												<img src="assets/images/clothing/clothe3.jpg"/>
+												</ion-thumbnail>										 
+													 <label>
+													 Socks & Hoisery
+													 </label>
+													
+												 </ion-item>
+											 </ion-col>
+								        </ion-row>
+								 </div>		 
+						</div>
+						   <div  panel panel-default>
+								 <div panel-heading  checkout-head>
+									<h4>
+									   <a href="javascript:void(0)"      [ngClass]="{'active': selectedItem === 'item4'}"  (click)="selectedItem = 'item4'">
+										<img src="assets/images/automotive.png"/> Automotive    
+										<ion-icon name="add-circle-outline" float-right icon-plus></ion-icon>
+										<ion-icon name="remove-circle-outline" float-right icon-minus style="display:none"></ion-icon>
+									   </a>
+									</h4>					 
+								 </div>
+								 <div panel-body   [ngClass]="{'active': selectedItem === 'item4'}" style="display:none">										  
+
+								    <ion-row>
+									          <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/car1.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														   Automotive Parts & Accessories 
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											   <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/car2.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Automotive Tools & Equipment  
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											   <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/car3.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Car/Vehicle Electronics & GPS 
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											   <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/car4.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Tires & Wheels 
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											   <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/car5.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Motorcycle & Powersports
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											   <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/car6.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Lorry
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											   <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/car3.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Cars
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											   <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/car8.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Garage
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											   <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/car9.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Lab & Scientific
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											   <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/car10.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Janitorial
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											   <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/car1.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Safety
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											   <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/car2.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Material Handling
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+									</ion-row>								
+
+								 </div>		 
+						</div>
+						   <div  panel panel-default>
+								 <div panel-heading  checkout-head>
+									<h4>
+									   <a href="javascript:void(0)"      [ngClass]="{'active': selectedItem === 'item5'}"  (click)="selectedItem = 'item5'">
+										<img src="assets/images/sports.png"/> Shoes     
+										<ion-icon name="add-circle-outline" float-right icon-plus></ion-icon>
+										<ion-icon name="remove-circle-outline" float-right icon-minus style="display:none"></ion-icon>
+									   </a>
+									</h4>					 
+								 </div>
+								 <div panel-body   [ngClass]="{'active': selectedItem === 'item5'}" style="display:none">										  
+								         <ion-row>
+									          <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/shoe2.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Women
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											          <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/shoe3.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														   Kids
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											          <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/shoe1.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														    Male
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											          <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/shoe3.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														   Athletic
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											          <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/shoe1.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														   Boots
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											          <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/shoe1.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														   Fashion Sneakers
+														 </label>
+													 </ion-item>
+											 </ion-col>
+											          <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/shoe3.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														   Flats
+														 </label>
+													 </ion-item>
+											 </ion-col>
+											          <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/shoe1.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														   Loafers & Slip-Ons
+														 </label>
+													 </ion-item>
+											 </ion-col>
+											          <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/shoe1.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														   Outdoor
+														 </label>
+													 </ion-item>
+											 </ion-col>
+											          <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/shoe3.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														   Oxfords
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											          <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/shoe1.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														    Sandals
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											          <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/shoe1.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														    Slippers
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											          <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/shoe3.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														   Work & Safety
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+								       </ion-row>
+								 </div>		 
+						</div>
+						   <div  panel panel-default>
+								 <div panel-heading  checkout-head>
+									<h4>
+									   <a href="javascript:void(0)"      [ngClass]="{'active': selectedItem === 'item6'}"  (click)="selectedItem = 'item6'">
+										<img src="assets/images/sports.png"/> Sports & Outdoors    
+										<ion-icon name="add-circle-outline" float-right icon-plus></ion-icon>
+										<ion-icon name="remove-circle-outline" float-right icon-minus style="display:none"></ion-icon>
+									   </a>
+									</h4>					 
+								 </div>
+								 <div panel-body   [ngClass]="{'active': selectedItem === 'item6'}" style="display:none">										  
+								    <ion-row>
+									        <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport1.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Men
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+									        <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport2.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Women
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport9.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Athletic Clothing
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport5.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Exercise & Fitness 
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport8.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Hunting & Fishing 
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport2.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Team Sports 
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport6.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Fan Shop
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport4.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Football
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport4.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Basketball  
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport4.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Rugby
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport10.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Hockey
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport11.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Golf
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport1.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Leisure Sports & Game Room
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport6.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Sports Collectibles
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport5.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  All Sports & Fitness
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport2.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  New Gear Innovations
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport3.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Camping & Hiking
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport3.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Cycling
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport9.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Outdoor Clothing
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport3.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Scooters, Skateboards & Skates
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport8.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Water Sports
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport8.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Climbing
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport6.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  Accessories
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+											         <ion-col size="6">
+													 <ion-item lines="none" no-padding routerLink="/products">		
+													<ion-thumbnail>
+													<img src="assets/images/sport7.jpg"/>
+													</ion-thumbnail>										 
+														 <label>
+														  All Outdoor Recreation
+														 </label>
+														
+													 </ion-item>
+											 </ion-col>
+									</ion-row>
+								
+								 </div>		 
+						</div>
+						
+						   <div  panel panel-default>
+								 <div panel-heading  checkout-head>
+									<h4>
+									   <a href="javascript:void(0)"      [ngClass]="{'active': selectedItem === 'item9'}"  (click)="selectedItem = 'item9'">
+										<img src="assets/images/books.png"/> Books    
+										<ion-icon name="add-circle-outline" float-right icon-plus></ion-icon>
+										<ion-icon name="remove-circle-outline" float-right icon-minus style="display:none"></ion-icon>
+									   </a>
+									</h4>					 
+								 </div>
+								 <div panel-body   [ngClass]="{'active': selectedItem === 'item9'}" style="display:none">										  
+								    	    <ion-row>
+												<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Arts & Photography
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book2.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Biographies & Memoirs
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book3.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Business & Money
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book4.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Fiction
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book5.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Non Fiction
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book6.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Calendars
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book7.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Children's Books
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book8.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Faith Books
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Comics & Graphic Novels
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book2.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Computers & Technology
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book3.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Cookbooks, Food & Wine
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book4.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Crafts, Hobbies & Home  
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book5.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Education & Teaching
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book6.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Engineering & Transportation
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book7.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Health, Fitness & Dieting  
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book8.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  History 
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Humor & Entertainment
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book2.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Law
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book3.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Literature & Fiction
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book4.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Medical Books
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book5.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Mystery, Thriller & Suspense
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book6.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Parenting & Relationships
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book7.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Politics & Social Sciences
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book8.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Reference
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Religion & Spirituality
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book2.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Romance
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book3.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Science & Math
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book4.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Science Fiction & Fantasy
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book5.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Self-Help
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book6.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Sports & Outdoors
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book7.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Teen & Young Adult
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book8.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Test Preparation
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/book1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Travel 
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+								            </ion-row>
+								 </div>		 
+						</div>
+						   <div  panel panel-default>
+								 <div panel-heading  checkout-head>
+									<h4>
+									   <a href="javascript:void(0)"      [ngClass]="{'active': selectedItem === 'item10'}"  (click)="selectedItem = 'item10'">
+										<img src="assets/images/mobile.png"/> Mobile Phone and Accessories    
+										<ion-icon name="add-circle-outline" float-right icon-plus></ion-icon>
+										<ion-icon name="remove-circle-outline" float-right icon-minus style="display:none"></ion-icon>
+									   </a>
+									</h4>					 
+								 </div>
+								 <div panel-body   [ngClass]="{'active': selectedItem === 'item10'}" style="display:none">										  
+								         <ion-row>
+												<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  IPhone  
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob2.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Android Phones
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob3.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Nokia
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob4.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Motorala 
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															    LG
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob2.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															   Sony
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob3.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Hauwei 
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob4.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Samsung
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob6.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Google Pixel
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob2.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Mobile Phones
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Carrier Phones
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob8.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Mobile Cases and Accessories
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob5.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Tablets
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob10.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Smart Watches
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob10.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Wearable Technology
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob3.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Batteries
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob9.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Bluetooth Headsets
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob7.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Bluetooth Speakers
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob9.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Porable Chargers 
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Mounts
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob7.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															Screen Protectors
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 <ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/mob7.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Signal Boosters
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+										  </ion-row>	  	 
+								 </div>		 
+						</div>
+						   <div  panel panel-default>
+								 <div panel-heading  checkout-head>
+									<h4>
+
+									   <a href="javascript:void(0)"      [ngClass]="{'active': selectedItem === 'item12'}"  (click)="selectedItem = 'item12'">
+										<img src="assets/images/medical.jpg"/> Medical Supply     
+										<ion-icon name="add-circle-outline" float-right icon-plus></ion-icon>
+										<ion-icon name="remove-circle-outline" float-right icon-minus style="display:none"></ion-icon>
+									   </a>
+									</h4>					 
+								 </div>
+								 <div panel-body   [ngClass]="{'active': selectedItem === 'item12'}" style="display:none">										  
+								     <ion-row>
+												<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/medical1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Bath  Safety  
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 	<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/medical2.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Power Mobility  
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 	<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/medical3.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Wound Care  
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 	<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/medical4.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Needle and Syringes  
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 	<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/medical5.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Orthepedics  
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 	<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/medical6.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Medical Wear  
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 	<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/medical7.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Bariatric Medical Supplies   
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 	<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/medical8.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Medical  Office Supplies   
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 	<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/medical9.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Wheelchairs   
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 	<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/medical10.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Walkers for Seniors    
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 	<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/medical11.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Pediatric Medical Equipment   
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+								     </ion-row>
+								 </div>		 
+						</div>
+						   <div  panel panel-default>
+								 <div panel-heading  checkout-head>
+									<h4>
+									   <a href="javascript:void(0)"      [ngClass]="{'active': selectedItem === 'item13'}"  (click)="selectedItem = 'item13'">
+										<img src="assets/images/jewelery.png"/> Jewelery    
+										<ion-icon name="add-circle-outline" float-right icon-plus></ion-icon>
+										<ion-icon name="remove-circle-outline" float-right icon-minus style="display:none"></ion-icon>
+									   </a>
+									</h4>					 
+								 </div>
+								 <div panel-body   [ngClass]="{'active': selectedItem === 'item13'}" style="display:none">										  
+								     <ion-row>
+												<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/jewelery1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															    Men   
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/jewelery2.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+														    	Women
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/jewelery3.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															   Anklets 
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/jewelery4.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Bracelets 
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/jewelery5.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Brooches & Pins  
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/jewelery6.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Earrings   
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/jewelery3.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Jewelry Sets
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/jewelery4.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Neckless 
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/jewelery2.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Rings
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/jewelery2.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Wedding & Engagement 
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/jewelery1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Body Jewelry 
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/jewelery5.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Watches 
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		
+									   </ion-row>			 
+								
+								 </div>		 
+						</div>
+						   <div  panel panel-default>
+								 <div panel-heading  checkout-head>
+									<h4>
+									   <a href="javascript:void(0)"      [ngClass]="{'active': selectedItem === 'item7'}"  (click)="selectedItem = 'item7'">
+										<img src="assets/images/sports.png"/> Bag and Wallets    
+										<ion-icon name="add-circle-outline" float-right icon-plus></ion-icon>
+										<ion-icon name="remove-circle-outline" float-right icon-minus style="display:none"></ion-icon>
+									   </a>
+									</h4>					 
+								 </div>
+								 <div panel-body   [ngClass]="{'active': selectedItem === 'item7'}" style="display:none">										  
+								     <ion-row>
+									     	<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/bag1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Clutches & Evening Bags    
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 			<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/bag2.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Crossbody Bags       
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		
+															<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/bag3.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Fashion Backpacks    
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		
+															<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/bag4.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Hobo Bags  
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		
+															<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/bag5.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Satchels  
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		
+															<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/bag2.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Shoulder Bags    
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		
+															<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/bag3.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Top-Handle Bags 
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		
+															<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/bag1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Totes  
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		
+															<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/bag6.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Wallets	 
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 			<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/bag7.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Wristlets  
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		
+															<ion-col size="6">
+														 <ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/bag1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Accessories 
+															 </label>
+															
+														 </ion-item>
+												 </ion-col>
+												 		
+									 
+									 </ion-row>								
+								 </div>		 
+						</div>
+						   <div  panel panel-default>
+								 <div panel-heading  checkout-head>
+									<h4>
+									   <a href="javascript:void(0)"      [ngClass]="{'active': selectedItem === 'item8'}"  (click)="selectedItem = 'item8'">
+										<img src="assets/images/medical.jpg"/> Costimetics  and Skincare    
+										<ion-icon name="add-circle-outline" float-right icon-plus></ion-icon>
+										<ion-icon name="remove-circle-outline" float-right icon-minus style="display:none"></ion-icon>
+									   </a>
+									</h4>					 
+								 </div>
+								 <div panel-body   [ngClass]="{'active': selectedItem === 'item8'}" style="display:none">										  
+								     <ion-row>
+									     	<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Costimetics  and Skincare      
+															 </label>															
+													</ion-item>
+											</ion-col>
+											<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos4.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Women       
+															 </label>															
+													</ion-item>
+											</ion-col>
+											<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos3.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Men 
+															 </label>															
+													</ion-item>
+											</ion-col>
+											<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos2.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Baby Products  
+															 </label>															
+													</ion-item>
+											</ion-col>
+											<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Facial care Productus    
+															 </label>															
+													</ion-item>
+											</ion-col>
+											<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos3.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															Bath Product     
+															 </label>															
+													</ion-item>
+											</ion-col>
+											<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos4.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															Eye Make Up  
+															 </label>															
+													</ion-item>
+											</ion-col>
+											<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos5.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Fragrance  
+															 </label>															
+													</ion-item>
+											</ion-col>
+											<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos6.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															Foot, Hand & Nail Care   
+															 </label>															
+													</ion-item>
+											</ion-col>
+											<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos7.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															Hair Non-Coloring 
+															 </label>															
+													</ion-item>
+											</ion-col>
+											<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos7.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															  Hair Coloring  
+															 </label>															
+													</ion-item>
+											</ion-col>
+											<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Make Up Preparation (Not Eyes)	
+															 </label>															
+													</ion-item>
+											</ion-col>
+											<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos3.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Oral Hygiene Products   
+															 </label>															
+													</ion-item>
+											</ion-col>
+											<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Manicure Preparation      
+															 </label>															
+													</ion-item>
+											</ion-col>
+											<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos6.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Personal Clealiness   
+															 </label>															
+													</ion-item>
+											</ion-col>
+											<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos8.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Shaving Preparation   
+															 </label>															
+													</ion-item>
+											</ion-col>
+											<ion-col size="6">
+													<ion-item lines="none" no-padding routerLink="/products">		
+														<ion-thumbnail>
+														<img src="assets/images/cos1.jpg"/>
+														</ion-thumbnail>										 
+															 <label>
+															 Skincare Preparation    
+															 </label>															
+													</ion-item>
+											</ion-col>
+									 </ion-row>  			 
+								 </div>		 
+						</div>
+							   <div  panel panel-default>
+								 <div panel-heading  checkout-head>
+									<h4>
+									   <a href="javascript:void(0)"      [ngClass]="{'active': selectedItem === 'item14'}"  (click)="selectedItem = 'item14'">
+										<img src="assets/images/electronics.png"/> Electronics and  Computers  
+										<ion-icon name="add-circle-outline" float-right icon-plus></ion-icon>
+										<ion-icon name="remove-circle-outline" float-right icon-minus style="display:none"></ion-icon>
+									   </a>
+									</h4>					 
+								 </div>
+								 <div panel-body   [ngClass]="{'active': selectedItem === 'item14'}" style="display:none">										  
+								      	     <ion-row>
+												<ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/elect1.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																 Smart Home     
+																 </label>															
+														</ion-item>
+												</ion-col>
+												<ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/elect2.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																TV and Home Theater           
+																 </label>															
+														</ion-item>
+												</ion-col>
+												<ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/elect11.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																Camera,Video and Photo      
+																 </label>															
+														</ion-item>
+												</ion-col>
+												<ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/elect8.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																Computers and Accessories        
+																 </label>															
+														</ion-item>
+												</ion-col>
+												<ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/elect2.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																 Desktops      
+																 </label>															
+														</ion-item>
+												</ion-col>
+												<ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/mob5.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																Laptops        
+																 </label>															
+														</ion-item>
+												</ion-col>
+												<ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/mob5.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																 Tablets    
+																 </label>															
+														</ion-item>
+												</ion-col>
+												<ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/mob7.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																 Minitors   
+																 </label>															
+														</ion-item>
+												</ion-col>
+												<ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/mob7.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																 Computer Components      
+																 </label>															
+														</ion-item>
+												</ion-col>
+												<ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/mob9.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																 Drives and Storage   
+																 </label>															
+														</ion-item>
+												</ion-col>
+												<ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/mob9.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																 Network Supplies  
+																 </label>															
+														</ion-item>
+												</ion-col>
+												<ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/elect4.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																 Network Hardware   
+																 </label>															
+														</ion-item>
+												</ion-col>
+												<ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/elect5.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																  Office Supplies 	
+																 </label>															
+														</ion-item>
+												</ion-col>
+												<ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/elect6.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																 Printers 	
+																 </label>															
+														</ion-item>
+												</ion-col>
+												<ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/elect7.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																 Print Ink   
+																 </label>															
+														</ion-item>
+												</ion-col><ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/elect10.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																PC Gaming  
+																 </label>															
+														</ion-item>
+												</ion-col>
+												<ion-col size="6">
+														<ion-item lines="none" no-padding routerLink="/products">		
+															<ion-thumbnail>
+															<img src="assets/images/elect9.jpg"/>
+															</ion-thumbnail>										 
+																 <label>
+																 Car Electronics and GPS       
+																 </label>															
+														</ion-item>
+												</ion-col>
+								             </ion-row>
+								 </div>		 
+						</div>
+			</ion-card>			
+</ion-content>

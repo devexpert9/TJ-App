@@ -1,0 +1,291 @@
+
+ion-content
+{  
+	--background:var(--ion-color-grey);
+	@media only screen and (min-width:991px)
+	{
+	   --padding-top:var(--ion-padding-0);
+	}	
+	@media only screen and (max-width:991px)
+	{
+	   --background:var(--ion-color-white)!important;
+	   --padding-top:var(--ion-padding-0);
+	   --padding-bottom:var(--ion-padding-0);
+	   --padding-start:var(--ion-padding-0);
+	   --padding-end:var(--ion-padding-0);
+	}
+	/* banner Start */
+			[sell-banner]{
+				background-size: cover!important;
+				min-height: 500px;
+				position: relative;
+				display:table;
+				width:100%;
+				@media only screen and (max-width:991px)
+				{					
+					min-height: 250px;
+					ion-button
+					{
+						height: var(--ion-wh-30);
+                        font-size: var(--ion-font-size-12);
+					}
+				}
+				[sell-banner-content]
+				{
+					    display: table-cell;
+                        vertical-align: middle;
+						@media only screen and (max-width:991px)
+						{
+						  background: #f5f9fa!important;
+						 
+						}  
+					[slider-header]
+					{
+					        font-family: var( --ion-font-family-3);
+							font-size: var( --ion-font-size-13);
+							font-weight: bold;
+							text-transform: uppercase;
+							display: inline-block;
+							background: var(--ion-color-darkblack4);
+							padding:  var(--ion-padding-4)  var(--ion-padding-7);
+							color: var(--ion-color-white);
+							border-radius: var(--ion-value-2);
+							position:relative;
+					}
+					[big-text] {
+						font-size: var(--ion-font-size-38);
+						line-height:  var(--ion-value-50);
+						text-transform: uppercase;
+					    font-family: var( --ion-font-family-3);
+						color: var(--ion-color-white);
+						font-weight: 700;
+						letter-spacing: -1px;
+						margin-top: var(--ion-margin-10);
+						margin-bottom: var(--ion-margin-10);
+						position:relative;
+						@media only screen and (max-width:991px)
+						{
+							color: var(--ion-color-darkblack);
+							text-transform:initial;
+							font-size: var(--ion-font-size-18);
+						    line-height:  var(--ion-value-30);
+						}
+		            }
+					[button-holder]
+					{
+						ion-button
+						{
+							  font-family: var( --ion-font-family-3);
+							  font-size: var( --ion-font-size-13);
+							  --box-shadow:none;
+							  &:hover{
+								 opacity:0.8;
+							  }
+						}
+						
+					}
+				}
+				&:before 
+				{
+					content: "";
+					background: rgba(0, 0, 0, 0.4);
+					position: absolute;
+					top: var(--ion-value-0);
+					right:  var(--ion-value-0);
+					left:  var(--ion-value-0);
+					bottom:  var(--ion-value-0);
+					z-index: var(--ion-value-0);
+					@media only screen and (max-width:991px)
+					{
+					   display:none;	
+					}
+				}
+			}
+	/* banner Ends */
+	/* Start selling on Siniyetu today Start */
+	[returns-page]
+	{		 
+		margin-bottom: var(--ion-margin-30);
+		margin-top:  var(--ion-margin-30);
+		background-color: var(--ion-color-white);
+		box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+		padding:  var(--ion-padding-20);
+		overflow: hidden;
+		@media only screen and (max-width:576px)
+		{
+			 ion-col
+			 {
+				 padding-left:var(--ion-padding-0);
+				 padding-right:var(--ion-padding-0);
+			 }
+		}
+		@media only screen and (max-width:991px)
+		   {
+				box-shadow: none;
+				padding: var(--ion-padding-0);
+		   [mob-head]
+		   {
+			    margin-top:var(--ion-margin-10);
+		   }
+		}
+		 h3
+		   {
+			   &[section-title] {
+					font-size: var(--ion-font-size-14);
+					font-family: var(--ion-font-family-2);
+					border-bottom: 1px solid #e3e3e3;
+					padding-bottom: var(--ion-padding-12);
+					text-transform: uppercase;
+					font-weight: bold;
+					margin-top: var(--ion-margin-0);
+					color:var( --ion-color-darkblack);
+					@media only screen and (max-width:991px)
+					{margin-bottom: var(--ion-margin-0);
+						padding-bottom: var(--ion-padding-5);
+					}
+					a
+					{
+						 color:var( --ion-color-darkred);
+						 text-decoration:none;
+					}
+					@media only screen and (max-width:991px)
+						{
+						   font-size: var(--ion-font-size-13);
+						   border:none;
+						}
+				}
+		   }
+[widget-return]
+		{ font-family: var(--ion-font-family-2);
+		  background:var(--ion-color-greyf8);
+		  box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+		  padding:var(--ion-padding-20);
+		  margin-bottom: var(--ion-value-0);
+			@media only screen and (max-width:991px)
+			{	border: 1px solid #e3e3e3;
+			    box-shadow: none;
+			    text-align:center;
+				  padding:var(--ion-padding-10);
+				background-color:transparent;
+				[image-icon]
+				{
+					margin-bottom:var(--ion-margin-20);
+				}
+			}		  
+		  p
+		  {
+		    color:var( --ion-color-darkblack);
+			margin-top: var(--ion-margin-20);
+			@media only screen and (max-width:991px)
+			{
+			   font-size: var(--ion-font-size-12);
+			   margin-top: var(--ion-margin-0);
+			}
+		  }
+		  ion-button
+		  {
+		 	font-size: var(--ion-font-size-13);
+		   --box-shadow:none;
+			text-transform:Capitalize;
+			@media only screen and (max-width:991px)
+			{
+				    height: var(--ion-wh-30);
+                    font-size: var(--ion-font-size-12);
+			}
+			&:hover
+			{
+			  opacity:0.8;
+			}
+		  }
+		}
+		/*  Wide Banners Start  */
+		[wide-banners]
+		{ 
+		    margin-top:var(--ion-margin-30);
+				  [wide-banner] {
+						background: rgba(230, 228, 228, 0.23);
+						padding: var(--ion-padding-50);
+						position:relative;
+						@media only screen and (max-width:991px)
+						{
+						  padding: var(--ion-padding-0);
+						}
+						[image]
+						{
+						      position: relative;
+							ion-img
+							{
+								height: 244px;
+								width: 100%;
+								object-fit: cover;
+								@media only screen and (max-width:991px)
+								{	
+								height: 150px;
+								}
+							}	
+							&:before {
+							content: "";
+							background: rgba(0, 0, 0, 0.3);
+							position: absolute;
+							top:var(--ion-value-0);
+							left: var(--ion-value-0);
+							right: var(--ion-value-0);
+							bottom: var(--ion-value-0);
+						}
+						}
+						[strip-text]
+						{     bottom: var(--ion-value-60);
+							  right: var(--ion-value-60);
+							  position: absolute;
+							  width: 60%;
+							  	@media only screen and (max-width:991px)
+								{	
+								 width:100%;
+								}
+							h2 {
+								font-size: var(--ion-font-size-36);
+							   @media only screen and (max-width:991px)
+								{										
+									font-size: var(--ion-font-size-18);
+								}
+							    color:var(--ion-color-white);
+								margin: var( --ion-margin-0);
+								text-transform: uppercase;
+							    font-family: var(--ion-font-family-3);
+								font-weight: bold;
+								[shopping-needs ]{
+							    font-family: var(--ion-font-family-3);
+								color:var(--ion-color-white);
+								font-weight: normal;
+								font-size: var(--ion-font-size-20);
+								@media only screen and (max-width:991px)
+								{										
+									font-size: var(--ion-font-size-14);
+								}
+							}
+							}							
+						}
+				}
+		}
+		/*  Wide Banners Ends  */
+		
+		/* Other Sec  Start */
+		[other-sec]
+		{
+			margin-top:var(--ion-margin-30);
+			  p
+		  {
+		    color:var( --ion-color-darkblack);
+			margin-top: var(--ion-margin-20);
+			@media only screen and (max-width:991px)
+			{
+			   font-size: var(--ion-font-size-12);
+			   margin-top: var(--ion-margin-0);
+			}
+		  }
+		}
+		/* Other Sec  Ends */
+		
+	}
+	/* Start selling on Siniyetu today Ends */
+}	

@@ -1,0 +1,368 @@
+<ion-content vendorSignup>
+<div class="insideVendor">
+<div header_height></div>
+
+<div class="sign-in-page" id="step_form">
+
+
+    <div class="stepwizard">
+        <div class="stepwizard-row setup-panel">
+            <div class="stepwizard-step col-xs-3"> 
+                <a href="#step-1" type="button" class="btn btn-success btn-circle">1</a>
+                <p><small>Step</small></p>
+            </div>
+            <div class="stepwizard-step col-xs-3"> 
+                <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                <p><small>Step</small></p>
+            </div>
+            <div class="stepwizard-step col-xs-3"> 
+                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                <p><small>Step</small></p>
+            </div>
+            <div class="stepwizard-step col-xs-3"> 
+                <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+                <p><small>Step</small></p>
+            </div>
+            <div class="stepwizard-step col-xs-3"> 
+                <a href="#step-5" type="button" class="btn btn-default btn-circle" disabled="disabled">5</a>
+                <p><small>Step</small></p>
+            </div>
+        </div>
+    </div>
+    
+    <form role="form">
+        <!-- step 1 -->
+        <div class="setup-content" id="step-1">
+          <div class="fullwidth">
+            <h5 class="subhdng">Signup with your mobile number and email address</h5>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">Name</label>
+                <input [(ngModel)]="data.name" name="name" type="text" class="form-control unicase-form-control text-input required" id="exampleInputEmail1" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">Phone</label>
+                <select [(ngModel)]="data.country_code" name="country_code" class="form-control unicase-form-control text-input required">
+                   <option *ngFor="let country of all_countries " value="+{{country.phonecode}}">+{{country.phonecode}} ({{country.iso}})</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">&nbsp;</label>
+                <input type="number" [(ngModel)]="data.phone" name="phone" class="form-control unicase-form-control text-input required" id="exampleInputEmail1" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">Your Email</label>
+                <input type="email" [(ngModel)]="data.email" name="email" class="form-control required unicase-form-control text-input" id="exampleInputEmail1" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">Password</label>
+                <input type="password" [(ngModel)]="data.password" name="password" class="required form-control unicase-form-control text-input" id="exampleInputEmail1" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <a href="http://sites.indiit.com/siniyetu/dev/vendors" class="btn-already" style="padding-top: 5px;display:inline-block">Already have an account?</a>
+            </div>
+            <div class="col-sm-6">
+              <button class="btn btn-primary nextBtn pull-right" type="button">Continue</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- step 2 -->
+        <div class="setup-content" id="step-2">
+          <div class="fullwidth">
+            <h5 class="subhdng">Enter below details to continue registration</h5>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">Company/Business Name</label>
+                <input type="text" [(ngModel)]="data.company" name="company" class="form-control unicase-form-control text-input required" id="exampleInputEmail1" >
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">Store Name</label>
+                <input type="text" [(ngModel)]="data.store_name" name="store_name" class="form-control unicase-form-control text-input required" id="exampleInputEmail1" >
+              </div>
+            </div>
+          </div>
+          <div class="row" style="display: none;">
+            
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">Select Product Category</label>
+                <select multiple [(ngModel)]="data.category" name="category" class="form-control unicase-form-control text-input">
+                  <option *ngFor="let cat of all_categories " value="{{cat.cat_name}}">{{cat.cat_name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <p style="margin:20px 0 10px">Enter your Address</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">Pincode</label>
+                <input type="text" [(ngModel)]="data.pincode" name="pincode" class="required form-control unicase-form-control text-input" id="exampleInputEmail1" >
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">City</label>
+                <input type="text" [(ngModel)]="data.city" name="city" class="required form-control unicase-form-control text-input" id="exampleInputEmail1" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">Address Line 1</label>
+                <input type="text" [(ngModel)]="data.address1" name="address1" class="required form-control unicase-form-control text-input" id="exampleInputEmail1" >
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">Address Line 2</label>
+                <input type="text" [(ngModel)]="data.address2" name="address2" class="form-control unicase-form-control text-input" id="exampleInputEmail1" >
+              </div>
+            </div>
+          </div>
+            <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">State</label>
+                <input type="text" [(ngModel)]="data.state" name="state" class="form-control required unicase-form-control text-input" id="exampleInputEmail1" >
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">Country</label>
+                <select [(ngModel)]="data.country" name="country" class="required form-control unicase-form-control text-input">
+                  <option *ngFor="let country of all_countries " value="{{country.nicename}}">{{country.nicename}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <button class="btn btn-primary nextBtn pull-right" type="button">Continue</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- step 3 -->
+        <div class="setup-content" id="step-3">
+          <div class="fullwidth">
+            <h5 class="subhdng">Update your tax details</h5>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">Enter Tax Details</label>
+                <input type="text" [(ngModel)]="data.tax_detail" name="tax_detail" class="form-control unicase-form-control text-input" id="exampleInputEmail1" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">Provisional GSTIN</label>
+                <input type="text" [(ngModel)]="data.gst_number" name="gst_number" class="form-control unicase-form-control text-input" id="exampleInputEmail1" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1">PAN Number</label>
+                <input type="text" [(ngModel)]="data.pan" name="pan" class="form-control unicase-form-control text-input" id="exampleInputEmail1" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="checkbox outer-xs m-0" style="margin-bottom: 20px !important;">
+                  <label>
+                    <input [(ngModel)]="data.update_later" name="update_later" type="checkbox" id="optionsRadios2" value="option2">I will update later
+                    </label>
+                </div>
+                <div class="radio outer-xs m-0">
+                  <label>
+                    <input [(ngModel)]="data.checkbox_option" type="radio" name="optionsRadios" id="sell" value="I sell in GST Exempted Category">I sell in GST Exempted Category.
+                    </label>
+                </div>
+                <div class="radio outer-xs m-0">
+                  <label>
+                    <input [(ngModel)]="data.checkbox_option" type="radio" name="optionsRadios" id="optionsRadios2" value="I don't have it handy and will update later.">I don't have it handy and will update later.
+                    </label>
+                </div>
+                <div class="radio outer-xs m-0">
+                  <label>
+                    <input [(ngModel)]="data.checkbox_option" type="radio" name="optionsRadios" id="optionsRadios2" value="I have never registered for GST.">I have never registered for GST.
+                    </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <button class="btn btn-primary nextBtn pull-right" type="button">Continue</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- step 4 -->
+        <div class="setup-content" id="step-4">
+
+          <div class="fullwidth">
+            <h5 class="subhdng">Choose categories you wish to sell</h5>
+          </div>
+
+          <div class="row" *ngFor="let cat of all_categories; let c_ind = index ">
+            <div class="col-sm-12">
+            <label>{{cat.cat_name}}</label>
+              <div class="form-group">
+                <div class="checkbox outer-xs m-0" *ngFor="let subcat of cat.subcats">
+                  <label>
+                    <input (change)="catChanged($event,cat.cat_id,subcat.subcat_id)" type="checkbox" name="optionsRadios" id="optionsRadios2" value="option2">{{subcat.subcat_name}}
+                    </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="form-group">
+                  <label class="info-title" for="exampleInputEmail1">What is your annual turnover ?</label>
+                   <input type="text" [(ngModel)]="data.annual_turnover" name="annual_turnover" class="required form-control unicase-form-control text-input" id="exampleInputEmail1">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="form-group">
+                  <label class="info-title" for="exampleInputEmail1">How many product do you sell</label>
+                  <input type="text" [(ngModel)]="data.product_sell" name="product_sell" class="required form-control unicase-form-control text-input" id="exampleInputEmail1">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="form-group">
+                  <label class="info-title" for="exampleInputEmail1">Do you sell in other websites?</label>
+                  <br>
+                  <div class="radio outer-xs m-0 pull-left" style="margin-right:20px!important;">
+                    <label>
+                      <input class="required" type="radio" [(ngModel)]="data.sell_in_other_webs" name="optionsRadios_other" id="sell" value="yes">Yes
+                      </label>
+                  </div>
+                  <div class="radio outer-xs m-0 pull-left">
+                    <label>
+                      <input class="required" type="radio" [(ngModel)]="data.sell_in_other_webs" name="optionsRadios_other" id="sell" value="no">No
+                      </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <button class="btn btn-primary nextBtn pull-right" type="button">Continue</button>
+            </div>
+          </div>
+
+          <!-- <button class="btn btn-success pull-right" type="submit">Finish!</button> -->
+        </div>
+        
+        <!-- step 5 -->
+        <div class="setup-content" id="step-5">
+
+          <div class="fullwidth">
+            <h5 class="subhdng">Hi {{data?.store_name}}, you are almost there<p style="font-size: 12px;
+    margin-top: 10px;">Please complete the below steps and start selling to millions of customer</p></h5>
+            
+          </div>
+          <div class="row" style="display: none;">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <select class="form-control unicase-form-control text-input">
+                  <option label="">Product to Sell</option>
+                  <option>select</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select class="form-control unicase-form-control text-input">
+                  <option label="">Shipping Fee Details</option>
+                  <option>select</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select class="form-control unicase-form-control text-input">
+                  <option label="">Bank Account Details</option>
+                  <option>select</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select class="form-control unicase-form-control text-input">
+                  <option label="">Enter Tax Details</option>
+                  <option>select</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select class="form-control unicase-form-control text-input">
+                  <option label="">Default Product Tax Code</option>
+                  <option>select</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select class="form-control unicase-form-control text-input">
+                  <option label="">Signature</option>
+                  <option>select</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <button (click)="finalSubmit()" class="btn btn-success pull-right" type="submit">Start Selling</button>
+            </div>
+          </div>
+        </div>
+    </form>
+  </div><!-- /.row -->
+  <div class="alert alert-success sign-in-page text-center" id="success_div" style="display: none;">
+    <strong>Success!</strong> Your request has been submitted.
+  </div>
+
+</div>
+<app-footer></app-footer>
+</ion-content>

@@ -1,0 +1,53 @@
+<!-- <ion-header class="ion-hide-lg-up">
+  <ion-toolbar color="darkred" text-uppercase>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+       Terms & Conditions
+    </ion-title>
+  <ion-buttons slot="end" > 
+          <ion-icon name="search"></ion-icon>
+    </ion-buttons>
+	     <ion-buttons slot="end">
+          <ion-icon name="pin"></ion-icon>
+    </ion-buttons>
+<ion-buttons slot="end" > 
+	<ion-icon user-drop name="contact" (click)="onButtonClickdrop()"></ion-icon>
+	
+	 </ion-buttons>
+  </ion-toolbar>
+      <div drop-down-menu *ngIf="buttonClickeddrop">
+	              <a routerLink="/your-account"><ion-icon name="person"></ion-icon> My Account</a>
+	              <a routerLink="/wishlist"><ion-icon name="heart"></ion-icon>  Wishlist</a>
+	              <a routerLink="/cart"><ion-icon name="cart"></ion-icon>  Cart</a>
+	              <a routerLink="/notification"><ion-icon name="notifications"></ion-icon> Notification</a>
+	   </div>
+</ion-header> --> 
+<ion-content>
+<div class="ion-padding">
+<div header_height></div>
+<!-- Breadcrumb Start -->
+
+<div breadcrumb  class="ion-hide-md-down">		
+	<div breadcrumb-inner>
+		<ul list-inline list-unstyled>
+		<li><a routerLink="/home">Home</a></li>
+			<li class="active"> Terms & Conditions</li>
+		</ul>
+	</div><!-- /.breadcrumb-inner -->
+</div>
+
+<!-- Breadcrumb Ends -->
+<!-- Terms & Conditions Section  Start -->
+<div terms-page>
+   <ion-row>
+		<ion-col terms-conditions size="12" no-padding>
+		   <div [innerHTML]="page"></div>
+	   </ion-col>		
+	</ion-row><!-- /.row -->
+</div>
+</div>
+<!-- Privacy Section  Ends -->
+<app-footer></app-footer>
+</ion-content>

@@ -1,0 +1,997 @@
+<!-- <ion-header class="ion-hide-lg-up">
+  <ion-toolbar color="darkred" text-uppercase>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="products"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        Product Details
+    </ion-title>
+  <ion-buttons slot="end" >
+          <ion-icon name="search"></ion-icon>
+    </ion-buttons>
+	     <ion-buttons slot="end">
+          <ion-icon name="pin"></ion-icon>
+    </ion-buttons>
+<ion-buttons slot="end" >
+	<ion-icon user-drop name="contact" (click)="onButtonClickdrop()"></ion-icon>
+
+	 </ion-buttons>
+  </ion-toolbar>
+      <div drop-down-menu *ngIf="buttonClickeddrop">
+	              <a routerLink="/your-account"><ion-icon name="person"></ion-icon> My Account</a>
+	              <a routerLink="/wishlist"><ion-icon name="heart"></ion-icon>  Wishlist</a>
+	              <a routerLink="/cart"><ion-icon name="cart"></ion-icon>  Cart</a>
+	              <a routerLink="/notification"><ion-icon name="notifications"></ion-icon> Notification</a>
+	   </div>
+</ion-header>  -->
+<ion-content >
+<app-header ></app-header>
+
+<div class="ion-padding">
+<div header_height></div>
+<!-- <div header-inner class="ion-hide-lg-up">
+<div delivery-location (click)="presentModal()">
+<ion-icon name="pin"></ion-icon> Deliver To Chandigarh 160022 <ion-icon name="arrow-down"></ion-icon>
+</div>
+</div> -->
+<!-- Breadcrumb Start -->
+		<div breadcrumb  class="ion-hide-md-down">
+				<div breadcrumb-inner>
+					<ul list-inline list-unstyled style='margin:0 0 15px 0'>
+					    <li style="float:left;margin:0 10px 0 0">
+					    	<a routerLink="/home">Home / </a>
+					    </li>
+						<li class="active">Product Details</li>
+					</ul>
+				</div><!-- /.breadcrumb-inner -->
+		</div>
+<!-- Breadcrumb Ends -->
+<!--  Product Detail Start  -->
+<div single-product>
+<!---  Product Slider Start -->
+   <div detail-block>
+         <div product-view-area>
+				 <ion-row>
+					<ion-col big-image size-md="12" size-sm="12" size-lg="6"  size="12">
+							<!--  Thumbnails Start -->
+							<div thumbnail-main  class="ion-hide-md-down" *ngIf="product?.product_images != ''">
+								<ul thumbnail-list>
+									<li *ngFor="let img of product?.product_images ">
+										<a href="javascript:void(0)"  gallery-thumb>
+											<img src="{{IMAGES_URL}}/product_images/{{img?.image}}"/>
+										 </a>
+									</li>
+						       </ul>
+					      </div>
+					<!--  Thumbnails Ends -->
+					<!--Large Image Start  -->
+					  <div large-image class="ion-hide-md-down">
+						    <a large-inner>
+						      <img *ngIf="errors.indexOf(product?.product_image) >= 0" src="assets/images/products/no_image.svg">
+							  <img *ngIf="errors.indexOf(product?.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{product?.product_image}}" alt="{{product?.product_name}}">
+						   </a>
+						   <span sale-text *ngIf="errors.indexOf(product?.product_sale_price) == -1 && product?.product_sale_price != product?.product_purchase_price">
+						       Sale
+						   </span>
+					</div>
+					<!---Large Image Ends  -->
+
+			    </ion-col>
+				<ion-col product-info-block size-md="12" size-sm="12" size-lg="6"  size="12">
+				   <!--- Product Info Start -->
+				  <div product-info>
+				  <ion-fab  vertical="top" horizontal="end" class="ion-hide-lg-up">
+				    <ion-fab-button color="grey2" size="small">
+				      <ion-icon name="share"></ion-icon>
+				    </ion-fab-button>
+				    <ion-fab-list side="bottom">
+				      <ion-fab-button color="darkred">
+				      	<share-button button="facebook" url="{{shareURL}}"></share-button>
+				      </ion-fab-button>
+				      <ion-fab-button color="darkred">
+				      	<share-button button="twitter" url="{{shareURL}}"></share-button>
+				      </ion-fab-button>
+				      <ion-fab-button color="darkred">
+				      	<share-button button="google" url="{{shareURL}}"></share-button>
+				      </ion-fab-button>
+				      <ion-fab-button color="darkred">
+				      	<share-button button="linkedin" url="{{shareURL}}"></share-button>
+				      </ion-fab-button>
+				      <ion-fab-button color="darkred">
+				      	<share-button button="email" url="{{shareURL}}"></share-button>
+				      </ion-fab-button>
+				    </ion-fab-list>
+				  </ion-fab>
+				  	<h3 name>{{product?.brand_name}}</h3>
+					<h1 name>
+						 {{product?.product_name}}
+					  	<div favorite-button float-right>
+							<!-- <ion-button color="darkred">
+								<i class="fa fa-heart"></i>
+							</ion-button> -->
+							<ion-item p-lr-0 border-none *ngIf="limit_reached == false">
+						        <ion-checkbox [checked]="comapred_products.indexOf(product?.product_id.toString()) >= 0" (ionChange)="compareChecked($event)" ></ion-checkbox>&nbsp;
+						        <ion-label> Compare</ion-label>
+						    </ion-item>
+						    <ion-item p-lr-0 border-none *ngIf="limit_reached == true">
+						        <ion-checkbox [disabled]="true"></ion-checkbox>&nbsp;
+						        <ion-label> Compare</ion-label>
+						    </ion-item>
+					   	</div>
+					</h1>
+
+					 <ion-row>
+						<ion-col  size="12"  no-padding>
+						  <div rateit-small float-left *ngIf="is_loaded == true">
+							  <ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="product?.total_reviews[0]?.Average_Review" [color]="'#a01616'"></ngx-stars>
+						   </div>
+                               <div reviews float-left>
+									<a  lnk>({{product?.product_reviews?.length}} {{product?.product_reviews?.length == 1 ? 'Review' : 'Reviews'}})</a>
+							  </div>
+						 </ion-col>
+
+					</ion-row>
+
+					 <!--Mob Product Slider Start-->
+					  <ion-slides pager="true" color="darkred" class="ion-hide-lg-up">
+						  <ion-slide>
+							 <img *ngIf="errors.indexOf(product?.product_image) >= 0" src="assets/images/products/no_image.svg">
+							 <img *ngIf="errors.indexOf(product?.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{product?.product_image}}" alt="{{product?.product_name}}">
+						  </ion-slide>
+						  <ion-slide *ngFor="let img of product?.product_images" >
+							 <img src="{{IMAGES_URL}}/product_images/{{img?.image}}"/>
+						  </ion-slide>
+					</ion-slides>
+					<!--Mob Product Slider Ends-->
+							<div  product-price>
+								<div price-box>
+										<span *ngIf="errors.indexOf(product?.product_sale_price) == -1 && product?.product_sale_price != product?.product_purchase_price && IsApplyVariation == false" price> ${{product?.product_sale_price}}  </span>
+
+                		<span *ngIf="(errors.indexOf(product?.product_sale_price) >= 0 || product?.product_sale_price == product?.product_purchase_price) && IsApplyVariation == false" price> ${{product?.product_purchase_price}}  </span>
+
+                    <span *ngIf="errors.indexOf(product?.product_sale_price) == -1 && product?.product_sale_price != product?.product_purchase_price && IsApplyVariation == false" price-before-discount>${{product?.product_purchase_price}}</span>
+										<span *ngIf="IsApplyVariation == true" price>${{variationPrice}}</span>
+								</div>
+						   </div>
+						  <!-- Rating Start -->
+						   <ion-row class="ion-hide-md-down">
+								<!-- <ion-col size="12" size-sm="12" size-md="6" no-padding> -->
+								 <!-- <ion-row>  -->
+									<!-- <ion-col size-md="4" size="12"  no-padding>
+									  <div rateit-small>
+										  <ion-icon  name="star-outline"></ion-icon>
+										  <ion-icon  name="star-outline"></ion-icon>
+										  <ion-icon  name="star-outline"></ion-icon>
+										  <ion-icon  name="star-outline"></ion-icon>
+										  <ion-icon  name="star-outline"></ion-icon>
+									   </div>
+									 </ion-col> -->
+									 <!-- <ion-col size-md="4" size="12"  no-padding>
+										  <div reviews>
+												<a  lnk>({{product?.product_reviews?.length}} {{product?.product_reviews?.length == 1 ? 'Review' : 'Reviews'}})</a>
+										  </div>
+									 </ion-col>  -->
+								<!-- </ion-row> -->
+						        <!-- </ion-col> -->
+								<ion-col  size="12" size-sm="12" size-md="6" no-padding >
+								   <ion-row>
+									<ion-col size="4"  no-padding>
+									  <div stock-box>
+										    <span label>Availability :</span>
+									   </div>
+									 </ion-col>
+									 <ion-col size="8"  no-padding>
+										  <div stock-box>
+												<span value *ngIf="product?.product_quantity != 0 && errors.indexOf(product?.product_quantity) == -1">In Stock</span>
+												<span value *ngIf="product?.product_quantity == 0 || errors.indexOf(product?.product_quantity) >= 0">Out of Stock</span>
+										  </div>
+									 </ion-col>
+									</ion-row>
+
+								</ion-col>
+						   </ion-row>
+						   <ion-row *ngIf="product_variations != ''">
+						   <ng-container *ngFor="let variation of product_variations; let  i = index;">
+								<ion-col size="4" no-padding *ngIf="variation.name != 'price'">
+								    <ion-label>{{variation.name}}</ion-label>
+								    <ion-select placeholder="Select One" (ionChange)="selectedValue(variation,variation.id) " [(ngModel)]="variation.id">
+								      <ion-select-option *ngFor="let value of variation.values" value="{{value.id}}">{{value.value}}</ion-select-option>
+								    </ion-select>
+								 </ion-col>
+							 </ng-container>
+							</ion-row>
+						<!-- Rating Ends -->
+							<!--- Description Start -->
+							 <div description-container>
+							 <h2 class="ion-hide-lg-up">About This Item</h2>
+								<p><span [innerHtml]="atob(product?.product_description)"></span></p>
+							</div>
+							<span sale-text *ngIf="errors.indexOf(product?.product_tags) == -1">
+							{{product?.product_tags}}
+							</span>
+							<!--- Description Ends -->
+							<!--- Vendor Info Start-->
+                                <div vendor-info>
+                                       	   <ion-row>
+												<ion-col *ngIf="product?.product_user_type != 'Admin'" size-sm="12" size="12" size-md="4"  no-padding>
+												      <p vendor-name>Sold by <a>{{product?.vendor_company}}</a></p>
+												 </ion-col>
+												 <!--ion-col size-sm="12" size="12"  size-md="8"  no-padding text-right>
+													    <div video-message>
+															<p contact-txt>Contact:</p>
+															<div message-inner contact-btns>
+																<a>
+																	<i class="fa fa-comments" aria-hidden="true"></i>
+																</a>
+																<a>
+																	<i class="fa fa-video-camera" aria-hidden="true"></i>
+																</a>
+															</div>
+													</div>
+												 </ion-col-->
+											</ion-row>
+
+                                </div>
+							<!--- Vendor Info Ends-->
+                           <!-- Quantity Start -->
+									 <div  quantity-container>
+											<ion-row>
+												<ion-col size-sm="2" size-md="1" size="2">
+													<span label d-inline-block>Qty :</span>
+												</ion-col>
+												 <ion-col size-sm="4" size-md="2" size="6">
+													<div cart-quantity>
+														<div quant-input>
+															
+															<input [(ngModel)]="final_quantity" [disabled]="true" type="number" style="width:100%">
+													  </div>
+													</div>
+												</ion-col>
+												<ion-col size-sm="6" size-md="4" size="4" style='width:500px;float:left;'>
+												   <ion-button [disabled]="product?.product_quantity == 0 || errors.indexOf(product?.product_quantity) >= 0" (click)="addToCart(product?.product_id,product?.product_sale_price,product?.product_purchase_price)" color="darkred" style="margin-bottom: 7px;position:inherit;"><ion-icon name="cart"></ion-icon> <span class="">ADD TO CART</span></ion-button>
+											   	</ion-col>
+
+											   	<ion-col size-sm="6" size-md="4" size="4" style='width:500px;float:left;'>
+												   <ion-button *ngIf="my_wish_products.indexOf(product_id) == -1" (click)="addToWish(product_id)" color="darkred" title="Wishlist"  style='position:inherit;'>
+												 		<ion-icon name="heart"></ion-icon> <span class="">ADD TO Wishlist</span>
+													</ion-button>
+													<ion-button *ngIf="my_wish_products.indexOf(product_id) >= 0" color="darkred" title="Added" style='position:inherit;'>
+														<ion-icon red_heart name="heart">In Wishlist</ion-icon>
+													</ion-button>
+												</ion-col>
+											</ion-row>
+										</div>
+                           <!-- Quantity Ends -->
+							<!--- Bulk Section Start  -->
+								<div bulk-section quantity-container *ngIf="product?.wholesale_price != 0 && product?.wholesale_products != 0 && errors.indexOf(product?.wholesale_products) == -1">
+									<ion-row>
+										<ion-col  size-md="8" size-lg="9" size="12">
+											<div bulk-price>
+												<h5><!--Bulk Price--> Wants to buy product in wholesale? <!-- Add here! --></h5>
+												<p>If you buy {{product?.wholesale_products}} items, cost per product will be <span>${{product?.wholesale_price}}</span></p>
+											</div>
+										</ion-col>
+										<ion-col size-md="4" size-lg="3" size="12">
+										   <div video-message>
+												<!--p contact-txt>Contact:</p-->
+												<!-- <div message-inner contact-btns>
+													<a (click)="messages()">
+														<i class="fa fa-comments" aria-hidden="true"></i>
+													</a>
+													<a>
+														<i class="fa fa-video-camera" aria-hidden="true"></i>
+													</a>
+												</div> -->
+											</div>
+										</ion-col>
+										<!-- <ion-col size-sm="2" size-md="1" size="2">
+											<span label>Qty :</span>
+										</ion-col>
+
+										 <ion-col size-sm="4" size-md="2" size="6">
+											<div cart-quantity>
+											<div quant-input>
+															<div arrows>
+															  <div (click)="plusWholeSaleQuantity()" arrow plus gradient><span ir>
+															  <i class="ion-hide-md-down icon fa fa-sort-asc"></i>
+															  <ion-icon class="ion-hide-lg-up " add-icon name="add"></ion-icon>
+															  </span></div>
+															  <div (click)="minusWholeSaleQuantity()" arrow minus gradient>
+															  <span ir>
+															  <i class="ion-hide-md-down icon fa fa-sort-desc"></i>
+															  <ion-icon class="ion-hide-lg-up " minus-icon name="remove"></ion-icon>
+															  </span></div>
+															</div>
+															<input [disabled]="true" [(ngModel)]="choosed_wholesale_quantity" type="text" value="1">
+													  </div>
+											</div>
+										</ion-col>
+
+									 <ion-col size-sm="6" size-md="2" size="4">
+										<ion-button (click)="checkOutWholeSale(product?.wholesale_price,product?.wholesale_products)" color="darkred">CHECKOUT</ion-button>
+										</ion-col> -->
+									</ion-row>
+								</div>
+							<!--- Bulk Section Ends  -->
+                            <!--  Share Section Start  -->
+                                   <div share-box class="ion-hide-down">
+									   <div title>Share in social media</div>
+											<div socials-box>
+												<share-button button="facebook" url="{{shareURL}}"></share-button>
+												<share-button button="twitter" url="{{shareURL}}"></share-button>
+												<share-button button="google" url="{{shareURL}}"></share-button>
+												<share-button button="linkedin" url="{{shareURL}}"></share-button>
+												<share-button button="email" url="{{shareURL}}"></share-button>
+											</div>
+										</div>
+                            <!--  Share Section Ends  -->
+				  					</div>
+				    <!--- Product Info Ends -->
+				</ion-col>
+			</ion-row>
+		 </div>
+   </div>
+ <!--  Product Slider Ends -->
+ <!-- Product Tabs Start -->
+<div product-tabs>
+ <ion-segment  [(ngModel)]="tabs"  color="darkred">
+			<ion-segment-button value="description">
+				<ion-label>DESCRIPTION</ion-label>
+			</ion-segment-button>
+			<ion-segment-button value="review">
+			   <ion-label>REVIEW</ion-label>
+			</ion-segment-button>
+</ion-segment>
+		  <div  tab-content [ngSwitch]="tabs">
+				  <ion-list *ngSwitchCase="'description'">
+				      <div description>
+							<p class="text"><span [innerHtml]="atob(product?.product_description)"></span></p>
+					  </div>
+				  </ion-list>
+				    <ion-list *ngSwitchCase="'review'">
+				        <div product-reviews>
+						    <h4 title>Customer Reviews</h4>
+							  <!-- <div sidebar-widget product-tag review-tag>
+										  <h3 section-title>Read reviews that mention</h3>
+										  <div sidebar-widget-body>
+											<div tag-list>
+												<a item href="#">Sound Quality</a>
+												<a item href="#">Noise Cancellation</a>
+												<a item href="#">Bluetooth</a>
+												<a item href="#">Active Noise</a>
+												<a item href="#">Headphones</a>
+												<a item href="#">Highly Recommend</a>
+												<a item href="#">Quality is good</a>
+												<a item href="#">Price Point</a>
+												<a item href="#">Ear Cups</a>
+												</div>
+
+										  </div>
+							     </div> -->
+								 <!--- Reviews Start -->
+								<!-- 	<div class="dropdown"   dropdown-med>
+										<button data-toggle="dropdown" type="button" class="btn dropdown-toggle"> Top Reviews <span class="caret"></span> </button>
+										<ul role="menu" class="dropdown-menu">
+										<li role="presentation"><a href="javascript:void(0)">Top Reviews</a></li>
+										<li role="presentation"><a href="javascript:void(0)">Most Recent</a></li>
+										</ul>
+									</div>	 -->
+						<!-- Review Start  -->
+								<div reviews>
+								<ng-container *ngIf="product?.product_reviews == ''">
+									<ion-item>Be the first to review this product.</ion-item>
+								</ng-container>
+								<ng-container *ngFor="let review of product?.product_reviews; let r_ind = index ">
+								      <ion-item lines="none" color="greyf8">
+										<ion-avatar>
+										   <img *ngIf="errors.indexOf(review?.profile_picture) >= 0" src="assets/images/default.png">
+							  			   <img *ngIf="errors.indexOf(review?.profile_picture) == -1" src="{{IMAGES_URL}}/userprofile/{{review?.profile_picture}}" alt="{{review?.name}}">
+										</ion-avatar>
+										<label>
+											 <div review-title>
+												 <span summary>{{review?.name}} {{review?.last_name}}</span>
+													<span date><ion-icon name="calendar"></ion-icon>
+													<span> {{review?.date | timeAgo}}</span>
+												 </span>
+											 </div>
+											 <div rateit-small>
+											    <ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="review?.stars" [color]="'#a01616'"></ngx-stars>
+											 </div>
+											 <div text>
+											   <p>"{{review?.review}}"</p>
+											 </div>
+											  <span review-action>
+												  <a (click)="show_reply_text = review.review_id;reply_comment = ''" href="javascript:void(0)"> Reply</a>
+												  <!-- / <a href=""> Report Abuse</a> -->
+											  </span>
+											  <div *ngIf="show_reply_text == review.review_id" reply_comm_div>
+												<ion-textarea [(ngModel)]="reply_comment"></ion-textarea>
+												<button (click)="replyReview(review?.review_id,reply_comment,r_ind)"><ion-icon name="send"></ion-icon></button>
+											  </div>
+										</label>
+									  </ion-item>
+									  <ion-item lines="none" color="greyf8" review-comment *ngFor="let comment of review?.review_comments">
+										<ion-avatar>
+										   <img *ngIf="errors.indexOf(comment?.profile_picture) >= 0" src="assets/images/default.png">
+							  			   <img *ngIf="errors.indexOf(comment?.profile_picture) == -1" src="{{IMAGES_URL}}/userprofile/{{comment?.profile_picture}}" alt="{{comment?.name}}">
+										</ion-avatar>
+										<label>
+											 <div review-title>
+												 <span summary>{{comment?.name}} {{comment?.last_name}}</span>
+													<span date><ion-icon name="calendar"></ion-icon>
+													<span> {{comment?.date | timeAgo}}</span>
+												 </span>
+											 </div>
+											 <div text>
+											   <p>"{{comment?.review}}"</p>
+											 </div>
+											  <!-- <span review-action>
+												  <a href="#review-form"> Reply</a> / <a href=""> Report Abuse</a>
+											  </span> -->
+										</label>
+									  </ion-item>
+									</ng-container>
+									  	  <!-- <ion-item lines="none" color="greyf8" review-comment class="ion-hide-md-down">
+												<ion-avatar>
+												   <img src="assets/images/testimonials/member2.png"/>
+												</ion-avatar>
+												<label>
+													 <div review-title>
+														 <span summary>Hanry James</span>
+															<span date><ion-icon name="calendar"></ion-icon>
+															<span> 3 days ago</span>
+														 </span>
+													 </div>
+													 <div rateit-small>
+													    <ion-icon name="star" filled></ion-icon>
+													    <ion-icon name="star" filled></ion-icon>
+													    <ion-icon name="star" filled></ion-icon>
+													    <ion-icon name="star" filled></ion-icon>
+													    <ion-icon name="star" filled></ion-icon>
+													 </div>
+													 <div text>
+													   <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Aliquam suscipit."</p>
+													 </div>
+													  <span review-action>
+														  <a href="#review-form"> Reply</a> / <a href=""> Report Abuse</a>
+													  </span>
+												</label>
+									  </ion-item>
+									   <ion-item lines="none" color="greyf8" class="ion-hide-md-down">
+												<ion-avatar>
+												   <img src="assets/images/testimonials/member1.png"/>
+												</ion-avatar>
+												<label>
+													 <div review-title>
+														 <span summary>John Smith</span>
+															<span date><ion-icon name="calendar"></ion-icon>
+															<span> 3 days ago</span>
+														 </span>
+													 </div>
+													 <div rateit-small>
+													    <ion-icon name="star" filled></ion-icon>
+													    <ion-icon name="star" filled></ion-icon>
+													    <ion-icon name="star" filled></ion-icon>
+													    <ion-icon name="star" filled></ion-icon>
+													    <ion-icon name="star" filled></ion-icon>
+													 </div>
+													 <div text>
+													   <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Aliquam suscipit."</p>
+													 </div>
+													  <span review-action>
+														  <a href="#review-form"> Reply</a> / <a href=""> Report Abuse</a>
+													  </span>
+												</label>
+									  </ion-item> -->
+									  <!-- <ion-item lines="none" color="greyf8" review-comment class="ion-hide-md-down">
+												<ion-avatar>
+												   <img src="assets/images/testimonials/member2.png"/>
+												</ion-avatar>
+												<label>
+													 <div review-title>
+														 <span summary>Hanry James</span>
+															<span date><ion-icon name="calendar"></ion-icon>
+															<span> 3 days ago</span>
+														 </span>
+													 </div>
+													 <div rateit-small>
+													    <ion-icon name="star" filled></ion-icon>
+													    <ion-icon name="star" filled></ion-icon>
+													    <ion-icon name="star" filled></ion-icon>
+													    <ion-icon name="star" filled></ion-icon>
+													    <ion-icon name="star" filled></ion-icon>
+													 </div>
+													 <div text>
+													   <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Aliquam suscipit."</p>
+													 </div>
+													  <span review-action>
+														  <a href="#review-form"> Reply</a> / <a href=""> Report Abuse</a>
+													  </span>
+												</label>
+									  </ion-item> -->
+								</div>
+						<!-- Review Ends  -->
+								<!--- Reviews Ends -->
+						</div>
+				  </ion-list>
+		  </div>
+</div>
+ <!--- Product Tabs Ends -->
+ <!-- Write Review Section Start -->
+   <div product-tabs *ngIf="product?.product_purchased != null">
+		   <div product-add-review>
+				<h4 title>Write your own review</h4>
+		   </div>
+		   <div review-table>
+				<!-- <div class="table-responsive reviews-content-right ion-hide-md-down">
+					<table class="table">
+						<thead>
+							<tr>
+								<th class="cell-label">&nbsp;</th>
+								<th>1 star</th>
+								<th>2 stars</th>
+								<th>3 stars</th>
+								<th>4 stars</th>
+								<th>5 stars</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="cell-label">Quality</td>
+								<td><input type="radio" name="quality" class="radio" value="1"></td>
+								<td><input type="radio" name="quality" class="radio" value="2"></td>
+								<td><input type="radio" name="quality" class="radio" value="3"></td>
+								<td><input type="radio" name="quality" class="radio" value="4"></td>
+								<td><input type="radio" name="quality" class="radio" value="5"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div> -->
+				<form form-cnt>
+				<ion-row>
+				 <!-- <ion-col size-md="12" size-sm="12" size="12" class="ion-hide-lg-up"> -->
+				 <ion-col size-md="12" size-sm="12" size="12">
+				   <div form-group>
+					  <ion-label position="stacked">Rate Your Product: </ion-label>
+						  <div rateit-small>
+							<ngx-stars (ratingOutput)="onRatingSet($event)" [maxStars]="5" [color]="'#a01616'"></ngx-stars>
+						  </div>
+					</div>
+				</ion-col>
+				   <!-- <ion-col size-md="12" size-sm="12" size="12">
+					   <div  form-group>
+						  <ion-label position="stacked">Add Your Tags: </ion-label>
+						  <ion-input type="text" placeholder=""></ion-input>
+						</div>
+					</ion-col>	 -->
+				   <!-- <ion-col size-md="6" size-sm="12" size="12">
+					   <div  form-group>
+						  <ion-label position="stacked">Your Name * </ion-label>
+						  <ion-input type="text" placeholder=""></ion-input>
+						</div>
+						 <div  form-group>
+						  <ion-label position="stacked">Your Email *</ion-label>
+						  <ion-input type="text" placeholder=""></ion-input>
+						</div>
+					</ion-col> -->
+	                  <ion-col size-md="12" size-sm="12" size="12">
+					     <div form-group>
+						  <ion-label position="stacked">Review *</ion-label>
+						  <ion-textarea name="review_text" [(ngModel)]="review_text" type="text" placeholder=""></ion-textarea>
+						</div>
+						<ion-button color="darkred" (click)="addReview(review_text)" float-right>
+						  Submit Review
+						</ion-button>
+					</ion-col>
+				</ion-row>
+				</form>
+			</div>
+  </div>
+ <!-- Write Review Section Ends -->
+ <!---  Product Comparison Section Start -->
+<div product-comparison class="ion-hide-md-down" *ngIf="comapred_products_list != ''">
+   <h1 heading-title>Compare with similar items</h1>
+   <div class="table-responsive">
+       <table class="table compare-table">
+	      <tbody>
+	        <tr>
+				<th>Products</th>
+				<td *ngFor="let pro of comapred_products_list">
+					<div product>
+						<div product-image>
+							<div image>
+								<a routerLink="/product-details/{{pro.product_id}}">
+								    <img *ngIf="errors.indexOf(pro.product_image) >= 0" src="assets/images/products/no_image.svg">
+							 		<img *ngIf="errors.indexOf(pro.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{pro.product_image}}" alt="{{pro.product_name}}">
+								</a>
+							</div>
+
+							<div product-info text-left>
+								<h3 name>
+								   <a routerLink="/product-details/{{pro.product_id}}">{{pro.product_name}}</a>
+								</h3>
+								<div action>
+								   <ion-button text-capitalize color="darkred" [disabled]="pro.product_quantity == 0 || errors.indexOf(pro.product_quantity) >= 0" *ngIf="my_cart_products.indexOf(pro.product_id) == -1" (click)="addToCart(pro.product_id,pro.product_sale_price,pro.product_purchase_price,1)">{{(pro.product_quantity == 0 || errors.indexOf(pro.product_quantity) >= 0) ? 'Out of Stock' : 'Add To Cart'}} </ion-button>
+
+								   <ion-button text-capitalize color="darkred" routerLink="/cart" *ngIf="my_cart_products.indexOf(pro.product_id) >= 0">In Cart </ion-button>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+	        <tr>
+				<th>Description</th>
+				<td *ngFor="let pro of comapred_products_list">
+					<p [innerHTML]="atob(pro.product_description)"></p>
+				</td>
+        	</tr>
+		    <tr>
+				<th>Brand</th>
+				<td *ngFor="let pro of comapred_products_list">
+				     <p>{{pro.brand_name}}</p>
+			    </td>
+        	</tr>
+        	<tr>
+				<th>Customer Rating</th>
+				<td *ngFor="let pro of comapred_products_list">
+				     <a remove-icon>
+					   <ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="pro?.total_reviews[0]?.Average_Review" [color]="'#a01616'"></ngx-stars>
+					 </a>
+			    </td>
+        	</tr>
+		    <tr>
+				<th>Price</th>
+				<td *ngFor="let pro of comapred_products_list">
+					<div product-price>
+						<span *ngIf="errors.indexOf(pro.product_sale_price) == -1 && pro.product_sale_price != pro.product_purchase_price" price> ${{pro.product_sale_price}}  </span>
+
+		                <span *ngIf="errors.indexOf(pro.product_sale_price) >= 0 || pro.product_sale_price == pro.product_purchase_price" price> ${{pro.product_purchase_price}}  </span>
+
+		                <span *ngIf="errors.indexOf(pro.product_sale_price) == -1 && pro.product_sale_price != pro.product_purchase_price" price-before-discount>${{pro.product_purchase_price}}</span>
+					</div>
+				</td>
+			</tr>
+		    <tr>
+				<th>Sold By</th>
+				<td *ngFor="let pro of comapred_products_list">
+					<p in-stock>{{pro.vendor_company}}</p>
+				</td>
+            </tr>
+<!-- 		    <tr>
+				<th>Headphone Fit</th>
+				<td>
+					<p>Over-Ear</p>
+				</td>
+			</tr>
+		    <tr>
+				<th>Item Dimensions</th>
+				<td>
+					<p>6.54 x 7.13 x 2.36 in</p>
+				</td>
+    		</tr>
+			<tr>
+				<th>Item Weight</th>
+				<td>
+					<p>0.85 lb</p>
+				</td>
+    		</tr> -->
+			<tr>
+				<th>Remove</th>
+				<td text-center *ngFor="let pro of comapred_products_list; let c_index = index ">
+					<a href="javascript:void(0)" (click)="removeCompared(c_index)" remove-icon><ion-icon name="close"></ion-icon></a>
+				</td>
+           </tr>
+		</tbody>
+	   </table>
+   </div>
+</div>
+<!---  Product Comparison Section Ends -->
+<!-- Product Comparison Mobile Start -->
+<div mob-product-comparison class="ion-hide-lg-up" *ngIf="comapred_products_list != ''">
+	<ion-row products>
+	    <ion-col size="4" no-padding *ngFor="let pro of comapred_products_list; let cm_index = index ">
+		    <ion-card no-margin product-main>
+			<img *ngIf="errors.indexOf(pro.product_image) >= 0" src="assets/images/products/no_image.svg">
+			<img *ngIf="errors.indexOf(pro.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{pro.product_image}}" alt="{{pro.product_name}}">
+			<ion-icon (click)="removeCompared(cm_index)" name="close-circle" close-icon></ion-icon>
+		    <ion-card-content text-center>
+			    <h2><a>{{pro.product_name}}</a></h2>
+				<p rating>
+				 <a>
+				   <ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="pro?.total_reviews[0]?.Average_Review" [color]="'#a01616'"></ngx-stars>
+				 </a>
+				</p>
+				    <div product-price>
+						<span *ngIf="errors.indexOf(pro.product_sale_price) == -1 && pro.product_sale_price != pro.product_purchase_price" price> ${{pro.product_sale_price}}  </span>
+
+		                <span *ngIf="errors.indexOf(pro.product_sale_price) >= 0 || pro.product_sale_price == pro.product_purchase_price" price> ${{pro.product_purchase_price}}  </span>
+
+		                <span *ngIf="errors.indexOf(pro.product_sale_price) == -1 && pro.product_sale_price != pro.product_purchase_price" price-before-discount>${{pro.product_purchase_price}}</span>
+    			   </div>
+                <ion-button text-capitalize color="darkred" [disabled]="pro.product_quantity == 0 || errors.indexOf(pro.product_quantity) >= 0" *ngIf="my_cart_products.indexOf(pro.product_id) == -1" (click)="addToCart(pro.product_id,pro.product_sale_price,pro.product_purchase_price,1)">{{(pro.product_quantity == 0 || errors.indexOf(pro.product_quantity) >= 0) ? 'Out of Stock' : 'Add To Cart'}} </ion-button>
+
+				<ion-button text-capitalize color="darkred" routerLink="/cart" *ngIf="my_cart_products.indexOf(pro.product_id) >= 0">In Cart </ion-button>
+		     </ion-card-content>
+		  	</ion-card>
+	    </ion-col>
+	</ion-row>
+	<ion-row class="ion-margin-top" description>
+		<ion-col size="12" no-padding>
+			<h2 section-head text-center>Description</h2>
+		</ion-col>
+	    <ion-col size="4" no-padding *ngFor="let pro of comapred_products_list">
+		    <ion-card no-margin>
+		        <p text-center [innerHTML]="atob(pro.product_description)"></p>
+	        </ion-card>
+	    </ion-col>
+	</ion-row>
+
+	<ion-row class="ion-margin-top" description sold-by>
+		 <ion-col size="12" no-padding>
+			<h2 section-head text-center>Brand</h2>
+		 </ion-col>
+	    <ion-col size="4" no-padding *ngFor="let pro of comapred_products_list">
+		    <ion-card no-margin>
+		        <p text-center>{{pro.brand_name}}</p>
+	        </ion-card>
+	    </ion-col>
+	</ion-row>
+
+	<ion-row class="ion-margin-top" description sold-by>
+		 <ion-col size="12" no-padding>
+			<h2 section-head text-center>Sold By</h2>
+		 </ion-col>
+	    <ion-col size="4" no-padding *ngFor="let pro of comapred_products_list">
+		    <ion-card no-margin>
+		        <p text-center>{{pro.vendor_company}}</p>
+	        </ion-card>
+	    </ion-col>
+	</ion-row>
+	<!-- <ion-row class="ion-margin-top" description headphone-fit>
+		 <ion-col size="12" no-padding>
+			<h2 section-head text-center>Headphone Fit</h2>
+		 </ion-col>
+	    <ion-col size="4" no-padding>
+		    <ion-card no-margin>
+		        <p text-center>Over-Ear</p>
+	        </ion-card>
+	    </ion-col>
+	</ion-row>
+	<ion-row class="ion-margin-top" description item-dimensions>
+		 <ion-col size="12" no-padding>
+			<h2 section-head text-center>Item Dimensions</h2>
+		 </ion-col>
+	    <ion-col size="4" no-padding>
+		    <ion-card no-margin>
+		        <p text-center>6.54 x 7.13 x 2.36 in</p>
+	        </ion-card>
+	    </ion-col>
+	</ion-row>
+	<ion-row class="ion-margin-top" description item-weight>
+		 <ion-col size="12" no-padding>
+			<h2 section-head text-center>Item Weight</h2>
+		 </ion-col>
+	    <ion-col size="4" no-padding>
+		    <ion-card no-margin>
+		        <p text-center>0.85 lb</p>
+	        </ion-card>
+	    </ion-col>
+	</ion-row> -->
+	</div>
+<!--- Product Comparison Mobile Ends  -->
+<!--  Recently viewed Products  Start-->
+			<app-recently-viewed></app-recently-viewed>
+			<!--  Recently viewed Products Ends -->
+		<ion-row  class="ion-margin-top ion-hide-md-down">
+
+
+				    <!--  New Products  Start-->
+				   <ion-col size-lg="12" size-md="12" size-sm="12" size="12" new-product *ngIf="related_products != ''">
+						<ion-card id="product-tabs-slider" scroll-tabs no-margin>
+							  <div more-info-tab>
+								<h3 new-product-title float-left>Related Products</h3>
+							  </div>
+							   <div product-slider>
+								<ion-row padding>
+								<ion-col>
+								<owl-carousel
+							     [options]="{items: 6, dots: false, nav:true, margin: 20, navigation: true}"
+							     [items]="related_products"
+							     [carouselClasses]="['owl-theme', 'sliding']">
+								<div size-lg="2" size-md="3" *ngFor="let recent of related_products ">
+								<div products>
+									<div product>
+										<div product-image>
+											<div image>
+												   <a routerLink="/product-details/{{recent.product_id}}" >
+													<img *ngIf="errors.indexOf(recent.product_image) >= 0" src="assets/images/products/no_image.svg">
+													<img *ngIf="errors.indexOf(recent.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{recent.product_image}}" alt="{{recent.product_name}}">
+												   </a>
+											   </div>
+											<div tag new>
+											   <span>new</span>
+											</div>
+											<!-- <div tag hot>
+											   <span>hot</span>
+											</div> -->
+										</div>
+								   <div product-info text-left>
+										  <h3 name><a routerLink="/product-details/{{recent.product_id}}" >{{recent.product_name}}</a></h3>
+										  <div rating rateit-small>
+										   <ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="recent?.Average_Review" [color]="'#a01616'"></ngx-stars>
+										   </div>
+										  <div description></div>
+										  <div product-price>
+											  <span *ngIf="errors.indexOf(recent.product_sale_price) == -1 && recent.product_sale_price != recent.product_purchase_price" price> ${{recent.product_sale_price}}  </span>
+
+						                      <span *ngIf="errors.indexOf(recent.product_sale_price) >= 0 || recent.product_sale_price == recent.product_purchase_price" price> ${{recent.product_purchase_price}}  </span>
+
+						                      <span *ngIf="errors.indexOf(recent.product_sale_price) == -1 && recent.product_sale_price != recent.product_purchase_price" price-before-discount>${{recent.product_purchase_price}}</span>
+										  </div>
+									</div>
+								   <div cart>
+									  <div action>
+										<ul list-unstyled>
+										  <li add-cart-button btn-group>
+										  <ion-button *ngIf="my_cart_products.indexOf(recent.product_id) == -1" (click)="addToCart(recent.product_id,recent.product_sale_price,recent.product_purchase_price,1)" add-to-cart color="darkred" title="Add Cart">
+											 <ion-icon name="cart"></ion-icon>
+										  </ion-button>
+										  <ion-button *ngIf="my_cart_products.indexOf(recent.product_id) >= 0" add-to-cart color="darkred" title="Added">
+											 <ion-icon name="checkmark"></ion-icon>
+										  </ion-button>
+										  </li>
+										  <li lnk wishlist>
+										  <ion-button *ngIf="my_wish_products.indexOf(recent.product_id) == -1" (click)="addToWish(recent.product_id)" color="darkblue" add-to-cart title="Wishlist">
+										 	<ion-icon name="heart"></ion-icon>
+										  </ion-button>
+										  <ion-button *ngIf="my_wish_products.indexOf(recent.product_id) >= 0" color="darkblue" add-to-cart title="Added">
+											 <ion-icon red_heart name="heart"></ion-icon>
+										  </ion-button>
+										  </li>
+										</ul>
+									  </div>
+									</div>
+									<p *ngIf="recent?.product_user_type != 'Admin'" vendor-name>Sold by <a>{{recent.vendor_company}}</a></p>
+									</div>
+								</div>
+								</div>
+								</owl-carousel>
+								</ion-col>
+								</ion-row>
+								</div>
+		        	    </ion-card>
+		           </ion-col>
+				 <!--  Related Products Ends -->
+		</ion-row>
+		<app-upsell-products></app-upsell-products>
+				<!--   Mobile Section Start  -->
+				  <!-- Upsell Product Start-->
+		<div mob-recently-viewed padding10 class="ion-hide-lg-up" *ngIf="related_products != ''">
+		<h4 mob-head text-center text-uppercase>
+	            Related Products
+		</h4>
+		<ion-row>
+		<ion-col>
+		<owl-carousel
+	     [options]="{items: 2, dots: false, nav:true, margin: 20, navigation: true}"
+	     [items]="related_products"
+	     [carouselClasses]="['owl-theme', 'sliding']">
+		<div size="6" size-md="4"  size-sm="6" size-xs="6" size="12" *ngFor="let recent of related_products ">
+			 <ion-card  no-margin>
+				 <img routerLink="/product-details/{{recent.product_id}}" *ngIf="errors.indexOf(recent.product_image) >= 0" src="assets/images/products/no_image.svg">
+				<img routerLink="/product-details/{{recent.product_id}}" *ngIf="errors.indexOf(recent.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{recent.product_image}}" alt="{{recent.product_name}}">
+
+			     <ion-card-content>
+				  <ion-row align-items-center>
+					  <ion-col size="9">
+						<h2>{{recent.product_name}}</h2>
+					  </ion-col>
+					 <ion-col size="3" *ngIf="errors.indexOf(recent.product_sale_price) == -1 && recent.product_sale_price != recent.product_purchase_price">
+						<ion-badge float-right color="darkgreymb">
+	                       {{(((recent.product_purchase_price-recent.product_sale_price)/recent.product_purchase_price)*100).toFixed(0)}}%
+						</ion-badge>
+	                  </ion-col>
+					    <ion-col size="12">
+					     <div rating>
+						      <ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="recent?.Average_Review" [color]="'#a01616'"></ngx-stars>
+						 </div>
+					  </ion-col>
+				  </ion-row>
+					   <ion-row align-items-center>
+					  <ion-col size="9">
+						  <div product-price>
+							 <span *ngIf="errors.indexOf(recent.product_sale_price) == -1 && recent.product_sale_price != recent.product_purchase_price" price> ${{recent.product_sale_price}}  </span>
+
+		                    <span *ngIf="errors.indexOf(recent.product_sale_price) >= 0 || recent.product_sale_price == recent.product_purchase_price" price> ${{recent.product_purchase_price}}  </span>
+
+		                    <span *ngIf="errors.indexOf(recent.product_sale_price) == -1 && recent.product_sale_price != recent.product_purchase_price" price-before-discount>${{recent.product_purchase_price}}</span>
+						   </div>
+					  </ion-col>
+					    <ion-col size="3" *ngIf="recent?.product_quantity != 0 && errors.indexOf(recent?.product_quantity) == -1">
+		                    <ion-buttons float-right *ngIf="my_cart_products.indexOf(recent.product_id) == -1" (click)="addToCart(recent.product_id,recent.product_sale_price,recent.product_purchase_price,1)">
+		                        <ion-icon name="cart"></ion-icon>
+		                    </ion-buttons>
+		                    <ion-buttons float-right *ngIf="my_cart_products.indexOf(recent.product_id) >= 0">
+		                        <ion-icon name="checkmark"></ion-icon>
+		                    </ion-buttons>
+		                  </ion-col>
+				  </ion-row>
+			  </ion-card-content>
+			</ion-card>
+		</div>
+		</owl-carousel>
+		</ion-col>
+		<ion-col size="12" text-center >
+		<ion-button color="grey2" text-capitalize>View More
+		</ion-button>
+		</ion-col>
+		</ion-row>
+		</div>
+				  <!--Related Product Ends-->
+
+				  <!--Recently Viewed  Ends-->
+<!---   Mobile Section Ends  -->
+</div>
+<!--  Product Detail Ends   -->
+</div>
+<!-- *ngIf="product?.wholesale_price != 0 && product?.wholesale_products != 0 && errors.indexOf(product?.wholesale_products) == -1" -->
+<div  class="row chat-window col-xs-12 col-md-3" id="{{timestamp}}" style="padding-left:0px;" >
+    <div class="col-xs-12 col-md-12" style="padding-left: 0px;">
+    	<div class="panel panel-default">
+            <div class="panel-heading top-bar">
+                <div class="col-md-8 col-xs-8" style='float:left'>
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Chat </h3>
+                </div>
+                <div class="col-md-4 col-xs-4" style="text-align: right;float: right;width: 87px;padding: 0;margin: 5px 0 0 0;">
+                    <a href="javascript:void(0)">
+                    	<span id="minim_chat_window" class="panel-collapsed glyphicon glyphicon-plus icon_minim">
+                    		&#8645;
+                    	</span>
+                    </a>
+                    <a href="javascript:void(0)" style="color: #fff !important;">
+                    	<span class="glyphicon glyphicon-remove icon_close" id="chat_window_1">
+                    		&#10005;
+                    	</span>
+                    </a>
+                </div>
+            </div>
+            <div class="panel-body msg_container_base" style="display: none;">
+            	<ng-container *ngFor="let chat of chat_list">
+	                <div class="row msg_container {{chat.user_type == 'user' ? 'base_sent' : 'base_receive'}}">
+	                    <div class="col-md-10 col-xs-10">
+	                        <div class="messages {{chat.user_type == 'user' ? 'msg_sent' : 'msg_receive'}}">
+	                            <p *ngIf="chat.type == 'text'">{{chat.message}}</p>
+	                            <p *ngIf="chat.type == 'audio'">
+	                            <!-- (click)="playAudio(chat.message)" -->
+	                            	<!-- <img width="100px" src="assets/images/mp3.png"> -->
+	                            	<audio style="width:100%" controls><source [src]="sanitizer.bypassSecurityTrustResourceUrl(chat.message)" type="audio/mpeg">Your browser does not support the audio tag.</audio>
+	                            </p>
+	                            <span fnt_design>{{chat.date | timeAgo}}</span>
+	                        </div>
+	                    </div>
+	                    <!-- <div class="col-md-2 col-xs-2 avatar">
+	                        <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+	                    </div> -->
+	                </div>
+                </ng-container>
+            </div>
+            <div class="panel-footer" style="display: none;">
+            	<form (ngSubmit)="addChat(message)">
+	                <div class="input-group">
+	                <ion-icon (mousedown)="startRecording()"  (mouseup)="stopRecording()" name="mic" class="mike_icon"></ion-icon>
+	                    <input autocomplete="off" [(ngModel)]="message" name="message" id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
+	                    <span class="input-group-btn">
+	                    <button type="submit" class="btn btn-primary btn-sm" id="btn-chat"><ion-icon ios="ios-paper-plane" md="md-paper-plane"></ion-icon></button>
+	                    </span>
+	                </div>
+                </form>
+            </div>
+		</div>
+    </div>
+</div>
+
+
+<app-footer></app-footer>
+</ion-content>

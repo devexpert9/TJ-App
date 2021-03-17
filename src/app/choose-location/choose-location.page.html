@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="darkred">
+    <ion-title>Choose Your Location</ion-title>
+	<ion-buttons slot="end" (click)="closeModal()">
+	   <ion-icon name="close"></ion-icon>
+	</ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+<div choose-location>
+<p>Select a delivery location to see product availability and delivery options</p>
+<ion-item lines="none" (click)="address()" *ngIf="userId != 0">
+	<ion-icon color="grey2" name="map"  slot="start" class="ion-hide-lg-up"></ion-icon>
+Manage Address Book
+<ion-icon color="greyc" name="arrow-forward"  slot="end" class="ion-hide-lg-up"></ion-icon>
+</ion-item>
+<!-- <ion-item lines="none" (click)="presentAlertPrompt()">
+	<ion-icon color="grey2" name="pin" slot="start" class="ion-hide-lg-up"></ion-icon>
+Enter Your Pincode
+<ion-icon color="greyc" name="arrow-forward"  slot="end" class="ion-hide-lg-up"></ion-icon>
+</ion-item> -->
+<ion-item lines="none">
+	<ion-icon color="grey2" name="locate"  slot="start" class="ion-hide-lg-up"></ion-icon>
+	Choose Your Location
+</ion-item>
+<ion-col>
+<ng4geo-autocomplete [userSettings]="userSettings" (componentCallback)="autoCompleteCallback($event)"></ng4geo-autocomplete>
+</ion-col>
+</div>
+</ion-content>

@@ -1,0 +1,114 @@
+
+<ion-content>
+<div class="ion-padding">
+<div header_height></div>
+<!-- Breadcrumb Start -->
+		<div breadcrumb  class="ion-hide-md-down">		
+				<div breadcrumb-inner>
+					<ul list-inline list-unstyled>
+						<li><a routerLink="/blog">Home</a></li>
+						<li class="active">Checkout</li>
+					</ul>
+				</div><!-- /.breadcrumb-inner -->
+		</div>
+<!-- Breadcrumb Ends -->
+<!---Checkout Section Start -->
+	<div checkout-box>
+		   <ion-row *ngIf="total_payable_price == 0 && is_loaded == true">
+		   		<ion-item>No items in cart to checkout.</ion-item>
+		   </ion-row>
+		   <ion-row >
+		     <ion-col size-md="8" size-sm="12" size="12">
+				 <ion-card panel panel-default no-margin padding >
+			     	 <div panel-heading  checkout-head>
+					    <h4>
+						   <a href="javascript:void(0)"  >
+						      <span><i class="fa fa-file-text" aria-hidden="true"></i></span>  Billing Address
+						   </a>
+						</h4>					 
+					 </div>
+					 <div class="pad_10" panel-body >
+			     	 	{{a_first_name}} {{a_last_name}}<br>
+			     	 	{{a_address}}, {{a_city}}, {{a_state}}, {{a_zip}} (
+			     	 	{{a_country}})
+			     	 	<br>
+			     	 	contact:- {{a_phone_number}}
+			     	 	
+			     	 </div>
+		     	 </ion-card>
+			  </ion-col>
+		    <ion-col size-md="4" size-sm="12" size="12">
+			    <div checkout-progress-sidebar>
+				   <ion-card  panel panel-default  no-margin padding *ngIf="is_wholesale == true">
+				      <div panel-heading>
+					     <h4  unicase-checkout-title text-uppercase>
+						     Discount Coupon
+						 </h4>					  
+					  </div>
+					  <div price_single_cost *ngIf="is_coupon_applied == false">
+					    <p>Enter your coupon code if you have one..</p>
+						<div class="form-group">
+							<input [(ngModel)]="coupon_code" type="text" class="form-control unicase-form-control text-input" placeholder="Your Coupon..">
+						</div>
+						<div class="clearfix">
+							<ion-button color="darkred" (click)="applyCoupon()">
+								APPLY COUPON
+							</ion-button>
+						</div>
+					  </div>
+					  <div price_single_cost *ngIf="is_coupon_applied == true">
+					    <p>Coupon {{coupon_code}} applied 
+						<ion-button icon action-icons del-icon (click)="removeCoupon()">
+							<ion-icon name="close"></ion-icon>
+						</ion-button>
+						</p>
+					  </div>
+				   </ion-card>
+				   <ion-card panel panel-default  no-margin padding>
+				      <div panel-heading>
+					     <h4 unicase-checkout-title text-uppercase>
+						     Your order	
+						 </h4> 					  
+					  </div>
+					  <div price_single_cost>
+					    <h4>Subtotal <span float-right>${{total_payable_price}}</span></h4>
+					    <h4>Shipping  <span float-right>$0</span></h4>
+					    <h4 *ngIf="is_coupon_applied == true">Coupon applied <span float-right>-${{coupon_amount}}</span></h4>
+					    <h3>Total Cost <span float-right>${{grand_total}}</span></h3>
+					  </div>
+				   </ion-card >		   
+				  <ion-card  panel panel-default  no-margin padding>
+				      <div panel-heading>
+					     <h4  unicase-checkout-title text-uppercase>
+						     Payment Information
+						 </h4>					  
+					  </div>
+					  <div price_single_cost payment-info style="margin-left: 7%;">
+					       <!-- <p  title-tag-line>Register with us for future convenience:</p> -->
+					      
+							<div class="radio radio-checkout-unicase">  
+								<div>
+									<input id="pay1" type="radio" name="pay_type" value="1"  [ngClass]="{'active': payment_method === 'paypal'}"  (click)="payment_method = 'paypal';">  
+									<label class="radio-button" for="pay1">Paypal</label>  
+									  <br>
+									<input checked id="pay2" type="radio" name="pay_type" value="2"  [ngClass]="{'active': payment_method === 'cash'}"  (click)="cashClicked()">  
+									<label class="radio-button" for="pay2">Cash on Delivery</label> 
+								</div>	
+							</div>
+                                   							 							
+					  </div>
+					  	<div *ngIf="is_paypal_web_enabled == true" id="paypal-button-container"></div>
+					   <ion-button *ngIf="is_paypal_web_enabled != true" color="darkred" (click)="finalCheckout()" >
+						 Proceed To Checkout
+					   </ion-button>
+				   </ion-card >	
+				    
+				</div>
+			</ion-col>
+		   </ion-row>	
+
+	</div>
+</div>
+<!---Checkout Section Ends -->
+<app-footer></app-footer>
+</ion-content>

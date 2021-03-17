@@ -1,0 +1,313 @@
+<!-- <ion-header class="ion-hide-lg-up">
+  <ion-toolbar color="darkred" text-uppercase>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+       Order History
+    </ion-title>
+  <ion-buttons slot="end" > 
+          <ion-icon name="search"></ion-icon>
+    </ion-buttons>
+	     <ion-buttons slot="end">
+          <ion-icon name="pin"></ion-icon>
+    </ion-buttons>
+<ion-buttons slot="end" > 
+	<ion-icon user-drop name="contact" (click)="onButtonClickdrop()"></ion-icon>
+	
+	 </ion-buttons>
+  </ion-toolbar>
+      <div drop-down-menu *ngIf="buttonClickeddrop">
+	              <a routerLink="/your-account"><ion-icon name="person"></ion-icon> My Account</a>
+	              <a routerLink="/wishlist"><ion-icon name="heart"></ion-icon>  Wishlist</a>
+	              <a routerLink="/cart"><ion-icon name="cart"></ion-icon>  Cart</a>
+	              <a routerLink="/notification"><ion-icon name="notifications"></ion-icon> Notification</a>
+	   </div>
+</ion-header>  -->
+<ion-content>
+<div  class="ion-padding">
+<div header_height></div>
+<div class="container">
+<!-- Breadcrumb Start -->
+
+		<div breadcrumb  class="ion-hide-md-down">		
+				<div breadcrumb-inner>
+					<ul list-inline list-unstyled>
+						<li><a routerLink="/home">Home</a></li>
+						<li class="active"> Order History</li>
+					</ul>
+				</div><!-- /.breadcrumb-inner -->
+		</div>
+
+<!-- Breadcrumb Ends -->
+
+		<ion-row  main-history-cover>
+		<!--  Title Start -->
+		     <ion-col size-lg="12" size-md="12" size-sm="12" size="12" order-title  class="ion-hide-md-down">
+			    <h5>YOUR ORDERS</h5>
+			 </ion-col>
+        	<!--  Title End--> 
+			<!-- Segment in content -->
+ 
+		 <!--   Order History Start -->
+		 <ion-col size-lg="12" size-md="12" size-sm="12" size="12">
+		 
+	           	 <div product-tabs> 
+							  <ion-segment  [(ngModel)]="tabs" class="">
+								  <ion-segment-button value="Orders">
+										<ion-label>Orders</ion-label>
+										<ion-icon name="briefcase"  class="ion-hide-lg-up"></ion-icon>
+								   </ion-segment-button>
+									  <ion-segment-button value="Open Orders">
+										<ion-label>Open Orders</ion-label>
+											<ion-icon name="list-box" class="ion-hide-lg-up"></ion-icon>
+									  </ion-segment-button>
+										<ion-segment-button value="Cancelled Orders">
+										<ion-label>Cancelled Orders</ion-label>
+										<ion-icon name="remove-circle" class="ion-hide-lg-up"></ion-icon>
+									  </ion-segment-button>
+								</ion-segment>
+						      <div  tab-content [ngSwitch]="tabs">
+							  <ion-list *ngSwitchCase="'Orders'">
+									<div product-tab class="table-responsive">
+									    <div mob-orders class="ion-hide-lg-up">										  
+										<ion-item lines="none" no-padding *ngFor="let order of orders; let m_index = index ">
+										  
+											<div class="box-smaa">
+												<div class="box-flsa" *ngFor="let product of order.order_products ">
+													<ion-thumbnail slot="start">
+													<img *ngIf="errors.indexOf(product.product_image) >= 0" src="assets/images/products/no_image.svg">
+													<img *ngIf="errors.indexOf(product.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{product.product_image}}" alt="{{product.product_name}}">
+												   </ion-thumbnail>	
+													{{product.product_name}} ({{product.product_quantity}})
+												</div>
+											</div>
+										  <ion-label>
+										  <h3>Order - #{{order.rand_order_id}}</h3>
+											<!-- <h3>{{order.product_name}}</h3> -->
+										  	<p>
+										  		<ion-icon *ngIf="order.order_status == 1" name="checkmark-circle" color="success"></ion-icon> 
+										  		<ion-icon *ngIf="order.order_status == 0" name="alert" color="warning"></ion-icon> 
+										  		<ion-icon *ngIf="order.order_status == 2" name="alert" color="danger"></ion-icon> 
+
+										  		{{(order.order_status == 1) ? 'Delivered' : (order.order_status == 2 ? 'Cancelled' : 'Pending')}}
+
+										  		{{order.order_date | date : 'd MMM y'}}
+										  	</p>
+										    <p bnt-orders *ngIf="order.order_status == 1">
+											    <a>Return exchange</a> 
+											    <a>Rate the product</a>
+										    </p> 
+										  </ion-label>
+											  <div price-time>
+											    <h3 text-right>${{order.total_amount}}</h3>
+												<a text-right>Share This Item</a>
+												<a text-right (click)="invoice(order)" class="show-invc">Invoice</a>
+	                                            <a *ngIf="order.order_status == 1" text-right>Buy Again</a>
+	                                          </div>								
+                                        </ion-item>
+										
+										<ion-item lines="none" no-padding *ngIf="orders == ''">
+											No orders yet.
+										</ion-item>
+										</div>
+											<h5 class="ion-hide-md-down">ORDERS</h5>
+											<table class="ion-hide-md-down table table-bordered">
+												<thead>
+													<tr *ngIf="orders != ''">
+														<th>Order Id</th>
+														<th>Product</th>
+														<th>Order Placed</th>
+														<th>Amount</th>
+														<th>Payment Status</th>
+														<th>Delivery Status</th>
+														<th>Invoice</th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr *ngFor="let order of orders; let index = index ">
+														<td>{{order.rand_order_id}}</td>
+														<td payment_type>
+														   <div *ngFor="let product of order.order_products ">
+															<img *ngIf="errors.indexOf(product.product_image) >= 0" src="assets/images/products/no_image.svg">
+															<img *ngIf="errors.indexOf(product.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{product.product_image}}" alt="{{product.product_name}}">	
+															{{product.product_name}} ({{product.product_quantity}})
+														</div>
+														 </td>
+														<td>{{order.order_date | date : 'd MMM y'}}</td>
+														<td>${{order.total_amount}}</td>
+														<td order-id>
+															<span *ngIf="order.payment_method == 'cash'" class="label label-danger">Cash on delivery</span>
+															<span *ngIf="order.payment_method != 'cash'" class="label label-success">Paid</span>
+														</td>
+														<td order-id>
+															<span *ngIf="order.order_status == 0" class="label label-warning">Pending</span>
+															<span *ngIf="order.order_status == 2" class="label label-danger">Cancelled</span>
+															<span *ngIf="order.order_status == 1" class="label label-success">Delivered</span>
+														</td>
+														<td add >
+															<a (click)="invoice(order)" class="btn btn-theme btn-theme-xs">Invoice</a>
+														</td>
+													</tr>
+													<tr *ngIf="orders == ''">
+														<td colspan="7">No orders yet.</td>
+													</tr>
+	
+												 </tbody>
+											</table>
+									</div>
+							  </ion-list>	
+							    <ion-list *ngSwitchCase="'Open Orders'">
+								     <div product-tab class=" table-responsive">
+                                   <div mob-orders class="ion-hide-lg-up">										  
+											<ion-item lines="none" *ngFor="let order of open_orders; let om_index = index ">
+											  <div *ngFor="let product of order.order_products ">
+											   <ion-thumbnail slot="start">
+												<img *ngIf="errors.indexOf(product.product_image) >= 0" src="assets/images/products/no_image.svg">
+												<img *ngIf="errors.indexOf(product.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{product.product_image}}" alt="{{product.product_name}}">
+											   </ion-thumbnail>	
+												{{product.product_name}} ({{product.product_quantity}})
+											  </div>
+											  <ion-label>
+												   <h3>Order - #{{order.rand_order_id}}</h3>
+												   <ion-badge *ngIf="order.payment_method == 'cash'" color="danger">Cash on delivery</ion-badge>
+												   <ion-badge *ngIf="order.payment_method != 'cash'" color="success">Paid</ion-badge>
+												   <p><ion-icon name="alert" color="darkred"></ion-icon> Pending</p>
+											  </ion-label>
+											  <div price-time>
+											     <h3 text-right>${{order.total_amount}}</h3>
+												  <ion-note  text-right>
+													{{order.order_date | date : 'd MMM y'}}
+												  </ion-note>
+                                              <a text-right (click)="invoice(order)">Invoice</a>
+                                              </div>						
+
+											</ion-item>
+                                     		
+                                     		<ion-item lines="none" *ngIf="open_orders == ''">
+                                     			No open orders found.
+                                     		</ion-item>
+										  </div>
+											<h5 class="ion-hide-md-down">OPEN ORDERS</h5>
+											<table class="table table-bordered ion-hide-md-down">
+												<thead>
+													<tr *ngIf="open_orders != ''">
+														<th>Order Id</th>
+														<th>Products</th>
+														<th>Order Placed</th>
+														<th>Amount</th>
+														<th>Payment Status</th>
+														<th>Delivery Status</th>
+														<th>Invoice</th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr *ngFor="let order of open_orders; let o_index = index ">
+														<td>{{order.rand_order_id}}</td>
+														<td payment_type>
+														   <div *ngFor="let product of order.order_products ">
+															<img *ngIf="errors.indexOf(product.product_image) >= 0" src="assets/images/products/no_image.svg">
+															<img *ngIf="errors.indexOf(product.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{product.product_image}}" alt="{{product.product_name}}">	
+															{{product.product_name}} ({{product.product_quantity}})
+														  </div>
+														</td>
+														<td>{{order.order_date | date : 'd MMM y'}}</td>
+														<td>${{order.total_amount}}</td>
+														<td order-id>
+															<span *ngIf="order.payment_method == 'cash'" class="label label-danger">Cash on delivery</span>
+															<span *ngIf="order.payment_method != 'cash'" class="label label-success">Paid</span>
+														</td>
+														<td order-id>
+															<span class="label label-warning">Pending</span>
+														</td>
+														<td add>
+															<a (click)="invoice(order)" class="btn btn-theme btn-theme-xs">Invoice</a>
+														</td>
+													</tr>
+													<tr *ngIf="open_orders == ''">
+														<td colspan="8">No open orders found.</td>
+													</tr>
+
+												 </tbody>
+											</table>
+									</div>
+							  </ion-list>
+							  <ion-list *ngSwitchCase="'Cancelled Orders'">
+									 <div product-tab class=" table-responsive">
+                                   <div mob-orders class="ion-hide-lg-up">										  
+										<ion-item lines="none" *ngFor="let order of cancelled_orders; let cm_index = index ">
+										  <div *ngFor="let product of order.order_products ">
+										   <ion-thumbnail slot="start">
+											<img *ngIf="errors.indexOf(product.product_image) >= 0" src="assets/images/products/no_image.svg">
+											<img *ngIf="errors.indexOf(product.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{product.product_image}}" alt="{{product.product_name}}">
+										   </ion-thumbnail>	
+											{{product.product_name}} ({{product.product_quantity}})
+										  </div>
+										  <ion-label>
+											  <h3>Order - #{{order.rand_order_id}}</h3>
+											    <ion-badge color="danger">Due</ion-badge>
+										  </ion-label>
+										  <div price-time>
+										     <h3 text-right>${{order.total_amount}}</h3>
+											  <ion-note  text-right>
+												{{order.order_date | date : 'd MMM y'}}
+											  </ion-note>
+                                          </div>										  
+										</ion-item>
+										<ion-item lines="none" *ngIf="cancelled_orders == ''">
+											No cancelled orders yet.
+										</ion-item>                                     
+									</div>
+											<h5 class="ion-hide-md-down">CANCELLED ORDERS</h5>
+											<table class="table table-bordered ion-hide-md-down">
+												<thead>
+													<tr *ngIf="cancelled_orders != ''">
+														<th>Order Id</th>
+														<th>Image</th>
+														<th>Name</th>
+														<th>Order Placed</th>
+														<th>Amount</th>
+														<th>Payment Status</th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr *ngFor="let order of cancelled_orders; let c_index = index ">
+														<td>{{order.rand_order_id}}</td>
+														<td payment_type>
+														   <div *ngFor="let product of order.order_products ">
+															<img *ngIf="errors.indexOf(product.product_image) >= 0" src="assets/images/products/no_image.svg">
+															<img *ngIf="errors.indexOf(product.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{product.product_image}}" alt="{{product.product_name}}">	
+															{{product.product_name}} ({{product.product_quantity}})
+														  </div>
+														 </td>
+														<td>{{order.product_name}}</td>
+														<td>{{order.order_date | date : 'd MMM y'}}</td>
+														<td>${{order.total_amount}}</td>
+														<td order-id>
+															<span class="label label-danger">Due</span>
+														</td>
+													</tr>
+													<tr *ngIf="cancelled_orders == ''">
+														<td colspan="6">No cancelled orders yet.</td>
+													</tr>
+												 </tbody>
+											</table>
+									</div>
+							  </ion-list>
+                        </div>
+					      </div>
+					  </ion-col> 
+		
+		 <!--   Order History Ends -->
+
+		</ion-row>
+		</div>
+		<app-recently-viewed></app-recently-viewed>
+		<app-upsell-products></app-upsell-products>
+<!---   Mobile Section Ends  -->
+</div>
+<app-footer></app-footer>
+</ion-content>

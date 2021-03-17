@@ -1,0 +1,84 @@
+<!-- <ion-header class="ion-hide-lg-up">
+  <ion-toolbar color="darkred" text-uppercase>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Chats
+    </ion-title>
+  <ion-buttons slot="end" > 
+          <ion-icon name="search"></ion-icon>
+    </ion-buttons>
+	     <ion-buttons slot="end">
+          <ion-icon name="pin"></ion-icon>
+    </ion-buttons>
+<ion-buttons slot="end" > 
+	<ion-icon user-drop name="contact" (click)="onButtonClickdrop()"></ion-icon>
+	
+	 </ion-buttons>
+  </ion-toolbar>
+      <div drop-down-menu *ngIf="buttonClickeddrop">
+	              <a routerLink="/your-account"><ion-icon name="person"></ion-icon> My Account</a>
+	              <a routerLink="/wishlist"><ion-icon name="heart"></ion-icon>  Wishlist</a>
+	              <a routerLink="/cart"><ion-icon name="cart"></ion-icon>  Cart</a>
+	              <a routerLink="/notification"><ion-icon name="notifications"></ion-icon> Notification</a>
+	   </div>
+</ion-header> --> 
+
+<ion-content>
+<div header_height></div>
+ <div users-list>												     
+		
+		<ion-item  lines="none" routerLink="/messages">
+		  <ion-avatar slot="start">
+			<img src="assets/images/testimonials/member1.png">
+		  </ion-avatar>
+		  <ion-label>
+		  <h3>John Smith</h3>
+		  <ion-note>Today at 11:45 am</ion-note>
+		  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+		  </ion-label>
+		</ion-item>
+		<ion-item  lines="none"  routerLink="/messages">
+		  <ion-avatar slot="start"> 
+			<img src="assets/images/testimonials/member2.png"> 
+		  </ion-avatar>
+		  <ion-label>
+		  <h3>David Smith</h3>
+		  <ion-note>Today at 11:45 am</ion-note>
+		  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+		  </ion-label>
+		</ion-item>
+		<ion-item  lines="none"  routerLink="/messages">
+		  <ion-avatar slot="start">
+			<img src="assets/images/testimonials/member3.png">
+		  </ion-avatar>
+		  <ion-label>
+		  <h3>Steve Jones</h3>
+		  <ion-note>Today at 11:45 am</ion-note>
+		  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+		  </ion-label>
+		</ion-item>
+		<ion-item  lines="none"  routerLink="/messages">
+		  <ion-avatar slot="start">
+			<img src="assets/images/testimonials/member4.png">
+		  </ion-avatar>
+		  <ion-label>
+		  <h3>Johnson Charles</h3>
+		  <ion-note>Today at 11:45 am</ion-note>
+		  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+		  </ion-label>
+		</ion-item>
+		<ion-item  lines="none"  routerLink="/messages">
+		  <ion-avatar slot="start">
+			<img src="assets/images/testimonials/member1.png">
+		  </ion-avatar>
+		  <ion-label>
+		  <h3>Andrew Doe</h3>
+		  <ion-note>Today at 11:45 am</ion-note>
+		  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+		  </ion-label>
+		</ion-item>
+
+													 </div>
+</ion-content>

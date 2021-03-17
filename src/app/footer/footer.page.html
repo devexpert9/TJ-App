@@ -1,0 +1,106 @@
+  <!-- footer area start -->  
+      <footer  class="ion-hide-md-down">
+         <!-- footer top area start -->
+         <div class="footer-top pt-50 pb-50">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-12">
+                     <div class="footer-single-widget">
+                        <div class="widget-title ">
+                           <div class="footer-logo mb-5">
+                              <a href="javascript:void(0)">
+                              <img src="assets/img/footer-logo.png" alt="">
+                              </a>
+                           </div>
+                        </div>
+                        <div class="widget-body">
+                           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>Lorem Ipsum has been the industry's standard dummy text </p>
+                           <div class="payment-method">
+                              <h4>payment</h4>
+                              <img src="assets/img/payment/payment.png" alt="">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- single widget end -->
+                  <div class="col-lg-6 col-md-6 col-sm-12">
+                     <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="footer-single-widget">
+                              <div class="widget-title">
+                                 <h4>Quick Links</h4>
+                              </div>
+                              <div class="widget-body">
+                                 <div class="footer-useful-link">
+                                    <ul>
+                                       <li><a href="javascript:void(0)" routerLink="/about-us" >About us</a></li>
+                                       <li><a href="javascript:void(0)" >Privacy Policy</a></li>
+                                       <li><a href="javascript:void(0)">Terms & Conditions</a></li>
+                                       <li><a href="javascript:void(0)">Contact Us</a></li>
+                                       <li><a href="javascript:void(0)">Returns</a></li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="footer-single-widget">
+                              <div class="widget-title">
+                                 <h4>Information</h4>
+                              </div>
+                              <div class="widget-body">
+                                 <div class="footer-useful-link">
+                                    <ul>
+                                       <li><a href="javascript:void(0)" >Shop</a></li>
+                                       <li><a href="javascript:void(0)" >Delivery Information</a></li>
+                                       <li><a href="javascript:void(0)">Cart</a></li>
+                                       <li><a href="javascript:void(0)">Checkout</a></li>
+                                       <li *ngIf="is_logged_in == true" ><a routerLink="/your-account" href="javascript:void(0)">My Account</a></li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="footer-single-widget">
+                              <div class="widget-title">
+                                 <h4>Categories</h4>
+                              </div>
+                              <div class="widget-body">
+                                 <div class="footer-useful-link">
+									<ul>
+										<ng-container *ngFor="let cat of all_categories; let first = first; let last = last " >
+										  <li class="{{(first == true ? 'first' : (last == true ? 'last' : ''))}}"><a title="" (click)="productDetails(cat.cat_id,'')">{{cat.cat_name}}</a></li>
+										</ng-container>
+									</ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- single widget end -->
+               </div>
+            </div>
+         </div>
+         <!-- footer top area end -->
+         <!-- footer bottom area start -->
+         <div class="footer-bottom">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-12">
+                     <div class="footer-bottom-content">
+                        <div class="footer-copyright">
+                           <p>Copyright © 2021. All Right Reserved</p>
+                        </div>
+                        <div class="footer-custom-link">
+                           <a href="javascript:void(0)">Return Policy</a>
+                           <a href="javascript:void(0)" >Privacy Policy</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- footer bottom area end -->
+      </footer>

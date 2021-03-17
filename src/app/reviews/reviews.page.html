@@ -1,0 +1,341 @@
+<ion-header class="ion-hide-md-up">
+  <ion-toolbar color="secondary">
+        <ion-menu-button slot="start">
+		    <img height="15px" src="assets/img/menu.png"/>
+		</ion-menu-button>
+    <ion-title class="ion-text-center">Reviews</ion-title>
+	<ion-buttons slot="end" mar-10 (click)="hide()"><ion-icon name="options-outline"></ion-icon></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<app-header ></app-header>
+	<div class="logo-rating-sec">	
+		   <ion-row>
+			  <ion-col size="12" class="ion-text-right ion-align-self-center">
+                        <div class="header-call-action menu-right">
+                            <ul class="menu-right-ul">
+                                <li><a href="javascript:void(0)"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                            </ul>
+							<ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Flag">
+							    <ion-select-option value="Flag-1">Flag-1</ion-select-option>
+							    <ion-select-option value="Flag-2">Flag-2</ion-select-option>
+							    <ion-select-option value="Flag-3">Flag-3</ion-select-option>
+							    <ion-select-option value="Flag-4">Flag-4</ion-select-option>
+							</ion-select>
+                        </div>
+			  </ion-col>
+		   </ion-row>
+	</div>	
+    <div class="main-wrapper pt-35">
+        <div filerweb-none class="shop-sidebar-inner mb-30 review-page-sidebar"  *ngIf="hideMe">
+            <div class="single-sidebar mb-45">
+                <div class="sidebar-inner-title mb-25">
+                    <h3>Categories</h3>
+                </div>
+                <div class="sidebar-content-box">
+                    <div class="filter-attribute-container">
+						<ion-item lines="none">
+						    <ion-label>Head Phones</ion-label>
+							<ion-checkbox slot="start"></ion-checkbox>
+						</ion-item>
+                    </div>
+                </div>
+            </div>
+            <div class="single-sidebar mb-45">
+                <div class="sidebar-inner-title mb-25">
+                    <h3>Sort</h3>
+                </div>
+                <div class="sidebar-content-box">
+                    <div class="filter-attribute-container short-filter-attribute">
+						<ion-row>
+							<ion-col size="6" class="ion-no-padding">	
+								<ion-list>
+									<ion-item lines="none">
+										<ion-label>A - Z</ion-label>
+										<ion-checkbox slot="start"></ion-checkbox>
+									</ion-item>
+									<ion-item lines="none">
+										<ion-label>Z - A</ion-label>
+										<ion-checkbox slot="start"></ion-checkbox>
+									</ion-item>
+									<ion-item lines="none">
+										<ion-label>New</ion-label>
+										<ion-checkbox slot="start"></ion-checkbox>
+									</ion-item>	
+								</ion-list>	
+							</ion-col>	
+							<ion-col size="6" class="ion-no-padding">	
+								<ion-list>
+									<ion-item lines="none">
+										<ion-label>High</ion-label>
+										<ion-checkbox slot="start"></ion-checkbox>
+									</ion-item>
+									<ion-item lines="none">
+										<ion-label>Low</ion-label>
+										<ion-checkbox slot="start"></ion-checkbox>
+									</ion-item>
+									<ion-item lines="none">
+										<ion-label>Old</ion-label>
+										<ion-checkbox slot="start"></ion-checkbox>
+									</ion-item>	
+								</ion-list>	
+							</ion-col>	
+						</ion-row>	
+                    </div>
+                </div>
+            </div>
+            <div class="single-sidebar mb-45">
+                <div class="sidebar-inner-title mb-25">
+                    <h3>Reviews</h3>
+                </div>
+                <div class="sidebar-content-box">
+                    <div class="filter-attribute-container">
+						<ion-list>									
+							<ion-item lines="none">
+								<ion-label>										        
+								    <span class="fa fa-star starfull"></span>
+							        <span class="fa fa-star-o starempty"></span>
+							        <span class="fa fa-star-o starempty"></span>
+							        <span class="fa fa-star-o starempty"></span>
+							        <span class="fa fa-star-o starempty"></span>	
+							    </ion-label>
+								<ion-checkbox slot="start"></ion-checkbox>
+							</ion-item>									
+							<ion-item lines="none">
+								<ion-label>										        
+								    <span class="fa fa-star starfull"></span>
+							        <span class="fa fa-star starfull"></span>
+							        <span class="fa fa-star-o starempty"></span>
+							        <span class="fa fa-star-o starempty"></span>
+							        <span class="fa fa-star-o starempty"></span>	
+							    </ion-label>
+								<ion-checkbox slot="start"></ion-checkbox>
+							</ion-item>								
+							<ion-item lines="none">
+								<ion-label>										        
+								    <span class="fa fa-star starfull"></span>
+							        <span class="fa fa-star starfull"></span>
+							        <span class="fa fa-star starfull"></span>
+							        <span class="fa fa-star-o starempty"></span>
+							        <span class="fa fa-star-o starempty"></span>	
+							    </ion-label>
+								<ion-checkbox slot="start"></ion-checkbox>
+							</ion-item>									
+							<ion-item lines="none">
+								<ion-label>										        
+								    <span class="fa fa-star starfull"></span>
+							        <span class="fa fa-star starfull"></span>
+							        <span class="fa fa-star starfull"></span>
+							        <span class="fa fa-star starfull"></span>
+							        <span class="fa fa-star-o starempty"></span>	
+							    </ion-label>
+								<ion-checkbox slot="start"></ion-checkbox>
+							</ion-item>									
+							<ion-item lines="none">
+								<ion-label>										        
+								    <span class="fa fa-star starfull"></span>
+							        <span class="fa fa-star starfull"></span>
+							        <span class="fa fa-star starfull"></span>
+							        <span class="fa fa-star starfull"></span>
+							        <span class="fa fa-star starfull"></span>	
+							    </ion-label>
+								<ion-checkbox slot="start"></ion-checkbox>
+							</ion-item>	
+						</ion-list>									                                    
+                    </div>
+                </div>
+            </div>
+        </div>	
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3" filermob-none>
+                    <div class="shop-sidebar-inner mb-30 review-page-sidebar">
+                        <div class="single-sidebar mb-45">
+                            <div class="sidebar-inner-title mb-25">
+                                <h3>Categories</h3>
+                            </div>
+                            <div class="sidebar-content-box">
+                                <div class="filter-attribute-container">
+									<ion-item lines="none">
+									    <ion-label>Head Phones</ion-label>
+										<ion-checkbox slot="start"></ion-checkbox>
+									</ion-item>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-sidebar mb-45">
+                            <div class="sidebar-inner-title mb-25">
+                                <h3>Sort</h3>
+                            </div>
+                            <div class="sidebar-content-box">
+                                <div class="filter-attribute-container short-filter-attribute">
+									<ion-row>
+										<ion-col size="6" class="ion-no-padding">	
+											<ion-list>
+												<ion-item lines="none">
+													<ion-label>A - Z</ion-label>
+													<ion-checkbox slot="start"></ion-checkbox>
+												</ion-item>
+												<ion-item lines="none">
+													<ion-label>Z - A</ion-label>
+													<ion-checkbox slot="start"></ion-checkbox>
+												</ion-item>
+												<ion-item lines="none">
+													<ion-label>New</ion-label>
+													<ion-checkbox slot="start"></ion-checkbox>
+												</ion-item>	
+											</ion-list>	
+										</ion-col>	
+										<ion-col size="6" class="ion-no-padding">	
+											<ion-list>
+												<ion-item lines="none">
+													<ion-label>High</ion-label>
+													<ion-checkbox slot="start"></ion-checkbox>
+												</ion-item>
+												<ion-item lines="none">
+													<ion-label>Low</ion-label>
+													<ion-checkbox slot="start"></ion-checkbox>
+												</ion-item>
+												<ion-item lines="none">
+													<ion-label>Old</ion-label>
+													<ion-checkbox slot="start"></ion-checkbox>
+												</ion-item>	
+											</ion-list>	
+										</ion-col>	
+									</ion-row>	
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-sidebar mb-45">
+                            <div class="sidebar-inner-title mb-25">
+                                <h3>Reviews</h3>
+                            </div>
+                            <div class="sidebar-content-box">
+                                <div class="filter-attribute-container">
+									<ion-list>									
+										<ion-item lines="none">
+											<ion-label>										        
+											    <span class="fa fa-star starfull"></span>
+										        <span class="fa fa-star-o starempty"></span>
+										        <span class="fa fa-star-o starempty"></span>
+										        <span class="fa fa-star-o starempty"></span>
+										        <span class="fa fa-star-o starempty"></span>	
+										    </ion-label>
+											<ion-checkbox slot="start"></ion-checkbox>
+										</ion-item>									
+										<ion-item lines="none">
+											<ion-label>										        
+											    <span class="fa fa-star starfull"></span>
+										        <span class="fa fa-star starfull"></span>
+										        <span class="fa fa-star-o starempty"></span>
+										        <span class="fa fa-star-o starempty"></span>
+										        <span class="fa fa-star-o starempty"></span>	
+										    </ion-label>
+											<ion-checkbox slot="start"></ion-checkbox>
+										</ion-item>								
+										<ion-item lines="none">
+											<ion-label>										        
+											    <span class="fa fa-star starfull"></span>
+										        <span class="fa fa-star starfull"></span>
+										        <span class="fa fa-star starfull"></span>
+										        <span class="fa fa-star-o starempty"></span>
+										        <span class="fa fa-star-o starempty"></span>	
+										    </ion-label>
+											<ion-checkbox slot="start"></ion-checkbox>
+										</ion-item>									
+										<ion-item lines="none">
+											<ion-label>										        
+											    <span class="fa fa-star starfull"></span>
+										        <span class="fa fa-star starfull"></span>
+										        <span class="fa fa-star starfull"></span>
+										        <span class="fa fa-star starfull"></span>
+										        <span class="fa fa-star-o starempty"></span>	
+										    </ion-label>
+											<ion-checkbox slot="start"></ion-checkbox>
+										</ion-item>									
+										<ion-item lines="none">
+											<ion-label>										        
+											    <span class="fa fa-star starfull"></span>
+										        <span class="fa fa-star starfull"></span>
+										        <span class="fa fa-star starfull"></span>
+										        <span class="fa fa-star starfull"></span>
+										        <span class="fa fa-star starfull"></span>	
+										    </ion-label>
+											<ion-checkbox slot="start"></ion-checkbox>
+										</ion-item>	
+									</ion-list>									                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 order-lg-last">
+                    <div class="product-shop-main-wrapper mb-50">                       
+                        <div class="shop-product-wrap list row">
+                            <div class="col-lg-3 col-md-4 col-sm-6">                               
+                                <div class="sinrato-list-item mb-30">
+                                    <div class="sinrato-thumb">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/img/product/product-12.jpg" class="pri-img" alt="">
+                                            <img src="assets/img/product/product-9.jpg" class="sec-img" alt="">
+                                        </a>                                      
+                                    </div>
+                                    <div class="sinrato-list-item-content">
+                                        <div class="product_review">
+									        <div class="headreview">
+											    <h4>Wireless Headphones</h4>
+                                                <h5>@Michel Von</h5>
+											</div>                                          
+											<div class="review_date">17-11-2020</div>
+                                        </div>                                      
+                                        <div class="product-ratings mb-2">
+                                            <span><i class="fa fa-star"></i></span>
+                                            <span><i class="fa fa-star"></i></span>
+                                            <span><i class="fa fa-star"></i></span>
+                                            <span><i class="fa fa-star-half-o"></i></span>
+                                            <span><i class="fa fa-star-o"></i></span>
+                                        </div>
+                                        <div class="sinrato-product-des">
+                                            <p>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"</p>
+                                        </div>
+                                    </div>                                    
+                                </div> 								
+								<div class="sinrato-list-item mb-30">
+                                    <div class="sinrato-thumb">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/img/product/product-1.jpg" class="pri-img" alt="">
+                                            <img src="assets/img/product/product-2.jpg" class="sec-img" alt="">
+                                        </a>                                      
+                                    </div>
+                                    <div class="sinrato-list-item-content">
+                                        <div class="product_review">
+									        <div class="headreview">
+											    <h4>Wireless Headphones</h4>
+                                                <h5>@Marty McFly</h5>
+											</div>
+											<div class="review_date">15-11-2020</div>
+                                        </div>                                      
+                                        <div class="product-ratings mb-2">
+                                            <span><i class="fa fa-star"></i></span>
+                                            <span><i class="fa fa-star"></i></span>
+                                            <span><i class="fa fa-star"></i></span>
+                                            <span><i class="fa fa-star"></i></span>
+                                            <span><i class="fa fa-star-half-o"></i></span>
+                                        </div>
+                                        <div class="sinrato-product-des">
+                                            <p>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"</p>
+                                        </div>
+                                    </div>                                    
+                                </div> 								
+                            </div>
+                        </div>                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<app-footer></app-footer>
+</ion-content>

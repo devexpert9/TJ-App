@@ -1,0 +1,469 @@
+ ion-content
+{  
+	--background:var(--ion-color-grey);
+	@media only screen and (min-width:991px)
+	{
+	   --padding-top:var(--ion-padding-0);
+	}
+		@media only screen and (max-width:991px)
+	{
+	   --padding-top:var(--ion-padding-0);
+	   --padding-bottom:var(--ion-padding-0);
+	   --padding-start:var(--ion-padding-0);
+	   --padding-end:var(--ion-padding-0);
+	}
+ /*  Wishlist Page   Start*/
+ [my-wishlist-page] {
+    background-color:var(--ion-color-white);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+    padding: var(--ion-padding-0);
+    overflow: hidden;
+	table
+	{    margin-bottom: var(--ion-margin-0);
+		tr
+		{	    font-family: var(--ion-font-family-2);		
+			
+			td
+			{
+				vertical-align:middle;   
+				padding: var(--ion-padding-15);
+				&[close-btn]
+				{
+					   a
+                       {					   
+                         color: var(--ion-color-darkred); 
+						 text-decoration:none;
+					   }
+				}
+				[product-name]
+				{     
+						font-size: var(--ion-font-size-16);
+					    font-family: var(--ion-font-family-2);		
+						padding-bottom: var(--ion-padding-6);
+				    a
+					{
+					    color: #434343;
+						 text-decoration:none;
+				   }
+				
+				} 
+				 [price]
+				 {
+					     color:  var(--ion-color-darkred);
+						 font-size: var(--ion-font-size-16);
+						 padding-top: var(--ion-padding-4);
+						 font-weight:700;
+						 span
+						 {
+							      	font-size: var(--ion-font-size-15);
+									color: var(--ion-color-ltgrey);
+									text-decoration: line-through;
+									padding-left: var(--ion-padding-10);
+						 }
+				 }
+				   p
+				   {
+					     font-size: var(--ion-font-size-14);
+                         color: var(  --ion-color-darkblack); 
+                         font-family: var(--ion-font-family-2);	
+					&[vendor-name]
+                    {     margin-top: 10px;
+					   a
+                       {					   
+                         color: var(--ion-color-darkred);
+						  text-decoration:none;
+					   }
+					}					
+				   }
+				   [rating]
+				   {
+					   ion-icon
+					   {   color:#dcdcdc;
+						   &[filled]
+						   {
+							   color:var(--ion-color-yellow);
+						   }
+					   }
+					   .review
+					   {
+					   }
+				   }
+				ion-button
+				{
+					--box-shadow:none;
+					   font-family: var(--ion-font-family-2);		
+					   border-radius:var(--ion-value-0);
+				}
+			}
+		}
+		
+	}
+}
+
+.sharedDiv{
+    position: fixed;
+    top: 40%;
+    left: 0;
+    right: 0;
+    width: 50%;
+    background: #ffffff;
+    z-index: 88888;
+    margin: auto;
+    border: 1px solid #222f3e;
+    height: 30%;
+    a {
+    	float: right;
+	    padding: 6px 10px;
+	    background: #a02718;
+	    vertical-align: middle;
+	    margin: 7px;
+	    color: #fff;
+	}
+	span {
+	    border: 1px solid #ededed;
+	    padding: 17px;
+	    margin: 6px 8px;
+	    position: absolute;
+	    width: 90%;
+	    background: #f0f0f0;
+	}
+	h4{
+		margin: 8px;
+	}
+}
+
+[panel]
+			  {
+					[panel-heading]{
+					    &[checkout-head]
+						 {
+						background:#f5f5f5;
+						position:relative;
+						 
+						 h4
+						 {
+							  margin-top:var(--ion-margin-0);
+							 a
+							 {          
+   							           font-family: var(--ion-font-family-2);
+										color: var(--ion-color-darkblack3);
+										text-transform: uppercase;
+										display: block;
+										margin:  var(--ion-margin-0);
+										font-size: var(--ion-font-size-13);
+										font-weight: bold;
+										text-decoration:none;		
+                                        @media only screen and (max-width:991px)
+										{  
+											padding-right:  var(--ion-padding-10) ;
+											    background: var(--ion-color-white);	 
+										}										
+										&.active
+										{ 
+											  span
+												 {
+													 background: var(--ion-color-darkred);	 
+												 }
+										}
+										@media only screen and (max-width:991px)
+										{  
+											    display: flex;
+												align-items: center;
+												font-size: var(--ion-font-size-12);
+										}
+								 span
+								 {
+										color: var(--ion-color-white);
+										display: inline-block;
+										margin-right: var(--ion-margin-10);
+										padding:  var(--ion-padding-15) var(--ion-padding-20);
+										background:#aaaaaa;	 
+									   @media only screen and (max-width:991px)
+										{  
+											padding:  var(--ion-padding-15) var(--ion-padding-15);
+										}
+								 }
+							 }
+						 }
+					}
+			}
+			 [panel-body]
+			 {   display:none;
+			     padding: var(--ion-padding-10)  var(--ion-padding-0)  var(--ion-padding-22);  
+				 font-family: var(--ion-font-family-2);
+			  &.active
+			   {  display:block;
+						  
+			   }
+			 }
+	  }
+
+[ritActions]{
+	right: 3px;
+    top: -4px;
+    position:absolute;
+
+    ion-button{
+    	width:25px;
+        margin-right: 8px;
+    }
+}
+[panel-body]{
+	padding:0 !important;
+}
+[productsdiv]{
+	padding:0;
+	.item-native{
+		background: #f1f1f1;
+    	border: 1px solid #ddd;
+	}
+	ion-item{
+		box-shadow:none !important;
+		ion-thumbnail{
+			margin:0 15px 0 0 !important;
+		}
+	}
+}
+.stars-line{
+	i.fa.fa-star{
+		margin-right:3px !important;
+	}
+}
+[mainSecWishlist]{
+    padding: 0 20px;
+    [wishlistlist]{
+        display: flex;
+	    align-items: center;
+	    border-bottom: 1px solid #eee;
+	    padding: 10px 0;
+	    margin-bottom: 20px;
+    }
+	[catHdng]{
+		font-size: 18px;
+	    display: flex;
+	    font-weight: 600;
+	    color: #23303e;
+	    justify-content: space-between;
+	    border: 1px solid #ddd;
+	    padding: 0px 13px;
+	    align-items: center;
+	    background: #f1f1f1;
+	    border-radius: 2px;
+	    [bullets]{
+    	    background: #a02718;
+		    padding: 12px 19px;
+		    left: 0px;
+		    position: relative;
+		    margin: 0;
+		    margin-left: -14px !important;
+		    color: #fff;
+	    }
+	    [sharedTitle]{
+    	    color: #ffffff;
+		    font-size: 13px;
+		    /* float: right; */
+		    right: 22%;
+		    position: absolute;
+		    background: #222f3ebf;
+		    padding: 4px 16px;
+		    border-radius: 3px;
+	    }
+	}
+	[proimg]{
+		img{
+			max-width:70px;
+		}
+	}
+}
+
+[subHdng]{
+	vertical-align:middle;
+
+		[heading-title] {
+			
+				font-weight: bold;
+			    font-size: var(--ion-font-size-22);
+				color: var(  --ion-color-darkblack);
+				border-bottom: 1px #e5e5e5 solid;
+						padding-bottom: 14px;
+				[srch-filter]
+				{ float:right;
+					[search-input]
+					{
+					    font-size: var(--ion-font-size-14);
+						font-weight: 500;
+					    padding: var(--ion-padding-5)  var(--ion-padding-15);
+						border: 1px solid #E0E0E0;
+						float: left;
+							height:32px;
+					}
+					[search-button]
+					{
+						    float: left;
+							width: var(--ion-wh-32);
+							height:var(--ion-wh-32);
+							background: var(--ion-color-darkred);
+							text-align: center;
+							line-height: var(--ion-value-32);
+							font-size: var(--ion-font-size-16);
+							color:var(--ion-color-white);
+					}
+		        }	  
+		}
+	}
+[addNewWishlist]{
+	width: 30px;
+    margin: -14px 0 0;
+    height: 30px;
+}
+[ritActions2]{
+	ion-checkbox{
+		transform: translate(-10px, 9px);
+	}
+}
+
+
+ /*  Wishlist Page   Ends*/
+
+
+
+
+
+
+
+
+
+/*
+	-------------------------------------------
+	 	Mobile Wishlist Start
+	--------------------------------
+*/
+
+h3.mainWishHdng{
+	margin: 0 0 10px;
+	width: 100%;
+    float: left;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    [addnewwishlistApp]{
+		width: 30px;
+	    margin:0px 0 0 4px;
+	    height: 30px;
+	    float:right;
+	}
+}
+
+[ritActions]{
+	ion-checkbox{
+		transform: translate(-1px, 11px);
+	    width: 30px;
+	    height: 30px;
+	    --border-radius: 8px;
+	}
+	ion-button{
+	    margin-right: 8px;
+	    height: 30px;
+	    margin-top: -4px;
+	}
+}
+
+
+
+ [wishlist-mob]
+{ 
+		 [wishlist-items]
+				{
+			ion-item{
+					--padding-start: var( --ion-padding-10);
+					--padding-end: var( --ion-padding-0);
+					--padding-top: var( --ion-padding-10);
+					--padding-bottom: var( --ion-padding-10);
+					box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+						margin-bottom:  var( --ion-margin-10);
+						@media only screen and (max-width:991px)
+						{	border-bottom:1px solid var(--ion-color-grey);
+							    display: flex;
+								margin-bottom:  var( --ion-margin-0);
+								}
+				ion-thumbnail
+				{    @media only screen and (max-width:991px)
+						{
+							    height: 100%;
+						}
+				 /*
+						width: var( --ion-value-90);
+					   height: var( --ion-value-90);
+					  margin-top:var(--ion-margin-0);
+					   margin-bottom:var(--ion-margin-0);*/
+				}
+				label
+				{   width: 100%;
+					h3
+					{
+						margin-top:var(--ion-margin-0);
+						font-family:var(--ion-font-family-2);
+						font-size:var(--ion-font-size-14);
+						font-weight:700;
+						 margin-bottom: var(--ion-margin-3);
+						 @media only screen and (max-width:576px)
+						 {
+							font-size:var(--ion-font-size-12); 
+						 }
+					}
+					[price-main]
+					{
+						 font-family:var(--ion-font-family-2);
+						 font-size:var(--ion-font-size-14);
+						 font-weight:600;						
+						 margin-bottom: var(--ion-margin-3);
+						  @media only screen and (max-width:576px)
+						 {
+							font-size:var(--ion-font-size-12); 
+						 }
+						 [price]
+						 {  						     
+							color:var(--ion-color-darkred);
+						 }
+						  [price-discount]
+						 {  
+						     text-decoration: line-through;
+							 color:var(  --ion-color-ltgrey);
+							 margin-left:var(--ion-value-5);
+						 }
+					}
+					[rating]
+					{
+						ion-icon
+						{  
+						    color:#d3d3d3;
+							&[filled]
+							{
+								color:var(--ion-color-yellow);
+							}
+							 @media only screen and (max-width:576px)
+						 {
+							font-size:var(--ion-font-size-12); 
+						 }
+						}
+					}
+			
+				}
+						ion-button
+					{
+								--padding-start: var( --ion-padding-4);
+								--padding-start: var( --ion-padding-4);
+								--padding-end: var( --ion-padding-4);
+								height: var( --ion-value-22);
+								margin:var(--ion-value-0)  var(--ion-value-0)  var(--ion-value-0) var(--ion-value-5);
+								font-size:  var( --ion-font-size-12);
+								--border-radius:var( --ion-value-0);
+								--border-width:1px;
+					}
+			   }
+		}
+}		
+ /* Mobile Wishlist Ends*/
+}	
+

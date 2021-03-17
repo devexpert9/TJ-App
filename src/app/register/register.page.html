@@ -1,0 +1,75 @@
+<ion-content>
+<div class="user-login-main">	
+		<div class="container-fluid px-0">
+			<div class="row no-gutters min-vh-100">
+				<div class="col-md-6 col-lg-5 col-xl-4 d-flex flex-column bg-light  user-login-left shadow-lg order-2 order-md-1">
+					<div class="user-login-inner">
+						<div class="user-login-logo mb-4"> 
+							<a (click)='goToHome()'>
+							    <img src="assets/img/user-logo.png" class="logo" alt="logo">
+							</a> 
+						</div>
+						<div class="form-border">
+							<div form-group>	
+								<ion-item lines="none">
+									<ion-input [(ngModel)]="name" type="text" placeholder="Full Name" ></ion-input>
+								</ion-item>								
+							</div>
+							<div form-group>	
+								<ion-item lines="none">
+									<ion-input type="number" [(ngModel)]="phone"  placeholder="Phone Number"></ion-input>
+								</ion-item>								
+							</div>	
+							<div form-group>	
+								<ion-item lines="none">
+									<ion-input [(ngModel)]="email" type="email" placeholder="Email Address"></ion-input>
+								</ion-item>								
+							</div>	
+							<div form-group>	
+								<ion-item lines="none">
+									<ion-input [(ngModel)]="password" type="password" placeholder="Password"></ion-input>
+								</ion-item>								
+							</div>	
+							<div form-group>	
+								<ion-item lines="none">
+									<ion-input [(ngModel)]="confirm_password" type="password" placeholder="Confirm Password"></ion-input>
+								</ion-item>								
+							</div>
+							<div form-group>	
+								<ion-item lines="none">
+									<ion-select placeholder="Register As" [(ngModel)]="type"  style='padding-left:0px'>
+										<ion-select-option value="user">User</ion-select-option>
+										<ion-select-option value="seller">Seller</ion-select-option>
+									</ion-select>
+								</ion-item>								
+							</div>	
+                            <div class="checkbox">
+                                <div class="form-check checkbox-theme">
+									<ion-item lines="none">
+										<ion-label>By creating an account, you agree to <a class="btn-link" href="javascript:void(0)">Terms & Conditions </a> and <a class="btn-link" href="javascript:void(0)"> Privacy Policy </a>.</ion-label>
+										
+									</ion-item>
+                                </div>
+                            </div>								
+							<a class="btn btn-primary btn-block text-uppercase my-4" href="javascript:void(0)" (click)="register(name,email,phone,password,confirm_password,type)" >
+								Register
+							</a>
+							<p class="register-here-btn">Already have an account?<a routerLink="/login" href="javascript:void(0)"> Sign In!</a></p>
+						</div>			  			  
+					</div>
+				</div>				
+				<div mobile-none class="col-md-6 col-lg-7 col-xl-8 order-1 order-md-2">
+					<div class="user-hero-wrap d-flex align-items-center h-100">
+						<div class="user-hero-bg user-hero-bg-scroll"></div>
+						<!--div class="user-login-hero-content mx-auto w-100 h-100 d-flex flex-column">
+							<div class="row no-gutters my-auto py-5">
+								<div class="col-10 col-lg-9 mx-auto text-center"> 								 
+								</div>
+							</div>
+					    </div-->
+					</div>					
+				</div>
+			</div>
+		</div>	
+	</div>
+</ion-content>

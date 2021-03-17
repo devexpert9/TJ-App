@@ -1,0 +1,82 @@
+<ion-header no-padding no-margin>
+  <ion-toolbar no-padding>
+    <ion-title>wishlists</ion-title>
+    <div class="headeroptions">
+    	<select class="CustomSelect" ([ngModel])="wish" (onChange)="select(wish)">
+    		<option value="create">Create New</option>
+	      	<option value="{{wish?.wish_id}}" *ngFor="let wish of wishlist;">{{wish.wish_title}}</option>
+	      <!-- <option value="m">Male</option> -->
+	    </select>
+	    <!-- <ion-button (click)="presentAlertPrompt()">
+	    	<ion-icon name="add"></ion-icon>
+	    </ion-button> -->
+	    <ion-button slot="end" (click)="closeModal()">
+		   <ion-icon name="close"></ion-icon>
+		</ion-button>
+	</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<!-- <ion-row class="noWishlised" *ngIf="wishlist.length == 0">
+				No wishled created yet!
+		</ion-row> -->
+		<ion-grid class="PopProListing">
+			<ion-row>
+				<ion-col size="2">
+					<span>
+						<img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1555966455-oribe-1555966445.jpg?crop=1xw:1xh;center,top&resize=480:*" alt="">
+					</span>
+				</ion-col>
+				<ion-col size="9">
+					<div product-name>
+					   <a >
+					      <!-- {{product.product_name}} --> 
+					      <!-- Product Name -->
+					   </a>
+					</div>
+				</ion-col>
+				<ion-col size="1">
+					<a removePro>
+					   <i class="fa fa-times"></i>
+					</a>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col size="2">
+					<span>
+						<img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1555966455-oribe-1555966445.jpg?crop=1xw:1xh;center,top&resize=480:*" alt="">
+					</span>
+				</ion-col>
+				<ion-col size="9">
+					<div product-name>
+					   <a>
+					      <!-- {{product.product_name}} -->
+					       <!-- Product Name -->
+					   </a>
+					</div>
+				</ion-col>
+				<ion-col size="1">
+					<!-- <a removePro (click)="removeProduct(item.wish_id, product.product_id)"> -->
+					  <!--  <i class="fa fa-times"></i>
+					</a> -->
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+		<!-- <ion-row class="noWishlised" *ngIf="wishlist.length == 0">
+				No wishled created yet!
+		</ion-row>
+
+		<ion-radio-group>
+		    <ion-item *ngFor="let item of wishlist;">
+		      <ion-label>{{item?.wish_title}}</ion-label>
+		      <ion-radio  color="darkred" slot="start"  value="{{item?.wish_id}}" (click)="select(item)" checked></ion-radio>
+		    </ion-item>
+		  </ion-radio-group> -->
+	</ion-list>
+
+	<ion-button btnSubmit color="darkred" (click)="addToWishlist()">Save</ion-button>
+
+
+</ion-content>

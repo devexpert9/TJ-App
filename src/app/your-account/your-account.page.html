@@ -1,0 +1,1091 @@
+
+<ion-content  #content>
+<div class="ion-padding">
+<div header_height></div>
+<div class="container">
+
+<div breadcrumb  class="ion-hide-md-down">		  
+<div breadcrumb-inner>
+<ul list-inline list-unstyled>
+<li><a routerLink="/home">Home</a></li>
+<li class="active">  Your Account</li>
+</ul>
+</div>
+</div> 
+<!-- Breadcrumb Ends -->
+
+<ion-row  your-account>
+<!--  Title Start -->
+<!--ion-col size-lg="12" size-md="12" size-sm="12" size="12" account-title  class="ion-hide-md-down" no-padding>
+<h5 head-account>YOUR ACCOUNT</h5>
+</ion-col-->
+<!--  Title End--> 
+<!--   ACCOUNT Start -->
+<ion-col size-lg="12" size-md="12" size-sm="12" size="12" no-padding>		 
+<div product-tabs> 
+<ion-segment  [(ngModel)]="tabs" >
+<ion-segment-button value="profile">
+<ion-label class="ion-hide-md-down">Profile</ion-label>
+<ion-icon name="person"  class="ion-hide-lg-up"></ion-icon>
+</ion-segment-button>
+<ion-segment-button value="Orders" class="ion-hide-md-down">
+<ion-label  class="ion-hide-md-down">Your Orders</ion-label>
+<ion-icon name="cart" class="ion-hide-lg-up"></ion-icon>
+</ion-segment-button>
+
+<ion-segment-button value="Registry" class="ion-hide-md-down">
+<ion-label  class="ion-hide-md-down">Registries</ion-label>
+<ion-icon name="cart" class="ion-hide-lg-up"></ion-icon>
+</ion-segment-button>
+
+<ion-segment-button value="payment">
+<ion-label  class="ion-hide-md-down">Payment Options</ion-label>
+<ion-icon name="cash" class="ion-hide-lg-up"></ion-icon>
+</ion-segment-button>
+<ion-segment-button value="addresses">
+<ion-label  class="ion-hide-md-down">Your Addresses</ion-label>
+<ion-icon name="pin" class="ion-hide-lg-up"></ion-icon>
+</ion-segment-button>										   
+<ion-segment-button value="login">
+<ion-label  class="ion-hide-md-down">Login Details</ion-label>
+<ion-icon name="information-circle-outline" class="ion-hide-lg-up"></ion-icon>
+</ion-segment-button>
+<ion-segment-button value="messages" class="ion-hide-md-down">
+<ion-label  class="ion-hide-md-down">Messages</ion-label>
+<ion-icon name="chatbubbles" class="ion-hide-lg-up"></ion-icon>
+</ion-segment-button>
+<a link-notification float-right class="ion-hide-md-down">
+<!-- Notifications -->
+</a>											   
+</ion-segment>
+<div  tab-content [ngSwitch]="tabs">
+<ion-list *ngSwitchCase="'profile'">
+<div product-tab class="table-responsive">
+<h5 head-account class="ion-hide-md-down">YOUR PROFILE 
+<span  (click)="editProfile()" class="btn btn-success btn-sm add-payment-btn" float-right>
+Edit 
+</span>      
+</h5>
+<div class="media">
+<ion-row>
+<ion-col size-lg="2" size-sm="12" size-md="12" size="12">
+<div float-left class="media-link">
+<div class="media-object img-bg">
+<img *ngIf="errors.indexOf(profile?.profile_picture) >= 0" src="assets/images/default.png">
+<img *ngIf="errors.indexOf(profile?.profile_picture) == -1" src="{{IMAGES_URL}}/userprofile/{{profile?.profile_picture}}">
+<div img-edit class="">
+<label for="user-img"><ion-icon name="camera"></ion-icon></label>
+<!-- ng2FileSelect [uploader]="uploader" -->
+<input (change)="uploadImg($event)" id="user-img" type="file" style="display:none"/>
+</div>
+</div>	
+<p name-user text-center class="ion-hide-lg-up">{{profile?.name}} {{profile?.last_name}}</p>																			
+</div>
+</ion-col>
+<ion-col size-lg="10" size-sm="12" size-md="12" size="12">
+<div class="media-body">
+<ion-list class="ion-hide-lg-up" no-margin>
+<ion-item lines="none" class="ion-hide-md-down">
+<ion-label><b>First Name</b> <span float-right>{{profile?.name}}</span></ion-label>
+</ion-item>
+<ion-item lines="none"  class="ion-hide-md-down">
+<ion-label><b>Last Name</b> <span float-right>{{profile?.last_name}} </span></ion-label>
+</ion-item>
+<ion-item lines="none">
+<ion-label><b>Email</b> <span float-right>{{profile?.email}} </span></ion-label>
+</ion-item> 
+<ion-item lines="none">
+<ion-label><b>Contact No</b> <span float-right>{{profile?.phone}} </span></ion-label>
+</ion-item>
+<ion-item lines="none">
+<ion-label><b>Address</b> <span float-right>{{profile?.address}}</span></ion-label>
+</ion-item>
+<ion-item lines="none">
+<ion-label><b>City</b> <span float-right>{{profile?.city}}</span></ion-label>
+</ion-item>
+<ion-item lines="none">
+<ion-label><b>State</b> <span float-right>{{profile?.state}}</span></ion-label>
+</ion-item>
+<ion-item lines="none">
+<ion-label><b>Country</b> <span float-right>{{profile?.country_name}}</span></ion-label>
+</ion-item>
+<ion-item lines="none">																     
+<ion-button size="small" (click)="editProfile()" color="darkred"><ion-icon name="create"></ion-icon>Edit</ion-button>
+</ion-item>	 
+</ion-list>
+<table class="table table-condensed ion-hide-md-down">
+<tbody><tr>
+<td><b>First Name</b></td>
+<td align="left">{{profile?.name}}</td>
+<td><b>Last Name</b></td>
+<td>{{profile?.last_name}}</td>
+</tr>
+<tr>
+<td><b>Email</b></td>
+<td>{{profile?.email}}</td>
+<td><b>Contact No</b></td>
+<td>{{profile?.phone}}</td>
+</tr>
+<tr>
+<td><b>Address</b></td>
+<td>{{profile?.address}}</td>
+<td><b>City</b></td>
+<td>{{profile?.city}}</td>
+</tr>
+<tr>
+<td><b>State</b></td>
+<td>{{profile?.state}}</td>
+<td><b>Country</b></td>
+
+<td>{{profile?.country_name}}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</ion-col>
+<ion-col  size-md="6" size="12" class="ion-hide-md-down">
+<h3 block-title><span>Purchase Summary</span></h3>
+<div class="widget widget-categories">
+<ul profile_ul>
+<li><a>Total Purchase: <b *ngIf="purchase_All != null">${{purchase_All.toFixed(2)}}</b></a></li>
+<li><a>Last 7 Days: <b *ngIf="purchase_days7 != null">${{purchase_days7.toFixed(2)}}</b></a></li>
+<li><a>Last 30 Days: <b *ngIf="purchase_days30 != null">${{purchase_days30.toFixed(2)}}</b></a></li>
+</ul>
+</div>
+</ion-col>
+<ion-col  size-md="6" size="12" class="ion-hide-md-down">
+<h3 block-title><span>Others Info</span></h3>
+<div class="widget widget-categories">
+<ul profile_ul>
+<li><a>Wished Products: <b>{{my_wish_products?.length}}</b></a></li>
+<li><a>User Since: <b>{{user_created_at | date : 'd MMM, y'}}</b></a></li>
+<li><a>Last Login: <b>{{user_last_login | date : 'd MMM, y'}}</b></a></li>
+</ul>
+</div>
+</ion-col>
+</ion-row>		
+</div>                              
+</div>
+<!-- Edit Profile Start -->
+<div panel panel-default   *ngIf="buttonClicked" >
+<div panel-heading  account-head>
+<h4>
+<a href="javascript:void(0)">
+<span><i class="fa fa-pencil" aria-hidden="true"></i></span>  Edit Profile Details
+</a>
+</h4>					 
+</div>
+<div panel-body>
+<!-- <form class="register-form"> -->
+<ion-row>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">First Name *</ion-label>
+<ion-input [(ngModel)]="profile_name" type="text" placeholder="First Name"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Last Name *</ion-label>
+<ion-input type="text" placeholder="Last Name" [(ngModel)]="profile_last_name"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Email Address *</ion-label>
+<ion-input [(ngModel)]="profile_email" type="email" placeholder="Email Address"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Contact No *</ion-label>
+<ion-input [(ngModel)]="profile_phone" type="text" placeholder="Phone Number"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Address *</ion-label>
+<ion-input [(ngModel)]="profile_address" type="text" placeholder="Address"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">City *</ion-label>
+<ion-input [(ngModel)]="profile_city" type="text" placeholder="City"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">State *</ion-label>
+<ion-input type="text" [(ngModel)]="profile_state" placeholder="State"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<ion-item  form-group no-padding lines="none">
+<ion-label position="stacked">Country *</ion-label>
+<ion-select placeholder="Select Country" [(ngModel)]="profile_country">
+	<ion-select-option *ngFor="let country of countries" value="{{country.id}}">{{country.name}}</ion-select-option>
+</ion-select>
+</ion-item>																	
+</ion-col>
+
+<ion-col size-md="6" size-sm="12" size="12">
+	<ion-col size-md="3" size-sm="12" size="12">
+		<ion-item  form-group no-padding lines="none">
+			<ion-button color="darkred" (click)="updateProfile()" class='updateBtn'>
+				Update
+			</ion-button>
+
+			<ion-button color="greyc" (click)="cancelProfile()" class='updateBtn'cancelProfile>
+				Cancel
+			</ion-button>
+		</ion-item>																	
+	</ion-col>
+	<ion-col size-md="3" size-sm="12" size="12">
+		<ion-item  form-group no-padding lines="none">
+			
+		</ion-item>																	
+	</ion-col>
+</ion-col>
+
+</ion-row>
+<!-- </form>		   -->
+</div>
+</div>
+<!-- Edit Profile Ends -->
+</ion-list>
+<ion-list *ngSwitchCase="'Orders'">
+<div product-tab class="table-responsive" orders>	
+
+<div mob-orders class="ion-hide-lg-up">										  
+	<ion-item lines="none" *ngFor="let order of orders; let om_index = index ">
+	<ion-thumbnail slot="start">
+		<img src="assets/images/velvetlipstick.png">
+	</ion-thumbnail>
+	<ion-label>
+		<h3>{{order.product_name}}</h3>
+		<ion-badge color="danger">Due</ion-badge>
+		<!-- <ion-badge color="success">Paid</ion-badge> -->
+		<p>
+			<ion-icon name="alert" color="darkred"></ion-icon> Pending
+			<!-- <ion-icon name="checkmark-circle" color="success"></ion-icon> Delivered -->
+		</p>
+	</ion-label>
+	<div price-time>
+		<h3 text-right>$33.15</h3>
+		<ion-note  text-right>
+			{{order.order_date | date : 'd MMM y'}}
+		</ion-note>
+		<a (click)="invoice(order)" text-right>Invoice</a>
+	</div>											  
+	</ion-item>
+	<ion-item lines="none" *ngIf="orders == ''">
+	No orders yet.
+	</ion-item>
+</div>	
+
+<h5 head-account class="ion-hide-md-down">ORDERS</h5>
+<table class="ion-hide-md-down table table-bordered">
+	<thead>
+		<tr *ngIf="orders != ''">
+			<th>Order Id</th>
+			<th>Products</th>
+			<th>Order Placed</th>
+			<th>Amount</th>
+			<th>Payment Status</th>
+			<th>Delivery Status</th>
+			<th>Invoice</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let order of orders; let o_index = index ">
+			<td>{{order.rand_order_id}}</td>
+			<td payment_type>
+				<div *ngFor="let product of order.order_products ">
+					<img *ngIf="errors.indexOf(product.product_image) >= 0" src="assets/images/products/no_image.svg">
+					<img *ngIf="errors.indexOf(product.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{product.product_image}}" alt="{{product.product_name}}">	
+					{{product.product_name}} ({{product.product_quantity}})
+				</div>
+			</td>
+			<td>{{order.order_date | date : 'd MMM y'}}</td>
+			<td>${{convertIntoNumber(order.total_amount)}}</td>
+			<td order-id>
+			<span *ngIf="order.payment_method == 'cash'" class="label label-danger">Cash on delivery</span>
+			<span *ngIf="order.payment_method != 'cash'" class="label label-success">Paid</span>
+			</td>
+			<td order-id>
+			<span *ngIf="order.order_status == 0" class="label label-danger">Pending</span>
+			<span *ngIf="order.order_status == 2" class="label label-warning">Cancelled</span>
+			<span *ngIf="order.order_status == 1" class="label label-success">Delivered</span>
+			</td>
+			<td add>
+			<a (click)="invoice(order)" class="btn btn-theme btn-theme-xs">Invoice</a>
+			</td>
+		</tr>
+		<tr *ngIf="orders == ''">
+		<td colspan="8">No orders yet.</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+
+</ion-list>	
+
+
+<ion-list *ngSwitchCase="'Registry'">
+<div product-tab class="table-responsive" orders>	
+
+<div mob-orders class="ion-hide-lg-up">										  
+	<ion-item lines="none" *ngFor="let order of registries; let om_index = index ">
+	<ion-thumbnail slot="start">
+		<img src="assets/images/velvetlipstick.png">
+	</ion-thumbnail>
+	<ion-label>
+		<h3>{{order.product_name}}</h3>
+		<ion-badge color="danger">Due</ion-badge>
+		<!-- <ion-badge color="success">Paid</ion-badge> -->
+		<p>
+			<ion-icon name="alert" color="darkred"></ion-icon> Pending
+			<!-- <ion-icon name="checkmark-circle" color="success"></ion-icon> Delivered -->
+		</p>
+	</ion-label>
+	<div price-time>
+		<h3 text-right>$33.15</h3>
+		<ion-note  text-right>
+			{{order.order_date | date : 'd MMM y'}}
+		</ion-note>
+		<a (click)="invoice(order)" text-right>Invoice</a>
+	</div>											  
+	</ion-item>
+	<ion-item lines="none" *ngIf="registries == ''">
+	No registry yet.
+	</ion-item>
+</div>	
+
+<h5 head-account class="ion-hide-md-down">Registries</h5>
+<table class="ion-hide-md-down table table-bordered">
+	<thead>
+		<tr *ngIf="orders != ''">
+			<th>Order Id</th>
+			<th>Products</th>
+			<th>Order Placed</th>
+			<th>Order Placed By</th>
+			<th>Amount</th>
+			<th>Payment Status</th>
+			<th>Delivery Status</th>
+			<th>Invoice</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let order of registries; let o_index = index ">
+			<td>{{order.rand_order_id}}</td>
+			<td payment_type>
+				<div *ngFor="let product of order.order_products ">
+					<img *ngIf="errors.indexOf(product.product_image) >= 0" src="assets/images/products/no_image.svg">
+					<img *ngIf="errors.indexOf(product.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{product.product_image}}" alt="{{product.product_name}}">	
+					{{product.product_name}} ({{product.product_quantity}})
+				</div>
+			</td>
+			<td>{{order.order_date | date : 'd MMM y'}}</td>
+			<td>{{order.user_name}}</td>
+			<td>${{convertIntoNumber(order.total_amount)}}</td>
+			<td order-id>
+			<span *ngIf="order.payment_method == 'cash'" class="label label-danger">Cash on delivery</span>
+			<span *ngIf="order.payment_method != 'cash'" class="label label-success">Paid</span>
+			</td>
+			<td order-id>
+			<span *ngIf="order.order_status == 0" class="label label-danger">Pending</span>
+			<span *ngIf="order.order_status == 2" class="label label-warning">Cancelled</span>
+			<span *ngIf="order.order_status == 1" class="label label-success">Delivered</span>
+			</td>
+			<td add>
+			<a (click)="invoice(order)" class="btn btn-theme btn-theme-xs">Invoice</a>
+			</td>
+		</tr>
+		<tr *ngIf="registries == ''">
+		<td colspan="8">No orders yet.</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+
+</ion-list>	
+
+
+<ion-list *ngSwitchCase="'payment'">
+<div product-tab class="table-responsive"  orders>									
+<div mob-orders class="ion-hide-lg-up">	
+
+<ion-item-sliding *ngFor="let card of cards; let cm_index = index ">
+<ion-item-options side="start">
+<ion-item-option  (click)="Addpay('edit',cm_index,card)" color="success">Edit</ion-item-option>					 
+</ion-item-options>	
+<ion-item-options side="end">								
+<ion-item-option (click)="deleteCard(card.card_id,cm_index)" color="danger">Delete</ion-item-option>
+</ion-item-options>								
+<ion-item lines="none">
+<ion-label>
+<h3>{{card.card_type}}</h3>
+<p>xxxx xxxx xxxx {{card.card_number.slice(-4)}}</p>
+<ion-badge color="success" *ngIf="card.card_status == 1">Active</ion-badge>
+<ion-badge color="danger" *ngIf="card.card_status == 0">In-active</ion-badge>
+</ion-label>	
+<ion-icon arrow-small name="arrow-forward" slot="end"></ion-icon>		  
+</ion-item>
+</ion-item-sliding>
+
+<ion-item *ngIf="cards == ''">
+No payment options stored.
+</ion-item>
+
+<ion-item lines="none">																
+<ion-button size="small" (click)="Addpay()" color="success"><ion-icon name="add"></ion-icon>Add New</ion-button>
+</ion-item>	
+</div>
+
+<h5 head-account class="ion-hide-md-down">PAYMENT OPTIONS
+<span  (click)="Addpay()" class="btn btn-success btn-sm add-payment-btn" float-right>
+Add New 
+</span>      
+</h5>
+<table class="ion-hide-md-down table table-bordered">
+<thead>
+<tr *ngIf="cards != ''">
+<th>S NO.</th>
+<th>Payment Method</th>
+<th>Account Details</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let card of cards; let c_index = index ">
+<td>{{c_index + 1}}</td>													
+<td order-id>
+<span class="label label-primary">{{card.card_type}}</span>
+</td>
+<td>
+xxxx xxxx xxxx {{card.card_number.slice(-4)}}
+</td>
+<td order-id>
+<span class="label label-success" *ngIf="card.card_status == 1">Active</span>
+<span class="label label-danger" *ngIf="card.card_status == 0">In-active</span>
+</td>
+<td view_details>										                                           
+<a (click)="Addpay('edit',c_index,card)" class="btn btn-success btn-sm  btn-circle">
+<i class="fa fa-pencil"></i> 
+</a>
+<a (click)="deleteCard(card.card_id,c_index)" class="btn btn-danger btn-sm btn-circle">
+<i class="fa fa-trash"></i>  
+</a>
+</td>
+</tr>
+
+<tr *ngIf="cards == ''">
+<td colspan="5">No payment options stored.</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+<!-- PAYMENT OPTIONS Start -->
+<div panel panel-default  *ngIf="AddpayClicked">
+<div panel-heading  account-head>
+<h4>
+<a href="javascript:void(0)">
+<span><i class="fa fa-plus" aria-hidden="true"></i></span>  {{cards_title}} Payment Method
+</a>
+</h4>					 
+</div>
+<div panel-body>
+<ion-row>
+<ion-col size-md="12" size-sm="12" size="12" head-payment>
+Credit or Debit Cards 
+<span float-right class="card-psys"> <img src="assets/images/cards.png"></span>
+
+</ion-col>
+<ion-col size-md="12" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Card Number *</ion-label>
+<ion-input [(ngModel)]="pay_card_number" type="text" placeholder="Card Number"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="12" size-sm="12" size="12">
+<ion-item  form-group no-padding lines="none">
+<ion-label position="stacked">Card Type *</ion-label>
+<ion-select [(ngModel)]="pay_card_type"  placeholder="Select Card Type">
+<ion-select-option value="Visa">Visa</ion-select-option>
+<ion-select-option value="Master Card">Master Card</ion-select-option>
+<ion-select-option value="American Express">American Express</ion-select-option>
+<ion-select-option value="Rupay">Rupay</ion-select-option>
+<ion-select-option value="Discover">Discover</ion-select-option>
+<ion-select-option value="Citibank">Citibank</ion-select-option>
+</ion-select>
+</ion-item>																	
+</ion-col>
+<ion-col size-md="3" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Expiry Date *</ion-label>
+<ion-input type="text" [(ngModel)]="pay_expiry_month" placeholder="MM"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="3" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked"></ion-label>
+<ion-input type="text" [(ngModel)]="pay_expiry_year" placeholder="YY"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">CVV *</ion-label>
+<ion-input type="text" [(ngModel)]="pay_cvv" placeholder="CVV"></ion-input>
+</div>
+</ion-col>
+<!-- <ion-col  size-md="12" size-sm="12" size="12">
+<div class="checkbox checks-s">
+<label>
+<input type="checkbox"> Save for further orders.
+</label>
+</div>
+</ion-col> -->
+
+<ion-col size="12">
+<ion-button color="darkred" (click)="updatePaymentCard(pay_card_number,pay_card_type,pay_expiry_month,pay_expiry_year,pay_cvv)">
+Save
+</ion-button>
+<ion-button color="greyc" (click)="cancelPay()">
+Cancel
+</ion-button>
+</ion-col>
+</ion-row>	  
+</div>
+</div>
+
+<!-- <div panel panel-default  *ngIf="EditpayClicked">
+<div panel-heading  account-head>
+<h4>
+<a href="javascript:void(0)">
+<span><i class="fa fa-pencil" aria-hidden="true"></i></span> Edit Card Information
+</a>
+</h4>					 
+</div>
+<div panel-body>
+<form class="register-form">
+<ion-row>
+<ion-col size-md="12" size-sm="12" size="12" head-payment>
+Credit or Debit Cards 
+<span float-right class="card-psys"> <img src="assets/images/cards.png"></span>
+
+</ion-col>
+<ion-col size-md="12" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Card Number *</ion-label>
+<ion-input type="text" placeholder="1252 1200 4566 8522"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="12" size-sm="12" size="12">
+<ion-item  form-group no-padding lines="none">
+<ion-label position="stacked">Card Type *</ion-label>
+<ion-select placeholder="Select Card Type">
+<ion-select-option value="Visa">Visa</ion-select-option>
+<ion-select-option value="Master Card">Master Card</ion-select-option>
+</ion-select>
+</ion-item>																	
+</ion-col>
+<ion-col size-md="3" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Expiry Date *</ion-label>
+<ion-input type="text" placeholder="04"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="3" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked"></ion-label>
+<ion-input type="text" placeholder="2021"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">CVV *</ion-label>
+<ion-input type="text" placeholder="522"></ion-input>
+</div>
+</ion-col>
+<ion-col  size-md="12" size-sm="12" size="12">
+<div class="checkbox checks-s">
+<label>
+<input type="checkbox"> Save for further orders.
+</label>
+</div>
+</ion-col>
+
+<ion-col size="12">
+<ion-button color="darkred">
+Save
+</ion-button>
+<ion-button color="greyc">
+Cancel
+</ion-button>
+</ion-col>
+</ion-row>
+</form>		  
+</div>
+</div> -->
+<!-- PAYMENT OPTIONSe Ends -->
+</ion-list>
+<ion-list *ngSwitchCase="'addresses'">
+<div product-tab class="table-responsive"  orders>	
+<div mob-orders class="ion-hide-lg-up">		
+<ion-item-sliding *ngFor="let address of addresses; let adm_index = index ">
+	<ion-item-options side="start">
+	<ion-item-option (click)="setAddressDefault(address.address_id,adm_index)" *ngIf="address.set_as_default == 0" color="darkred">Set Default</ion-item-option>		  
+	<ion-item-option (click)="addaddressClick('edit',address,adm_index)" color="success">Edit</ion-item-option>							 
+	</ion-item-options>	
+	<ion-item-options side="end">								
+	<ion-item-option (click)="deleteAddress(address.address_id,adm_index)" color="danger">Delete</ion-item-option>
+	</ion-item-options>								
+	<ion-item lines="none">
+	<ion-label>
+	<h3>{{address.address_first_name}} {{address.address_last_name}}</h3>
+	<p>{{address.full_address}}, {{address.address_city}}, {{address.address_state}}, {{address.address_zip_code}} ({{address.country_name}})</p>
+	<p>{{address.address_phone}}</p>
+	</ion-label>	
+	<ion-icon arrow-small name="arrow-forward" slot="end"></ion-icon>		  
+	</ion-item>
+</ion-item-sliding>
+<ion-item *ngIf="addresses == ''">
+	No address added yet.
+</ion-item>
+
+<ion-item lines="none">															  
+<ion-button size="small" (click)="addaddressClick('add')" color="success"><ion-icon name="add"></ion-icon>Add New</ion-button>
+</ion-item>	
+</div>												
+<h5 head-account class="ion-hide-md-down">Your Addresses
+<span (click)="addaddressClick('add')" class="btn btn-success btn-sm add-payment-btn" float-right>
+Add New
+</span>      
+</h5>
+<table class="ion-hide-md-down table table-bordered">
+<thead *ngIf="addresses != ''">
+<tr>
+<th>S NO.</th>
+<th>Name</th>
+<th>Address</th>
+<th>Contact No</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let address of addresses; let ad_index = index ">
+	<td>{{ad_index + 1}}</td>													
+	<td order-id>
+	{{address.address_first_name}} {{address.address_last_name}}
+	</td>																
+	<td order-id>
+	<span class="label label-primary">
+		{{address.full_address}}, {{address.address_city}}, {{address.address_state}}, {{address.address_zip_code}} ({{address.country_name}})
+	</span>
+	</td>
+	<td>
+	{{address.address_phone}}
+	</td>
+	<td view_details>	
+	<a (click)="setAddressDefault(address.address_id,ad_index)" title="Set Default" *ngIf="address.set_as_default == 0" class="btn btn-success btn-sm  btn-circle action-icons">
+	<i class="fa fa-check"></i>
+	</a>		   							                                           
+	<a (click)="addaddressClick('edit',address,ad_index)" class="btn btn-success btn-sm  btn-circle">
+	<i class="fa fa-pencil"></i> 
+	</a>
+	<a class="btn btn-danger btn-sm btn-circle" (click)="deleteAddress(address.address_id,ad_index)">
+	<i class="fa fa-trash"></i>  
+	</a>
+	</td>
+</tr>
+<tr *ngIf="addresses == ''" >
+<td colspan="5">No address added yet.</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<!-- Add Addresses Start -->
+<div panel panel-default *ngIf="addaddressClicked">
+<div panel-heading  account-head>
+<h4>
+<a href="javascript:void(0)">
+<span><i class="fa fa-plus" aria-hidden="true"></i></span>  {{address_title}} Address
+</a>
+</h4>					 
+</div>
+<div panel-body>
+
+<ion-row>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">First Name *</ion-label>
+<ion-input [(ngModel)]="ad_first_name" type="text" placeholder=""></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Last Name *</ion-label>
+<ion-input [(ngModel)]="ad_last_name" type="text" placeholder=""></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Address *</ion-label>
+<ion-input type="text" [(ngModel)]="ad_address" placeholder=""></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">City *</ion-label>
+<ion-input type="text" [(ngModel)]="ad_city" placeholder=""></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">State *</ion-label>
+<ion-input type="text" [(ngModel)]="ad_state" placeholder=""></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<ion-item  form-group no-padding lines="none">
+<ion-label position="stacked">Country *</ion-label>
+<ion-select placeholder="Select Country" [(ngModel)]="ad_country">
+<ion-select-option *ngFor="let country of countries" value="{{country.id}}">{{country.name}}</ion-select-option>
+</ion-select>
+</ion-item>																	
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Zip Code *</ion-label>
+<ion-input type="text" placeholder="" [(ngModel)]="ad_zip"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Phone Number *</ion-label>
+<ion-input type="text" placeholder="" [(ngModel)]="ad_phone"></ion-input>
+</div>
+</ion-col>
+<ion-col  size-md="12" size-sm="12" size="12">
+<div class="checkbox checks-s">
+<label>
+<input type="checkbox" [(ngModel)]="ad_is_default"> Set as Default Address
+</label>
+</div>
+</ion-col>
+<ion-col size="12">
+<ion-button color="darkred" (click)="saveAddress(ad_first_name,ad_last_name,ad_address,ad_city,ad_state,ad_country,ad_zip,ad_phone,ad_is_default)">
+{{address_title}} Address
+</ion-button>
+<ion-button color="greyc" (click)="cancelAddAdress()">
+Cancel
+</ion-button>
+</ion-col>
+</ion-row>
+	  
+</div>
+</div>
+<!--Add Addresses Ends -->
+
+<!-- Edit Addresses Start -->
+<!-- <div panel panel-default   *ngIf="editaddressClicked" >
+<div panel-heading  account-head>
+<h4>
+<a href="javascript:void(0)">
+<span><i class="fa fa-pencil" aria-hidden="true"></i></span>  Edit Address
+</a>
+</h4>					 
+</div>
+<div panel-body>
+
+<ion-row>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">First Name *</ion-label>
+<ion-input type="text" placeholder="Demo"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Last Name *</ion-label>
+<ion-input type="text" placeholder="Customer"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Address *</ion-label>
+<ion-input type="text" placeholder="123 Street"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">City *</ion-label>
+<ion-input type="text" placeholder="CA"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">State *</ion-label>
+<ion-input type="text" placeholder="CA"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<ion-item  form-group no-padding lines="none">
+<ion-label position="stacked">Country *</ion-label>
+<ion-select placeholder="Select Country">
+<ion-select-option value="In">India</ion-select-option>
+<ion-select-option value="US">USA</ion-select-option>
+<ion-select-option value="C">Canada</ion-select-option>
+<ion-select-option value="UA">UAE</ion-select-option>
+</ion-select>
+</ion-item>																	
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Zip Code *</ion-label>
+<ion-input type="text" placeholder="4656"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Phone Number *</ion-label>
+<ion-input type="text" placeholder="7899846565"></ion-input>
+</div>
+</ion-col>
+<ion-col  size-md="12" size-sm="12" size="12">
+<div class="checkbox checks-s">
+<label>
+<input type="checkbox"> Set as Default Address
+</label>
+</div>
+</ion-col>
+<ion-col size="12">
+<ion-button color="darkred">
+Update Address
+</ion-button>
+<ion-button color="greyc">
+Cancel
+</ion-button>
+</ion-col>
+</ion-row>
+	  
+</div>
+</div> -->
+<!-- Edit Addresses Ends -->
+
+</ion-list>
+<ion-list *ngSwitchCase="'login'">
+<div product-tab class="table-responsive"  orders login-detail>		
+<ion-list class="ion-hide-lg-up" no-margin>
+<ion-item>
+<ion-label><b>Name</b> <span float-right>{{profile?.name}} {{profile?.last_name}}</span></ion-label>
+</ion-item>
+<ion-item>
+<ion-label><b>Contact No</b> <span float-right>{{profile?.phone}}</span></ion-label>
+</ion-item>
+<ion-item>
+<ion-label><b>Email</b> <span float-right>{{profile?.email}}</span></ion-label>
+</ion-item> 
+<ion-item>
+<ion-label><b>Password</b> <span float-right>******** <ion-button (click)="editpasswordClick()" size="small" color="success"><ion-icon name="create"></ion-icon></ion-button></span></ion-label>
+</ion-item>
+<!-- <ion-item lines="none">																     
+<ion-button  edit-login size="small" (click)="editdetailClick()"  color="success"><ion-icon name="create"></ion-icon>Edit Details</ion-button>
+</ion-item>	 -->
+</ion-list>                                               												 
+<h5 head-account class="ion-hide-md-down">LOGIN DETAILS
+<!-- <span  (click)="editdetailClick()"  class="btn btn-success btn-sm add-payment-btn" float-right>
+Edit
+</span> -->      
+</h5>
+<table class="ion-hide-md-down table table-condensed">
+<tbody> 
+<tr>
+<td><b>Name</b></td>
+<td align="left">{{profile?.name}} {{profile?.last_name}}</td>
+<td><b>Email</b></td>
+<td>{{profile?.email}}</td>
+</tr>
+<tr>
+<td><b>Contact No</b></td>
+<td>{{profile?.phone}}</td>
+
+<td><b>Password</b></td>
+<td>******** 
+<a  (click)="editpasswordClick()" class="btn btn-success btn-sm btn-circle pull-right">
+<i class="fa fa-pencil"></i> 
+</a>
+</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+<!-- Add Addresses Start -->
+<!-- <div panel panel-default   *ngIf="editdetailClicked" >
+<div panel-heading  account-head>
+<h4>
+<a href="javascript:void(0)">
+<span><i class="fa fa-pencil" aria-hidden="true"></i></span>  Edit Details
+</a>
+</h4>					 
+</div>
+<div panel-body>
+<form class="register-form">
+<ion-row>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Name *</ion-label>
+<ion-input type="text" [(ngModel)]="name" placeholder="Name"></ion-input>
+</div>
+</ion-col>																
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Email *</ion-label>
+<ion-input type="email" [(ngModel)]="email" placeholder="Email"></ion-input>
+</div>
+</ion-col>
+<ion-col size-md="6" size-sm="12" size="12">
+<div  form-group>
+<ion-label position="stacked">Phone Number *</ion-label>
+<ion-input type="text" [(ngModel)]="phone" placeholder="Phone Number"></ion-input>
+</div>
+</ion-col>
+<ion-col size="12">
+<ion-button color="darkred">
+Update
+</ion-button>
+<ion-button color="greyc">
+Cancel
+</ion-button>
+</ion-col>
+</ion-row>
+</form>		  
+</div>
+</div> -->
+<!--Add Addresses Ends -->
+
+<!-- Edit Addresses Start -->
+<div panel panel-default   *ngIf="editpasswordClicked" >
+<div panel-heading  account-head>
+<h4>
+<a href="javascript:void(0)">
+<span><i class="fa fa-pencil" aria-hidden="true"></i></span>Edit Password
+</a>
+</h4>					 
+</div>
+<div panel-body>
+<ion-row>
+	<ion-col size-md="12" size-sm="12" size="12">
+	<div  form-group>
+	<ion-label position="stacked">Current Password</ion-label>
+	<ion-input type="password" [(ngModel)]="current_password" placeholder="Current password"></ion-input>
+	</div>
+	</ion-col>
+	<ion-col size-md="6" size-sm="12" size="12">
+	<div  form-group>
+	<ion-label position="stacked">New Password</ion-label>
+	<ion-input type="password" [(ngModel)]="new_password" placeholder="New Password"></ion-input>
+	</div>
+	</ion-col>
+	<ion-col size-md="6" size-sm="12" size="12">
+	<div  form-group>
+	<ion-label position="stacked">Re-enter New Password</ion-label>
+	<ion-input type="password" [(ngModel)]="confirm_password" placeholder="Re-enter New Password"></ion-input>
+	</div>
+	</ion-col>																	  
+	<ion-col size="12">
+		<ion-button color="darkred" (click)="updatePassword(current_password,new_password,confirm_password)">
+		Update
+		</ion-button>
+		<ion-button color="greyc" (click)="cancelPassword()">
+		Cancel
+		</ion-button>
+	</ion-col>
+</ion-row>	  
+</div>
+</div>
+<!-- Edit Addresses Ends -->
+</ion-list>
+<ion-list *ngSwitchCase="'messages'">
+<ion-row>
+<ion-col size-lg="6" offset-lg="3" size-md="8" offset-md="2">
+<div product-tab users-list>												     
+
+<ion-item  lines="none" routerLink="/messages">
+<ion-avatar slot="start">
+<img src="assets/images/testimonials/member1.png">
+</ion-avatar>
+<ion-label>
+<h3>John Smith</h3>
+<ion-note>Today at 11:45 am</ion-note>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</ion-label>
+</ion-item>
+<ion-item  lines="none"  routerLink="/messages">
+<ion-avatar slot="start"> 
+<img src="assets/images/testimonials/member2.png"> 
+</ion-avatar>
+<ion-label>
+<h3>David Smith</h3>
+<ion-note>Today at 11:45 am</ion-note>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</ion-label>
+</ion-item>
+<ion-item  lines="none"  routerLink="/messages">
+<ion-avatar slot="start">
+<img src="assets/images/testimonials/member3.png">
+</ion-avatar>
+<ion-label>
+<h3>Steve Jones</h3>
+<ion-note>Today at 11:45 am</ion-note>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</ion-label>
+</ion-item>
+<ion-item  lines="none"  routerLink="/messages">
+<ion-avatar slot="start">
+<img src="assets/images/testimonials/member4.png">
+</ion-avatar>
+<ion-label>
+<h3>Johnson Charles</h3>
+<ion-note>Today at 11:45 am</ion-note>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</ion-label>
+</ion-item>
+<ion-item  lines="none"  routerLink="/messages">
+<ion-avatar slot="start">
+<img src="assets/images/testimonials/member1.png">
+</ion-avatar>
+<ion-label>
+<h3>Andrew Doe</h3>
+<ion-note>Today at 11:45 am</ion-note>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+</ion-label>
+</ion-item>
+
+</div>
+</ion-col>
+</ion-row>
+</ion-list>		 
+</div>
+</div>	
+</ion-col>				 
+</ion-row>	
+
+<app-recently-viewed></app-recently-viewed>
+<app-featured-products></app-featured-products>
+
+</div>
+<!-- Container Ends-->	
+</div>
+<app-footer></app-footer>	
+</ion-content>

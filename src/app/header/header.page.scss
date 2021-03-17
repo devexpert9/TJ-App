@@ -1,0 +1,51 @@
+ion-header{
+&::after
+{
+display:none!important;
+}
+ ion-toolbar
+ {
+    ion-menu-button
+	{
+		height: 35px;
+		position: inherit;
+		top: inherit;
+		right: inherit;
+		transition: inherit;
+		transition-delay: .1s;
+        img
+        {
+		    max-width: 24px;
+		}		
+	}
+	ion-title
+	{
+		font-weight:700;
+	} 
+    ion-buttons
+	{font-size:20px;
+	  &[mar-10]
+	  {
+	   margin-right:10px;
+	  }
+	}
+ }
+
+}
+
+@media (min-width: 768px) {
+    ion-header
+	{
+	    display:none;
+	}
+}
+@media (max-width: 767px) {
+    header
+	{
+	    display:none;
+	}
+}
+
+#Cart{
+  fill:white;
+}

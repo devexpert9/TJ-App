@@ -1,0 +1,45 @@
+<!--app-header *ngIf="showHeader == true"></app-header-->
+
+<ion-app>
+  <!--ion-split-pane-->
+    <ion-menu >
+      <ion-header *ngIf="isLoggedIn == true">
+			<ion-toolbar color="darkred">
+         <ion-item lines="none" style=" --background: transparent!important;color:var(--ion-color-white)">
+          <ion-avatar slot="start" style="    margin-right: 12px;">
+            <img *ngIf="errors.indexOf(user_image) >= 0" src="assets/images/default.png">
+            <img *ngIf="errors.indexOf(user_image) == -1" src="{{IMAGES_URL}}/userprofile/{{user_image}}">
+          </ion-avatar>
+          <ion-label>{{user_name}}</ion-label>
+        </ion-item>
+			</ion-toolbar>
+      </ion-header>
+      <ion-content style="background: #222f3e !important;">
+        <ion-list style="background: var( --ion-color-grey2)!important;padding-top: 19%;margin-bottom: 0px !important; */">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item *ngIf="p.requireLogin == false || (p.requireLogin == true && isLoggedIn == true)" lines="none" [routerDirection]="'root'" [routerLink]="[p.url]" style="font-size:var(--ion-font-size-14); --background: var( --ion-color-grey2)!important;color:var(--ion-color-white)">
+              <ion-icon   slot="start" [name]="p.icon" style="color:var(--ion-color-white)"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+            <ion-item *ngIf="isLoggedIn == true" lines="none" (click)="logout()" style="font-size:var(--ion-font-size-14); --background: var( --ion-color-grey2)!important;color:var(--ion-color-white);cursor: pointer;">
+              <ion-icon slot="start" name="log-out" style="color:var(--ion-color-white)"></ion-icon>
+              <ion-label>
+                Logout
+              </ion-label>
+            </ion-item>
+            <ion-item *ngIf="isLoggedIn == false" lines="none" (click)="login()" style="font-size:var(--ion-font-size-14); --background: var( --ion-color-grey2)!important;color:var(--ion-color-white);cursor: pointer;">
+              <ion-icon slot="start" name="log-out" style="color:var(--ion-color-white)"></ion-icon>
+              <ion-label>
+                Login
+              </ion-label>
+            </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  <!--/ion-split-pane-->
+</ion-app>
+

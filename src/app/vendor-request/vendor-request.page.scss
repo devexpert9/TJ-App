@@ -1,0 +1,89 @@
+.sign-in-page{
+	max-width:550px;
+	margin:50px auto 0;
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0, .2);
+	padding:20px;
+	h5.subhdng {
+	    width: 100%;
+	    text-align: center;
+	    font-weight: 600;
+	    font-size: 18px;
+	    margin: 20px auto 30px;
+	    max-width: 80%;
+	}
+	label{
+		font-weight: 600;
+	}
+	.stepwizard {
+	    display: table;
+	    width: 100%;
+	    position: relative;
+	    .stepwizard-row.setup-panel {
+		    display: flex;
+		    .stepwizard-step.col-xs-3 {
+			    flex: 1;
+			    text-align: center;
+			    .btn-circle {
+				    width: 30px;
+				    height: 30px;
+				    text-align: center;
+				    padding: 6px 0;
+				    font-size: 12px;
+				    line-height: 1.428571429;
+				    border-radius: 15px;
+				}
+				p{
+				    margin-top: 0px;
+				    color: #666;
+				}
+			}
+		}
+		.stepwizard-row:before {
+		    top: 14px;
+		    bottom: 0;
+		    position: absolute;
+		    content: " ";
+		    width: 100%;
+		    height: 1px;
+		    background-color: #ccc;
+		    z-index: 0;
+		}
+	}
+	.radio+.radio, .checkbox+.checkbox {
+	    margin-top: 10px;
+	}
+}
+[vendorSignup]{
+	background: #f7f7f7;
+	.insideVendor{
+		background: #f7f7f7;
+		padding-bottom: 50px;
+	}
+	.btn.btn-primary{
+		background: #a01616;
+		border-color: #a01616;
+		border-radius: 2px;
+	}
+	input, select{
+		border-radius: 2px;
+		box-shadow: none;
+		border-color: #eee;
+		color: #111;
+		min-height: 40px;
+		&:focus{
+			border-color: #ddd;
+		}
+	}
+	input[type="checkbox"], input[type="radio"]{
+		min-height: 1px;
+	}
+	.btn-already{
+		color: #a01616;
+		text-decoration: none;
+		&:hover{
+			color:#2a6496;
+		}
+	}
+}

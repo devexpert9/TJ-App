@@ -1,0 +1,134 @@
+<!-- <ion-header class="ion-hide-lg-up">
+  <ion-toolbar color="darkred"  text-uppercase>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Blog Detail
+    </ion-title>
+  <ion-buttons slot="end" > 
+          <ion-icon name="search"></ion-icon>
+    </ion-buttons>
+	     <ion-buttons slot="end">
+          <ion-icon name="pin"></ion-icon>
+    </ion-buttons>
+<ion-buttons slot="end" > 
+	<ion-icon user-drop name="contact" (click)="onButtonClickdrop()"></ion-icon>
+	
+	 </ion-buttons>
+  </ion-toolbar>
+      <div drop-down-menu *ngIf="buttonClickeddrop">
+	              <a routerLink="/your-account"><ion-icon name="person"></ion-icon> My Account</a>
+	              <a routerLink="/wishlist"><ion-icon name="heart"></ion-icon>  Wishlist</a>
+	              <a routerLink="/cart"><ion-icon name="cart"></ion-icon>  Cart</a>
+	              <a routerLink="/notification"><ion-icon name="notifications"></ion-icon> Notification</a>
+	   </div>
+</ion-header>  -->
+<ion-header class="ion-hide-md-up">
+  <ion-toolbar color="secondary">
+        <ion-menu-button slot="start">
+		    <img height="15px" src="assets/img/menu.png"/>
+		</ion-menu-button>
+    <ion-title class="ion-text-center">Normal Post</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<app-header></app-header>
+<div class="main-wrapper  home-page">
+        <div class="container" mob-container>
+            <div class="row">
+				<div class="col-lg-12" mob-icon-sec>	
+					<div class="header-call-action menu-right">
+						<ul class="menu-right-ul">
+							<li><a href="javascript:void(0)"><share-button button="facebook" url="{{shareURL}}"></share-button></a></li>
+							<li><a href="javascript:void(0)"><share-button button="linkedin" url="{{shareURL}}"></share-button></a></li>
+							<li><a href="javascript:void(0)"><share-button button="twitter" url="{{shareURL}}"></share-button></a></li>
+						</ul>
+					</div>
+				</div>				
+                <div class="col-lg-12" web-sec-mob-none>
+					<div class="post-feed-main post-details-main normal-post-details-main">
+						<article class="post-feed-item bstrf">
+							<div class="activity-header">
+								<div class="activity-avatar">
+									<a href="javascript:void(0)">
+										<img src="assets/img/post-1.png" alt="">
+									</a>
+								</div>
+								<div class="activity-head">
+								    <h4><a href="javascript:void(0)">{{blog?.blog_name}}</a></h4>
+								    <p><span class="time-since">{{blog?.added_date | date : 'MMM d, y, h:mm a'}}</span></p>
+								</div>
+							</div>
+							<div class="activity-inner">
+								<p [innerHTML]="atob(blog?.blog_description)"></p>
+								<div class="post-feed-img">
+									<img *ngIf="errors.indexOf(blog?.blog_image) >= 0" src="assets/images/products/no_image.svg" class="img-fluid">
+									<img *ngIf="errors.indexOf(blog?.blog_image) == -1" src="{{IMAGES_URL}}/blog_images/{{blog?.blog_image}}" alt="Image" class="img-fluid">									
+								</div>									
+							</div>
+							<div class="post-details-activity-bottom">
+							   <ul class="like-com likeCommnets">
+								    <li>
+									    <a href="javascript:void(0)"><i class="fa fa-thumbs-up"></i> Like</a>
+								    </li> 
+								    <li>
+									    <a href="javascript:void(0)"><i class="fa fa-comment-o"></i> Comment</a>
+								    </li>									  
+							    </ul>
+								<div class="clsci">	
+									<a class="post-share" href="javascript:void(0)" (click)="hide()"><i class="fa fa-share"></i>Share</a>	
+									<div social-media class="sftdk" *ngIf="hideMe">
+										<share-button button="facebook" url="{{shareURL}}"></share-button>
+										<share-button button="twitter" url="{{shareURL}}"></share-button>
+										<share-button button="google" url="{{shareURL}}"></share-button> 
+										<share-button button="linkedin" url="{{shareURL}}"></share-button>
+										<share-button button="email" url="{{shareURL}}"></share-button>
+									</div>
+								</div>
+							</div>								 
+						</article>												
+					</div>
+                </div>			
+                <div class="col-lg-12" mob-mn-sec>
+					<div class="post-feed-main post-details-main normal-post-details-main">
+						<article class="post-feed-item">
+							<div class="activity-header">
+								<div class="activity-avatar">
+									<a href="javascript:void(0)">
+										<img src="assets/img/post-1.png" alt="">
+									</a>
+								</div>
+								<div class="activity-head">
+								    <h4><a href="javascript:void(0)">{{blog?.blog_name}}</a></h4>
+								    <p><span class="time-since">{{blog?.added_date | date : 'MMM d, y, h:mm a'}}</span></p>
+								</div>
+							</div>
+							<div class="activity-inner">
+
+								<div class="post-feed-img">
+									<img *ngIf="errors.indexOf(blog?.blog_image) >= 0" src="assets/images/products/no_image.svg"  class="img-fluid">
+									<img *ngIf="errors.indexOf(blog?.blog_image) == -1" src="{{IMAGES_URL}}/blog_images/{{blog?.blog_image}}" alt="Image"  class="img-fluid">
+									<span sharebtn-img><ion-icon name="share-social-outline"></ion-icon></span>
+									<div class="post-details-activity-bottom">
+									   <ul class="like-com likeCommnets">
+											<li>
+												<a href="javascript:void(0)"><i class="fa fa-thumbs-up"></i> Like</a>
+											</li> 
+											<li>
+												<a href="javascript:void(0)"><i class="fa fa-comment-o"></i> Comment</a>
+											</li>									  
+										</ul>
+									</div>										
+								</div>
+								<p [innerHTML]="atob(blog?.blog_description)"></p>							
+							</div>
+							 
+						</article>												
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<app-footer></app-footer>
+</ion-content>

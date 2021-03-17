@@ -1,0 +1,18 @@
+ion-content
+{font-family:var(--ion-font-family-2); 
+   [choose-location]
+   {
+	   margin-top:var(--ion-margin-15);
+	p{
+	    font-size: var(--ion-font-size-14);
+		padding:var(--ion-padding-0) var(--ion-padding-15);
+  /*  color: var(--ion-color-white);*/
+	}
+	ion-item
+	{
+	 --background: transparent;
+	 border-bottom:1px solid var(--ion-color-ltgrey);
+	 cursor:pointer;
+    }
+   }
+}

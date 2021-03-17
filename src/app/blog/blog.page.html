@@ -1,0 +1,174 @@
+<!-- <ion-header class="ion-hide-lg-up">
+  <ion-toolbar color="darkred"  text-uppercase>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Blog
+    </ion-title>
+  <ion-buttons slot="end" > 
+          <ion-icon name="search"></ion-icon>
+    </ion-buttons>
+	     <ion-buttons slot="end">
+          <ion-icon name="pin"></ion-icon>
+    </ion-buttons>
+<ion-buttons slot="end" > 
+	<ion-icon user-drop name="contact" (click)="onButtonClickdrop()"></ion-icon>
+	
+	 </ion-buttons>
+  </ion-toolbar>
+      <div drop-down-menu *ngIf="buttonClickeddrop">
+	              <a routerLink="/your-account"><ion-icon name="person"></ion-icon> My Account</a>
+	              <a routerLink="/wishlist"><ion-icon name="heart"></ion-icon>  Wishlist</a>
+	              <a routerLink="/cart"><ion-icon name="cart"></ion-icon>  Cart</a>
+	              <a routerLink="/notification"><ion-icon name="notifications"></ion-icon> Notification</a>
+	   </div>
+</ion-header>  -->
+<ion-header class="ion-hide-md-up">
+    <ion-toolbar color="secondary">
+        <ion-menu-button slot="start">
+	  	    <img height="15px" src="assets/img/menu.png" alt=""/>
+	  	</ion-menu-button>
+        <ion-title class="ion-text-center">News Feed</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+<app-header></app-header>
+<div class="main-wrapper  home-page newsfeed">
+   <div mob-container class="container">
+	   <div class="row">
+			<div class="col-lg-12" mob-icon-sec>	
+				<div class="header-call-action menu-right">
+					<ul class="menu-right-ul">
+						<li><a href="javascript:void(0)"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+			</div>			   
+			<div class="col-md-10 offset-md-1">
+				<div class="newsfeedinner mb-0">
+					<div class="newsfeed-header">
+						<div class="media">
+							<div class="message-item-img">
+								<img src="assets/img/post-4.jpg" alt="">
+							</div>
+							<div class="media-body">
+								<a href="javascript:void(0)" class="newsfeed_post-popup" (click)="presentModal()">
+									<ion-textarea class="form-control" placeholder="Share some what you are thinking?"></ion-textarea>
+								</a>
+							</div>
+						</div>
+						<div class="newsfeed-post-bottom">
+							<div class="newsfeed-attachments">
+								<ul>
+									<li class="tooltip-item" data-tooltip="Check In">
+										<span class="add-loc">
+											<i class="fa fa-map-marker"></i> 
+										</span>
+									</li>
+									<li class="tooltip-item" data-tooltip="Add Photos/Videos">
+										<i class="fa fa-image"></i>
+										<label class="fileContainer">
+											<input type="file">
+										</label>
+									</li>
+									<li class="tooltip-item" data-tooltip="Go Live ">
+										<i class="fa fa-video-camera"></i>
+										<label class="fileContainer">
+											<input type="file">
+										</label>
+									</li>
+								</ul>
+								<button class="post-btn" type="submit" data-ripple="">Post Status</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="post-feed-main">
+					<article class="post-feed-item" *ngFor="let blog of all_blogs ">
+						<div class="activity-header">
+							<div class="activity-avatar">
+								<a href="javascript:void(0)"  routerLink="/blog-detail/{{blog.blog_id}}">
+									<img src="assets/img/post-4.jpg" alt="">
+								</a>
+							</div>
+							<div class="activity-head">
+								<h4>
+									<a routerLink="/blog-detail/{{blog.blog_id}}">
+										{{blog.blog_name}}
+									</a>
+								</h4>
+								<p><span class="time-since">Apple</span></p>
+							</div>
+						</div>
+						<div class="activity-inner">
+							<p *ngIf="atob(blog.blog_description).length <= 200" [innerHTML]="atob(blog.blog_description)"></p>
+							<p *ngIf="atob(blog.blog_description).length > 200" [innerHTML]="atob(blog.blog_description).substr(0,200)+'...'"></p>
+							<div class="post-feed-img dft">
+								<img *ngIf="errors.indexOf(blog.blog_image) >= 0" src="assets/images/products/no_image.svg">
+								<img *ngIf="errors.indexOf(blog.blog_image) == -1" src="{{IMAGES_URL}}/blog_images/{{blog.blog_image}}" alt="Image">
+								<span sharebtn-img><ion-icon name="share-social-outline"></ion-icon></span>
+							</div>
+						</div>
+						<div class="post-details-activity-bottom pb-10">
+							<ul class="like-com">
+								<li>
+									<a href="javascript:void(0)"><i class="fa fa-thumbs-up"></i> Like</a>
+									<div class="likedby-images">
+										<span><img src="assets/img/post-1.png" class="img-fluid" alt=""></span>
+										<span><img src="assets/img/post-2.png" class="img-fluid" alt=""></span>
+										<span><img src="assets/img/post-3.jpg" class="img-fluid" alt=""></span>
+										<span><img src="assets/img/post-4.jpg" class="img-fluid" alt=""></span>
+										<span class="likedbycount">15</span>
+									</div>
+								</li>
+							</ul>
+							<div class="mini-cart-option">
+								<ul class="like-com">
+									<li class="post-button-item buy-button-item"><a class="mr-0" href="javascript:void(0)"><span class="lnr lnr-cart"></span> Buy</a></li>
+									<li class="post-button-item wishlist-button-item"><a class="mr-0" href="javascript:void(0)"><span class="lnr lnr-heart mr-0"></span> Wishlist </a></li>
+									<li class="post-button-item suggest-button-item"><a class="mr-0" href="javascript:void(0)"><span class="fa fa-paper-plane"></span> Suggest</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="tag-box">
+							<div class="tagword">
+								<div class="aside-title">
+									<h6>Tags</h6>
+								</div>
+								<div class="tagcloud">
+									<a href="javascript:void(0);">Business</a>
+									<a href="javascript:void(0);">Marketing</a>
+									<a href="javascript:void(0);">SEO</a>
+									<a href="javascript:void(0);">strategy</a>
+									<a href="javascript:void(0);">Map</a>
+								</div>
+							</div>
+							<div class="like-com">
+								<a href="javascript:void(0)"><i class="fa fa-share-square-o"></i> Share</a>
+							</div>
+						</div>
+						<div class="comment-section">
+							<ion-input type="text" placeholder="Write Your Comment..." class="commnetbar"></ion-input>
+							<button class="btn-style"><i class="fa fa-reply" aria-hidden="true"></i></button> 
+						</div>
+					</article>											
+				</div>            						
+			</div>
+	   </div>
+		<ion-row>
+			<ion-col size="12" *ngIf="all_blogs != ''">
+				<div pagination-container text-right class="ion-hide-md-down">
+					<ul class="list-inline list-unstyled list-sytr">
+						<li (click)="paginate('prev')" class="prev"><a><i class="fa fa-angle-left"></i></a></li>
+						<li (click)="paginate(i+1)" *ngFor="let p of arrayOne(total_pages); let i = index " [ngClass]="current_page == i+1 ? 'active' : ''"><a>{{i+1}}</a></li>
+						<li (click)="paginate('next')" class="next"><a><i class="fa fa-angle-right"></i></a></li>
+					</ul>
+				</div>
+			</ion-col>
+		</ion-row>
+   </div>
+</div>
+<app-footer></app-footer>
+</ion-content>

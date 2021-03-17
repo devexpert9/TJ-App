@@ -1,0 +1,351 @@
+<!--ion-header class="ion-hide-lg-up">
+  <ion-toolbar color="grey2" text-uppercase style="background: var(--ion-color-grey2) !important;">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+     	<img  class="ion-hide-lg-up"  src="assets/images/sign-logo.png" width="80px"/>
+    </ion-title>
+   <!--  <ion-buttons slot="end" >
+          <ion-icon name="search"></ion-icon>
+    </ion-buttons>
+       <ion-buttons slot="end">
+          <ion-icon name="pin"></ion-icon>
+    </ion-buttons> -->
+      <!-- <ion-buttons slot="end" >
+	        <ion-icon user-drop name="contact" (click)="onButtonClickdrop()"></ion-icon>
+	 </ion-buttons> -->
+  <!--/ion-toolbar>
+        <!-- <div drop-down-menu *ngIf="buttonClickeddrop">
+          <a routerLink="/your-account"><ion-icon name="person"></ion-icon> My Account</a>
+          <a routerLink="/wishlist"><ion-icon name="heart"></ion-icon>  Wishlist</a>
+          <a routerLink="/cart"><ion-icon name="cart"></ion-icon>  Cart</a>
+          <a routerLink="/notification"><ion-icon name="notifications"></ion-icon> Notification</a>
+	    </div> -->
+<!--/ion-header-->
+<div class="cont-shtf">
+	<header class="header-pos headercusnew">
+         <div class="header-top">
+            <nav class="navbar navbar-expand-md navbar-light">
+               <div class="navbar-brand" href="javascript:void(0)">
+                 <div class="logo">
+					<a href="javascript:void(0)" routerLink="/blog"><img src="assets/img/logo.png" alt="brand-logo"></a>
+				</div>
+               </div>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="search-container">
+                  <input [(ngModel)]="searchTerm" search-field placeholder="Search here..." />
+        				  <a class="search-button" href="javascript:void(0)" (click)="search()">
+        					<i class="fa fa-search"></i>
+        					</a>
+        				</div>
+                <ul class="navbar-nav ml-5 nav-top-menu-ul">
+                  <li class="nav-item">
+                    <a  routerLink="/blog" class="nav-link tooltip-item" href="javascript:void(0)" data-tooltip="News Feed"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link tooltip-item" routerLink="/home" data-tooltip="Shop">
+                      <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link tooltip-item" href="javascript:void(0)" data-tooltip="Trending"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></a>
+                  </li>
+                  <li class="nav-item">
+                    <!-- <a class="nav-link tooltip-item" routerLink="/wishlist"  data-tooltip="Wishlist"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a> -->
+                    <div class="nav-item dropdown notification-dropdown">
+                      <a class="nav-link notification  mr-1 navlink dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" data-tooltip="Wishlist">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                      </a>
+                        <ul class="dropdown-menu onhover-show-div p-0" >
+                          <li>
+                            <a routerLink="/wishlist">See More</a>
+                          </li>
+                          <li *ngFor="let item of wishPro; let c_index = index ">
+                              <div class="media">
+                                  <div class="media-body">
+                                    {{item.wish_city}}
+                                    <!-- <a entry-thumbnail routerLink="/product-details/{{item.products.product_id}}">
+                                      <img *ngIf="errors.indexOf(item.products.product_image) >= 0" src="assets/images/products/no_image.svg" style="float: left;width: 50px;height:50px;border: 1px solid #c3c3c3;margin: 0 11px 0 0;">
+                                      
+                                      <img *ngIf="errors.indexOf(item.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{item.products.product_image}}" alt="{{item.product_name}}" style="float: left;width: 50px;height: 50px;border: 1px solid #c3c3c3;margin: 0 11px 0 0;">
+                                    </a>
+                                    <div style="float:left">
+                                      <h4 cart-product-description style="float:left; width:100%">
+                                        <a routerLink="/product-details/{{item.products.product_id}}">{{item.products.product_name}}</a>
+                                      </h4>
+
+                                      <h5 cart-product-description style="float:left; width:100%">
+                                        ${{item.products.product_sale_price}}
+                                      </h5>
+                                    </div> -->
+                                  </div>
+                              </div>
+                          </li>
+                        </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link tooltip-item" href="javascript:void(0)" data-tooltip="Dashboard"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a>
+                  </li>
+                </ul>
+              </div>
+              <ul class="navbar-nav ml-auto">
+
+
+
+		      <div class="nav-item dropdown notification-dropdown">
+						<a class="nav-link notification  mr-1 navlink dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
+						 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"></path></svg>
+						  <span class="badge badge-pill badge-primary notification-badge">2</span>
+					   </a>
+					   <ul class="dropdown-menu onhover-show-div p-0">
+                            <li>Notification <span class="badge badge-pill badge-primary pull-right">2</span></li>
+                            <li>
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h6 class="mt-0">Your order ready for Ship..!</h6>
+                                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h6 class="mt-0 txt-success">Download Complete</h6>
+                                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer.</p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="view-all-notifications"><a [routerLink]="'/notification'" href="javascript:void(0)">All notifications</a> </li>
+                        </ul>
+					</div>
+
+		      <div class="nav-item dropdown notification-dropdown">
+						<a class="nav-link notification  mr-1 navlink dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
+						 <svg class="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+						  <span class="badge badge-pill badge-primary notification-badge">3</span>
+					   </a>
+					   <ul class="dropdown-menu onhover-show-div p-0">
+                            <li>Messages <span class="badge badge-pill badge-primary pull-right">3</span></li>
+                            <li>
+                                <div class="media">
+									<div class="message-item-img">
+										<img src="assets/img/post-4.jpg">
+									</div>
+                                    <div class="media-body">
+                                        <h6 class="mt-0">Jhon Smith</h6>
+                                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="media">
+									<div class="message-item-img">
+										<img src="assets/img/post-1.png">
+									</div>
+                                    <div class="media-body">
+                                        <h6 class="mt-0 txt-success"> Wilson </h6>
+                                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer.</p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="view-all-notifications"><a routerLink="/message" href="javascript:void(0)">All Messages</a> </li>
+                        </ul>
+					</div>
+					
+          <div class="nav-item dropdown notification-dropdown">
+						<a class="nav-link notification  mr-1 navlink dropdown-toggle" data-toggle="dropdown" href="#">
+						  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box"><path d="M12.89 1.45l8 4A2 2 0 0 1 22 7.24v9.53a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.79 0l-8-4a2 2 0 0 1-1.1-1.8V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z"></path><polyline points="2.32 6.16 12 11 21.68 6.16"></polyline><line x1="12" y1="22.76" x2="12" y2="11"></line></svg>
+						  <span class="badge badge-pill badge-primary notification-badge">3</span>
+					   </a>
+					     <ul class="dropdown-menu onhover-show-div p-0">
+                <li>Orders <span class="badge badge-pill badge-primary pull-right">3</span></li>
+                <li>
+                    <div class="media">
+                        <div class="media-body">
+                            <h6 class="mt-0">Lorem ipsum dolor sit amet !</h6>
+
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="media-body">
+                            <h6 class="mt-0 txt-success">Lorem ipsum dolor sit amet !</h6>
+
+                        </div>
+                    </div>
+                </li>
+  							<li class="view-all-notifications">
+                  <a [routerLink]="'/order-history'" href="javascript:void(0)">All Orders</a>
+                </li>
+              </ul>
+					</div>
+
+          <div class="nav-item dropdown notification-dropdown">
+            <a class="nav-link notification  mr-1 navlink dropdown-toggle" data-toggle="dropdown" routerLink="/cart">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              width="24px" height="24px" viewBox="0 0 40 36" style="enable-background:new 0 0 40 36;" xml:space="preserve">
+              <g id="Page-1_4_" sketch:type="MSPage">
+              <g id="Desktop_4_" transform="translate(-84.000000, -410.000000)" sketch:type="MSArtboardGroup">
+              <path id="Cart" sketch:type="MSShapeGroup" class="st0" d="M94.5,434.6h24.8l4.7-15.7H92.2l-1.3-8.9H84v4.8h3.1l3.7,27.8h0.1
+              c0,1.9,1.8,3.4,3.9,3.4c2.2,0,3.9-1.5,3.9-3.4h12.8c0,1.9,1.8,3.4,3.9,3.4c2.2,0,3.9-1.5,3.9-3.4h1.7v-3.9l-25.8-0.1L94.5,434.6"
+              />
+              </g>
+              </g>
+              </svg>
+              <span class="badge badge-pill badge-primary notification-badge">
+                {{cartLength}}
+              </span>
+            </a>
+              <!-- <ul class="dropdown-menu onhover-show-div p-0" >
+                <li>
+                  Cart <span class="badge badge-pill badge-primary pull-right">{{cartLength}}</span>
+                  <br/>
+                  <a>View All</a>
+                </li>
+                <li *ngFor="let item of cart; let c_index = index ">
+                    <div class="media">
+                        <div class="media-body">
+                          <a entry-thumbnail routerLink="/product-details/{{item.product_id}}">
+                            <img *ngIf="errors.indexOf(item.product_image) >= 0" src="assets/images/products/no_image.svg" style="float: left;width: 50px;height:50px;border: 1px solid #c3c3c3;margin: 0 11px 0 0;">
+                            
+                            <img *ngIf="errors.indexOf(item.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{item.product_image}}" alt="{{item.product_name}}" style="float: left;width: 50px;height: 50px;border: 1px solid #c3c3c3;margin: 0 11px 0 0;">
+                          </a>
+                          <div style="float:left">
+                            <h4 cart-product-description style="float:left; width:100%">
+                              <a routerLink="/product-details/{{item.product_id}}">{{item.product_name}}</a>
+                            </h4>
+
+                            <h5 cart-product-description style="float:left; width:100%">
+                              ${{item.product_sale_price}}
+                            </h5>
+                          </div>
+                        </div>
+                    </div>
+                </li>
+              </ul> -->
+          </div>
+          
+          <div class="nav-item dropdown user-profile-dropdown" *ngIf="is_logged_in == true">
+            <a href="javascript:void(0)" data-toggle="dropdown" class="nav-link navlink dropdown-toggle user-action">
+               <img src="{{base_url}}{{user_image}}" class="avatar" alt=""> 
+               {{user_name}} <b class="caret"></b>
+             </a>
+            <div class="dropdown-menu">
+              <a routerLink="/your-account" href="javascript:void(0)" class="dropdown-item">
+                <i class="fa fa-user-o"></i> See Your Profile
+              </a>
+               
+              <a routerLink="/privacy-policy" href="javascript:void(0)" class="dropdown-item">
+                <i class="fa fa-sliders"></i> Settings/Privacy
+              </a>
+
+              <a href="javascript:void(0)" class="dropdown-item">
+                <i class="fa fa-sliders"></i> Help
+              </a>
+              
+              <div *ngIf="is_logged_in == true">
+                <a href="javascript:void(0)" (click)="logout()" class="dropdown-item">
+                  <i class="fa fa-sign-out"></i> Logout
+                </a> 
+              </div>
+            </div>
+          </div>
+			   <div *ngIf="is_logged_in == false">
+					<a routerLink="/login" class="nav-link tooltip-item btn-logib" href="javascript:void(0)" data-tooltip="Login Here">
+						<ion-icon name="person"></ion-icon>
+					</a>
+			   </div>
+              </ul>
+            </nav>
+			<div class="header-top-bottom">
+				<div class="container-fluid">
+				   <div class="row align-items-center">
+					  <div class="col-lg-4 col-md-7 col-sm-8 col-12">
+						 <div class="flexcus">
+							<div class="vendor-profile-img1">
+							  <!-- <img src="assets/img/vendorlogo.png" alt=""> -->
+							  <span><!-- Yabli.Store --></span>
+							</div>
+							<div class="site-overall-rating ml-4" style="display:none">
+							   <div class="rating-icon mr-2">
+								  <i class="fa fa-star"></i>
+								  <i class="fa fa-star"></i>
+								  <i class="fa fa-star"></i>
+								  <i class="fa fa-star-half-o"></i>
+								  <i class="fa fa-star-o"></i>
+							   </div>
+							   <span>3.5</span>
+							</div>
+						 </div>
+					  </div>
+				   </div>
+				</div>
+			 </div>
+         </div>
+         <!-- <div class="header-top-menu sticker">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-lg-12">
+                     <div class="top-main-menu">
+                        <div class="main-menu">
+                           <nav id="mobile-menu">
+                              <ul>
+                                 <li class="active"><a routerLink="/home" href="javascript:void(0)">Posts</a></li>
+                                 <li ><a (click)="search()">Products</a></li>
+                                 <li><a routerLink="/reviews" href="javascript:void(0)">Reviews</a></li>
+                                 <li><a routerLink="/about-us" href="javascript:void(0)">About</a></li>
+                              </ul>
+                           </nav>
+                        </div>
+
+                        <div class="header-call-action menu-right">
+                            <ul class="menu-right-ul">
+                              <li><a target="_blank" href="{{socialLinks?.facebook.search('http') >= 0 ? '' : 'http://'}}{{socialLinks?.facebook}}">
+                              <i class="fa fa-facebook-square"></i></a></li>
+                              <li><a href="javascript:void(0)"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                              <li><a href="{{socialLinks?.facebook.search('http') >= 0 ? '' : 'http://'}}{{socialLinks?.twitter}}" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+                              <li class="menu-right-li-share">
+                              <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Flag" class="mr-20">
+                              <ion-select-option value="Flag-1">Flag-1</ion-select-option>
+                              <ion-select-option value="Flag-2">Flag-2</ion-select-option>
+                              <ion-select-option value="Flag-3">Flag-3</ion-select-option>
+                              <ion-select-option value="Flag-4">Flag-4</ion-select-option>
+                              </ion-select>
+                              </li>
+                            </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-12 d-block d-lg-none">
+                     <div class="mobile-menu"></div>
+                  </div>
+               </div>
+            </div>
+         </div> -->
+      </header>
+</div>
+<!-- HEADER : END  -->
+
+<ion-card class="video_call_div" style="display: none;">
+  <ion-card-header>
+    <ion-card-title>{{incoming_call_title}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+   <ion-button (click)="answerVideo()" color="darked">Answer</ion-button>
+   <ion-button (click)="rejectCall()" color="darked">Reject</ion-button>
+  </ion-card-content>
+</ion-card>

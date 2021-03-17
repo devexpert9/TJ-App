@@ -1,0 +1,326 @@
+<!-- <ion-header class="ion-hide-lg-up">
+  <ion-toolbar color="darkred" text-uppercase>
+
+  <ion-buttons slot="start">
+      <ion-back-button defaultHref="cart"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+       Checkout
+    </ion-title>
+<ion-buttons slot="end" > 
+	<ion-icon user-drop name="contact" (click)="onButtonClickdrop()"></ion-icon>
+	
+	 </ion-buttons>
+  </ion-toolbar>
+      <div drop-down-menu *ngIf="buttonClickeddrop">
+	              <a routerLink="/your-account"><ion-icon name="person"></ion-icon> My Account</a>
+	              <a routerLink="/wishlist"><ion-icon name="heart"></ion-icon>  Wishlist</a>
+	              <a routerLink="/cart"><ion-icon name="cart"></ion-icon>  Cart</a>
+	              <a routerLink="/notification"><ion-icon name="notifications"></ion-icon> Notification</a>
+	   </div>
+</ion-header>  -->
+<ion-content>
+	<app-header ></app-header>
+
+<div class="ion-padding">
+<div header_height></div>
+<!-- Breadcrumb Start -->
+		<div breadcrumb  class="ion-hide-md-down">		
+				<div breadcrumb-inner>
+					<ul list-inline list-unstyled style='margin:0 0 15px 0'>
+					    <li style="float:left;margin:0 10px 0 0">
+					    	<a routerLink="/blog">Home</a>
+					    </li>
+						<li class="active">Checkout</li>
+					</ul>
+				</div><!-- /.breadcrumb-inner -->
+		</div>
+<!-- Breadcrumb Ends -->
+<!---Checkout Section Start -->
+	<div checkout-box>
+		   <ion-row *ngIf="(total_payable_price == 0 || errors.indexOf(total_payable_price) >= 0) && is_loaded == true">
+		   		<ion-item>No items in cart to checkout.</ion-item>
+		   </ion-row>
+		   <ion-row *ngIf="total_payable_price != 0 && errors.indexOf(total_payable_price) == -1">
+		     <ion-col size-md="8" size-sm="12" size="12">
+	     		<p style="margin: 0 0 12px 0;background: var(--ion-color-bggradient);padding: 19px 14px;color: #fff;font-weight: bold;">
+	     			<input checked id="rad11" type="radio" name="radio_type" value="0" (click)="chooseAddress($event)">  
+					<label class="radio-button" for="rad11">&nbsp;Add Billing address</label>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					<input id="rad12" type="radio" name="radio_type" value="1" (click)="chooseAddress($event)">  
+					<label class="radio-button" for="rad12">&nbsp;Select from saved addresses</label>
+				</p>
+		     	 
+	     	 	<ion-card panel panel-default no-margin padding *ngIf="address_type == '1'">
+			     	 <div panel-heading  checkout-head>
+					    <h4>
+						   <a href="javascript:void(0)"  >
+						      <span><i class="fa fa-file-text" aria-hidden="true"></i></span>  Billing Address
+						   </a>
+						</h4>					 
+					 </div>
+					 <div class="pad_10" panel-body *ngFor="let address of addresses; let a_ind = index ">
+			     	 	{{address.address_first_name}} {{address.address_last_name}}<br>
+			     	 	{{address.full_address}}, {{address.address_city}}, {{address.address_state}}, {{address.address_zip_code}} ({{address.country_name}})<br>
+			     	 	contact:- {{address.address_phone}}
+			     	 	<div float-right>
+				     	 	<input id="check{{a_ind}}" type="radio" name="radio" value="{{a_ind}}" (click)="addressSelected($event)" checked>  
+							<label class="radio-button" for="check{{a_ind}}">&nbsp;Select</label> 
+						</div>
+			     	 </div>
+
+			     	 <div class="pad_10" panel-body *ngIf="addresses.length == 0">
+			     	 	<span>No address saved yet.</span>
+			     	 </div>
+		     	 </ion-card>	 
+				 <ion-card panel panel-default no-margin padding *ngIf="address_type == '0'">
+				     <div panel-heading  checkout-head>
+					    <h4>
+						   <a href="javascript:void(0)">
+						      <span><i class="fa fa-file-text" aria-hidden="true"></i></span>  Billing Information
+						   </a>
+						</h4>					 
+					 </div>
+                     <div panel-body >
+                      
+                              <ion-row>
+							     <ion-col size-md="6" size-sm="12" size="12">
+								            <div  form-group>
+												  <ion-label  class="ion-hide-md-down" position="stacked">First Name *</ion-label>
+												  <ion-input [(ngModel)]="a_first_name" type="text" placeholder="First Name"></ion-input>
+											</div>
+								  </ion-col>
+								  <ion-col size-md="6" size-sm="12" size="12">
+								              <div  form-group>
+												  <ion-label  class="ion-hide-md-down" position="stacked">Last Name *</ion-label>
+												  <ion-input [(ngModel)]="a_last_name" type="text" placeholder="Last Name"></ion-input>
+											</div>
+								  </ion-col>
+								 <ion-col size-md="6" size-sm="12" size="12">
+								             <div  form-group>
+												  <ion-label  class="ion-hide-md-down" position="stacked">Email Address *</ion-label>
+												  <ion-input [(ngModel)]="a_email_address" type="email" placeholder="Email Address "></ion-input>
+											</div>
+								  </ion-col>
+								  <ion-col size-md="6" size-sm="12" size="12">
+								              <div  form-group>
+												  <ion-label  class="ion-hide-md-down" position="stacked" >Phone Number  *</ion-label>
+												  <ion-input [(ngModel)]="a_phone_number" type="text"  placeholder="Phone Number"></ion-input>
+											</div>
+								  </ion-col>
+								   <!-- <ion-col size-md="6" size-sm="12" size="12">
+								             <div  form-group>
+												  <ion-label  class="ion-hide-md-down" position="stacked">Company Name *</ion-label>
+												  <ion-input [(ngModel)]="a_company_name" type="text" placeholder="Company Name"></ion-input>
+											</div>
+								  </ion-col> -->
+								  <ion-col size-md="12" size-sm="12" size="12">
+								            <div  form-group>
+												  <ion-label  class="ion-hide-md-down" position="stacked">Address  *</ion-label>
+												  <ion-input [(ngModel)]="a_address" type="text" placeholder="Address"></ion-input>
+												  <!-- <ng4geo-autocomplete [userSettings]="userSettings" (componentCallback)="autoCompleteCallback($event)"></ng4geo-autocomplete> -->
+											</div>
+								  </ion-col>
+								   <ion-col size-md="6" size-sm="12" size="12">
+								            <div  form-group>
+												  <ion-label  class="ion-hide-md-down" position="stacked">City *</ion-label>
+												  <ion-input [(ngModel)]="a_city" type="text" placeholder="City"></ion-input>
+											</div>
+								  </ion-col>
+								  <ion-col size-md="6" size-sm="12" size="12">
+								            <div  form-group>
+												  <ion-label  class="ion-hide-md-down" position="stacked">State *</ion-label>
+												  <ion-input [(ngModel)]="a_state" type="text" placeholder="State"></ion-input>
+											</div>
+								  </ion-col>
+								  <ion-col size-md="6" size-sm="12" size="12">
+								              <ion-item  form-group no-padding lines="none">
+												  <ion-label class="ion-hide-md-down" position="stacked">Country *</ion-label>
+												    <ion-select [(ngModel)]="a_country" placeholder="Select Country">
+														  <ion-select-option *ngFor="let country of countries" value="{{country.id}}">{{country.name}}</ion-select-option>
+													</ion-select>
+											</ion-item>
+								  </ion-col>
+								  <ion-col size-md="6" size-sm="12" size="12">
+							            <div  form-group>
+											  <ion-label  class="ion-hide-md-down" position="stacked">Zip Code *</ion-label>
+											  <ion-input [(ngModel)]="a_zip" type="text" placeholder="Zip Code"></ion-input>
+										</div>
+								  </ion-col>
+								  <ion-col size="12">
+								       
+									   
+								               <div checkbox>
+														<label class="ion-hide-md-down">
+														  <input type="checkbox" [(ngModel)]="can_save_address" > Save for further orders
+														</label>
+													      <ion-item class="ion-hide-lg-up"  no-padding>
+														      <ion-label>Save for further orders</ion-label>
+                                                              <ion-checkbox [(ngModel)]="can_save_address" slot="start" color="darkred" ></ion-checkbox>
+														 </ion-item>
+													</div>
+									   
+								              <!--  <div checkbox>												
+														<label class="ion-hide-md-down">
+														  <input type="checkbox" class="" name="" value="1"> Click here for express delivery
+														</label>
+														       <ion-item class="ion-hide-lg-up" no-padding>
+														      <ion-label>Click here for express delivery</ion-label>
+                                                              <ion-checkbox slot="start" color="darkred"></ion-checkbox>
+														 </ion-item>
+													</div> -->
+											
+								  </ion-col>
+								   <!-- <ion-col size="12">
+								   
+								       <ion-button  color="darkred"  >
+									        Continue Checkout
+									   </ion-button>
+								   
+								   </ion-col> -->
+							  </ion-row>
+                     						 
+					 </div>				 
+				 </ion-card>
+			  </ion-col>
+		    <ion-col size-md="4" size-sm="12" size="12">
+			    <!-- <ng-container *ngIf="address_type == '0'">
+			    	<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+					    <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+					      (dragEnd)="markerDragEnd($event)"></agm-marker>
+					</agm-map>
+				</ng-container> -->
+			    <div checkout-progress-sidebar>
+				   <ion-card  panel panel-default  no-margin padding *ngIf="is_wholesale == true">
+				      <div panel-heading>
+					     <h4  unicase-checkout-title text-uppercase>
+						     Discount Coupon
+						 </h4>					  
+					  </div>
+					  <div price_single_cost *ngIf="is_coupon_applied == false">
+					    <p>Enter your coupon code if you have one..</p>
+						<div class="form-group">
+							<input [(ngModel)]="coupon_code" type="text" class="form-control unicase-form-control text-input" placeholder="Your Coupon..">
+						</div>
+						<div class="clearfix">
+							<ion-button color="darkred" (click)="applyCoupon()">
+								APPLY COUPON
+							</ion-button>
+						</div>
+					  </div>
+					  <div price_single_cost *ngIf="is_coupon_applied == true">
+					    <p>Coupon {{coupon_code}} applied 
+						<ion-button icon action-icons del-icon (click)="removeCoupon()">
+							<ion-icon name="close"></ion-icon>
+						</ion-button>
+						</p>
+					  </div>
+				   </ion-card>
+				   <ion-card panel panel-default  no-margin padding>
+				      <div panel-heading>
+					     <h4 unicase-checkout-title text-uppercase>
+						     Your order	
+						 </h4>					  
+					  </div>
+					  <div price_single_cost>
+					    <h4>Subtotal <span float-right>${{total_payable_price.toFixed(2)}}</span></h4>
+					    <h4>Shipping  <span float-right>$0</span></h4>
+					    <!-- <h4>Express Delivery <span float-right>$0</span></h4> -->
+					    <h4 *ngIf="is_coupon_applied == true">Coupon applied <span float-right>-${{coupon_amount}}</span></h4>
+					    <h3>Total Cost <span float-right>${{grand_total.toFixed(2)}}</span></h3>
+					  </div>
+				   </ion-card >		   
+				  <ion-card  panel panel-default  no-margin padding>
+				      <div panel-heading>
+					     <h4  unicase-checkout-title text-uppercase>
+						     Payment Information
+						 </h4>					  
+					  </div>
+					  <div price_single_cost payment-info>
+					       <!-- <p  title-tag-line>Register with us for future convenience:</p> -->
+					      
+											<div class="radio radio-checkout-unicase">  
+													<div>
+														<input id="pay1" type="radio" name="pay_type" value="1"  [ngClass]="{'active': payment_method === 'paypal'}"  (click)="payment_method = 'paypal';">  
+														<label class="radio-button" for="pay1">Paypal</label>  
+														  <br>
+														<input checked id="pay2" type="radio" name="pay_type" value="2"  [ngClass]="{'active': payment_method === 'cash'}"  (click)="cashClicked()">  
+														<label class="radio-button" for="pay2">Cash on Delivery</label> 
+													</div>												
+												 <!--  <ion-item  lines="none" class="ion-hide-lg-up" no-padding [ngClass]="{'active': payment_method === 'paypal'}"  (click)="payment_method = 'paypal'">
+														      <ion-label>Paypal</ion-label>
+                                                              <ion-radio name="pay_type"  slot="start" color="darkred"></ion-radio >
+														 </ion-item>
+														  <ion-item  lines="none"  class="ion-hide-lg-up" no-padding [ngClass]="{'active': payment_method === 'cash'}"  (click)="payment_method = 'cash'">
+														      <ion-label>Cash on Delivery</ion-label > 
+                                                              <ion-radio name="pay_type" slot="start" color="darkred"></ion-radio >
+														 </ion-item> -->
+											</div>
+                                    <!-- <div desc  paypal  [ngClass]="{'active': payment_method === 'paypal'}"> -->
+                                    <!-- <ion-card panel panel-default no-margin padding *ngIf="cards != ''">
+									 <div class="pad_10" panel-body *ngFor="let card of cards; let c_ind = index ">
+							     	 	{{card.card_type}}<br>
+							     	 	xxxx xxxx xxxx {{card.card_number.slice(-4)}}
+							     	 	<div float-right>
+								     	 	<input id="check_card_{{c_ind}}" type="radio" name="radio_card" value="{{c_ind}}" (click)="cardSelected($event)">  
+											<label class="radio-button" for="check_card_{{c_ind}}">&nbsp;Select</label> 
+										</div>
+							     	 </div>
+						     	 </ion-card> -->
+                                    <!-- <ng-container *ngIf="cards == ''">
+									   <h2>
+									     Paypal
+									    <span float-right card-psys> <img src="assets/images/cards.png"></span>
+									   </h2>
+									   <ion-row>
+											 <ion-col size-md="12" size-sm="12" size="12">
+												<div  form-group>
+													  <ion-label position="stacked">Card Number *</ion-label>
+													  <ion-input type="text" [(ngModel)]="c_card_number"></ion-input>
+												</div>
+											  </ion-col>
+											  <ion-col size-md="12" size-sm="12" size="12">
+												<ion-item  form-group no-padding lines="none">
+												<ion-label position="stacked">Card Type *</ion-label>
+												<ion-select [(ngModel)]="c_card_type" placeholder="Select Card">
+													<ion-select-option value="Visa">Visa</ion-select-option>
+													<ion-select-option value="Master Card">Master Card</ion-select-option>
+													<ion-select-option value="American Express">American Express</ion-select-option>
+													<ion-select-option value="Rupay">Rupay</ion-select-option>
+													<ion-select-option value="Discover">Discover</ion-select-option>
+													<ion-select-option value="Citibank">Citibank</ion-select-option>
+												</ion-select>
+											</ion-item>
+											  </ion-col>
+											   <ion-col size-md="6" size-sm="12" size="12">
+												<div  form-group>
+													  <ion-label position="stacked">Expiry Date *</ion-label>
+													  <ion-input [(ngModel)]="c_expiry_month" type="text" float-left placeholder="MM" w-50s></ion-input>
+													  <ion-input [(ngModel)]="c_expiry_year" type="text" float-right placeholder="YY" w-50s></ion-input>
+												</div>
+											  </ion-col>
+											   <ion-col size-md="6" size-sm="12" size="12">
+												<div  form-group>
+													  <ion-label position="stacked">CVV *</ion-label>
+													  <ion-input [(ngModel)]="c_card_cvv" type="text" placeholder=""></ion-input>
+												</div>
+											  </ion-col>
+								       </ion-row>
+								       </ng-container> -->
+                                    <!-- </div>									 -->
+							
+					  </div>
+					  	<div *ngIf="is_paypal_web_enabled == true" id="paypal-button-container"></div>
+					   <ion-button *ngIf="is_paypal_web_enabled != true" color="darkred" (click)="finalCheckout()" style="position: initial;float: right;height: 35px;">
+						 Proceed To Checkout
+					   </ion-button>
+				   </ion-card >	
+				    
+				</div>
+			</ion-col>
+		   </ion-row>	
+
+	</div>
+</div>
+<!---Checkout Section Ends -->
+<app-footer></app-footer>
+</ion-content>

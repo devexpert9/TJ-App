@@ -1,0 +1,179 @@
+<ion-header class="ion-hide-lg-up">
+  <ion-toolbar color="darkred" text-uppercase>
+    <ion-buttons slot="end" (click)="closeModal()">
+      <ion-icon name="close"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+        Filters
+    </ion-title>
+  </ion-toolbar>
+</ion-header> 
+<ion-content>
+<ion-list filters_list>
+ 	<ion-item price-range lines="none" >
+	    <ion-range color="darkred" [(ngModel)]="price_values" (ionChange)="priceChanged($event)"  dualKnobs="true"  min="0" max="10000" step="20" snaps="true" ticks="true">
+		    <ion-label price-left slot="start"><span>Min Price</span><br><b>${{min_price}}</b></ion-label>
+	      	<ion-label price-right slot="end"><span>Max Price</span><br><b>${{max_price}}</b></ion-label>
+		</ion-range>
+  	</ion-item>
+
+    <ion-item price-range lines="none" >
+		<ion-label price-left><span>Filter by category</span></ion-label>
+    </ion-item>
+    <div filter-main *ngFor="let cat of all_categories; let cat_index = index ">
+	  <div widget-header [ngClass]="{'collapsed': selectedItem.indexOf('item'+cat.cat_id) >= 0}"  (click)="openClose('item'+cat.cat_id)">
+		<h3>{{cat.cat_name}}</h3>
+	  </div>
+	   <div widget-body [ngClass]="{'active': selectedItem.indexOf('item'+cat.cat_id) >= 0}">
+			<ul class="category-menu">
+			  <li *ngFor="let subcat of cat.subcats">
+			   <ion-item p-lr-0 border-none>
+		        <ion-label>{{subcat.subcat_name}}</ion-label>
+		        <ion-checkbox [checked]="cat_values[cat.cat_id] != undefined && cat_values[cat.cat_id].indexOf(subcat.subcat_id) >= 0" (ionChange)="catChecked($event,cat.cat_id,subcat.subcat_id)" ></ion-checkbox>
+		      	</ion-item>
+		      </li>
+			</ul>
+	   </div>
+    </div>
+
+    <ion-item price-range lines="none" >
+		<ion-label price-left><span>Filter by brand</span></ion-label>
+	</ion-item>
+    <div filter-main other_filters>
+	   <div>
+			<ul class="category-menu">
+			  <li *ngFor="let brand of all_brands ">
+			    <ion-item p-lr-0 border-none>
+		        <ion-label>{{brand.brand_name}}</ion-label>
+		        <ion-checkbox [checked]="filtered_brands.indexOf(brand.brand_id) >= 0" (ionChange)="brandChecked($event,brand.brand_id)" ></ion-checkbox>
+		      	</ion-item>
+		       </li>
+			</ul>
+	   </div>
+  	</div>
+
+  	<ion-item price-range lines="none" >
+		<ion-label price-left><span>Filter by discount</span></ion-label>
+	</ion-item>
+    <div filter-main other_filters>
+	   <div>
+			<ul class="category-menu">
+			  	<li>
+			   	 <ion-item p-lr-0 border-none>
+			        <ion-label>10% Off or More</ion-label>
+			        <ion-checkbox [checked]="filtered_discount.indexOf('10') >= 0" (ionChange)="discountChecked($event,'10')" ></ion-checkbox>
+			      </ion-item>
+			    </li>
+			    <li>
+			   	 <ion-item p-lr-0 border-none>
+			        <ion-label>25% Off or More</ion-label>
+			        <ion-checkbox [checked]="filtered_discount.indexOf('25') >= 0" (ionChange)="discountChecked($event,'25')" ></ion-checkbox>
+			      </ion-item>
+			    </li>
+			    <li>
+			   	 <ion-item p-lr-0 border-none>
+			        <ion-label>50% Off or More</ion-label>
+			        <ion-checkbox [checked]="filtered_discount.indexOf('50') >= 0" (ionChange)="discountChecked($event,'50')" ></ion-checkbox>
+			      </ion-item>
+			    </li>
+			    <li>
+			   	 <ion-item p-lr-0 border-none>
+			        <ion-label>70% Off or More</ion-label>
+			        <ion-checkbox [checked]="filtered_discount.indexOf('70') >= 0" (ionChange)="discountChecked($event,'70')" ></ion-checkbox>
+			      </ion-item>
+			    </li>
+			    <li>
+			   	 <ion-item p-lr-0 border-none>
+			        <ion-label>80% Off or More</ion-label>
+			        <ion-checkbox [checked]="filtered_discount.indexOf('80') >= 0" (ionChange)="discountChecked($event,'80')" ></ion-checkbox>
+			      </ion-item>
+			    </li>
+			</ul>
+	   </div>
+  	</div>
+
+  	<ion-item price-range lines="none" >
+		<ion-label price-left><span>Avg. Customer Review</span></ion-label>
+	</ion-item>
+    <div filter-main other_filters>
+	   <div>
+			<ul class="category-menu">
+			  	<li>
+			   	 <ion-item p-lr-0 border-none>
+			        <ion-label>
+			        	<!-- <ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="4" [color]="'#a01616'"></ngx-stars>  -->
+			        	<a href="javascript:void(0)" rating_clr>
+						  <i class="fa fa-star"></i>
+						  <i class="fa fa-star"></i>
+						  <i class="fa fa-star"></i>
+						  <i class="fa fa-star"></i>
+						  <i class="fa fa-star-o"></i> 
+						</a>
+			        	&amp; UP
+			        </ion-label>
+			        <ion-checkbox [checked]="filtered_reviews.indexOf('4+') >= 0" (ionChange)="reviewChecked($event,'4+')" ></ion-checkbox>
+			      </ion-item>
+			    </li>
+			  	<li>
+			   	 <ion-item p-lr-0 border-none>
+			        <ion-label>
+			        	<!-- <ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="3" [color]="'#a01616'"></ngx-stars> &amp; UP -->
+			        	<a href="javascript:void(0)" rating_clr>
+						  <i class="fa fa-star"></i>
+						  <i class="fa fa-star"></i>
+						  <i class="fa fa-star"></i>
+						  <i class="fa fa-star-o"></i>
+						  <i class="fa fa-star-o"></i> 
+						</a>
+			        	&amp; UP
+			        </ion-label>
+			        <ion-checkbox [checked]="filtered_reviews.indexOf('3+') >= 0" (ionChange)="reviewChecked($event,'3+')" ></ion-checkbox>
+			      </ion-item>
+			    </li>
+			    <li>
+			   	 <ion-item p-lr-0 border-none>
+			        <ion-label>
+			        	<!-- <ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="2" [color]="'#a01616'"></ngx-stars> &amp; UP -->
+			        	<a href="javascript:void(0)" rating_clr>
+						  <i class="fa fa-star"></i>
+						  <i class="fa fa-star"></i>
+						  <i class="fa fa-star-o"></i>
+						  <i class="fa fa-star-o"></i>
+						  <i class="fa fa-star-o"></i> 
+						</a>
+			        	&amp; UP
+			        </ion-label>
+			        <ion-checkbox [checked]="filtered_reviews.indexOf('2+') >= 0" (ionChange)="reviewChecked($event,'2+')" ></ion-checkbox>
+			      </ion-item>
+			    </li>
+			    <li>
+			   	 <ion-item p-lr-0 border-none>
+			        <ion-label>
+			        	<!-- <ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="1" [color]="'#a01616'"></ngx-stars> &amp; UP -->
+			        	<a href="javascript:void(0)" rating_clr>
+						  <i class="fa fa-star"></i>
+						  <i class="fa fa-star-o"></i>
+						  <i class="fa fa-star-o"></i>
+						  <i class="fa fa-star-o"></i>
+						  <i class="fa fa-star-o"></i> 
+						</a>
+			        	&amp; UP
+			        </ion-label>
+			        <ion-checkbox [checked]="filtered_reviews.indexOf('1+') >= 0" (ionChange)="reviewChecked($event,'1+')" ></ion-checkbox>
+			      </ion-item>
+			    </li>
+			</ul>
+	   </div>
+  	</div>
+
+
+	<div btn-save-reset>
+		<ion-button color="darkred" (click)="callFilter()">
+			Apply
+		</ion-button>
+		<ion-button color="darkred" (click)="resetFilter()">
+			Reset
+		</ion-button>
+	</div>
+</ion-list>
+</ion-content>

@@ -1,0 +1,93 @@
+ion-toolbar{
+	padding:0 !important;
+	 --min-height: 1px !important;
+	ion-title{
+		width:100% !important;
+	}
+}
+.toolbar-container{
+	padding:0 !important;
+}
+.noWishlised{
+	    text-align: center;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    border: 1px solid #ddd;
+	    max-width: 90%;
+	    margin: auto;
+	    color: #666;
+	    padding: 10px 0;
+	    border-radius: 5px;
+}
+.headeroptions{
+	position:absolute;
+	right:0;
+	top:0;
+	ion-button{
+		float: left;
+	    margin: 0;
+	    color: #fff;
+	    --background: none;
+	    margin-top:5px;
+	    padding: 0;
+	    --box-shadow: none;
+	}
+	.CustomSelect{
+		border: 1px solid rgba(255,255,255, .35);
+	    border-radius: 3px;
+	    font-size: 13px;
+	    padding: 5px;
+	    color: #fff;
+	    background: none;
+	    float: left;
+	    margin: 8px 0px 8px 8px;
+	    option{
+	    	color:#111;
+	    }
+	}
+}
+ion-radio-group{
+	ion-item{
+		padding-right: 25px;
+		ion-radio{
+			margin-right:15px;
+		}
+	}
+}
+[btnSubmit]{
+	margin:20px 15px 15px 15px;
+	float:right;
+}
+.PopProListing{
+	padding:0 15px;
+	ion-row{
+		display: flex;
+	    align-items: center;
+    	border-bottom: 1px solid #f1f1f1;
+		span{
+			width: 50px;
+		    height: 50px;
+		    border: 1px dashed #ddd;
+		    padding: 3px;
+		    display: flex;
+		    align-items: center;
+		    overflow: hidden;
+		    justify-content: center;
+			img{
+				max-width:100%;
+				max-height:100%;
+			}
+		}
+		[product-name]{
+			a{
+				font-size:14px;
+				color:#111;
+			}
+		}
+		[removePro]{
+			font-size:17px;
+			color:#9f1716;
+		}
+	}
+}

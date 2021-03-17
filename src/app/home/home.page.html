@@ -1,0 +1,133 @@
+<ion-content>
+<app-header ></app-header>
+		<div class="logo-rating-sec">	
+			<ion-row>
+				 <ion-col size="12" class="ion-text-right ion-align-self-center">
+					<div class="header-call-action menu-right">
+						<ul class="menu-right-ul">
+							<li><a href="javascript:void(0)"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+							<li><a href="javascript:void(0)"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+							<li><a href="javascript:void(0)"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+						</ul>
+						<ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Flag">
+							<ion-select-option value="Flag-1">Flag-1</ion-select-option>
+							<ion-select-option value="Flag-2">Flag-2</ion-select-option>
+							<ion-select-option value="Flag-3">Flag-3</ion-select-option>
+							<ion-select-option value="Flag-4">Flag-4</ion-select-option>
+						</ion-select>
+					</div>
+				</ion-col>
+			</ion-row>
+		</div>
+   	<div home-cate-sec>
+   	    <div class="container">
+   		    <div class="row">		
+   				<div class="col-lg-12">
+   					<button type="submit" float-left ion-button class="btnPrev" (click)="prev()"><ion-icon name="arrow-back"></ion-icon></button>
+   					<button type="submit" float-right ion-button class="btnNext" (click)="next()"><ion-icon name="arrow-forward"></ion-icon></button>		
+   					
+                  <ion-slides pager [options]="slideOpts1" #slides>
+   						<ion-slide *ngFor="let pro of new_products">			
+   							<div new-users-mn routerLink="/product-post">
+   								<img src="{{proImage_url}}{{pro?.product_image}}" alt="" />
+   							</div>
+   						</ion-slide>
+   						
+   					</ion-slides>				
+   				</div>
+   			</div>
+   		</div>
+   	</div>
+      <div class="main-wrapper  home-page">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-5">
+                  <div headmn-sec class="section-title module-three">
+                     <h3><span>Featured </span> Products</h3>
+                  </div>
+                  <div>
+						   <app-featured-products class="row"></app-featured-products>
+                     
+                     <!-- <div class="col-md-12 text-center mb-30">
+                        <button class="header-button-item">View All Product</button>
+                     </div> -->
+                  </div>
+               </div>
+               <div class="col-lg-7">
+                  <div class="post-feed-main">
+                     <article class="post-feed-item" *ngFor="let blog of all_blogs ">
+                        <div class="activity-header">
+                           <div class="activity-avatar">
+                              <a href="javascript:void(0)">
+                                 <img alt="" src="assets/img/post-1.png">
+						            </a>							  
+                           </div>
+                           <div class="activity-head">
+                              <h4>
+                                 <a routerLink="/blog-detail/{{blog.blog_id}}">
+							              {{blog.blog_name}}
+						               </a>
+                              </h4>
+                              <p><span class="time-since">Apple</span></p>
+                           </div>
+                        </div>
+                        <div class="activity-inner">
+      							<p *ngIf="atob(blog.blog_description).length <= 200" [innerHTML]="atob(blog.blog_description)"></p>
+      							<p *ngIf="atob(blog.blog_description).length > 200" [innerHTML]="atob(blog.blog_description).substr(0,200)+'...'"></p>
+                           <div class="post-feed-img">
+      								<img *ngIf="errors.indexOf(blog.blog_image) >= 0" src="assets/images/products/no_image.svg" class="img-fluid">
+      								<img *ngIf="errors.indexOf(blog.blog_image) == -1" src="{{IMAGES_URL}}/blog_images/{{blog.blog_image}}" alt="Image" class="img-fluid">
+      							    <span sharebtn-img><ion-icon name="share-social-outline"></ion-icon></span>
+                           </div>
+                        </div>
+                        <div class="post-details-activity-bottom pb-10">
+                           <ul class="like-com">
+                              <li>
+                                 <a href="javascript:void(0)"><i class="fa fa-thumbs-up"></i> Like</a>
+                                 <div class="likedby-images">
+                                    <span><img src="assets/img/post-1.png" class="img-fluid"></span>
+                                    <span><img src="assets/img/post-2.png" class="img-fluid"></span>
+                                    <span><img src="assets/img/post-3.jpg" class="img-fluid"></span>
+                                    <span><img src="assets/img/post-4.jpg" class="img-fluid"></span>
+                                    <span class="likedbycount">15</span>
+                                 </div>
+                              </li>
+                           </ul>
+                           <div class="mini-cart-option">
+                              <ul class="like-com">
+                                 <li class="post-button-item buy-button-item"><a class="mr-0 ml-0" href="javascript:void(0)"><span class="lnr lnr-cart mr-0"></span> Buy</a></li>
+                                 <li class="post-button-item wishlist-button-item"><a class="mr-0" href="javascript:void(0)"><span class="lnr lnr-heart mr-0"></span> Wishlist </a></li>
+                                 <li class="post-button-item suggest-button-item"><a class="mr-0" href="javascript:void(0)"><span class="fa fa-paper-plane"></span> Suggest</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                        <div class="tag-box">
+                           <div class="tagword">
+                              <div class="aside-title">
+                                 <h6>Tags</h6>
+                              </div>
+                              <div class="tagcloud">
+                                 <a href="javascript:void(0);">Business</a>
+                                 <a href="javascript:void(0);">Marketing</a>
+                                 <a href="javascript:void(0);">SEO</a>
+                                 <a href="javascript:void(0);">strategy</a>
+                                 <a href="javascript:void(0);">Map</a>
+                              </div>
+                           </div>
+                           <div class="like-com">
+                              <a href="javascript:void(0)"><i class="fa fa-share-square-o"></i> Share</a>
+                           </div>
+                        </div>
+                        <div class="comment-section">
+                           <ion-input type="text" placeholder="Write Your Comment..." class="commnetbar"></ion-input>
+                           <button class="btn-style"><i class="fa fa-reply" aria-hidden="true"></i></button>
+                        </div>
+                     </article>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+<!--Mobile Screen Ends-->
+<app-footer></app-footer>
+</ion-content>

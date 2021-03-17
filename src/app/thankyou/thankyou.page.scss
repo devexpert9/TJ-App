@@ -1,0 +1,128 @@
+
+ion-content
+{  
+	--background:var(--ion-color-grey);
+	@media only screen and (min-width:991px)
+	{
+	   --padding-top:var(--ion-padding-0);
+	}
+@media only screen and (max-width:991px)
+	{
+	   --background:var(--ion-color-white)!important;
+	   --padding-top:var(--ion-padding-0);
+	   --padding-bottom:var(--ion-padding-0);
+	   --padding-start:var(--ion-padding-0);
+	   --padding-end:var(--ion-padding-0);
+	}
+.single-product
+{  
+@media only screen and (max-width:991px)
+{
+	    padding: var(--ion-padding-0)  var(--ion-padding-15);
+
+}
+   /* Thanku You Start */
+   [thankyou-text]
+   {
+      h3
+	  { font-family: var(--ion-font-family-2);
+	     &[text]
+		 {
+		     color: var(--ion-color-darkblue);
+		     font-weight: 700;
+             font-size: var( --ion-font-size-27);
+			  @media only screen and (max-width:991px)
+						   {
+							    font-size: var(--ion-font-size-18);
+						   }
+		 }
+	  }
+	  p
+	  {
+	      font-size: var(--ion-font-size-14);
+          color: var(--ion-color-darkblack);
+          font-family: var(--ion-font-family-2);
+		      @media only screen and (max-width:991px)
+						   {
+							    font-size: var(--ion-font-size-12);
+						   }
+	  }
+   }
+   /* Thank You Ends */
+   /* Order Summary Start */
+   [order-summry]
+   {
+	    padding-top: var(--ion-padding-40);
+		 @media only screen and (max-width:991px)
+		   {
+				padding-top: var(--ion-padding-15)!important;
+		   }
+		  table
+		  {
+			  tr
+			  {	           font-size: var(--ion-font-size-14);
+						  color: var(--ion-color-darkblack);
+						  font-family: var(--ion-font-family-2);
+						  	 @media only screen and (max-width:991px)
+							   {
+								 font-size: var(--ion-font-size-12);   
+								   
+							   }
+				   th
+				   {
+					         background: #efefef;
+                             padding: var(--ion-padding-13)  var(--ion-padding-16);
+                             color: var(--ion-color-black);
+							 border-bottom: 1px solid var(--ion-color-ltgrey);
+							   @media only screen and (max-width:991px)
+						   {
+							    padding: var(--ion-padding-8);
+						   }
+							
+				   }
+				   td
+				   {
+					          padding: var(--ion-padding-13)  var(--ion-padding-16);
+						   vertical-align:middle;
+						   @media only screen and (max-width:991px)
+						   {
+							    padding: var(--ion-padding-8)!important;
+						   }
+				   }
+			  }
+		  }
+		  [main-sec-thank]
+		  {
+			   tr
+			  {	   	
+				   td
+				   {
+					 border:none;
+					  padding: var(--ion-padding-15)   var(--ion-padding-15)  var(--ion-padding-0) ;
+							[main-sec] 
+							{
+								text-transform: uppercase;
+								font-weight: bold;
+								transition: all linear 0.2s;
+								background: var(  --ion-color-darkblue);
+								color:var(--ion-color-white);
+								border: none;
+								font-size: var(--ion-font-size-15);
+								border-radius: var(--ion-value-0);
+								padding: var(--ion-padding-10);
+								 font-family: var(--ion-font-family-3);
+								width: 142px;
+								display: inline-block;
+								margin-top: var(--ion-margin-top-10);
+								  @media only screen and (max-width:991px)
+							   {
+								  font-size: var(--ion-font-size-12);	padding: var(--ion-padding-5);
+							   }
+						  }
+				   }
+			  }
+		  }
+   }
+   /* Order Sumamry Ends */
+}
+}	

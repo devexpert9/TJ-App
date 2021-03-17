@@ -1,0 +1,104 @@
+ion-toolbar{
+	padding:0 !important;
+	 --min-height: 1px !important;
+	ion-title{
+		width:100% !important;
+	}
+}
+
+.ion-page{
+	z-index: inherit !important;
+}
+.toolbar-container{
+	padding:0 !important;
+}
+.noWishlised{
+	    text-align: center;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    border: 1px solid #ddd;
+	    max-width: 90%;
+	    margin: auto;
+	    color: #666;
+	    padding: 10px 0;
+	    border-radius: 5px;
+}
+.headeroptions{
+	position:absolute;
+	right:0;
+	top:0;
+	ion-button{
+		float: left;
+	    margin: 0;
+	    color: #fff;
+	    --background: none;
+	    margin-top:5px;
+	    padding: 0;
+	    --box-shadow: none;
+	}
+}
+ion-radio-group{
+	ion-item{
+		padding-right: 25px;
+		ion-radio{
+			margin-right:15px;
+		}
+	}
+}
+[btnSubmit]{
+	margin:20px 0 0 15px;
+	margin-bottom: 40px !important;
+}
+
+ion-input {
+	border-radius: var(--ion-value-3);
+    box-shadow: none;
+    font-size: var(--ion-font-size-14);
+    border: 1px solid #eee;
+    background: var(--ion-color-white);
+    height: var(--ion-wh-42) !important;
+    padding: var(--ion-padding-10) var(--ion-padding-10) !important;
+    font-family: var(--ion-font-family-2);
+}
+
+ion-label{
+    display: inline-block;
+    max-width: 100% !important;
+    margin-bottom: var(--ion-margin-15) !important;
+    font-weight: 700;
+    color: var(--ion-color-darkblack);
+    font-size: var(--ion-font-size-16);
+    font-family: var(--ion-font-family-2);
+}
+
+[billing]{
+	font-family: var(--ion-font-family-2);
+    color: var(--ion-color-darkblack3);
+    text-transform: uppercase;
+    display: block;
+    margin: var(--ion-margin-0);
+    font-size: var(--ion-font-size-13);
+    font-weight: bold;
+    text-decoration: none;
+    background: #c1c1c14a;
+
+    span{
+    	color: var(--ion-color-white);
+	    display: inline-block;
+	    margin-right: var(--ion-margin-10);
+	    padding: var(--ion-padding-15) var(--ion-padding-20);
+	    background: #aaaaaa;
+    }
+}
+
+ion-select{
+    border-radius: var(--ion-value-3);
+    box-shadow: none;
+    font-size: var(--ion-font-size-14);
+    border: 1px solid #eee;
+    background: var(--ion-color-white);
+    height: var(--ion-wh-42) !important;
+    padding: var(--ion-padding-10) var(--ion-padding-10) !important;
+    font-family: var(--ion-font-family-2);
+}

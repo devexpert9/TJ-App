@@ -1,0 +1,125 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+
+ion-modal.wishListModal .modal-wrapper {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+
+html, body
+{
+font-family: 'font-family: 'Open Sans', sans-serif;', sans-serif!important;
+--ion-default-font: 'font-family: 'Open Sans', sans-serif;', sans-serif!important;
+}
+[search]
+{
+	ion-searchbar 
+	{
+	   
+		padding:0px;
+		--box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+		.searchbar-search-icon
+		{
+			right: 16px;
+			top: 0px;
+			left: initial;
+			color: #a3a3a3;
+			bottom: 0px;
+			margin: auto;
+		}
+		input.searchbar-input
+		{        
+			font-size: 14px;
+			line-height: 28px!important;
+			background: #fff;
+			color:#d1cfcf;
+			border-radius: 30px;    
+			--placeholder-opacity: 1;
+			padding-inline-start: 15px!important;
+			padding-inline-end: 35px!important;
+		}
+		.searchbar-clear-button
+		{
+		   right: 40px;
+		}
+	}
+}
+.user-pannel-home .content-wraper.message-chat .chat-main-row aside header
+{
+	ion-searchbar 
+	{
+	   
+		padding:0px;
+		--box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+		--background: #5e616a;
+		.searchbar-search-icon
+		{
+			right: 16px;
+			top: 0px;
+			left: initial;
+			color: #fff;
+			bottom: 0px;
+			margin: auto;
+		}
+		input.searchbar-input
+		{        
+			font-size: 14px;
+			line-height: 28px!important;
+			color:#fff;
+			border-radius: 30px;    
+			--placeholder-opacity: 1;
+			padding-inline-start: 15px!important;
+			padding-inline-end: 35px!important;
+		}
+		.searchbar-clear-button
+		{
+		   right: 40px;
+		}
+	}
+}
+ion-header .dropdown-dots .message-search 
+{
+	ion-searchbar 
+	{
+	   
+		padding:0px;
+		width:280px;
+		--box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+		--background: #fff;
+		.searchbar-search-icon
+		{
+			right: 16px;
+			top: 0px;
+			left: initial;
+			color: #a3a3a3;
+			bottom: 0px;
+			margin: auto;
+		}
+		input.searchbar-input
+		{        
+			font-size: 14px;
+			line-height: 28px!important;
+			background: #fff;
+			color:#d1cfcf;
+			border-radius: 30px;    
+			--placeholder-opacity: 1;
+			padding-inline-start: 15px!important;
+			padding-inline-end: 35px!important;
+		}
+		.searchbar-clear-button
+		{
+		   right: 40px;
+		}
+	}
+}

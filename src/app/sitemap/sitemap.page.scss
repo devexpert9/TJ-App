@@ -1,0 +1,136 @@
+.jbm-sitemap-section {
+    float: left;
+    width: 100%;
+}
+.jbm-sitemap-section.padding-bottom-100 {
+    padding: 40px 0 !important;
+}
+.jbm-sitemap-section ul {
+    list-style: none;
+    padding-left: 0px;
+	font-family: 'Open Sans', sans-serif;
+}
+.jbm-sitemap > ul > li {
+    position: relative;
+    display: block;
+}
+.jbm-sitemap > ul > li > a:before{display:none}
+.jbm-sitemap > ul > li > a:after{display:none}
+.jbm-sitemap-section ul li a {
+    color: #454545;
+    font-size: 15px;
+    font-weight: 400;
+    width: 165px;
+    text-align: center;
+    background-color: #e3e3e3;
+    padding: 15px 0;
+    margin-bottom: 20px;
+    display: inline-block;
+    position: relative;
+}
+.jbm-sitemap-section ul ul {
+    padding-left: 70px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 60px;
+}
+
+.jbm-sitemap-section ul ul:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 3px;
+    width: 2px;
+    height: 100%;
+    z-index: 9;
+	background-color: #a01616;
+}
+.jbm-sitemap-section ul ul li {
+    position: relative;
+}
+.jbm-sitemap-section ul li a {
+    color: #454545;
+    font-size: 15px;
+    font-weight: 400;
+    width: 165px;
+    text-align: center;
+    background-color: #e3e3e3;
+    padding: 15px 0;
+    margin-bottom: 20px;
+    display: inline-block;
+    position: relative;
+}
+.jbm-sitemap ul ul li a {
+    width: 280px;
+}
+.jbm-sitemap-section ul li a:before {
+    content: '';
+    position: absolute;
+    top: 19px;
+    left: -5px;
+    width: 12px;
+    height: 12px;
+    background-color: #a01616;
+    border-radius: 50%;
+}
+.jbm-sitemap-section ul li a:after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 100%;
+    width: 66px;
+    height: 2px;
+    background-color: #a01616;
+}
+.jbm-sitemap-section ul ul:after {
+    font-family: 'Fontawesome';
+    content: "\f111";
+    position: absolute;
+    top: 25px;
+    left: -65px;
+    width: 70px;
+    height: 2px;
+    line-height: 2px;
+    text-indent: -5px;
+	background-color: #a01616;
+	color: #a01616;
+}
+.jbm-sitemap-section ul li a {transition:0.3s ease-in-out; }
+.jbm-sitemap-section ul li a:hover {
+    text-decoration: none;
+    background: #a01616;
+    color: #fff;
+	transition:0.3s ease-in-out;
+}
+
+@media only screen and (max-width:767px) {
+.jbm-sitemap-section ul li a {
+    font-size: 14px;
+    width: auto;
+    padding: 9px 14px;
+	min-width: 130px;
+	margin-bottom: 10px;
+}
+.jbm-sitemap ul ul li a {
+    width: auto;
+    padding: 9px 14px;
+    min-width: 160px;
+}
+.jbm-sitemap-section ul li a:before {
+   top: 14px;
+}
+.jbm-sitemap-section ul li a:after {
+     top: 20px;
+	 width: 30px;
+}
+.jbm-sitemap-section ul ul:after {
+    top: 20px;
+	left: -25px;
+    width: 30px;
+}
+.jbm-sitemap-section ul ul {
+    padding-left: 35px;
+	    margin-left: 40px;
+	}
+}

@@ -1,0 +1,115 @@
+<!-- <ion-header class="ion-hide-lg-up">
+  <ion-toolbar color="darkred" text-uppercase>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+       Contact Us
+    </ion-title>
+  <ion-buttons slot="end" > 
+          <ion-icon name="search"></ion-icon>
+    </ion-buttons>
+	     <ion-buttons slot="end">
+          <ion-icon name="pin"></ion-icon>
+    </ion-buttons>
+<ion-buttons slot="end" > 
+	<ion-icon user-drop name="contact" (click)="onButtonClickdrop()"></ion-icon>
+	
+	 </ion-buttons>
+  </ion-toolbar>
+      <div drop-down-menu *ngIf="buttonClickeddrop">
+	              <a routerLink="/your-account"><ion-icon name="person"></ion-icon> My Account</a>
+	              <a routerLink="/wishlist"><ion-icon name="heart"></ion-icon>  Wishlist</a>
+	              <a routerLink="/cart"><ion-icon name="cart"></ion-icon>  Cart</a>
+	              <a routerLink="/notification"><ion-icon name="notifications"></ion-icon> Notification</a>
+	   </div>
+</ion-header> --> 
+<ion-content >
+<div class="ion-padding">
+<div header_height></div>
+<!-- Breadcrumb Start -->
+		<div breadcrumb  class="ion-hide-md-down">		
+				<div breadcrumb-inner>
+					<ul list-inline list-unstyled>
+						<li><a routerLink="/home">Home</a></li>
+						<li class="active">Contact</li>
+					</ul>
+				</div><!-- /.breadcrumb-inner -->
+		</div>
+<!-- Breadcrumb Ends -->
+<!---  Contact Section Start -->
+<div contact-page>
+ <ion-row>
+   <ion-col size-md="12" size="12" contact-map class="ion-hide-md-down">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83327.3577570667!2d-123.19394410957479!3d49.2578263206911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548673f143a94fb3%3A0xbb9196ea9b81f38b!2sVancouver%2C+BC%2C+Canada!5e0!3m2!1sen!2sin!4v1551704675976" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen>
+		</iframe>
+   </ion-col>
+   <ion-col size-md="12" size-lg="9" size="12" contact-form>
+      
+	     <ion-row>
+		     <ion-col size-md="12" size="12">
+			   <div contact-title><h4>Contact Form</h4><p class="ion-hide-lg-up">Please fill the form below if any query</p></div>			 
+			 </ion-col>
+			  <ion-col size-md="4" size-lg="4" size="12">
+               <div textinput>
+				 	<ion-label  text-left class="ion-hide-md-down">Your Name <span>*</span></ion-label>
+					<ion-item new-input lines="none">							
+						<ion-icon name="person" class="ion-hide-lg-up"></ion-icon>
+						<ion-input [(ngModel)]="c_name" type="text" placeholder="Your Name" class="col-bg-blck"></ion-input>
+					</ion-item>
+				 </div>	
+			  </ion-col>
+			    <ion-col size-md="4" size-lg="4" size="12">
+	               <div textinput>
+					 	<ion-label  text-left class="ion-hide-md-down">Email Address  <span>*</span></ion-label>
+						<ion-item new-input lines="none">							
+							<ion-icon name="mail" class="ion-hide-lg-up"></ion-icon>
+							<ion-input [(ngModel)]="c_email" type="email" placeholder="Email Address" class="col-bg-blck"></ion-input>
+						</ion-item>
+					 </div>	
+			  </ion-col>
+			    <ion-col size-md="4" size-lg="4" size="12">
+	               <div textinput>
+					 	<ion-label  text-left class="ion-hide-md-down">Phone Number <span>*</span></ion-label>
+						<ion-item new-input lines="none">							
+							<ion-icon name="pricetags" class="ion-hide-lg-up"></ion-icon>
+							<ion-input [(ngModel)]="c_phone" type="number" placeholder="Phone Number" class="col-bg-blck"></ion-input>
+						</ion-item>
+					 </div>	
+			  </ion-col>
+			  <ion-col size-md="12" size-lg="12" size="12">
+			       <div textinput>
+					 	<ion-label  text-left class="ion-hide-md-down">Your Comments  <span>*</span></ion-label>
+						<ion-item new-input lines="none">							
+							 <ion-textarea [(ngModel)]="c_comments" placeholder="Your Comments " style="height:146px" class="col-bg-blck"></ion-textarea>
+						</ion-item>
+				    </div>	
+				
+			  </ion-col>
+			    <ion-col size-md="12" size-lg="12" size="12">
+				   <ion-button (click)="contactUs()" color="darkred">Send Message</ion-button>
+				
+				</ion-col>
+		 </ion-row>	  
+	  
+   </ion-col>
+  <ion-col size-md="3" size-lg="3" size="12" contact-info class="ion-hide-md-down">
+       <div contact-title>
+			   <h4>Contact Form</h4>
+	   </div>
+	   <div class="clearfix"  phone-no>
+	        <span contact-i><i class="fa fa-mobile"></i></span>
+			<span contact-span>{{socialLinks?.contactDetails?.gen_set_system_phone}}</span>
+	   </div>
+	     <div class="clearfix"  email>
+	        <span contact-i><i class="fa fa-envelope"></i></span>
+			<span contact-span><a href="mailto:{{socialLinks?.contactDetails?.gen_set_system_email}}">{{socialLinks?.contactDetails?.gen_set_system_email}}</a></span>
+	   </div>
+  </ion-col>
+ </ion-row>
+</div>
+</div>
+
+<!---  Contact Section Ends -->
+<app-footer></app-footer>
+</ion-content>

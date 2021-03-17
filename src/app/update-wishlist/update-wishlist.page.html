@@ -1,0 +1,77 @@
+<ion-header no-padding no-margin>
+  <ion-toolbar no-padding>
+    <ion-title>Add address</ion-title>
+    <div class="headeroptions">
+	    <ion-button slot="end" (click)="closeModal()">
+		   <ion-icon name="close"></ion-icon>
+		</ion-button>
+	</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-card panel panel-default no-margin padding>
+     	<div panel-heading  checkout-head>
+		    <h4>
+			   <a href="javascript:void(0)" billing>
+			      <span><i class="fa fa-file-text" aria-hidden="true"></i></span> Wishlist Billing Information
+			   </a>
+			</h4>					 
+	 	</div>
+     	<div panel-body >
+          	<ion-row>
+          		<ion-col size-md="6" size-sm="12" size="12">
+		            <div  form-group>
+						  <ion-label  class="ion-hide-md-down" position="stacked">Wishlist name  *</ion-label>
+						  <ion-input [(ngModel)]="a_title" type="text" placeholder="wishlist name"></ion-input>
+					</div>
+			  	</ion-col>
+          		<ion-col size-md="6" size-sm="12" size="12">
+		            <div  form-group>
+						  <ion-label  class="ion-hide-md-down" position="stacked">Email  *</ion-label>
+						  <ion-input [(ngModel)]="a_email" type="email" placeholder="Email"></ion-input>
+					</div>
+			  	</ion-col>
+			   	<ion-col size-md="6" size-sm="12" size="12">
+		            <div  form-group>
+						  <ion-label  class="ion-hide-md-down" position="stacked">Contact number *</ion-label>
+						  <ion-input [(ngModel)]="a_number" type="tel" placeholder="Contact number"></ion-input>
+					</div>
+			  	</ion-col>
+          		<ion-col size-md="6" size-sm="12" size="12">
+		            <div  form-group>
+						  <ion-label  class="ion-hide-md-down" position="stacked">Address  *</ion-label>
+						  <ion-input [(ngModel)]="a_address" type="text" placeholder="Address"></ion-input>
+					</div>
+			  	</ion-col>
+			   	<ion-col size-md="6" size-sm="12" size="12">
+		            <div  form-group>
+						  <ion-label  class="ion-hide-md-down" position="stacked">City *</ion-label>
+						  <ion-input [(ngModel)]="a_city" type="text" placeholder="City"></ion-input>
+					</div>
+			  	</ion-col>
+			  	<ion-col size-md="6" size-sm="12" size="12">
+		            <div  form-group>
+						  <ion-label  class="ion-hide-md-down" position="stacked">State *</ion-label>
+						  <ion-input [(ngModel)]="a_state" type="text" placeholder="State"></ion-input>
+					</div>
+			  	</ion-col>
+			  	<ion-col size-md="6" size-sm="12" size="12">
+	              	<ion-item  form-group no-padding lines="none">
+					  <ion-label class="ion-hide-md-down" position="stacked">Country *</ion-label>
+					    <ion-select [(ngModel)]="a_country" placeholder="Select Country">
+							  <ion-select-option *ngFor="let country of countries" value="{{country.id}}">{{country.name}}</ion-select-option>
+						</ion-select>
+					</ion-item>
+			  	</ion-col>
+			  	<ion-col size-md="6" size-sm="12" size="12">
+		            <div  form-group>
+						  <ion-label  class="ion-hide-md-down" position="stacked">Zip Code *</ion-label>
+						  <ion-input [(ngModel)]="a_zip" type="text" placeholder="Zip Code"></ion-input>
+					</div>
+			  	</ion-col>
+		  	</ion-row>
+	  	</div>
+	</ion-card>
+	<ion-button btnSubmit color="darkred" (click)="addToWishlist(a_title, a_email, a_number, a_address, a_city, a_state, a_zip, a_country)">Submit</ion-button>
+</ion-content>

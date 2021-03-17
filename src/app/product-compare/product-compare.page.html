@@ -1,0 +1,243 @@
+<!-- <ion-header class="ion-hide-lg-up">
+  <ion-toolbar color="darkred" text-uppercase>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Product Comparison
+    </ion-title>
+  <ion-buttons slot="end" > 
+          <ion-icon name="search"></ion-icon>
+    </ion-buttons>
+	     <ion-buttons slot="end">
+          <ion-icon name="pin"></ion-icon>
+    </ion-buttons>
+<ion-buttons slot="end" > 
+	<ion-icon user-drop name="contact" (click)="onButtonClickdrop()"></ion-icon>
+	
+	 </ion-buttons>
+  </ion-toolbar>
+      <div drop-down-menu *ngIf="buttonClickeddrop">
+	              <a routerLink="/your-account"><ion-icon name="person"></ion-icon> My Account</a>
+	              <a routerLink="/wishlist"><ion-icon name="heart"></ion-icon>  Wishlist</a>
+	              <a routerLink="/cart"><ion-icon name="cart"></ion-icon>  Cart</a>
+	              <a routerLink="/notification"><ion-icon name="notifications"></ion-icon> Notification</a>
+	   </div>
+</ion-header>  -->
+<ion-content>
+<div class="ion-padding">
+<div header_height></div>
+<!-- Breadcrumb Start -->
+
+<div breadcrumb  class="ion-hide-md-down">		
+	<div breadcrumb-inner>
+		<ul list-inline list-unstyled>
+			<li><a routerLink="/home">Home</a></li>
+			<li class="active"> Product Comparison</li>
+		</ul>
+	</div><!-- /.breadcrumb-inner -->
+</div>
+
+<!-- Breadcrumb Ends -->
+<!---  Product Comparison Section Start -->
+<div *ngIf="comapred_products_list == ''">
+	<div class="alert alert-danger text-center">
+	    No products added to compare.
+	</div>
+</div>
+<div product-comparison class="ion-hide-md-down" *ngIf="comapred_products_list != ''">
+   <h1 heading-title>Compare with similar items</h1>
+   <div class="table-responsive">
+       <table class="table compare-table">
+	      <tbody>
+	        <tr>
+				<th>Products</th>
+				<td *ngFor="let pro of comapred_products_list">
+					<div product>
+						<div product-image>
+							<div image>
+								<a routerLink="/product-details/{{pro.product_id}}">
+								    <img *ngIf="errors.indexOf(pro.product_image) >= 0" src="assets/images/products/no_image.svg">
+							 		<img *ngIf="errors.indexOf(pro.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{pro.product_image}}" alt="{{pro.product_name}}">	
+								</a>
+							</div>
+
+							<div product-info text-left>
+								<h3 name>
+								   <a routerLink="/product-details/{{pro.product_id}}">{{pro.product_name}}</a>
+								</h3>
+								<div action>
+								   <ion-button text-capitalize color="darkred" [disabled]="pro.product_quantity == 0 || errors.indexOf(pro.product_quantity) >= 0" *ngIf="my_cart_products.indexOf(pro.product_id) == -1" (click)="addToCart(pro.product_id,pro.product_sale_price,pro.product_purchase_price)">{{(pro.product_quantity == 0 || errors.indexOf(pro.product_quantity) >= 0) ? 'Out of Stock' : 'Add To Cart'}} </ion-button>
+
+								   <ion-button text-capitalize color="darkred" routerLink="/cart" *ngIf="my_cart_products.indexOf(pro.product_id) >= 0">In Cart </ion-button>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>        
+			</tr>
+	        <tr>
+				<th>Description</th>
+				<td *ngFor="let pro of comapred_products_list"> 
+					<p [innerHTML]="atob(pro.product_description)"></p>
+				</td>
+        	</tr>
+		    <tr>
+				<th>Brand</th>
+				<td *ngFor="let pro of comapred_products_list">
+				     <p>{{pro.brand_name}}</p>
+			    </td>		
+        	</tr>
+        	<tr>
+				<th>Customer Rating</th>
+				<td *ngFor="let pro of comapred_products_list">
+				     <a remove-icon>
+					   <ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="pro?.total_reviews[0]?.Average_Review" [color]="'#a01616'"></ngx-stars>
+					 </a>
+			    </td>		
+        	</tr>
+		    <tr>
+				<th>Price</th>
+				<td *ngFor="let pro of comapred_products_list">
+					<div product-price>
+						<span *ngIf="errors.indexOf(pro.product_sale_price) == -1 && pro.product_sale_price != pro.product_purchase_price" price> ${{pro.product_sale_price}}  </span> 
+
+		                <span *ngIf="errors.indexOf(pro.product_sale_price) >= 0 || pro.product_sale_price == pro.product_purchase_price" price> ${{pro.product_purchase_price}}  </span> 
+
+		                <span *ngIf="errors.indexOf(pro.product_sale_price) == -1 && pro.product_sale_price != pro.product_purchase_price" price-before-discount>${{pro.product_purchase_price}}</span>
+					</div>
+				</td>
+			</tr>
+		    <tr>
+				<th>Sold By</th>
+				<td *ngFor="let pro of comapred_products_list">
+					<p in-stock>{{pro.vendor_company}}</p>
+				</td>
+            </tr>
+<!-- 		    <tr>
+				<th>Headphone Fit</th>
+				<td>
+					<p>Over-Ear</p>
+				</td>
+			</tr>
+		    <tr>
+				<th>Item Dimensions</th>
+				<td>
+					<p>6.54 x 7.13 x 2.36 in</p>
+				</td>
+    		</tr>
+			<tr>
+				<th>Item Weight</th>
+				<td>
+					<p>0.85 lb</p>
+				</td>
+    		</tr> -->
+			<tr>
+				<th>Remove</th>
+				<td text-center *ngFor="let pro of comapred_products_list; let c_index = index ">
+					<a href="javascript:void(0)" (click)="removeCompared(c_index)" remove-icon><ion-icon name="close"></ion-icon></a>
+				</td>
+           </tr>
+		</tbody>
+	   </table>
+   </div>
+</div>
+<!---  Product Comparison Section Ends -->
+<!-- Product Comparison Mobile Start -->
+<div mob-product-comparison class="ion-hide-lg-up" *ngIf="comapred_products_list != ''">
+	<ion-row products>
+	    <ion-col size="4" no-padding *ngFor="let pro of comapred_products_list; let cm_index = index ">
+		    <ion-card no-margin product-main>
+			<img *ngIf="errors.indexOf(pro.product_image) >= 0" src="assets/images/products/no_image.svg">
+			<img *ngIf="errors.indexOf(pro.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{pro.product_image}}" alt="{{pro.product_name}}">
+			<ion-icon (click)="removeCompared(cm_index)" name="close-circle" close-icon></ion-icon>
+		    <ion-card-content text-center>
+			    <h2><a>{{pro.product_name}}</a></h2>
+				<p rating>
+				 <a>
+				   <ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="pro?.total_reviews[0]?.Average_Review" [color]="'#a01616'"></ngx-stars>
+				 </a>
+				</p>
+				    <div product-price>
+						<span *ngIf="errors.indexOf(pro.product_sale_price) == -1 && pro.product_sale_price != pro.product_purchase_price" price> ${{pro.product_sale_price}}  </span> 
+
+		                <span *ngIf="errors.indexOf(pro.product_sale_price) >= 0 || pro.product_sale_price == pro.product_purchase_price" price> ${{pro.product_purchase_price}}  </span> 
+
+		                <span *ngIf="errors.indexOf(pro.product_sale_price) == -1 && pro.product_sale_price != pro.product_purchase_price" price-before-discount>${{pro.product_purchase_price}}</span>
+    			   </div>
+                <ion-button text-capitalize color="darkred" [disabled]="pro.product_quantity == 0 || errors.indexOf(pro.product_quantity) >= 0" *ngIf="my_cart_products.indexOf(pro.product_id) == -1" (click)="addToCart(pro.product_id,pro.product_sale_price,pro.product_purchase_price)">{{(pro.product_quantity == 0 || errors.indexOf(pro.product_quantity) >= 0) ? 'Out of Stock' : 'Add To Cart'}} </ion-button>
+
+				<ion-button text-capitalize color="darkred" routerLink="/cart" *ngIf="my_cart_products.indexOf(pro.product_id) >= 0">In Cart </ion-button>					  
+		     </ion-card-content>
+		  	</ion-card>
+	    </ion-col>
+	</ion-row>
+	<ion-row class="ion-margin-top" description>
+		<ion-col size="12" no-padding>
+			<h2 section-head text-center>Description</h2>
+		</ion-col>
+	    <ion-col size="4" no-padding *ngFor="let pro of comapred_products_list">
+		    <ion-card no-margin>
+		        <p text-center [innerHTML]="atob(pro.product_description)"></p>
+	        </ion-card>
+	    </ion-col>
+	</ion-row>
+	
+	<ion-row class="ion-margin-top" description sold-by>
+		 <ion-col size="12" no-padding>
+			<h2 section-head text-center>Brand</h2>
+		 </ion-col>
+	    <ion-col size="4" no-padding *ngFor="let pro of comapred_products_list">
+		    <ion-card no-margin>
+		        <p text-center>{{pro.brand_name}}</p>
+	        </ion-card>
+	    </ion-col>
+	</ion-row>
+
+	<ion-row class="ion-margin-top" description sold-by>
+		 <ion-col size="12" no-padding>
+			<h2 section-head text-center>Sold By</h2>
+		 </ion-col>
+	    <ion-col size="4" no-padding *ngFor="let pro of comapred_products_list">
+		    <ion-card no-margin>
+		        <p text-center>{{pro.vendor_company}}</p>
+	        </ion-card>
+	    </ion-col>
+	</ion-row>
+	<!-- <ion-row class="ion-margin-top" description headphone-fit>
+		 <ion-col size="12" no-padding>
+			<h2 section-head text-center>Headphone Fit</h2>
+		 </ion-col>
+	    <ion-col size="4" no-padding>
+		    <ion-card no-margin>
+		        <p text-center>Over-Ear</p>
+	        </ion-card>
+	    </ion-col>
+	</ion-row>
+	<ion-row class="ion-margin-top" description item-dimensions>
+		 <ion-col size="12" no-padding>
+			<h2 section-head text-center>Item Dimensions</h2>
+		 </ion-col>
+	    <ion-col size="4" no-padding>
+		    <ion-card no-margin>
+		        <p text-center>6.54 x 7.13 x 2.36 in</p>
+	        </ion-card>
+	    </ion-col>
+	</ion-row>
+	<ion-row class="ion-margin-top" description item-weight>
+		 <ion-col size="12" no-padding>
+			<h2 section-head text-center>Item Weight</h2>
+		 </ion-col>
+	    <ion-col size="4" no-padding>
+		    <ion-card no-margin>
+		        <p text-center>0.85 lb</p>
+	        </ion-card>
+	    </ion-col>
+	</ion-row> -->
+	</div>
+<!-- Product Comparison Mobile Ends  -->
+
+</div>
+<app-footer></app-footer>
+</ion-content>

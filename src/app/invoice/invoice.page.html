@@ -1,0 +1,196 @@
+<ion-header>
+  <ion-toolbar>
+  	<ion-buttons slot="end" (click)="closeModal()">
+      <ion-icon name="close"></ion-icon>
+    </ion-buttons>
+    <ion-title>Invoice</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="invoic-ia">
+	<div class="row mb-15">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+			<img src="assets/images/sign-logo-dark.png" alt="Siniyetu" width="100px">
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-8 pt-10">
+			<b class="pull-right font-smalla">
+				Order No: {{order?.rand_order_id}}
+			</b>
+			<br>
+			<b class="pull-right font-smalla">
+				Date : {{order?.order_date | date : 'd MMM y'}}
+			</b>
+			<b class="pull-right font-smalla">
+				Payment Method : {{order?.payment_method == 'cash' ? 'Cash on delivery' : 'Card payment'}}
+			</b>
+		</div>
+	</div>
+    <div class="payment-box">
+		<h1 class="payment-head">Payment Invoice</h1>
+		<div class="box-invoice-shw">
+			<div class="itrm-invos" *ngFor="let product of order?.order_products_data">
+				<h4> {{product.product_name}} </h4>
+        <ng-container *ngIf="product.product_variations.length > 0">
+          <span *ngFor="let variation of product.product_variations;">
+            {{variation?.name}}: {{variation?.value}}
+          </span>
+        </ng-container>
+				<div class="dt-time">
+					<span><b> Quantity : </b> {{product.product_quantity}} </span>
+					<span><b> Unit Cost : </b>
+						<span *ngIf="errors.indexOf(product.sale_price) == -1 && product.product_sale_price != product.product_purchase_price && product.is_variation == 0">${{product.product_sale_price}}</span>
+
+						<span *ngIf="(errors.indexOf(product.sale_price) >= 0 || product.product_sale_price == product.product_purchase_price) && product.is_variation == 0">${{product.product_purchase_price}}</span>
+            <span *ngIf="product.is_variation == 1">${{product.product_price}}</span>
+
+						<!-- <span>${{subtotalPrice(product)}}</span> -->
+					</span>
+
+					<span><b> Discount Per Unit: </b>
+						<!-- <span *ngIf="errors.indexOf(product.sale_price) == -1 && product.sale_price != product.purchase_price">${{product.sale_price}}</span> -->
+						<span class="discountColor" *ngIf="product.discount_per_piece != null && product.discount_type == '%' && product.is_variation == 0">{{product.discount_per_piece}}% </span>
+
+						<span class="discountColor" *ngIf="product.discount_per_piece != null && product.discount_type != '%' && product.is_variation == 0">${{product.discount_per_piece}} </span>
+					</span>
+
+				</div>
+				<div class="tootl-cst">
+					<span><b> Total : </b>
+						<!-- <span *ngIf="errors.indexOf(product.sale_price) == -1 && product.sale_price != product.purchase_price">${{product.product_quantity*product.sale_price}}</span> -->
+						<span>${{grandTotalPrice(product)}}</span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="table-responsive tbl-brs">
+			<table class="table table-bordered  hide-smal-s">
+				<thead>
+					<tr>
+						<th>Sr. No.</th>
+						<th>Item</th>
+						<th>Quantity</th>
+						<th>Unit Cost</th>
+						<th>Discount Per Unit</th>
+						<th>Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let product of order?.order_products_data; let index = index ">
+						<td>{{index+1}}</td>
+						<td>{{product.product_name}}
+							<ng-container *ngIf="product.product_variations.length > 0">
+				                <br><span *ngFor="let variation of product.product_variations;">
+				                  {{variation?.name}}: {{variation?.value}}
+				                </span>
+			              	</ng-container>
+	          			</td>
+						<td>{{product.product_quantity}}</td>
+						<td>
+							<span *ngIf="errors.indexOf(product.product_sale_price) == -1 && product.product_sale_price != product.product_purchase_price  && product.is_variation == 0">${{product.product_sale_price}}</span>
+
+							<span *ngIf="(errors.indexOf(product.product_sale_price) >= 0 || product.product_sale_price == product.product_purchase_price)  && product.is_variation == 0">${{product.product_purchase_price}}</span>
+              <span *ngIf="product.is_variation == 1">${{product.product_price}}</span>
+
+            </td>
+						<td>
+							<span class="discountColor" *ngIf="product.discount_per_piece != null && product.discount_type == '%'  && product.is_variation == 0">{{product.discount_per_piece}}% </span>
+
+							<span class="discountColor" *ngIf="product.discount_per_piece != null && product.discount_type != '%'  && product.is_variation == 0">${{product.discount_per_piece}} </span>
+						</td>
+						<td>
+							<!-- <span *ngIf="errors.indexOf(product.sale_price) == -1 && product.sale_price != product.purchase_price">${{product.product_quantity*product.sale_price}}</span> -->
+							<span>${{grandTotalPrice(product)}}</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="cost-sum shopping-cart col-sm-6 col-sm-offset-6">
+				<div class="table-responsive cart-shopping-total">
+					<table class="table" border="0">
+						<tbody>
+							<tr>
+								<td><b>Sub Total Amount</b></td>
+								<td>${{total_payable_price}}</td>
+							</tr>
+							<tr *ngIf="order.coupon_data != ''">
+								<td><b>Coupon Applied</b></td>
+								<td>{{order.coupon_data[0].coupon_code}}</td>
+							</tr>
+							<tr *ngIf="order.coupon_data != ''">
+								<td  *ngIf="order.coupon_data[0].discount_type == 'Amount'"><b>Discount <span class="discountColor">({{order.coupon_data[0].discount_value}}%)</span></b></td>
+								<td *ngIf="order.coupon_data[0].discount_type == 'Amount'">
+								<b>Discount <span class="discountColor">(${{order.coupon_data[0].discount_value}})</span></b></td>
+							</tr>
+							<tr>
+								<td><b>Tax</b></td>
+								<td>$0</td>
+							</tr>
+							<tr>
+								<td><b>Shipping</b></td>
+								<td>$0</td>
+							</tr>
+							<tr class="cart-grand-total">
+								<td><b style="font-size:16px;">Grand Total</b></td>
+								<td><b style="font-size:16px;">${{order?.total_amount.toFixed(2)}}</b></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+		<!--Panel heading-->
+			<div class="payment-box">
+				<h1 class="payment-head">Client Information</h1>
+				<!--List group-->
+				<div class="table-responsive">
+					<table class="table table-bordered" border="0">
+					<tbody>
+						 <tr>
+							<td><b>First Name</b></td>
+							<td>{{order?.address_first_name}}</td>
+						</tr>
+						<tr>
+							<td><b>Last Name</b></td>
+							<td>{{order?.address_last_name}}</td>
+						</tr>
+						<!-- <tr>
+							<td><b>E-mail</b></td>
+							<td>{{order?.address_first_name}}</td>
+						</tr> -->
+						<tr>
+							<td><b>Phone</b></td>
+							<td>{{order?.address_phone}}</td>
+						</tr>
+						<tr>
+							<td><b>Address</b></td>
+							<td>{{order?.full_address}} </td>
+						</tr>
+						<tr>
+							<td><b>City</b></td>
+							<td>{{order?.address_city}}</td>
+						</tr>
+						<tr>
+							<td><b>State</b></td>
+							<td>{{order?.address_state}}</td>
+						</tr>
+						<tr>
+							<td><b>Country</b></td>
+							<td>{{order?.country_name}}</td>
+						</tr>
+						<tr>
+							<td><b>Zipcode</b></td>
+							<td>{{order?.address_zip_code}}</td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</ion-content>

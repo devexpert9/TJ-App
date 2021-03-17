@@ -1,0 +1,98 @@
+ ion-content
+{  
+	--background:var(--ion-color-grey);
+	[heading-title]
+	{
+			text-align: left;
+			text-transform: none;
+			padding:  var(--ion-padding-0)  var(--ion-padding-0)  var(--ion-padding-15)  var(--ion-padding-0);
+			font-weight: bold;
+			font-size: var(--ion-font-size-22);
+			font-family: var(--ion-font-family-2);
+			border-bottom: 1px #e5e5e5 solid;
+			color: var(--ion-color-darkblack3);
+     }
+	[title-tag] {
+    text-align: left;
+    padding-bottom: var(--ion-padding-30);
+    display: block;
+    font-style: normal;
+    font-size: var(--ion-font-size-14);
+    color: var(--ion-color-darkgrey);
+  }
+	 ion-card
+	  {  	  
+		      background:var(--ion-color-white);
+			  box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+			   @media only screen and (max-width:991px)
+					{  
+						padding:  var(--ion-padding-0) ;
+						background:transparent;
+			            box-shadow: none;
+					}	
+			  [panel]
+			  {
+					[panel-heading]
+					{     &[checkout-head]
+						 {
+						background:#f5f5f5;
+						 
+						 h4
+						 {
+							  margin-top:var(--ion-margin-0);
+							 a
+							 {          
+   							           font-family: var(--ion-font-family-2);
+										color: var(--ion-color-darkblack3);
+										text-transform: uppercase;
+										display: block;
+										margin:  var(--ion-margin-0);
+										font-size: var(--ion-font-size-13);
+										font-weight: bold;
+										text-decoration:none;		
+                                        @media only screen and (max-width:991px)
+										{  
+											padding-right:  var(--ion-padding-10) ;
+											    background: var(--ion-color-white);	 
+										}										
+										&.active
+										{ 
+											  span
+												 {
+													 background: var(--ion-color-darkred);	 
+												 }
+										}
+										@media only screen and (max-width:991px)
+										{  
+											    display: flex;
+												align-items: center;
+												font-size: var(--ion-font-size-12);
+										}
+								 span
+								 {
+										color: var(--ion-color-white);
+										display: inline-block;
+										margin-right: var(--ion-margin-10);
+										padding:  var(--ion-padding-15) var(--ion-padding-20);
+										background:#aaaaaa;	 
+									   @media only screen and (max-width:991px)
+										{  
+											padding:  var(--ion-padding-15) var(--ion-padding-15);
+										}
+								 }
+							 }
+						 }
+					}
+			}
+			 [panel-body]
+			 {   display:none;
+			     padding: var(--ion-padding-10)  var(--ion-padding-0)  var(--ion-padding-22);  
+				 font-family: var(--ion-font-family-2);
+			  &.active
+			   {  display:block;
+						  
+			   }
+			 }
+	  }	
+	}	 
+}

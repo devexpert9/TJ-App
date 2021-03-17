@@ -1,0 +1,54 @@
+ ion-content
+{  
+	--background:var(--ion-color-grey);
+  [users-list]
+		{
+			  padding:var(--ion-padding-15);	
+			ion-item
+			{   margin-bottom: var(--ion-margin-10);
+				border-left: 2px solid var(--ion-color-darkred);
+				border-radius: 4px;
+				--background:var(--ion-color-white);
+				h3
+				{   
+				
+				font-size:var(--ion-font-size-14);
+				font-weight:700;
+				@media only screen and (max-width:991px)
+				{margin-bottom: -5px;
+					font-size:var(--ion-font-size-14)
+				}
+			    @media only screen and (max-width:576px)
+				{
+					font-size:var(--ion-font-size-12)
+				}
+				}
+				ion-note
+				{
+				font-size:var(--ion-font-size-13);
+				color: #a5a5a5;
+				@media only screen and (max-width:991px)
+				{
+					font-size:var(--ion-font-size-12)
+				}
+			    @media only screen and (max-width:576px)
+				{
+					font-size:var(--ion-font-size-10)
+				}
+				}
+				p
+				{
+			    font-size:var(--ion-font-size-14);
+				@media only screen and (max-width:991px)
+				{
+					font-size:var(--ion-font-size-13)
+				}
+			    @media only screen and (max-width:576px)
+				{
+					font-size:var(--ion-font-size-12)
+				}
+				}
+			}
+	 }	
+	
+}	

@@ -1,0 +1,627 @@
+ ion-content
+{  
+	.updateBtn{
+		position:inherit;	
+	}
+	--background:var(--ion-color-grey);
+	@media only screen and (max-width:991px)
+	{
+   --padding-start: var(--ion-padding-0);
+    --padding-end: var(--ion-padding-0);
+    --padding-top: var(--ion-padding-0);
+    --padding-bottom: var(--ion-padding-0);
+	}
+	@media only screen and (min-width:991px)
+		{
+			  --padding-top: var(--ion-padding-0);
+		}
+	.container
+	{
+		@media only screen and (max-width:991px)
+		{
+			padding:var(--ion-padding-0);
+		}
+	}
+	[your-account]
+	{ 
+	    margin-bottom:var( --ion-margin-20);
+	    font-family: var(--ion-font-family-2);
+		
+		@media only screen and (max-width:991px)
+			{ 
+			 margin-bottom:var( --ion-margin-0);
+				ion-col
+				{
+				padding:var(--ion-padding-0);
+				}
+			}
+	 [head-account]
+		 {      font-family: var(--ion-font-family-2);
+		        padding: var(--ion-padding-15) var(--ion-padding-15);
+				font-size: var( --ion-font-size-17);
+				font-weight: 700;
+				background: var( --ion-color-darkblue);
+				margin:var( --ion-margin-0) var( --ion-margin-0) var( --ion-margin-20);
+				color:var( --ion-color-white);
+				text-align: center;
+				.add-payment-btn
+				{
+					    margin-top: -5px;
+				}
+		 }
+		 /* profile page */
+	  [product-tabs ]
+	  {   
+	     background:var(--ion-color-white);
+		 
+		  ion-segment
+		  {
+		  display:inline-block;
+		  width:100%;
+		  border: 1px solid #f5f5f5;
+				  [link-notification]
+				  {
+		                color: var(--ion-color-white);
+						text-decoration: none;
+						padding: var(--ion-padding-4) var(--ion-padding-15);
+						background: var(--ion-color-darkred);
+						font-size: var(--ion-font-size-12);
+						border-radius: 4px;
+						cursor:pointer;
+						margin:  var(--ion-margin-11) var(--ion-margin-20);
+				}
+					  @media only screen and (max-width:991px)
+					  {
+							  display: flex;
+							  border:none;
+							  border-bottom:2px solid var(--ion-color-grey2);
+					  }
+				ion-segment-button
+				  {    border-radius: var(--ion-value-0)!important;
+				   display:inline-block;
+				       min-width: initial!important;
+                       max-width: initial!important;
+			       float:left;		
+				   height: var(--ion-wh-48);
+				   border:1px solid #ececec;
+				   font-weight:bold;
+				   color: var(--ion-color-darkblack3);
+				   font-size: var(--ion-font-size-13);
+				   font-family: var(--ion-font-family-2);
+				   margin-bottom:-1px;
+				     @media only screen and (max-width:991px)
+					  {       border:none;
+					     height: var(--ion-wh-30);
+					         background: var(--ion-color-white);
+						     font-size: var(--ion-font-size-10);
+						    ion-icon{
+								  font-size: var(--ion-font-size-20);
+								  margin-top: var(--ion-margin-0);
+								  color: var(--ion-color-darkblue);
+							}
+					  }
+				   ion-label
+				   {
+					   margin-bottom:var(--ion-margin-0);
+				   }
+				   &.segment-button-checked 
+				   {    
+        				 color:var(  --ion-color-darkblue);
+						 height:  var(--ion-wh-48);
+						 background: #ececec;
+						  @media only screen and (max-width:991px)
+						  { height: var(--ion-wh-30);
+						     background:var(  --ion-color-darkblue);
+						   color:var(  --ion-color-white);
+						    ion-icon{
+								  color:var(  --ion-color-white);
+							}
+						  }
+				   }
+			   &:hover
+				   {    
+        				 color: var(--ion-color-white);
+						 background: var(--ion-color-darkblue);
+						 @media only screen and (max-width:991px)
+						  { 
+						   color:var(  --ion-color-white);
+						    ion-icon{
+								  color:var(  --ion-color-white);
+							}
+						  }
+				   }
+				  
+			  }
+		  }
+		 [tab-content]
+		 {
+               padding: var(--ion-padding-10) var(--ion-padding-20) var(--ion-padding-0);
+			   
+			  
+			   @media only screen and (max-width:991px)
+				 {
+                    padding: var(--ion-padding-0) ;
+					ion-list
+				   {
+					  padding-top:var(--ion-padding-0);
+				   }
+				 }				 
+			   [product-tab]
+			   { /* Users List Start*/
+			   &[users-list]
+		{
+			  padding:var(--ion-padding-15);	
+			ion-item
+			{   margin-bottom: var(--ion-margin-10);
+				border-left: 2px solid var(--ion-color-darkred);
+				border-radius: 4px;
+				--background:var(--ion-color-grey);
+				h3
+				{   
+				
+				font-size:var(--ion-font-size-14);
+				font-weight:700;
+				@media only screen and (max-width:991px)
+				{margin-bottom: -5px;
+					font-size:var(--ion-font-size-14)
+				}
+			    @media only screen and (max-width:576px)
+				{
+					font-size:var(--ion-font-size-12)
+				}
+				}
+				ion-note
+				{
+				font-size:var(--ion-font-size-13);
+				color: #a5a5a5;
+				@media only screen and (max-width:991px)
+				{
+					font-size:var(--ion-font-size-12)
+				}
+			    @media only screen and (max-width:576px)
+				{
+					font-size:var(--ion-font-size-10)
+				}
+				}
+				p
+				{
+			    font-size:var(--ion-font-size-14);
+				@media only screen and (max-width:991px)
+				{
+					font-size:var(--ion-font-size-13)
+				}
+			    @media only screen and (max-width:576px)
+				{
+					font-size:var(--ion-font-size-12)
+				}
+				}
+			}
+	 }	
+			   /* Users List Ends*/
+				 @media only screen and (max-width:991px)
+				 {
+                   border:none   ;
+				   
+				   .media
+				   {
+					   margin-top:var(--ion-margin-0)
+				   }
+				   .media-link
+				   {    background: #c8ccc9;
+                        padding: var(--ion-padding-20);
+						[name-user]
+						{
+							color: var(--ion-color-black);
+							font-weight: 700;
+							text-transform: capitalize;
+							margin-top: var(--ion-margin-10);
+							margin-bottom: var(--ion-margin-0);
+						}
+					   .media-object
+					   {
+						   position: relative;
+					   }
+					   width:100%;
+					   text-align:center;
+					   img
+					   {
+							border-radius: 50%;
+							width: 100px;
+							height: 100px;	border: 2px solid var(--ion-color-white);
+							object-fit: cover;
+					   }
+					   [img-edit]
+					   {
+						  
+							   label {
+									width: var(--ion-wh-30);
+									height: var(--ion-wh-30);
+									line-height:  var(--ion-value-35);
+									border-radius: 50%;
+									color: var(--ion-color-white);
+									position: absolute;
+									z-index: 1;
+									font-size: var(--ion-font-size-16);
+									bottom:  var(--ion-value-5);
+									margin: 0 auto;
+									left: var(--ion-value-0);
+									right:  var(--ion-value-0);
+									background: rgba(0, 0, 0, 0.5);
+								
+								}
+						  
+					   }
+				   }
+				   .media-body
+				   {
+					   ion-list
+					   {
+						   ion-item
+						   {  
+							  font-family:var(--ion-font-family-2);
+							  font-size:var(--ion-font-size-12);	
+border-bottom:1px solid var(--ion-color-ltgrey);
+					@media only screen and (max-width:991px)
+					{
+						ion-button
+						{
+							 --box-shadow:none;
+						}
+					}	
+						   }
+					   }
+				   }
+				 }				 
+			   }
+			 .btn-circle
+										{
+											 border-radius:50%;
+											 margin-right:var(--ion-margin-5);
+											 width: var(--ion-wh-30);
+											 height:  var(--ion-wh-30);
+											 line-height:  var(--ion-wh-30);
+											 padding: var(--ion-padding-0);
+										}	
+			/*Login Detail Starts*/
+			   [login-detail]
+			   {
+				   ion-button
+				   {
+					   --box-shadow:none;
+					   @media only screen and (max-width:991px)
+					   {
+						       --border-radius: 50%;
+								width: 30px;
+								height: 30px;
+								font-size: 10px;
+								margin-top: 0;  
+					   }
+				   }
+				    tr
+					{
+                       td
+					   {
+						  
+								padding: var(--ion-padding-10) !important;
+								border-bottom: 1px solid var(--ion-color-ltgrey) !important;
+								vertical-align:middle;
+							
+					   }
+                         
+					}	
+     @media only screen and (max-width:991px)
+			 {   ion-item
+					   {
+						  font-size: var(--ion-font-size-14); 
+					   }
+			 }					   
+			   }
+			   /* Login Detail Ends */
+			   	/*Orders Starts*/
+		[orders]
+		 {
+			 [head-account]
+			 {
+				 margin-bottom:var(--ion-margin-0);
+			 }
+			 @media only screen and (max-width:991px)
+			 {
+				 [mob-orders]
+							   {
+								   ion-item
+								   {
+									       border-bottom: 1px solid #e3e3e3;
+                                           padding: var(--ion-padding-0);
+                  
+											img
+											{
+												border-radius: var(--ion-value-4);
+											}
+										   h3
+										   {   
+                                               font-size: var(--ion-font-size-12);
+											   font-weight:700;
+											   font-family: var(--ion-font-family-2)
+										   }
+										   ion-badge
+										   {
+											       font-size: var(--ion-font-size-10);
+                                                   height: var(--ion-wh-16);
+										   }
+                                             p
+											{           font-size: var(--ion-font-size-12);
+                                                        color: var(--ion-color-darkblack); 
+													    display: flex;
+														align-items: center;
+														font-weight: 600;
+                                             font-family: var(--ion-font-family-2)
+											}
+											[arrow-small]
+											{
+												   font-size: var(--ion-font-size-14);
+											}
+											[price-time]
+											{
+                                                    h3 , ion-note
+													{
+                                                       font-size: var(--ion-font-size-12);
+                                                       margin: var(--ion-margin-0);
+													}
+                                                 a
+													{
+                                                            display: block;
+															color: var(--ion-color-darkblue);
+															font-size: var(--ion-font-size-12);
+															text-decoration: underline;
+													}
+											}
+								   }
+							   }
+			 }
+			 table{
+						tr
+						{
+                            color: var(--ion-color-darkblack);
+							font-family: var(--ion-font-family-2);
+							td
+							{
+								    padding: var(--ion-padding-20) var(--ion-padding-15)
+							}
+							th , td
+							{
+                                   vertical-align:middle;
+							       border: 1px solid var(--ion-color-ltgrey);
+								   
+								   &[view_details]
+								   {
+									   
+                                      .action-icons
+									  {
+                                         background:var(--ion-color-darkred);
+                                         border-color:var(--ion-color-darkred);
+									  }									  
+								   }
+							   img
+							   {
+								        width: var(--ion-wh-70);
+										border-radius: 50%;
+										border: 2px solid #ccc;
+										padding: 2px;									
+										height:  var(--ion-wh-70);
+										object-fit: cover;
+							   }
+							   .btn-theme {
+								font-family: var(--ion-font-family-2);
+								background-color: var(--ion-color-darkblue);
+								border-color: var(--ion-color-darkblue);
+								color: var(--ion-color-white);
+							    padding: var(--ion-padding-6)  var(--ion-padding-12);
+								border-radius: var(--ion-color-darkblue);
+								&:hover
+								{
+									opacity:0.8;
+								}
+							}
+							}
+						}	
+						}
+		 }
+		   	/*Orders Ends*/
+			[block-title]{
+					text-transform: uppercase;
+					font-size: var(--ion-font-size-15);
+					font-weight: 700;
+					color: var(--ion-color-darkblue);
+					font-family: var(--ion-font-family-2);
+					   @media only screen and (max-width:991px)
+						{
+						  padding: var(--ion-value-0)    var(--ion-value-15) 	;
+						}
+			}
+			  	/* Add Edit Form Start*/
+			[panel]
+			{   @media only screen and (max-width:991px)
+						{
+						  padding: var(--ion-value-0)    var(--ion-value-15) 	;
+						}
+				[panel-heading]
+				{   	font-family: var(--ion-font-family-2);
+						font-size: var(--ion-font-size-20);
+						text-transform: uppercase;
+						padding:  var(--ion-padding-0);
+						border: none;
+						color: var(--ion-color-darkblack);
+						background-color: #f5f5f5;
+						h4
+						{
+							a
+							{
+								    font-family: var(--ion-font-family-2);
+									color: var(--ion-color-darkblack3);
+									text-transform: uppercase;
+									display: block;
+									margin: var(--ion-margin-0);
+									font-size: var(--ion-font-size-13);
+									font-weight: bold;
+									text-decoration: none;
+								
+								 span
+								 {
+										 background: var(--ion-color-darkred);   
+										 color: var(--ion-color-white);
+										display: inline-block;
+										margin-right: var(--ion-margin-10);
+										padding: var(--ion-padding-15) var(--ion-padding-20);
+								 }	
+					}
+				    }
+				}
+				[panel-body]
+				{
+					    background: var( --ion-color-greyf8);
+						padding: var(--ion-padding-10)  var(--ion-padding-20)  var(--ion-padding-20);
+						margin-bottom:  var(--ion-margin-20);
+						margin-top: var(--ion-margin-20);
+						   font-family: var(--ion-font-family-2);
+						   @media only screen and (max-width:991px)
+						   {
+							     background: var(--ion-color-white);
+                                 padding: var(--ion-padding-0);
+								 ion-button
+								 {
+									 height:var(--ion-wh-30);
+									 --box-shadow:none;
+								 }
+						   }
+						[head-payment]
+						{
+							    font-weight: 700;
+								padding-bottom: var(--ion-padding-15);
+								border-bottom: 1px solid #eee;
+								margin-bottom:  var(--ion-margin-20);
+								color:var(--ion-color-darkblack);
+								font-size:var(--ion-font-size-18);
+								 @media only screen and (max-width:991px)
+								   {
+									    	font-size:var(--ion-font-size-12);
+								   }
+						}
+						.card-psys
+						{
+							img
+							{
+								    width: 200px;
+									 @media only screen and (max-width:991px)
+								   {
+									      width: 150px;
+								   }
+							}
+						}
+						ion-button
+						{
+							--box-shadow:none;
+							&:hover
+							{
+								opacity:0.8;
+							}
+						}
+						[form-group]
+			  {
+                  --background: transparent!important;
+				      margin-bottom: var(--ion-margin-10);
+					
+				  ion-label
+				  {
+					           display: inline-block;
+								max-width: 100%;
+								margin-bottom: var(--ion-margin-5);
+								font-weight: 700;
+								color: var(--ion-color-darkblack);
+								font-size: var(--ion-font-size-14);
+								font-family: var(--ion-font-family-2);
+								transform: scale(1);
+								@media only screen and (max-width:991px)
+								{font-size: var(--ion-font-size-12);
+									margin-bottom: var(--ion-margin-0);
+									font-weight: normal;
+								    display:block;									
+								}
+				  }
+				  ion-input , ion-select
+				  {         border-radius: var(--ion-value-3);
+							box-shadow: none;
+							font-size: var(--ion-font-size-14);
+							border: 1px solid #eee;
+							background:var(--ion-color-white);
+							height: var(--ion-wh-42)!important;
+							padding:  var(--ion-padding-10)  var(--ion-padding-10)!important;
+							font-family: var(--ion-font-family-2);
+							@media only screen and (max-width:991px)
+								{  background:transparent;
+								    height: auto!important;font-size: var(--ion-font-size-12);
+									  border-radius: var(--ion-value-0);
+									border-width:var(--ion-value-0) var(--ion-value-0) 1px var(--ion-value-0);
+									padding:  inherit!important;  
+								}
+				  }
+				  
+			  }	
+				}
+			}
+				/* Add Edit Form Ends*/
+			.table
+			{
+				tr
+				{
+					font-family: var(--ion-font-family-2);
+					td
+					{
+						    padding: var(--ion-padding-9) var(--ion-padding-15);
+							border: none;
+							border-bottom: 1px solid #d0d0d0;
+					}
+				}
+			}
+			.widget 
+			{
+			@media only screen and (max-width:991px)
+			{
+			  padding: var(--ion-value-0)    var(--ion-value-15) 	;
+			}
+			[profile_ul]
+			{
+				padding: var(--ion-padding-10);
+				background-color:var(--ion-color-white);
+				border-radius: var(--ion-value-10);
+				border: 1px solid var(--ion-color-ltgrey);
+				box-shadow: 0px 0px 22px 0px #dcdcdc;
+				list-style:none;
+					li
+					{ 
+					 a
+					 {
+						    font-family: var(--ion-font-family-2);
+							color: var(--ion-color-black);
+						    position:relative;
+						    display: block;
+							padding:  var(--ion-value-5)  var(--ion-value-0)  var(--ion-value-5)  var(--ion-value-20);
+							position: relative;
+							border: transparent;
+							border-bottom: 1px solid var(--ion-color-ltgrey);
+							text-decoration:none;
+						&:before {
+							content: '\f0a9';
+							font-family: 'FontAwesome';
+							position: absolute;
+							left:  var(--ion-value-0);
+							top: var(--ion-value-5);
+						} 
+					 						
+					}					
+				}
+			}
+			}
+		 }		 
+	  }
+	}
+}	

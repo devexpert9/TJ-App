@@ -1,0 +1,311 @@
+<!-- <ion-header class="ion-hide-lg-up">
+  <ion-toolbar color="darkred" text-uppercase>
+
+  <ion-buttons slot="start">
+      <ion-back-button defaultHref="product-details"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+       My Cart
+    </ion-title>
+  <ion-buttons slot="end" >
+          <ion-icon name="search"></ion-icon>
+    </ion-buttons>
+	     <ion-buttons slot="end">
+          <ion-icon name="pin"></ion-icon>
+    </ion-buttons>
+<ion-buttons slot="end" >
+	<ion-icon user-drop name="contact" (click)="onButtonClickdrop()"></ion-icon>
+
+	 </ion-buttons>
+  </ion-toolbar>
+      <div drop-down-menu *ngIf="buttonClickeddrop">
+	              <a routerLink="/your-account"><ion-icon name="person"></ion-icon> My Account</a>
+	              <a routerLink="/wishlist"><ion-icon name="heart"></ion-icon>  Wishlist</a>
+	              <a routerLink="/cart"><ion-icon name="cart"></ion-icon>  Cart</a>
+	              <a routerLink="/notification"><ion-icon name="notifications"></ion-icon> Notification</a>
+	   </div>
+</ion-header>  -->
+<ion-content >
+	<app-header ></app-header>
+
+<div class="ion-padding">
+<div header_height></div>
+<!-- Breadcrumb Start -->
+		<div breadcrumb  class="ion-hide-md-down">
+				<div breadcrumb-inner>
+					<ul list-inline list-unstyled style='margin:0 0 15px 0'>
+					    <li style="float:left;margin:0 10px 0 0">
+					    	<a routerLink="/blog">Home / </a>
+					    </li>
+						<li class="active">Cart</li>
+					</ul>
+				</div><!-- /.breadcrumb-inner -->
+		</div>
+<!-- Breadcrumb Ends -->
+<!--  Cart Section Start  -->
+	<div cart-page  >
+				<ion-row class="ion-hide-md-down">
+						<ion-col *ngIf="cart == ''">
+							<ion-item>No products added in cart. <ion-button routerLink="/products" color="darkred" float-left >Continue Shopping</ion-button></ion-item>
+						</ion-col>
+						<ion-col size-lg="9" size-md="9" size-sm="12" size="12" *ngIf="cart != ''">
+						   <div shopping-cart>
+							   <div class="table-responsive">
+									 <table class="table">
+												<thead>
+													<tr>
+														<th text-center cart-description>Image</th>
+														<th text-center cart-product-name>Product Name</th>
+														<th text-center cart-qty>Quantity</th>
+														<th text-center cart-sub-total>Subtotal</th>
+														<th text-center cart-total>Grandtotal</th>
+														<th text-center cart-remove>Action</th>
+													</tr>
+												</thead>
+												<tfoot>
+													<tr>
+														<td colspan="7">
+															<div shopping-cart-btn>
+																<span>
+																	<ion-button routerLink="/products" color="darkred" float-left style="display: inline-block;float: right!important;position: initial;padding: 0 0;height: 40px;">
+																		Continue Shopping
+																	</ion-button>
+																</span>
+															</div>
+														</td>
+													</tr>
+												</tfoot>
+										 <tbody>
+											<tr *ngFor="let item of cart; let c_index = index ">
+												
+												<td cart-image>
+													<a entry-thumbnail routerLink="/product-details/{{item.product_id}}">
+														<img *ngIf="errors.indexOf(item.product_image) >= 0" src="assets/images/products/no_image.svg">
+							  							<img *ngIf="errors.indexOf(item.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{item.product_image}}" alt="{{item.product_name}}">
+													</a>
+												</td>
+												<td cart-product-name-info>
+													<h4 cart-product-description>
+														<a routerLink="/product-details/{{item.product_id}}">{{item.product_name}}</a>
+													</h4>
+													<ion-row>
+														<ion-col size="4">
+															<div rating rateit-small>
+															   <ion-icon name="star-outline"></ion-icon>
+															   <ion-icon name="star-outline"></ion-icon>
+															   <ion-icon name="star-outline"></ion-icon>
+															   <ion-icon name="star-outline"></ion-icon>
+															   <ion-icon name="star-outline"></ion-icon>
+															</div>
+														</ion-col>
+														<ion-col  size="8">
+															<div reviews>
+																(0 Reviews)
+															</div>
+														</ion-col >
+													</ion-row><!-- /.row -->
+													<div cart-product-info *ngIf="item.is_variation == 1">
+														<ng-container *ngFor="let variation of item.product_variations">
+														  <span product-color>{{variation.name}}: <span>{{variation.value}}</span></span>
+														</ng-container>
+													</div>
+												</td>
+												<td cart-product-quantity text-center>
+													<div quant-input>
+															<div arrows>
+																  <div arrow plus gradient (click)="plusQuantity(c_index,item.cart_id)" >
+																	<span ir>
+																	<i class="icon fa fa-sort-asc"></i>
+																		   </span>
+																  </div>
+																  <div arrow minus gradient (click)="minusQuantity(c_index,item.cart_id)" >
+																	<span ir>
+																		<i class="icon fa fa-sort-desc"></i>
+																	</span>
+																  </div>
+															</div>
+															<input [disabled]="true" type="text" value="{{item.product_quantity}}">
+													  </div>
+												</td>
+												<td cart-product-sub-total text-center>
+													 <span  cart-sub-total-price>${{subtotalPrice(item)}}</span>
+
+													 <!-- <span *ngIf="errors.indexOf(item.product_sale_price) >= 0 || item.product_sale_price == item.product_purchase_price" cart-sub-total-price>${{item.product_purchase_price}}</span> -->
+												</td>
+												<td cart-product-grand-total text-center>
+													 <span cart-grand-total-price>${{grandTotalPrice(item)}}</span>
+													<!--  <span *ngIf="errors.indexOf(item.product_sale_price) >= 0 || item.product_sale_price == item.product_purchase_price"  cart-grand-total-price>${{item.product_purchase_price*item.product_quantity}}</span> -->
+												</td>
+												<td remove-item text-center>
+													<!-- <a href="javascript:void(0)"  icon action-icons default-icon mr-10>
+														<i class="fa fa-exchange"></i>
+													</a>	 -->
+													<a routerLink="/product-details/{{item.product_id}}" href="javascript:void(0)" icon action-icons mr-10 title='View Product'>
+														<i class="fa fa-eye"></i>
+													</a>
+													<a (click)="remove(item.cart_id,c_index)" href="javascript:void(0)" icon action-icons del-icon  title='Delete From Cart'>
+													   <i class="fa fa-trash-o"></i>
+													</a>
+												</td>
+											</tr>
+
+										   </tbody>
+									  </table>
+							   </div>
+						   </div>
+						</ion-col>
+						<ion-col size-lg="3" size-md="3" size-sm="12" size="12" *ngIf="cart != ''">
+							 <div shopping-cart cart-sidebar>
+								<div class="table-responsive" estimate-ship-tax>
+									  <table class="table">
+											<thead>
+												<tr>
+													<th>
+														<span estimate-title>Discount Code</span>
+
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td *ngIf="applied_coupon == false">
+														<p>Enter your coupon code if you have one..</p>
+														<div class="form-group">
+															<input [(ngModel)]="coupon_code" type="text" class="form-control unicase-form-control text-input" placeholder="Your Coupon..">
+														</div>
+														<div class="clearfix">
+															<ion-button color="darkred" (click)="applyCoupon()" style="position: initial;float: right;">
+																APPLY COUPON
+															</ion-button>
+														</div>
+													</td>
+													<td *ngIf="applied_coupon == true">
+														<p>Coupon <b>{{coupon_code}}</b> applied
+														<ion-button icon action-icons del-icon (click)="removeCoupon()" style="position: initial;margin: -11px 0 0 0;padding: 0 0;">
+															<ion-icon name="close"></ion-icon>
+														</ion-button>
+														</p>
+													</td>
+												</tr>
+											</tbody><!-- /tbody -->
+									   </table>
+								</div>
+								<div class="cart-shopping-total table-responsive">
+										<table class="table">
+											<thead>
+												<tr>
+													<th>
+														<div cart-sub-total>
+															Subtotal<span inner-left-md>${{total_payable_price.toFixed(2)}}</span>
+														</div>
+														<div cart-grand-total *ngIf="applied_coupon == true">
+															Coupon applied<span inner-left-md>-${{total_coupon_amount.toFixed(2)}}</span>
+														</div>
+														<div cart-grand-total>
+															Grand Total<span inner-left-md>${{grand_total.toFixed(2)}}</span>
+														</div>
+													</th>
+												</tr>
+											</thead><!-- /thead -->
+											<tbody>
+													<tr>
+														<td>
+															<div cart-checkout-btn>
+																<ion-button color="darkred" (click)="checkout()" style='display: inline-block;float: right!important;position: initial;padding: 0 0;height: 40px;'>
+																	PROCEED TO CHECKOUT
+																</ion-button>
+
+																<!-- <ion-button color="darkred"  style='display: inline-block;float: right!important;position: initial;padding: 0 0;height: 40px;'>
+																	PROCEED TO CHECKOUT
+																</ion-button> -->
+															</div>
+														</td>
+													</tr>
+											</tbody><!-- /tbody -->
+									   </table><!-- /table -->
+								</div>
+							 </div>
+
+						</ion-col>
+				  <!--  New Products  Start-->
+
+				 <!--  New Products Ends -->
+				<!--  Best Sellers Start -->
+		<!--  Best Sellers   Ends -->
+
+				</ion-row>
+
+
+
+	</div>
+<!--  Cart Section Ends  -->
+<!--  Cart Mobile Section Start  -->
+<div cart-mob class="ion-hide-lg-up">
+
+				 <div cart-subtotal>
+				   <ion-card  no-margin padding>
+					   <ion-row>
+						 <ion-col size="12" no-padding>
+							 <h2>Subtotal ({{cart?.length}} {{cart?.length == 1 ? 'item' : 'items'}}): <span price> ${{total_payable_price}}</span></h2>
+						 </ion-col>
+					   </ion-row>
+					<ion-button size="full" color="darkred" routerLink="/checkout">
+	               Proceed To Checkout
+	              </ion-button>
+				   </ion-card>
+				 </div>
+				  <div cart-items>
+					<ion-item lines="none" *ngFor="let item of cart; let cm_index = index ">
+					   <ion-thumbnail slot="start">
+						  <img *ngIf="errors.indexOf(item.product_image) >= 0" src="assets/images/products/no_image.svg">
+						  <img *ngIf="errors.indexOf(item.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{item.product_image}}" alt="{{item.product_name}}">
+					   </ion-thumbnail>
+					   <label>
+						  <h3>{{item.product_name}}</h3>
+						  <p>
+						  	<span *ngIf="errors.indexOf(item.product_sale_price) == -1 && item.product_sale_price != item.product_purchase_price">${{item.product_sale_price}}</span>
+
+							<span *ngIf="errors.indexOf(item.product_sale_price) >= 0 || item.product_sale_price == item.product_purchase_price">${{item.product_purchase_price}}</span>
+						  </p>
+
+						  <ion-row>
+							 <ion-col no-padding  size="6">
+
+								  <ion-button color="greyc" size="small" fill="outline" *ngIf="my_wish_products.indexOf(item.product_id) == -1" (click)="addToWish(item.product_id)" color="darkblue" add-to-cart title="Wishlist">
+									 <ion-icon name="heart"></ion-icon>
+								  </ion-button>
+								  <ion-button color="greyc" size="small" fill="outline" *ngIf="my_wish_products.indexOf(item.product_id) >= 0" color="darkblue" add-to-cart title="Added">
+									 <ion-icon red_heart name="heart"></ion-icon>
+								  </ion-button>
+
+								   <ion-button (click)="remove(item.cart_id,cm_index)" color="greyc" size="small" fill="outline">
+										<ion-icon  name="trash"></ion-icon>
+								  </ion-button>
+							  </ion-col>
+							   <ion-col no-padding text-right align-item-center  add-quantity>
+								  <ion-button (click)="minusQuantity(cm_index,item.cart_id)" color="greyc" size="small">
+										<ion-icon  name="remove"></ion-icon>
+								  </ion-button>
+								   <span num-quantity>
+										{{item.product_quantity}}
+								  </span>
+								   <ion-button (click)="plusQuantity(cm_index,item.cart_id)" color="greyc" size="small">
+										<ion-icon name="add"></ion-icon>
+								  </ion-button>
+								</ion-col>
+						   </ion-row>
+					   </label>
+					</ion-item>
+					<ion-item lines="none" *ngIf="cart == ''">
+						No products added in cart.
+						<ion-button routerLink="/products" color="darkred" float-left >Continue Shopping</ion-button>
+					</ion-item>
+				 </div>
+</div>
+
+<!-- <app-recently-viewed></app-recently-viewed> -->
+<!-- <app-upsell-products></app-upsell-products> -->
+<!--  Cart Mobile Section Ends  -->
+</div>
+<app-footer></app-footer>
+</ion-content>

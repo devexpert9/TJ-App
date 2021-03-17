@@ -1,0 +1,255 @@
+<ion-content>
+<app-header ></app-header>
+<div class="ion-padding">
+	<div header_height></div>
+	<!-- Breadcrumb Start -->
+
+	<div breadcrumb  class="ion-hide-md-down">
+		<div breadcrumb-inner>
+			<ul list-inline list-unstyled style='margin:0 0 15px 0'>
+			    <li style="float:left;margin:0 10px 0 0">
+			    	<a routerLink="/blog">Home / </a>
+			    </li>
+				<li class="active">Wishlist</li>
+			</ul>
+		</div>
+	</div>
+<div my-wishlist-page class="ion-hide-md-down">
+
+<div mainSecWishlist>
+	<!-- hdng -->
+	<div subHdng *ngIf="all_wishlist != ''">
+		<!-- <h4 heading-title>My Wishlists
+			<ion-button addNewWishlist color="darkred" (click)="presentAlertPromptAdd()">
+				<i class="fa fa-plus"></i>
+			</ion-button>
+		   	<div srch-filter>
+				<input (input)="searchWishlist($event)" search-input placeholder="Search this list...">
+				<a search-button>
+				   <i class="fa fa-search"></i>
+				</a>
+			</div>
+		</h4> -->
+	</div>
+
+	<!-- Lists -->
+
+	<ng-container *ngFor="let item of wishlist;let i = index;">
+		<h4 style="margin:15px 0" catHdng>
+			{{item.wish_title}}
+
+			<!-- <div ritActions2 *ngIf="userId == item.user_id || guestUserId == item.user_id">
+				<ion-checkbox color="darkred" [checked]="item.is_default == 1" *ngIf="item.is_default == 1" ></ion-checkbox>
+		   		<ion-checkbox  color="darkred" *ngIf="item.is_default != 1" (ionChange)="setDefault(item.wish_id)" ></ion-checkbox>
+
+		   		<ion-button color="darkred" (click)="addAddressForWishlist(item)">
+		   			<i class="fa fa-pencil"></i>
+		   		</ion-button>
+
+		   		<ion-button color="darkred" (click)="share(item, i)">
+		   			<i class="fa fa-share-alt"></i>
+		   		</ion-button>
+		   		<ion-button color="darkred"  (click)="deleteWishlist(item.wish_id)" *ngIf="item.is_default != 1">
+		   			<i class="fa fa-trash"></i>
+		   		</ion-button>
+		   		<ion-button color="darkred" (click)="placeOrder(item)">
+		   			<i class="fa fa-shopping-bag"></i>
+		   		</ion-button>
+		   	</div>
+
+		   	<div ritActions2 *ngIf="userId != item.user_id && guestUserId != item.user_id">
+		   		<ion-button color="darkred" (click)="placeOrder(item)">
+		   			<i class="fa fa-shopping-bag"></i>
+		   		</ion-button>
+		   	</div> -->
+		</h4>
+
+		<div wishlistList *ngFor="let product of item.products; let w_ind = index " >
+			<div class="col-sm-1">
+			<a proImg routerLink="/product-details/{{product.product_id}}">
+				<img *ngIf="errors.indexOf(product.product_image) >= 0" src="assets/images/products/no_image.svg">
+				<img *ngIf="errors.indexOf(product.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{product.product_image}}" alt="{{product.product_name}}">
+			</a>
+			</div>
+			<div class="col-sm-7">
+				<div product-name>
+				   <a routerLink="/product-details/{{product.product_id}}">
+				      {{product.product_name}}
+				   </a>
+				</div>
+				<div rating rateit>
+					<ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="product?.Average_Review" [color]="'#a01616'" *ngIf="product?.Average_Review != null"></ngx-stars>
+					<ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="0" [color]="'#a01616'" *ngIf="product.Average_Review == null"></ngx-stars>
+					<!-- <span class="review">( {{product?.product_reviews?.length}} {{product?.product_reviews?.length == '1' ? 'Review' : 'Reviews'}} )</span> -->
+				</div>
+				<div price>
+					<ng-container *ngIf="errors.indexOf(product?.product_sale_price) == -1 && product?.product_sale_price != product?.product_purchase_price"> Now for ${{product?.product_sale_price}}  </ng-container>
+
+	    			<ng-container *ngIf="errors.indexOf(product?.product_sale_price) >= 0 || product?.product_sale_price == product?.product_purchase_price"> ${{product?.product_purchase_price}}  </ng-container>
+
+	    			<span *ngIf="errors.indexOf(product?.product_sale_price) == -1 && product?.product_sale_price != product?.product_purchase_price" price-before-discount> from ${{product?.product_purchase_price}}</span>
+				</div>
+				<div vendor-info>
+					<p *ngIf="product?.product_user_type == 'Vendor'" vendor-name>Sold by <a href="javascript:void(0)">{{product?.Vendors[0]?.vendor_company}}</a></p>
+					<!-- <p>Item added on {{product?.wish_date | date : 'MMM d, y'}}</p> -->
+				</div>
+
+				<div class="col-sm-12" style=" float: left;width: 100%;">
+					<ng-container *ngIf="product?.product_quantity != 0 && errors.indexOf(product?.product_quantity) == -1">
+						
+						<ion-button color="darkred" *ngIf="userId == item.user_id || guestUserId == item.user_id" style="float: right;display: inline-block;position: initial;">
+							<a (click)="removeProduct(item.wish_id, product.product_id)">
+						   		<i class="fa fa-times"></i>
+							</a>
+						</ion-button>
+
+						<ion-button color="darkred" *ngIf="my_cart_products.indexOf(product.product_id) == -1" (click)="addToCart(product.product_id,product.product_sale_price,product.product_purchase_price)" style="float: right;display: inline-block;position: initial;">
+							Add to cart
+						</ion-button>
+						<ion-button color="darkred" *ngIf="my_cart_products.indexOf(product.product_id) >= 0" style="float: right;display: inline-block;position: initial;">
+							In cart
+						</ion-button>
+
+						
+					</ng-container>
+
+					<ng-container tag new *ngIf="product?.product_quantity == 0 || errors.indexOf(product?.product_quantity) >= 0" style="float: left;width: 100%;margin: 0;padding: 0;color: maroon;">
+						Out of stock
+					</ng-container>
+				</div>
+			</div>
+	 	</div>
+	</ng-container>
+
+	<div *ngIf="wishlist == ''" style="padding: 14px;">
+		<span>No items added in wishlist</span>
+	</div>
+	<div *ngIf="all_wishlist != '' && wishlist == ''" style="padding: 14px;">
+		<span>No matching records found.</span>
+	</div>
+
+</div>
+
+</div>
+<!-- Wishist browser End -->
+<!-- Wishist mobile Start -->
+<div wishlist-mob class="ion-hide-lg-up">
+  <div wishlist-items>
+  	<div checkout-box>
+  		<!-- main hdng -->
+	  	<h3 class="mainWishHdng">
+	  		My Wishlists 
+	  		<!-- <ion-button addnewwishlistApp="" color="darkred" (click)="presentAlertPromptAdd()" class="ion-color ion-color-darkred ios button button-solid ion-activatable ion-focusable hydrated">
+				<i class="fa fa-plus"></i>
+			</ion-button> -->
+		</h3>
+
+		<ion-card no-margin padding>
+			<div panel panel-default *ngFor="let item of wishlist; let i = index ">
+				 <div panel-heading checkout-head>
+					<h4>
+					   <a href="javascript:void(0)" [ngClass]="{'active': selectedItem.indexOf('item'+i) >= 0}"  (click)="faqClicked('item'+i)">
+						  <span>1</span> {{item.wish_title}}
+
+						  	<!-- <div sharedTitle *ngIf="item.share_with_user.length > 0 && userId == item.user_id"> shared with {{item.share_with_user[0].name}} {{item.share_with_user[0].last_name}}</div>
+
+							<div sharedTitle *ngIf="item.share_with_user.length > 0 && userId != item.user_id"> shared  by {{item.userData[0].name}} {{item.userData[0].last_name}}</div>  -->
+
+					   </a>
+					   <div ritActions *ngIf="userId == item.user_id || guestUserId == item.user_id">
+					   		<ion-checkbox color="darkred" [checked]="item.is_default == 1"  *ngIf="item.is_default == 1"></ion-checkbox>
+					   		<ion-checkbox color="darkred" *ngIf="item.is_default != 1" (ionChange)="setDefault(item.wish_id)" ></ion-checkbox>
+					   		<ion-button color="darkred" (click)="addAddressForWishlist(item)">
+					   			<i class="fa fa-pencil"></i>
+					   		</ion-button>
+					   		<!-- <ion-button color="darkred" (click)="share(item, i)" *ngIf="item.share_with_user.length == 0">
+					   			<i class="fa fa-share-alt"></i>
+					   		</ion-button> -->
+					   	<!-- 	<ion-button disabled *ngIf="item.share_with_user.length > 0" class="disbale">
+					   			<i class="fa fa-share-alt"></i>
+					   		</ion-button> -->
+					   		<ion-button color="darkred" (click)="share(item, i)" *ngIf="item.share_with_user.length == 0">
+					   			<i class="fa fa-share-alt"></i>
+					   		</ion-button>
+
+					   		<ion-button color="darkred" (click)="placeOrder(item)">
+					   			<i class="fa fa-shopping-bag"></i>
+					   		</ion-button>
+
+					   		<ion-button color="darkred"  (click)="deleteWishlist(item.wish_id)" *ngIf="item.is_default != 1">
+					   			<i class="fa fa-trash"></i>
+					   		</ion-button>
+
+
+					   </div>
+					   <div ritActions *ngIf="userId != item.user_id && guestUserId != item.user_id">
+					   		<ion-button color="darkred" (click)="placeOrder(item)">
+					   			<i class="fa fa-shopping-bag"></i>
+					   		</ion-button>
+					   </div>
+					</h4>
+				 </div>
+				 <div panel-body  [ngClass]="{'active': selectedItem.indexOf('item'+i) >= 0}">
+
+				 	<ion-grid productsDiv>
+
+				 		<ion-item lines="none" *ngFor="let product of item.products; let wm_ind = index ">
+							<ion-thumbnail slot="start">
+							  <a routerLink="/product-details/{{product.product_id}}">
+								<img *ngIf="errors.indexOf(product.product_image) >= 0" src="assets/images/products/no_image.svg">
+								<img *ngIf="errors.indexOf(product.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{product.product_image}}" alt="{{product.product_name}}">
+							  </a>
+							</ion-thumbnail>
+							<label>
+							<h3>{{product.product_name}}</h3>
+							<p price-main>
+								<span *ngIf="errors.indexOf(product.product_sale_price) == -1 && product.product_sale_price != product.product_purchase_price"> ${{product.product_sale_price}}  </span>
+
+					            <span *ngIf="errors.indexOf(product.product_sale_price) >= 0 || product.product_sale_price == product.product_purchase_price"> ${{product.product_purchase_price}}  </span>
+
+					            <span *ngIf="errors.indexOf(product.product_sale_price) == -1 && product.product_sale_price != product.product_purchase_price" price-before-discount>${{product.product_purchase_price}}</span>
+							</p>
+							<div rating>
+								<ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="product?.Average_Review" [color]="'#a01616'" *ngIf="product?.Average_Review != null"></ngx-stars>
+								<ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="0" [color]="'#a01616'" *ngIf="product.Average_Review == null"></ngx-stars>
+						    </div>
+						   	</label>
+
+							<ion-button color="grey2" size="small" fill="outline" slot="end" *ngIf="product?.product_quantity != 0 && errors.indexOf(product?.product_quantity) == -1">
+								<ion-icon title="Add to Cart"  *ngIf="my_cart_products.indexOf(product.product_id) == -1" (click)="addToCart(product.product_id,product.product_sale_price,product.product_purchase_price)" name="cart"></ion-icon>
+
+								<ion-icon title="In cart" *ngIf="my_cart_products.indexOf(product.product_id) >= 0" name="checkmark"></ion-icon>
+							</ion-button>
+							<ion-button color="grey2" size="small" fill="outline" slot="end" (click)="removeWishlist(wm_ind,product.wish_id)" *ngIf="userId == item.user_id || guestUserId == item.user_id">
+								<ion-icon name="trash"></ion-icon>
+							</ion-button>
+						</ion-item>
+
+						<ion-item lines="none" *ngIf="all_wishlist != '' && wishlist == ''">
+							No matching records found.
+						</ion-item>
+						<ion-item lines="none" *ngIf="all_wishlist == ''">
+							No items added in wishlist.
+						</ion-item>
+
+				 	</ion-grid>
+				</div>
+			</div>
+		</ion-card>
+	</div>
+
+  </div>
+</div>
+<div *ngIf="showShareDiv" class="sharedDiv">
+
+	<a _ngcontent-iqv-c6="" search-button="" (click)="closePopUp()"><i _ngcontent-iqv-c6="" class="fa fa-close"></i></a>
+	<h4>Sharable Link:</h4>
+	<span>{{publicUrl}}</span>
+
+</div>
+<!-- Wishist mobile End -->
+<!-- <app-recently-viewed></app-recently-viewed> -->
+<!-- <app-upsell-products></app-upsell-products> -->
+</div>
+<app-footer></app-footer>
+</ion-content>

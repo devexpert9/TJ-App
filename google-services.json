@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "498511959569",
+    "firebase_url": "https://siniyetu.firebaseio.com",
+    "project_id": "siniyetu",
+    "storage_bucket": "siniyetu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498511959569:android:40232cb07289331f",
+        "android_client_info": {
+          "package_name": "com.siniyetu.a587425"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "498511959569-knmi1c8vdk7mf1em2tqhvud4djqfnpfc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.siniyetu.a587425",
+            "certificate_hash": "253a9f0a26459e53fc62953ffcb2b2bcdc9774ef"
+          }
+        },
+        {
+          "client_id": "498511959569-9d8uu4pimbgn82micjlpssmp04v0d2tf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1bCN8OIKTpe7A-V5-FynH8LYIpSryI7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "498511959569-9d8uu4pimbgn82micjlpssmp04v0d2tf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

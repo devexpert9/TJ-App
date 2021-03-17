@@ -1,0 +1,171 @@
+ion-header{
+	&::after
+	{
+	display:none!important;
+	}
+	ion-toolbar
+	{
+		ion-menu-button
+		{
+			height: 35px;
+			position: inherit;
+			top: inherit;
+			right: inherit;
+			transition: inherit;
+			transition-delay: .1s;
+			img
+			{
+				max-width: 20px;
+			}		
+		}
+		ion-title
+		{
+			font-weight:700;
+		}
+	}
+}
+
+
+@media (min-width: 768px) {
+    ion-content
+	{
+		.about-page
+		{
+		    [mob-icon-sec], .mob-icon-sec
+			{
+			    display:none;
+			}
+		}
+	}
+}
+@media (max-width: 767px) {
+    ion-content
+	{
+	    .about-page
+		{
+			[head-sec] 
+			{
+			    margin-bottom: 25px!important;
+				p 
+				{
+					font-size: 13px;
+					line-height: 26px;
+					color: #777;
+				}	
+				.section-title 
+				{
+				    margin-bottom: 15px;
+					h3 
+					{
+						font-size: 20px;
+						margin-bottom: 0px;
+					}				
+				}				
+			}
+            [about-cont-sec]
+            {
+				background: #fafafa;
+				padding: 15px;
+				border-radius: 10px;
+				margin-bottom: 15px!important;			
+				.about-right-content
+				{
+					h4 
+					{
+						font-size: 13px;
+						font-weight: 600;
+						line-height: 22px;
+						margin-bottom: 0px;
+						.fa.fa-info-circle
+						{
+						    top: 0px;
+						}
+						.infomtion 
+						{
+							top: 100%;
+							left: initial;
+							right: 0px;
+							padding: 5px;
+							min-width: 90px;
+							p
+							{
+								line-height: 16px;
+								font-size: 11px;
+								color: #888;
+								text-transform: capitalize;							
+							}
+						}	
+					}			
+					p 
+					{
+						line-height: 16px;
+						font-size: 12px;
+						color: #888;
+						img
+						{
+							&.payment-image 
+							{
+								width: 120px;
+							}						
+						}
+						&.social-icon
+						{ 
+							a
+							{ 
+								i 
+								{
+									font-size: 18px;
+								}						
+							}						
+						}						
+					}				
+				}		
+				.about-left-icon
+				{
+					height: 40px;
+					min-width: 40px;
+					width: 40px;
+					font-size: 16px;
+					margin-right: 10px!important;
+					margin-bottom: 0px;				
+				}
+			}
+			iframe 
+			{
+				max-height: 300px;
+				margin-top: 20px;
+			}
+			.header-call-action 
+			{
+				display: flex;
+				width: 100%;
+				align-items: center;
+				justify-content: flex-end;			
+				.menu-right-ul 
+				{
+				    padding: 0;
+					li 
+					{
+					    margin-left: 7px;
+						a 
+						{
+							font-size: 16px;
+							padding: 0px;
+							color: #444;
+							width: 30px;
+							height: 30px;
+							line-height: 30px;
+							background: #f1f1f1;
+							border-radius: 50%;
+							&:hover
+							{
+							    background: var(--ion-color-primary);							
+							    color: #fff;							
+							}
+						}			
+					}			
+				}			
+			}				
+		}
+	}
+}
