@@ -5152,9 +5152,9 @@ button.btnsubmit {
     border: 1px solid var(--ion-color-primary);
     color: #fff;
 }.newsfeed .newsfeedinner {
-    margin-top: 70px;
+    margin-top: 0;
     margin-bottom: 70px;
-    padding: 30px;
+    padding: 15px;
     border-radius: 6px;
     border: 2px solid #f1eeee;
 }
@@ -5320,7 +5320,7 @@ p.register-here-btn {
 
 article.post-feed-item {
     padding: 0;
-    margin: 0 0 35px;
+    margin: 0 0 15px;
     position: relative;
     background-color: #fff;
     border: 1px solid #f0f0f0;
@@ -5350,6 +5350,8 @@ article.post-feed-item {
 .activity-inner {
     padding: 25px;
     padding-top: 0;
+    float: left;
+    width: 100%;
 }
 
 .post-feed-img {
@@ -7861,4 +7863,64 @@ article.post-feed-item.bstrf .post-feed-img img.img-fluid {
 {
 	display:none;
 }
+}
+
+.dropdown.btn-strsf button.dropdown-toggle {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    color:#fff;
+}
+.dropdown.btn-strsf .dropdown-menu {
+    margin-top: 8px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 20px rgb(0 0 0 / 16%);
+    min-width: 200px;
+}
+.dropdown.btn-strsf .dropdown-menu .dropdown-item {
+    padding: 7px 25px;
+    font-size: 15px;
+    color: #310240;
+}
+.dropdown.btn-strsf button.dropdown-toggle:focus, .dropdown.btn-strsf button.dropdown-toggle:active {
+    outline:none;
+    box-shadow: none;
+}
+.pop-dats {
+    position: relative;
+}
+.pop-dats .popov-conts {
+    background: #e2e2e2;
+    padding: 15px;
+    border-radius: 12px;
+    position: absolute;
+    z-index: 11;
+    min-width: 270px;
+    top: 67px;
+    width: 100%;
+}
+.pop-dats .popov-conts ul.lis-ff {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    display: block;
+}
+.pop-dats .popov-conts ul.lis-ff li {
+    display: block;
+    padding: 4px 0;
+    color: #28a745;
+}
+.pop-dats .popov-conts ul.lis-ff li.red-text {
+    color: #f04141;
+}
+.pop-dats .popov-conts ul.lis-ff li i {
+    margin-right: 5px;
+}
+.popov-conts:before {
+    content: "";
+    position: absolute;
+    border: 10px solid #222;
+    top: -19px;
+    border-color: transparent transparent #e2e2e2 transparent;
+    left: 20px;
 }

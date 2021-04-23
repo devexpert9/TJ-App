@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { ModalController, ToastController, Events, LoadingController } from '@ionic/angular';
 import { AutoPopupPage } from '../auto-popup/auto-popup.page';
 import { ChooseLocationPage } from '../choose-location/choose-location.page';
@@ -9,7 +9,7 @@ import { config } from '../config';
 import * as $ from 'jquery';
 import { Socket } from 'ng-socket-io';
 import { GlobalFooService } from '../services/user/globalFooService.service';
-
+// import { IonContent, IonItem, IonLabel, IonList, IonListHeader, IonSelect, IonSelectOption, IonPage, IonItemDivider } from '@ionic/react';
 import { Observable } from 'rxjs/Observable';
 import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
 declare var webkitSpeechRecognition;
@@ -21,19 +21,22 @@ declare var webkitSpeechRecognition;
 export class HeaderPage implements OnInit {
 public buttonClickeddrop: boolean = false; 
 public buttonClickedcat: boolean = false;
-is_logged_in:boolean;
+is_logged_in:any;
 all_categories:any;
 all_top_categories:any;
 cart:any;
 wishPro:any;
+wishlist:any;
 userId:any;
 cartLength:any;
+wishLength:any = 0;
 cats_array:any = [];
 items_in_cart:string='0';
 searchTerm:string=''; 
+searchType:string='all'; 
 selected_cat:string='Categories';
 mob_category:string='Category';
-cart_price:any=0;
+cart_price:any='0.00';
 errors : any = ['',null,undefined];
 IMAGES_URL:any;
 default_address:any;
@@ -44,23 +47,58 @@ loading:any = '';
 video_call_id:any;
 isBrowser: any = localStorage.getItem('isBrowser');
 user_name: any = localStorage.getItem('sin_auth_user_name');
-user_image: any = localStorage.getItem('sin_auth_user_image');
+user_image: any = 'dummy.jpg';
 base_url: any = 'http://dev.indiit.solutions/TJ/dev/dev/public/uploads/userprofile/';
 audio: any;
 call_from_id: any;
 is_call_received:boolean = false;
 isStart: any = false;
+orders:any;
+ordersLength:any;
+
+showSeller:any= localStorage.getItem('sellerSwitched');
+
+isSeller:any = '';
+loggedInEmail:any = '';
+
 allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/webp'];
   
-  constructor(private globalFooService: GlobalFooService, public modalController: ModalController, public toastController: ToastController,public router: Router, public events: Events, public userService: UserService, private socket: Socket, public loadingController: LoadingController,
+  constructor(private cd: ChangeDetectorRef,private globalFooService: GlobalFooService, public modalController: ModalController, public toastController: ToastController,public router: Router, public events: Events, public userService: UserService, private socket: Socket, public loadingController: LoadingController,
   private speechRecognition: SpeechRecognition )
   {
-
+    this.getSellerAccount();
     this.globalFooService.getObservable().subscribe((data) => {
       if(data.foo.page == 'afterLoginUserName')
       {
+        this.showSeller = localStorage.getItem('sellerSwitched');
+        this.user_image  = localStorage.getItem('sin_auth_user_image');
         this.user_name  = data.foo.data.name;
         this.user_image = data.foo.data.profile_picture;
+        this.getSellerAccount();
+      }
+      else if(data.foo.page == 'registerDone')
+      {
+        this.showSeller = localStorage.getItem('sellerSwitched');
+        this.user_image  = localStorage.getItem('sin_auth_user_image');
+        this.getSellerAccount();
+        // localStorage.setItem('comeFrom', 're');
+        //this.router.navigate(['/auto-popup']);
+        // this.automaticPopup();
+      }
+      else if(data.foo.page == 'sellerDone')
+      {
+        this.getSellerAccount();
+      }
+      else if(data.foo.page == 'orderPlaced')
+      {
+        this.getOrders();
+      }
+      else if(data.foo.page == 'logout')
+      {
+        this.is_logged_in  = 'false';
+        
+        this.ordersLength = '0';
+        this.cartLength   = '0';
       }
     });
 
@@ -69,6 +107,7 @@ allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/
     this.IMAGES_URL = config.IMAGES_URL;
   	this.checkLogin();
     this.getCategories();
+    this.getOrders();
     this.getTopSellingCategories();
     if(this.userId != 0){
       localStorage.removeItem('sin_current_address');
@@ -139,14 +178,18 @@ allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/
   {
     console.log('speechRecognition');
     console.log(this.speechRecognition)
+    this.getSellerAccount();
+
+    this.showSeller = localStorage.getItem('sellerSwitched');
 
     this.audio = new Audio();
     this.audio.src = 'assets/ringtones/ringtone_1.mp3';
     this.audio.load();
-    if(localStorage.getItem('sin_auto_popup') != 'success' && this.isBrowser == 'true'){
+    if(localStorage.getItem('sin_auto_popup') != 'success' && this.isBrowser == 'true')
+    {
       localStorage.setItem('sin_auto_popup','success');
-      this.automaticPopup();
     }
+
     var self;
     $('.mega-dropdown-menu').on('click', function(event){
       $(".menu-item").removeClass('open');
@@ -268,22 +311,45 @@ allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/
         console.log(e)
             
       })
+    }
+  }
 
-
-
-
-
-      /*-----------------------------
-            Speech Synthesis 
-      ------------------------------*/
-
-
-
-
-     
+  ionViewDidEnter()
+  {
+    if(localStorage.getItem('comeFrom') == 'register')
+    {
+      this.router.navigate(['/interest']);
+      return;
     }
 
-    
+    this.showSeller = localStorage.getItem('sellerSwitched');
+
+    console.log('Entered');
+    this.user_image = localStorage.getItem('sin_auth_user_image');
+
+    var token = localStorage.getItem('sin_auth_token');
+    // alert(token);
+    if(token != '' && token != null && token != undefined){
+      this.is_logged_in = 'true';
+    }
+    else{
+      this.is_logged_in = 'false';
+    }
+    this.getSellerAccount();
+  }
+
+  goToSeller()
+  {
+    localStorage.setItem('sellerSwitched','true');
+    this.showSeller = localStorage.getItem('sellerSwitched');
+    // window.location.replace("https://dev.indiit.solutions/TJ/vendor-html/");
+  }
+
+  goToBuyer()
+  {
+    localStorage.setItem('sellerSwitched','false');
+    this.showSeller = localStorage.getItem('sellerSwitched');
+    // window.location.replace("https://dev.indiit.solutions/TJ/vendor-html/");
   }
 
   cartpage()
@@ -349,6 +415,21 @@ allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/
         this.default_address = result.address.full_address+' '+result.address.address_zip_code;
       }
     });
+  }  
+
+  getSellerAccount()
+  {
+    this.userService.postData({email: localStorage.getItem('sin_auth_user_email')},'getSellerAccount').subscribe((result) => {
+      if(result.status == 1)
+      {
+        this.isSeller = 'yes';
+        this.cd.detectChanges();
+      }
+      else{
+        this.isSeller = 'no'; 
+        this.cd.detectChanges();
+      }
+    });
   }
 
   getCategories(){
@@ -360,6 +441,20 @@ allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/
     });
   }
 
+  getOrders()
+  {
+    this.userService.postData({user_id:this.userId},'getAllOrders').subscribe((result) => {
+      this.orders = result.orders;
+
+      this.ordersLength = this.orders.length;
+      this.cd.detectChanges();
+    },
+    err => {
+      // this.stopLoading();
+      this.orders = [];
+    });
+  }
+
   getTopSellingCategories(){
     this.userService.postData({limit:'6'},'topSellingCategories').subscribe((result) => {
       console.log(result);
@@ -368,6 +463,30 @@ allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/
     err => {
       this.all_top_categories = [];
     });
+  }
+
+  
+
+  ionViewDidLoad()
+  {
+    if(localStorage.getItem('comeFrom') == 'register')
+    {
+      this.router.navigate(['/interest']);
+      return;
+    }
+
+    console.log('Entered');
+    this.user_image = localStorage.getItem('sin_auth_user_image');
+
+    var token = localStorage.getItem('sin_auth_token');
+    // alert(token);
+    if(token != '' && token != null && token != undefined){
+      this.is_logged_in = 'true';
+    }
+    else{
+      this.is_logged_in = 'false';
+    }
+    this.getSellerAccount();
   }
 
   ionViewWillUnload(){
@@ -397,7 +516,20 @@ allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/
 
   search()
   {
-    this.router.navigate(['/products'],{queryParams : {cat : (this.cats_array.length > 0 ? this.cats_array[0].cat_id : ''), subcat: (this.cats_array.length > 0 ? this.cats_array[0].sub_cat_id : ''), search: this.searchTerm}});
+    if(this.searchType == ''){
+      this.presentToast('Please select search type.','danger');
+      return false;
+    }
+
+    if(this.searchTerm == ''){
+      this.presentToast('Please enter your search.','danger');
+      return false;
+    }
+    //this.router.navigate(['/products'],{queryParams : {cat : (this.cats_array.length > 0 ? this.cats_array[0].cat_id : ''), subcat: (this.cats_array.length > 0 ? this.cats_array[0].sub_cat_id : ''), search: this.searchTerm}});
+    this.globalFooService.publishSomeData({
+      foo: {'data': "search", 'page': 'searchPerform'}
+    });
+    this.router.navigate(['/search'],{queryParams : {searchType:this.searchType, search: this.searchTerm}});
   }
 
   getCartProducts()
@@ -414,7 +546,7 @@ allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/
         this.calculateTotalPrice();
       }
       else{
-        this.cart_price = 0;
+        this.cart_price = 0.00;
       }
     },
     err => {
@@ -426,20 +558,24 @@ allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/
   {
     this.userService.postData({user_id:this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId},'getWishlist').subscribe((result) => {
       this.stopLoading();
-      console.log(result)
-      // this.wishlist = result.data;
-      this.wishPro = result.data;
+      console.log(result);
+      if(result.status == 1)
+      {
+        this.wishlist = result.data[0];  
+      }
+      else{
+        this.wishlist = [];
+      }
     },
     err => {
       this.stopLoading();
-      // this.wishlist = [];
-      this.wishPro = [];
+      this.wishlist = [];
     });
   }
 
   calculateTotalPrice(){
     var self = this; 
-    this.cart_price = 0; 
+    this.cart_price = 0.00; 
     // this.cart.forEach(function(item){
     //   if(self.errors.indexOf(item.product_sale_price) == -1 && item.product_sale_price != item.product_purchase_price){
     //     self.cart_price = Number(self.cart_price) + (item.product_sale_price*item.product_quantity);
@@ -492,10 +628,10 @@ allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/
   checkLogin(){
   	var token = localStorage.getItem('sin_auth_token');
   	if(token != '' && token != null && token != undefined){
-  		this.is_logged_in = true;
+  		this.is_logged_in = 'true';
   	}
   	else{
-  		this.is_logged_in = false;
+  		this.is_logged_in = 'false';
   	}
   }
 
@@ -516,16 +652,23 @@ allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/
 
   logout()
   {
-  	localStorage.removeItem('sin_auth_token');
-  	
-    localStorage.setItem('sin_auth_token','');
-    localStorage.setItem('sin_auth_user_name','');
-    localStorage.setItem('sin_auth_user_image','');
+    localStorage.clear();
+    this.is_logged_in = 'false';
+
+    this.cd.detectChanges();
 
     this.presentToast('Logged out successfully!','success');
+    
     this.events.publish('call_logout_head:true', '');
-  	this.checkLogin();
-    this.is_logged_in = false;
+    
+    this.globalFooService.publishSomeData({
+      foo: {'data': 'logout is done', 'page': 'logout'}
+    });
+
+    localStorage.setItem('is_login','false');
+    localStorage.setItem('sin_auth_user_email','xx@demo.com');
+
+    this.cd.detectChanges();
     this.router.navigate(['/blog']);
   }
 
@@ -540,11 +683,13 @@ allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/
     toast.present();
   }
 
-  async automaticPopup() {
-    const modal = await this.modalController.create({
-      component: AutoPopupPage
-    });
-    return await modal.present();
+  async automaticPopup()
+  {
+    this.router.navigate(['/auto-popup']);
+    // const modal = await this.modalController.create({
+    //   component: AutoPopupPage
+    // });
+    // return await modal.present();
   }
 
 
@@ -643,6 +788,8 @@ allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/
     );
   }
 
+
+
   subtotalPrice(item){
     if(item.is_variation == 1){
       return Number(item.product_price);
@@ -673,5 +820,37 @@ allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/
       }
     }
   };
+
+  // function DropDown(el) {
+  //   this.dd = el;
+  //   this.placeholder = this.dd.children('span');
+  //   this.opts = this.dd.find('ul.dropdown > li');
+  //   this.val = '';
+  //   this.index = -1;
+  //   this.initEvents();
+  // }
+  // DropDown.prototype = {
+  //     initEvents : function() {
+  //         var obj = this;
+
+  //         obj.dd.on('click', function(event){
+  //             $(this).toggleClass('active');
+  //             return false;
+  //         });
+
+  //         obj.opts.on('click',function(){
+  //             var opt = $(this);
+  //             obj.val = opt.text();
+  //             obj.index = opt.index();
+  //             obj.placeholder.text(obj.val);
+  //         });
+  //     },
+  //     getValue : function() {
+  //         return this.val;
+  //     },
+  //     getIndex : function() {
+  //         return this.index;
+  //     }
+  // }
 
 }

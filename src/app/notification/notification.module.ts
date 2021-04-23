@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { SharedModule } from '../shared/shared.module';
 import { NotificationPage } from './notification.page';
-
+import { HeaderPageModule } from '../header/header.module';
 const routes: Routes = [
   {
     path: '',
@@ -18,6 +18,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    HeaderPageModule,
     RouterModule.forChild(routes),
     SharedModule
   ],

@@ -15,13 +15,22 @@ ion-modal.wishListModal .modal-wrapper {
     max-width: 400px;
     max-height: 400px;
 }
-
+.ionic-selectable-modal .toolbar-container{
+	display:none;
+}
 
 html, body
 {
 font-family: 'font-family: 'Open Sans', sans-serif;', sans-serif!important;
 --ion-default-font: 'font-family: 'Open Sans', sans-serif;', sans-serif!important;
 }
+
+	.sc-ion-modal-md-h .modal-wrapper.sc-ion-modal-md
+	{
+		width: 600px!important;
+    	height: 500px!important;
+	}
+
 [search]
 {
 	ion-searchbar 
@@ -122,4 +131,11 @@ ion-header .dropdown-dots .message-search
 		   right: 40px;
 		}
 	}
+}
+
+.pswdPopover{
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
 }

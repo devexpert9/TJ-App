@@ -57,14 +57,15 @@
 														<th text-center cart-description>Image</th>
 														<th text-center cart-product-name>Product Name</th>
 														<th text-center cart-qty>Quantity</th>
-														<th text-center cart-sub-total>Subtotal</th>
+														<th text-center cart-sub-total>Product Price</th><th text-center cart-sub-total>Discount</th>
+														<th text-center cart-total>Subtotal</th>
 														<th text-center cart-total>Grandtotal</th>
 														<th text-center cart-remove>Action</th>
 													</tr>
 												</thead>
 												<tfoot>
 													<tr>
-														<td colspan="7">
+														<td colspan="8">
 															<div shopping-cart-btn>
 																<span>
 																	<ion-button routerLink="/products" color="darkred" float-left style="display: inline-block;float: right!important;position: initial;padding: 0 0;height: 40px;">
@@ -88,7 +89,8 @@
 													<h4 cart-product-description>
 														<a routerLink="/product-details/{{item.product_id}}">{{item.product_name}}</a>
 													</h4>
-													<ion-row>
+													
+													<!-- <ion-row>
 														<ion-col size="4">
 															<div rating rateit-small>
 															   <ion-icon name="star-outline"></ion-icon>
@@ -103,8 +105,9 @@
 																(0 Reviews)
 															</div>
 														</ion-col >
-													</ion-row><!-- /.row -->
-													<div cart-product-info *ngIf="item.is_variation == 1">
+													</ion-row> -->
+
+													<div cart-product-info *ngIf="item.is_variation == 1" style="float:left;width:100%;">
 														<ng-container *ngFor="let variation of item.product_variations">
 														  <span product-color>{{variation.name}}: <span>{{variation.value}}</span></span>
 														</ng-container>
@@ -127,15 +130,33 @@
 															<input [disabled]="true" type="text" value="{{item.product_quantity}}">
 													  </div>
 												</td>
+												<td cart-product-discount text-center>
+												 	<span cart-discount-price>
+												 		{{item.product_sale_price}}
+												 	</span>
+												</td>
+												<td cart-product-discount text-center>
+												 	<span cart-discount-price *ngIf="item.discount_type == '%'">
+												 		{{item.discount_per_piece}}
+												 		{{item.discount_type}}
+												 	</span>
+
+												 	<span cart-discount-price *ngIf="item.discount_type != '%'">
+												 		{{item.discount_type}}
+												 		{{item.discount_per_piece}}
+												 		
+												 	</span>
+												</td>
+												
 												<td cart-product-sub-total text-center>
 													 <span  cart-sub-total-price>${{subtotalPrice(item)}}</span>
 
 													 <!-- <span *ngIf="errors.indexOf(item.product_sale_price) >= 0 || item.product_sale_price == item.product_purchase_price" cart-sub-total-price>${{item.product_purchase_price}}</span> -->
 												</td>
 												<td cart-product-grand-total text-center>
-													 <span cart-grand-total-price>${{grandTotalPrice(item)}}</span>
-													<!--  <span *ngIf="errors.indexOf(item.product_sale_price) >= 0 || item.product_sale_price == item.product_purchase_price"  cart-grand-total-price>${{item.product_purchase_price*item.product_quantity}}</span> -->
+												 	<span cart-grand-total-price>${{grandTotalPrice(item)}}</span>
 												</td>
+												
 												<td remove-item text-center>
 													<!-- <a href="javascript:void(0)"  icon action-icons default-icon mr-10>
 														<i class="fa fa-exchange"></i>
@@ -143,7 +164,7 @@
 													<a routerLink="/product-details/{{item.product_id}}" href="javascript:void(0)" icon action-icons mr-10 title='View Product'>
 														<i class="fa fa-eye"></i>
 													</a>
-													<a (click)="remove(item.cart_id,c_index)" href="javascript:void(0)" icon action-icons del-icon  title='Delete From Cart'>
+													<a (click)="remove(item.cart_id,c_index,item.product_id,item.product_sale_price,item.product_purchase_price)" href="javascript:void(0)" icon action-icons del-icon  title='Delete From Cart'>
 													   <i class="fa fa-trash-o"></i>
 													</a>
 												</td>

@@ -1,19 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ModalController, LoadingController} from '@ionic/angular';
 import { UserService } from '../services/user/user.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-auto-popup',
   templateUrl: './auto-popup.page.html',
   styleUrls: ['./auto-popup.page.scss'],
 })
 export class AutoPopupPage implements OnInit {
-loading:any;
-  constructor(private modalCtrl:ModalController,public userService: UserService,public loadingController:LoadingController, public router: Router) { 
+  loading:any;
+  categories:any;
+  errors : any = ['',null,undefined];
+  
+  constructor(private cd: ChangeDetectorRef,private modalCtrl:ModalController,public userService: UserService,public loadingController:LoadingController, public router: Router) { 
   	this.getPopup();
   }
 
   ngOnInit() {
+  }
+
+  ionViewDidEnter()
+  {
+    this.getCategories();
+  }
+
+  getCategories()
+  {
+
+    this.userService.postData({},'getAllCategories').subscribe((result) => {
+      this.stopLoading();
+      this.categories = result.data;
+      this.cd.detectChanges();
+    },
+    err => {
+      this.stopLoading();
+      this.categories = [];
+    });
+  }
+
+  login(cat)
+  {
+    console.log(cat);
   }
 
   close(){

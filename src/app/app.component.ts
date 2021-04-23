@@ -114,6 +114,8 @@ errors : any = ['',null,undefined];
   ];
 
   constructor(private platform: Platform, private splashScreen: SplashScreen, private statusBar: StatusBar, public toastController: ToastController, private router: Router, public events: Events, public menuCtrl: MenuController) {
+     
+
       this.initializeApp();
       this.IMAGES_URL = config.IMAGES_URL;
       this.noHeaderURLs = ['/login','/register','/forgotpassword', '/authentication-otp', '/reset-password'];
@@ -162,7 +164,7 @@ errors : any = ['',null,undefined];
 
       // let status bar overlay webview
       //this.statusBar.overlaysWebView(true);
-
+     
       // set status bar to white
       this.statusBar.backgroundColorByHexString('#a01616');
 
@@ -173,6 +175,14 @@ errors : any = ['',null,undefined];
   ionViewWillUnload() {
     this.events.unsubscribe('call_logout_head:true');
     this.events.unsubscribe('user_logged_in:true');
+  }
+
+  ionViewWillLoad(){
+    alert('hjchgj')
+     if(localStorage.getItem('comeFrom') == 'register')
+      {
+        this.router.navigate(['/interest']);
+      }
   }
 
   checkLogin(){

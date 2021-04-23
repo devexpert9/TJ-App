@@ -1,0 +1,332 @@
+<ion-header class="ion-hide-md-up">
+  <ion-toolbar color="secondary">
+        <ion-menu-button slot="start">
+		    <img height="15px" src="assets/img/menu.png"/>
+		</ion-menu-button>
+    <ion-title class="ion-text-center">Shop</ion-title>
+	<ion-buttons slot="end" mar-10 (click)="hide()"><ion-icon name="options-outline"></ion-icon></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content #content> 
+<app-header></app-header>
+<div class="ion-padding">
+
+<div class="logo-rating-sec">	
+   <ion-row>
+	  <ion-col size="6" class="ion-align-self-center">
+		 <div class="logo-mn-sec">
+			<div class="vendor-profile-img1">
+			  <img src="assets/img/vendorlogo.png" alt="">
+			</div>
+			<div class="logo-rating">
+				<span name-logo>Yabli.Store</span>
+			   <div class="rating-icon">
+				  <i class="fa fa-star"></i>
+				  <i class="fa fa-star"></i>
+				  <i class="fa fa-star"></i>
+				  <i class="fa fa-star-half-o"></i>
+				  <i class="fa fa-star-o"></i>
+				<span>3.5</span>
+			   </div>
+			</div>
+		 </div>
+	  </ion-col>
+	  <ion-col size="6" class="ion-text-right ion-align-self-center">
+				<div class="header-call-action menu-right">
+					<ul class="menu-right-ul">
+						<li><a href="javascript:void(0)"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+						<li class="menu-right-li-share">
+							<ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Flag">
+								<ion-select-option value="Flag-1">Flag-1</ion-select-option>
+								<ion-select-option value="Flag-2">Flag-2</ion-select-option>
+								<ion-select-option value="Flag-3">Flag-3</ion-select-option>
+								<ion-select-option value="Flag-4">Flag-4</ion-select-option>
+							</ion-select>
+					  </li>
+					</ul>
+				</div>
+	  </ion-col>
+   </ion-row>
+</div>	
+<div class="main-wrapper pt-35">	
+        <div class="container-fluid">
+            <div class="row">
+                <div filerweb-none class="col-lg-12" *ngIf="hideMe">
+                    <div class="shop-sidebar-inner shopsidebar mb-3">
+                        <div class="d-flex">
+							<div class="single-sidebar">
+							   <div class="dropdown">
+								    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Categories
+								    <span class="caret"></span></button>
+								    <ul class="dropdown-menu">
+									    <li  *ngFor="let cat of all_categories; let cat_index = index ">
+											<ion-list *ngFor="let subcat of cat.subcats" class="padd-ics">
+												<ion-item p-lr-0 border-none lines="none">
+													<ion-label>{{subcat.subcat_name}}</ion-label>
+													<ion-checkbox slot="start" [checked]="filtered_cats.indexOf(cat.cat_id) >= 0 && selected_cats_checked.indexOf(subcat.subcat_id) >= 0" (ionChange)="catChecked($event,cat.cat_id,subcat.subcat_id)" ></ion-checkbox>
+												</ion-item> 
+											</ion-list>
+										</li>
+								    </ul>
+							   </div>
+							</div>
+							<div class="single-sidebar">
+							    <div class="dropdown">
+								    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Fillter By Price
+								    <span class="caret"></span></button>
+								    <ul class="dropdown-menu">
+									    <li>
+									  	    <div class="sidebar-content-box">
+									  	        <div class="filter-price-content shop-range">
+													<ion-item id="price-slider" lines="none">
+														<ion-range [(ngModel)]="price_values" (ionChange)="priceChanged($event)"  dualKnobs="true"  min="0" max="10000" step="20" snaps="true" ticks="true" color="darkred"></ion-range>
+													</ion-item>		
+                                                    <div class="filter-price-cont">
+														<div class="input-type">
+															${{min_price}}
+														</div>	
+														<div class="input-type">
+															${{max_price}}
+														</div>													
+                                                    </div>		
+									  	        </div>
+									  	    </div>
+									    </li>
+								    </ul>
+							    </div>
+							</div>
+							<div class="single-sidebar">
+								<div class="dropdown">
+									<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort
+									<span class="caret"></span></button>
+									<ul class="dropdown-menu hsr">
+										  <li (click)="sortBy('relevance','Relevance')"><a>Relevance</a></li>
+										  <li (click)="sortBy('price_low_to_high','Price - Low to High')"><a>Price - Low to High</a></li>
+										  <li (click)="sortBy('price_high_to_low','Price - High to Low')"><a>Price - High to Low</a></li>
+										  <li (click)="sortBy('discount_low_to_high','Discount - Low to High')"><a>Discount - Low to High</a></li>
+										  <li (click)="sortBy('discount_high_to_low','Discount - High to Low')"><a>Discount - High to Low</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="single-sidebar mdys">
+								<button class="applybtn" (click)="callFilter()">
+								Apply 
+								</button>
+								<button class="applybtn reset-flts" (click)="resetFilter()">
+								Reset 
+								</button>
+							</div>
+                        </div>
+                    </div>
+                </div>			
+                <div class="col-lg-12" filermob-none>
+                    <div class="section-title mt-0">
+                        <h3><span> Trending </span> Products</h3>
+                    </div>
+
+                    <div home-cate-sec>
+				   	    <div class="container">
+				   		    <div class="row">		
+				   				<div class="col-lg-12">
+				   					<button type="submit" float-left ion-button class="btnPrev" (click)="prev()"><ion-icon name="arrow-back"></ion-icon></button>
+				   					<button type="submit" float-right ion-button class="btnNext" (click)="next()"><ion-icon name="arrow-forward"></ion-icon></button>		
+				   					
+				                  <ion-slides pager [options]="slideOpts1" #slides>
+				   						<ion-slide *ngFor="let product of products ">	
+				   							<div new-users-mn>
+				   								<div class="product-item mb-30">
+													<div class="product-thumb">
+														<a routerLink="/product-details/{{product.product_id}}">
+															<img *ngIf="errors.indexOf(product.product_image) >= 0" src="assets/images/products/no_image.svg">
+															<img *ngIf="errors.indexOf(product.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{product.product_image}}" alt="{{product.product_name}}">	
+														</a> 
+														
+														<ng-container *ngIf="product?.product_quantity == 0 || errors.indexOf(product?.product_quantity) >= 0">
+															<div class="box-label">
+																<div class="label-product label_sale">
+																   <span>Sold Out</span>
+																</div>
+															</div>
+														</ng-container>
+														<ng-container *ngIf="product?.product_quantity != 0 && errors.indexOf(product?.product_quantity) == -1">
+															<div  class="box-label bg-grrns" *ngIf="errors.indexOf(product?.product_sale_price) == -1 && product?.product_sale_price != product?.product_purchase_price">
+																<div class="label-product label_sale">
+																   <span>Sale</span>
+																</div>
+															</div>
+															<div class="box-label" *ngIf="errors.indexOf(product?.product_sale_price) >= 0 || product?.product_sale_price == product?.product_purchase_price">
+																<div class="label-product label_sale">
+																   <span>{{product?.product_featured == '1' ? 'featured' : 'new'}}</span>
+																</div>
+															</div>
+														</ng-container>
+														<div class="action-links">
+																<ion-button class="bnt" [disabled]="product?.product_quantity == 0 || errors.indexOf(product?.product_quantity) >= 0" *ngIf="my_cart_products.indexOf(product.product_id) == -1" (click)="addToCart(product.product_id,product.product_sale_price,product.product_purchase_price)" title="Add Cart">
+																	<i class="lnr lnr-magnifier"></i>
+																</ion-button>
+																<ion-button class="bnt"  *ngIf="my_cart_products.indexOf(product.product_id) >= 0" add-to-cart color="darkred" title="Added">
+																	<ion-icon name="checkmark"></ion-icon> 
+																</ion-button>
+																
+																<ion-button class="bnt" *ngIf="my_wish_products.indexOf(product.product_id) == -1" (click)="addToWish(product.product_id)" title="Wishlist">
+																	<i class="lnr lnr-heart"></i>
+																</ion-button>
+																<ion-button class="bnt" *ngIf="my_wish_products.indexOf(product.product_id) >= 0" title="Added">
+																	 <i class="red_heart fa fa-heart"></i>
+																</ion-button>
+														</div>
+													</div>
+													<div class="product-caption">
+														<!--div class="manufacture-product">
+															<p *ngIf="product?.product_user_type != 'Admin'" vendor-name  class="ion-hide-md-down">Sold by <a>{{product?.vendor_company}}</a></p>
+														</div-->
+														<div class="manufacture-product">
+															<p><a href="javascript:void(0)">apple</a></p>
+														</div>
+														<div class="product-name">
+															<h4><a routerLink="/product-details/{{product.product_id}}">{{product.product_name}}</a></h4>
+														</div>
+														<div class="ratings">
+															<div rating rateit-small>
+																<ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="product?.Review_Average" [color]="'#a01616'"></ngx-stars>
+															</div>
+														</div>
+														<div class="price-box">
+															<span class="regular-price" *ngIf="errors.indexOf(product?.product_sale_price) == -1 && product?.product_sale_price != product?.product_purchase_price" >
+															<span class="special-price">${{product?.product_sale_price}} </span></span>
+															 <span class="regular-price" *ngIf="errors.indexOf(product?.product_sale_price) >= 0 || product?.product_sale_price == product?.product_purchase_price">${{product?.product_purchase_price}}</span>
+															 <span class="old-price" *ngIf="errors.indexOf(product?.product_sale_price) == -1 && product?.product_sale_price != product?.product_purchase_price" price-before-discount ><del>${{product?.product_purchase_price}}</del></span>
+														</div>
+														<button type="button" class="btn-cart" [disabled]="product?.product_quantity == 0 || errors.indexOf(product?.product_quantity) >= 0" *ngIf="my_cart_products.indexOf(product.product_id) == -1" (click)="addToCart(product.product_id,product.product_sale_price,product.product_purchase_price)" title="Add Cart">
+															Add to cart
+														</button>
+														<button type="button"  class="btn-cart" *ngIf="my_cart_products.indexOf(product.product_id) >= 0"  title="Added">
+															<ion-icon name="checkmark"></ion-icon> 
+														</button>
+													</div>
+											    </div>
+				   							</div>
+				   						</ion-slide>
+				   						
+				   					</ion-slides>				
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div>
+                </div>
+
+                <!-- <div class="col-lg-12 text-right productdisplayed mb-3">
+					<span filter (click)="presentModal1()" class="ion-hide-lg-up"><ion-icon name="funnel" class="ion-hide-lg-up"></ion-icon> Filter</span>
+					<div lbl-cnt class="ion-hide-md-down cont-str">
+					 <span lbl>No of Products Displayed</span>
+						<div fld>
+						  <div class="dropdown">
+								<button data-toggle="dropdown" type="button" class="btn dropdown-toggle"> {{show_count}}<span class="caret"></span> </button>
+								<ul role="menu" class="dropdown-menu pull-right">
+								  <li (click)="show_count_change(10)"><a>0-10</a></li>
+								  <li (click)="show_count_change(20)"><a>11-20</a></li>
+								  <li (click)="show_count_change(30)"><a>21-30</a></li>
+								  <li (click)="show_count_change(40)"><a>31-40</a></li>
+								  <li (click)="show_count_change(50)"><a>41-50</a></li>
+								</ul>  
+						  </div>
+						</div>                   
+					</div>
+                </div>
+                <div class="col-lg-12  order-lg-last">
+                    <div class="product-shop-main-wrapper mb-50">
+                        <div class="shop-product-wrap grid column_3 row">
+							<div class="col-lg-3 col-xl-3 col-md-4 col-sm-12" *ngFor="let product of products ">
+							    <div class="product-item mb-30">
+									<div class="product-thumb">
+										<a routerLink="/product-details/{{product.product_id}}">
+											<img *ngIf="errors.indexOf(product.product_image) >= 0" src="assets/images/products/no_image.svg">
+											<img *ngIf="errors.indexOf(product.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{product.product_image}}" alt="{{product.product_name}}">	
+										</a> 
+										
+										<ng-container *ngIf="product?.product_quantity == 0 || errors.indexOf(product?.product_quantity) >= 0">
+											<div class="box-label">
+												<div class="label-product label_sale">
+												   <span>Sold Out</span>
+												</div>
+											</div>
+										</ng-container>
+										<ng-container *ngIf="product?.product_quantity != 0 && errors.indexOf(product?.product_quantity) == -1">
+											<div  class="box-label bg-grrns" *ngIf="errors.indexOf(product?.product_sale_price) == -1 && product?.product_sale_price != product?.product_purchase_price">
+												<div class="label-product label_sale">
+												   <span>Sale</span>
+												</div>
+											</div>
+											<div class="box-label" *ngIf="errors.indexOf(product?.product_sale_price) >= 0 || product?.product_sale_price == product?.product_purchase_price">
+												<div class="label-product label_sale">
+												   <span>{{product?.product_featured == '1' ? 'featured' : 'new'}}</span>
+												</div>
+											</div>
+										</ng-container>
+										<div class="action-links">
+												<ion-button class="bnt" [disabled]="product?.product_quantity == 0 || errors.indexOf(product?.product_quantity) >= 0" *ngIf="my_cart_products.indexOf(product.product_id) == -1" (click)="addToCart(product.product_id,product.product_sale_price,product.product_purchase_price)" title="Add Cart">
+													<i class="lnr lnr-magnifier"></i>
+												</ion-button>
+												<ion-button class="bnt"  *ngIf="my_cart_products.indexOf(product.product_id) >= 0" add-to-cart color="darkred" title="Added">
+													<ion-icon name="checkmark"></ion-icon> 
+												</ion-button>
+												
+												<ion-button class="bnt" *ngIf="my_wish_products.indexOf(product.product_id) == -1" (click)="addToWish(product.product_id)" title="Wishlist">
+													<i class="lnr lnr-heart"></i>
+												</ion-button>
+												<ion-button class="bnt" *ngIf="my_wish_products.indexOf(product.product_id) >= 0" title="Added">
+													 <i class="red_heart fa fa-heart"></i>
+												</ion-button>
+										</div>
+									</div>
+									<div class="product-caption">
+										
+										<div class="manufacture-product">
+											<p><a href="javascript:void(0)">apple</a></p>
+										</div>
+										<div class="product-name">
+											<h4><a routerLink="/product-details/{{product.product_id}}">{{product.product_name}}</a></h4>
+										</div>
+										<div class="ratings">
+											<div rating rateit-small>
+												<ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="product?.Review_Average" [color]="'#a01616'"></ngx-stars>
+											</div>
+										</div>
+										<div class="price-box">
+											<span class="regular-price" *ngIf="errors.indexOf(product?.product_sale_price) == -1 && product?.product_sale_price != product?.product_purchase_price" >
+											<span class="special-price">${{product?.product_sale_price}} </span></span>
+											 <span class="regular-price" *ngIf="errors.indexOf(product?.product_sale_price) >= 0 || product?.product_sale_price == product?.product_purchase_price">${{product?.product_purchase_price}}</span>
+											 <span class="old-price" *ngIf="errors.indexOf(product?.product_sale_price) == -1 && product?.product_sale_price != product?.product_purchase_price" price-before-discount ><del>${{product?.product_purchase_price}}</del></span>
+										</div>
+										<button type="button" class="btn-cart" [disabled]="product?.product_quantity == 0 || errors.indexOf(product?.product_quantity) >= 0" *ngIf="my_cart_products.indexOf(product.product_id) == -1" (click)="addToCart(product.product_id,product.product_sale_price,product.product_purchase_price)" title="Add Cart">
+											Add to cart
+										</button>
+										<button type="button"  class="btn-cart" *ngIf="my_cart_products.indexOf(product.product_id) >= 0"  title="Added">
+											<ion-icon name="checkmark"></ion-icon> 
+										</button>
+									</div>
+							    </div>
+							</div>
+                        </div>
+						 <div class="paginatoin-area style-2 pt-35 pb-20">
+							<div class="row">
+							   <div class="col-sm-12">
+								  <div class="pagination-area">
+									 <p>Showing 1 to 9 of 9 (1 Pages)</p>
+								  </div>
+							   </div>
+							</div>
+						 </div>
+                    </div>
+                </div> -->
+                
+            </div>
+        </div>
+    </div>
+	
+</div>	
+<!--- Product Main section Ends -->
+<app-footer></app-footer>
+</ion-content>

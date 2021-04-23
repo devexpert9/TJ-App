@@ -168,15 +168,25 @@ var LoginPage = /** @class */ (function () {
                 _this.presentToast('Login successfully!', 'success');
                 var userId = _this.userService.encryptData(result.data.id, _this.ENC_SALT);
                 localStorage.setItem('sin_auth_token', userId);
+                localStorage.setItem('sin_auth_userId', result.data.id);
                 localStorage.setItem('sin_auth_user_name', result.data.name + ' ' + result.data.last_name);
                 localStorage.setItem('sin_auth_user_image', result.data.profile_picture);
+                localStorage.setItem('sin_auth_user_email', result.data.email);
+                localStorage.setItem('is_login', 'true');
+                localStorage.setItem('sellerSwitched', 'false');
                 _this.events.publish('user_logged_in:true', result.data);
+                localStorage.setItem('comeFrom', 'login');
                 _this.userService.postData({ 'guest_user_id': localStorage.getItem('guestUserId'), 'real_user_id': result.data.id }, 'replace_guestUser_to_realUser').subscribe(function (result1) {
                     _this.globalFooService.publishSomeData({
                         foo: { 'data': result.data, 'page': 'afterLoginUserName' }
                     });
                     if (result.data.type == 'user') {
-                        _this.router.navigate(['/blog']);
+                        if (result.data.interests == null) {
+                            _this.router.navigate(['/interest']);
+                        }
+                        else {
+                            _this.router.navigate(['/blog']);
+                        }
                     }
                     else {
                         _this.router.navigate(['/blog']);
@@ -336,44 +346,6 @@ var LoginPage = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_globalFooService_service__WEBPACK_IMPORTED_MODULE_6__["GlobalFooService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"], _services_user_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Events"], angular_6_social_login__WEBPACK_IMPORTED_MODULE_7__["AuthService"], _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_8__["Facebook"], _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_9__["GooglePlus"]])
     ], LoginPage);
     return LoginPage;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/services/user/globalFooService.service.ts":
-/*!***********************************************************!*\
-  !*** ./src/app/services/user/globalFooService.service.ts ***!
-  \***********************************************************/
-/*! exports provided: GlobalFooService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GlobalFooService", function() { return GlobalFooService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-
-
-
-var GlobalFooService = /** @class */ (function () {
-    function GlobalFooService() {
-        this.fooSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-    }
-    GlobalFooService.prototype.publishSomeData = function (data) {
-        this.fooSubject.next(data);
-    };
-    GlobalFooService.prototype.getObservable = function () {
-        return this.fooSubject;
-    };
-    GlobalFooService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-            providedIn: 'root'
-        })
-    ], GlobalFooService);
-    return GlobalFooService;
 }());
 
 

@@ -1,38 +1,199 @@
-<!-- <ion-header class="ion-hide-lg-up">
-  <ion-toolbar color="darkred"  text-uppercase>
- <ion-buttons slot="start">
-      <ion-back-button defaultHref="user-contacts"></ion-back-button>
-    </ion-buttons>
-		<ion-buttons slot="end">
-  <ion-icon name="videocam"></ion-icon>
-    </ion-buttons>
-    <ion-title>
-     <ion-item no-padding lines="none" style="--background:transparent;color:var(--ion-color-white)">
-		  <ion-avatar slot="start">
-			<img src="assets/images/avatar.png">
-			<span></span>
-		  </ion-avatar>
-		  <ion-label>
-		  <h3>John Smith</h3>
-		  <p>Online</p>
-		  </ion-label>
-		</ion-item>
-    </ion-title>
-  </ion-toolbar>
-</ion-header> --> 
+
 <ion-content>
-<div header_height></div>
-	<!-- Breadcrumb Start -->
+	<app-header ></app-header>
+	<div header_height></div>
+	
+	<div class="ion-padding">
+		<div class="container">
+            <div class="row">
+              <div class="col-md-12 col-lg-12">
+			  
+				<!-- 	 <div class="user-panel-back-btn"> 
+		<a href="index.html" class="btn"><i class="fa fa-arrow-left"></i> Back </a>
+	   </div> -->
+                  <div class="content-wraper message-chat">
+                  
+					 
+					<div class="chat-main-row">
+							<aside>
+		<header>
+			<input type="text" placeholder="search">
+		</header>
+		<ul>
+			<li>
+				<img src="assets/img/post-2.png" alt="">
+				<div>
+					<h2>Rashid Samim</h2>
+					<h4>
+						<span class="status orange"></span>
+						offline
+					</h4>
+				</div>
+			</li>
+			<li>
+				<img src="assets/img/post-1.png" alt="">
+				<div>
+					<h2>Prénom Nom</h2>
+					<h4>
+						<span class="status green"></span>
+						online
+					</h4>
+				</div>
+			</li>
+			
+			<li>
+				<img src="assets/img/post-2.png" alt="">
+				<div>
+					<h2>Nargis Hawa</h2>
+					<h4>
+						<span class="status orange"></span>
+						offline
+					</h4>
+				</div>
+			</li>
+			<li>
+				<img src="assets/img/post-1.png" alt="">
+				<div>
+					<h2>Sami Rafi</h2>
+					<h4>
+						<span class="status green"></span>
+						online
+					</h4>
+				</div>
+			</li>
+			
+			<li>
+				<img src="assets/img/post-4.jpg" alt="">
+				<div>
+					<h2>Taherah Big</h2>
+					<h4>
+						<span class="status orange"></span>
+						offline
+					</h4>
+				</div>
+			</li>
+			<li>
+				<img src="assets/img/post-3.jpg" alt="">
+				<div>
+					<h2>Khalid</h2>
+					<h4>
+						<span class="status green"></span>
+						online
+					</h4>
+				</div>
+			</li>
+			
+			
+			
+		</ul>
+	</aside>
+	<main>
+		
+		<div class="jumbotron m-0 p-0 bg-transparent">
+		<div class="row m-0 p-0 position-relative">
+		  <div class="col-12 p-0 m-0" style="right: 0px;">
+			<div class="card border-0 rounded" style="box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10), 0 6px 10px 0 rgba(0, 0, 0, 0.01);">
+
+			  <div class="card-header msg_head">
+							<div class="d-flex bd-highlight align-items-center">
+								<div class="img_cont">
+									<img src="assets/img/post-1.png" class="rounded-circle user_img">
+									<span class="online_icon"></span>
+								</div>
+								<div class="user_info">
+									<span>Prénom Nom</span>
+									<p>67 Messages</p>
+								</div>
+								
+							</div>
+							
+							
+						</div>
+			
+				<div class="card bg-sohbet border-0 m-0 p-0">
+			  <div id="sohbet" class="card border-0 m-0 p-0 position-relative bg-transparent">
+			
+				<div class="balon1 p-2 m-0 position-relative" data-is="You - 3:20 pm">
+				
+					<a class="float-right"> Hey there! What's up? </a>
+				  
+				</div>
+				
+				<div class="balon2 p-2 m-0 position-relative" data-is="Yusuf - 3:22 pm">
+				
+					<a class="float-left sohbet2"> Lorem Ipsum is simply dummy.. </a>
+				  
+				</div>
+				
+				<div class="balon1 p-2 m-0 position-relative" data-is="You - 3:23 pm">
+				
+					<a class="float-right"> It is a long established fact that a reader </a>
+				  
+				</div>
+				
+				<div class="balon2 p-2 m-0 position-relative" data-is="Yusuf - 3:26 pm">
+				
+					<a class="float-left sohbet2"> There are many variations of passages of Lorem Ipsum </a>
+				  
+				</div>
+				
+				<div class="balon1 p-2 m-0 position-relative" data-is="You - 3:28 pm">
+				
+					<a class="float-right"> Contrary to popular belief, Lorem Ipsum </a>
+				  
+				</div>
+				
+				<div class="balon2 p-2 m-0 position-relative" data-is="Yusuf - 3:33 pm">
+				
+					<a class="float-left sohbet2"> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</a>
+				  
+				</div>
+
+			  </div>
+			  </div>
+			<div class="chat-footer">
+                    <form>
+                        <input type="text" class="form-control chat_form" placeholder="Write a message.">
+                        <div class="form-buttons">
+                              <a class="messageattach">
+                                <i class="fa fa-paperclip"></i>
+                            </a>
+                            <button class="btn send-btn" type="submit">
+                                <img style="height:20px" src="assets/img/send.png">
+                            </button>
+                        </div>
+                    </form>
+                </div>
+			
+
+			</div>
+		  </div>
+		  
+		</div>
+	  </div>
+
+		
+	</main>
+					</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+	</div>
+
+	<!-- <div class="ion-padding">
+		<div header_height></div>
 		<div breadcrumb  class="ion-hide-md-down">		
 			<div breadcrumb-inner>
-				<ul list-inline list-unstyled>
-					<li><a routerLink="/home">Home</a></li>
+				<ul list-inline list-unstyled style='margin:0 0 15px 0'>
+					    <li style="float:left;margin:0 10px 0 0">
+					    	<a routerLink="/home">Home</a></li>
 					<li class="active">messages</li>
 				</ul>
-			</div><!-- /.breadcrumb-inner -->
+			</div>
 		</div>
-<!-- Breadcrumb Ends -->
-		   <ion-row>
+
+	   	<ion-row>
 		   <ion-col size-lg="4" size-md="3">
 		   		<div class="headind_srch">
 					<div class="recent_heading">
@@ -91,7 +252,7 @@
 							<div chat-bottom class="ion-hide-sm-down">
 								<form (ngSubmit)="addChat(message)" name="chat_form_web">
 									<ion-input [(ngModel)]="message" name="message" placeholder="Send a Message"></ion-input>
-									<ion-button type="submit" color="darkred"> <ion-icon name="paper-plane"></ion-icon></ion-button>
+									<ion-button type="submit" color="darkred" style='position:initial;'> <ion-icon name="paper-plane"></ion-icon></ion-button>
 								</form>
 							</div>
 						</ng-container>
@@ -108,15 +269,16 @@
 					</ng-container>
 				</div>
 			</ion-col>
-		 </ion-row>	
-<ion-footer class="ion-hide-md-up">	
-	<form (ngSubmit)="addChat(message)" name="chat_form">
-		<div chat-bottom>            
-			<ion-icon attach-icon name="attach"></ion-icon>
-			<ion-input [(ngModel)]="message" name="message" placeholder="Send a Message"></ion-input>
-			<ion-button type="submit" color="darkred"> <ion-icon name="paper-plane"></ion-icon></ion-button>
-		</div>
-	</form>	 
-</ion-footer>
-<app-footer></app-footer>								 
+	 	</ion-row>	
+		<ion-footer class="ion-hide-md-up">	
+			<form (ngSubmit)="addChat(message)" name="chat_form">
+				<div chat-bottom>            
+					<ion-icon attach-icon name="attach"></ion-icon>
+					<ion-input [(ngModel)]="message" name="message" placeholder="Send a Message"></ion-input>
+					<ion-button type="submit" color="darkred"> <ion-icon name="paper-plane"></ion-icon></ion-button>
+				</div>
+			</form>	 
+		</ion-footer>
+	</div> -->
+	<app-footer></app-footer>								 
 </ion-content>

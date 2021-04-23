@@ -9,19 +9,19 @@ import { config } from '../config';
   styleUrls: ['./messages.page.scss'],
 })
 export class MessagesPage implements OnInit {
-product_id:any;
-vendor_type:any;
-vendor_id:any;
-IMAGES_URL:any;
-chat_users:any;
-userId:any;
-loading:any;
-chat_list:any;
-active_chat:any;
-message:any;
-is_chat_window:Boolean = false;
-is_chat_loaded:Boolean = false;
-errors : any = ['',null,undefined];
+  product_id:any;
+  vendor_type:any;
+  vendor_id:any;
+  IMAGES_URL:any;
+  chat_users:any;
+  userId:any;
+  loading:any;
+  chat_list:any;
+  active_chat:any;
+  message:any;
+  is_chat_window:Boolean = false;
+  is_chat_loaded:Boolean = false;
+  errors : any = ['',null,undefined];
   constructor(public activatedRoute: ActivatedRoute,public userService: UserService, public toastController:ToastController,public loadingController:LoadingController) { 
   	this.product_id = activatedRoute.snapshot.paramMap.get('product_id');
   	this.vendor_type = activatedRoute.snapshot.paramMap.get('vendor_type');
@@ -32,7 +32,8 @@ errors : any = ['',null,undefined];
   ngOnInit() {
   }
 
-  ionViewDidEnter(){
+  ionViewDidEnter()
+  {
   	var token = localStorage.getItem('sin_auth_token');
     this.userId = this.userService.decryptData(token,config.ENC_SALT);
   	if(this.userId == 0){
@@ -41,7 +42,8 @@ errors : any = ['',null,undefined];
   	this.chatList();
   }
 
-  chatList(){
+  chatList()
+  {
   	this.presentLoading();
   	if(this.errors.indexOf(this.product_id) >= 0 || this.errors.indexOf(this.vendor_type) >= 0 || this.errors.indexOf(this.vendor_id) >= 0){
   		this.getChatUsers();
@@ -55,7 +57,7 @@ errors : any = ['',null,undefined];
 	    err => {
 	      this.stopLoading();
 	    });
-	}
+    }
   }
 
   getChatUsers(){
@@ -69,7 +71,8 @@ errors : any = ['',null,undefined];
     });
   }
 
-  getChat(user){
+  getChat(user)
+  {
   	this.active_chat = user;
   	this.is_chat_loaded = false;
   	this.is_chat_window = true;

@@ -24,12 +24,18 @@ errors : any = ['',null,undefined];
 total_coupon_amount:any = 0;
 applied_coupon_id:any;
 my_wish_products:any;
+my_cart_products:any;
   constructor(public userService: UserService,public toastController:ToastController,public loadingController:LoadingController,public alertController: AlertController,public router: Router,public events: Events)
   {
+    this.getCartProductsIds();
     this.IMAGES_URL = config.IMAGES_URL;
     this.events.subscribe('cart_updated:true', data => {
-      // this.getCartProducts();
+      this.getCartProducts1();
     });
+
+    // events.subscribe('wishlist:true', data => {
+    //   this.getCartProductsIds();
+    // });
   }
 
   ngOnInit() {
@@ -37,6 +43,12 @@ my_wish_products:any;
 
   ionViewDidEnter()
   {
+    if(localStorage.getItem('comeFrom') == 'register')
+    {
+      this.router.navigate(['/interest']);
+      return;
+    }
+    
     var token = localStorage.getItem('sin_auth_token');
     this.userId = this.userService.decryptData(token,config.ENC_SALT);
     localStorage.removeItem('coupon_applied');
@@ -44,26 +56,31 @@ my_wish_products:any;
     this.total_payable_price = 0;
     this.grand_total = 0;
     this.getCartProductsIds();
-    this.getCartProducts();
+    this.getCartProducts1();
   }
 
   getCartProductsIds(){
-    this.presentLoading();
+    // this.presentLoading();
     this.userService.postData({user_id:this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId},'getCartProductsIds').subscribe((result) => {
+      // this.stopLoading();
       this.my_wish_products = result.wishlist;
-      this.getCartProducts();
+      // this.my_cart_products = result.products;
+      this.getCartProducts1();
     },
     err => {
-      this.getCartProducts();
+      // this.stopLoading();
+      this.getCartProducts1();
+      // this.my_cart_products = [];
       this.my_wish_products = [];
     });
   }
 
-  getCartProducts()
+  getCartProducts1()
   {
     this.userService.postData({user_id:this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId},'getCartProducts').subscribe((result) => 
     {
       this.stopLoading();
+      this.my_cart_products = result.products;
       for(let i =0; i < result.products.length; i++)
       {
         // if(typeof(result.products[i].product_variations) == 'string')
@@ -217,7 +234,7 @@ my_wish_products:any;
 
   plusQuantity(index,cart_id)
   {
-    this.presentLoading();
+    // this.presentLoading();
     this.cart[index]['product_quantity'] = Number(this.cart[index]['product_quantity']) + 1;
     this.updateCartQuantity(cart_id, this.cart[index]['product_quantity']);
     if(this.errors.indexOf(this.cart[index]['product_sale_price']) == -1 && this.cart[index]['product_sale_price'] != this.cart[index]['product_purchase_price'])
@@ -227,16 +244,16 @@ my_wish_products:any;
     else{
       this.total_payable_price = Number(this.total_payable_price) + Number(this.cart[index]['product_purchase_price']);
     }
-    this.calculateTotalPrice();
+    
 
-    this.stopLoading();
+    this.calculateTotalPrice();
     
     this.events.publish('cart_updated:true', {items_in_cart:this.cart.length,cart_price:this.total_payable_price});
   }
 
   minusQuantity(index,cart_id)
   {
-    this.presentLoading();
+    // this.presentLoading();
     if(this.cart[index]['product_quantity'] != 1){
       this.cart[index]['product_quantity'] = Number(this.cart[index]['product_quantity']) - 1;
       this.updateCartQuantity(cart_id, this.cart[index]['product_quantity']);
@@ -246,8 +263,11 @@ my_wish_products:any;
       else{
         this.total_payable_price = Number(this.total_payable_price) - Number(this.cart[index]['product_purchase_price']);
       }
+
+      // this.stopLoading();
+      
       this.calculateTotalPrice();
-      this.stopLoading();
+      
       this.events.publish('cart_updated:true', {items_in_cart:this.cart.length,cart_price:this.total_payable_price});
     }
   }
@@ -292,7 +312,7 @@ my_wish_products:any;
     }
   }
 
-  async remove(cart_id,index)
+  async remove(cart_id,index,product_id,product_sale_price,product_purchase_price)
   {
     const alert = await this.alertController.create({
       header: 'Confirm!',
@@ -311,9 +331,22 @@ my_wish_products:any;
             this.presentLoading();
             this.userService.postData({cart_id: cart_id},'removeCartProduct').subscribe((result) => {
               this.stopLoading();
-              if(result.status == 1){
+              if(result.status == 1)
+              {
                 this.cart.splice(index,1);
                 this.calculateTotalPrice();
+
+                
+                this.my_cart_products = this.my_cart_products.length - 1;
+                var p_price;
+                if(this.errors.indexOf(product_sale_price) == -1 && product_sale_price != product_purchase_price){
+                  p_price = product_sale_price;
+                }
+                else{
+                  p_price = product_purchase_price;
+                }
+                this.events.publish('cart_updated:true', {items_in_cart:this.my_cart_products.length,cart_price:p_price,isAdd:true});
+
                 this.presentToast('Product removed from cart.','success');
               }
               else{

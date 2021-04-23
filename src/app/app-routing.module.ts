@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',  
+    redirectTo: 'blog',  
     pathMatch: 'full'
   },
   {
@@ -54,8 +54,16 @@ const routes: Routes = [
   { path: 'wishlist-listing', loadChildren: './wishlist-listing/wishlist-listing.module#WishlistListingPageModule' },
   { path: 'update-wishlist', loadChildren: './update-wishlist/update-wishlist.module#UpdateWishlistPageModule' },
   { path: 'wishlist-checkout', loadChildren: './wishlist-checkout/wishlist-checkout.module#WishlistCheckoutPageModule' },
-  { path: 'video-call', loadChildren: './video-call/video-call.module#VideoCallPageModule' },  { path: 'public-wishlist', loadChildren: './public-wishlist/public-wishlist.module#PublicWishlistPageModule' },
-  { path: 'reviews', loadChildren: './reviews/reviews.module#ReviewsPageModule' }
+  { path: 'video-call', loadChildren: './video-call/video-call.module#VideoCallPageModule' },
+  { path: 'public-wishlist', loadChildren: './public-wishlist/public-wishlist.module#PublicWishlistPageModule' },
+  { path: 'reviews', loadChildren: './reviews/reviews.module#ReviewsPageModule' },
+  { path: 'trending', loadChildren: './trending/trending.module#TrendingPageModule' },  { path: 'help', loadChildren: './help/help.module#HelpPageModule' },
+  { path: 'register-seller', loadChildren: './register-seller/register-seller.module#RegisterSellerPageModule' },
+  { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
+  { path: 'follow', loadChildren: './follow/follow.module#FollowPageModule' },
+  { path: 'interest', loadChildren: './interest/interest.module#InterestPageModule' },
+  { path: 'password-instructions', loadChildren: './password-instructions/password-instructions.module#PasswordInstructionsPageModule' }
+
 
 ];
 

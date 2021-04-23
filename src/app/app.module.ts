@@ -25,6 +25,12 @@ import { AgmCoreModule } from '@agm/core';
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
 
+import { PasswordInstructionsPage } from './password-instructions/password-instructions.page';
+// import { CKEditorModule } from 'ng2-ckeditor';
+
+import { IonicSelectableModule } from 'ionic-selectable';
+
+
 const config: SocketIoConfig = { url: 'https://siniyetu.tk:8080', options: {} };
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -43,8 +49,8 @@ export function getAuthServiceConfigs() {
 }
 
 @NgModule({
-  declarations: [AppComponent , ChooseLocationPage ,WishlistListingPage, FiltersPage,  AutoPopupPage, InvoicePage, UpdateWishlistPage, VideoCallPage],
-  entryComponents: [ChooseLocationPage ,WishlistListingPage, FiltersPage, AutoPopupPage, InvoicePage, UpdateWishlistPage, VideoCallPage],
+  declarations: [AppComponent , ChooseLocationPage ,WishlistListingPage, PasswordInstructionsPage,FiltersPage,  AutoPopupPage, InvoicePage, UpdateWishlistPage, VideoCallPage],
+  entryComponents: [ChooseLocationPage ,WishlistListingPage, PasswordInstructionsPage,FiltersPage, AutoPopupPage, InvoicePage, UpdateWishlistPage, VideoCallPage],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -52,6 +58,8 @@ export function getAuthServiceConfigs() {
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
+    // CKEditorModule,
+    IonicSelectableModule,
     SocialLoginModule,
     Ng4GeoautocompleteModule.forRoot(),
     SocketIoModule.forRoot(config),
@@ -67,7 +75,7 @@ export function getAuthServiceConfigs() {
     GooglePlus,
     PayPal,
     SpeechRecognition,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    //{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: RequestOptions, useClass: CustomRequestOptions },
     { provide: AuthServiceConfig, useFactory: getAuthServiceConfigs }
   ],

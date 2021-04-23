@@ -9,15 +9,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./notification.page.scss'],
 })
 export class NotificationPage implements OnInit {
-notifications:any;
-userId:any;
-loading:any;
+  notifications:any;
+  userId:any;
+  loading:any;
   constructor(public toastController: ToastController, public loadingController: LoadingController, public userService: UserService, public router: Router) { }
 
   ngOnInit() {
   }
 
-  ionViewDidEnter(){
+  ionViewDidEnter()
+  {
     var token = localStorage.getItem('sin_auth_token');
     this.userId = this.userService.decryptData(token,config.ENC_SALT);
     if(this.userId != 0){

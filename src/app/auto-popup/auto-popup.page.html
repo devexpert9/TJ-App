@@ -1,12 +1,26 @@
-<button class="btnclose-pop" (click)="close()" type="button" end><ion-icon name="close"></ion-icon></button>
-<div class="overlay" style="">
-	<img src="assets/images/modal2.jpg" alt="">
-	<div class="text-center" style="color:#23303e;position: absolute; left: 50%; transform: translate(-50%, -50%); top: 50%; bottom: initial;background:rgba(0,0,0.50);padding:20px 15px">
-		<h3 style="font-size:34px" class=" p-b-10">WELCOME TO OUR STORE</h3>
-		<p style="font-size:34px; font-weight: 600" class="flat-off p-b-10">Flat 10% Off</p>
-		<p class="usecouponcode p-b-10" style="font-size:16px">Use Coupon Code &nbsp;<strong>get10off</strong></p>
-		<a (click)="productsDetails()" class="btn btn-primary">
-			Shop Now
-		</a> 
+<button class="btnclose-pop" (click)="close()" type="button" end style="position:fixed;right:0">
+	<ion-icon name="close"></ion-icon>
+</button>
+<div class="overlay" style="background:#000;padding:60px;float:left;width: 100%">
+	<h1 style="font-size: 30px;color: #fff;border-bottom: 1px solid;margin: 0 0 10px 0;">
+		Please select your interest
+	</h1>
+
+	<ion-item *ngFor="let cat of categories;">
+    	<ion-label>{{cat?.cat_name}}</ion-label>
+    	<ion-checkbox color="dark" [(ngModel)]="cat.checked"></ion-checkbox>
+	</ion-item>
+
+	<!-- <div *ngFor="let cat of categories;" style="float:left;margin:0 20px 0 0;width: 25%">
+		<h3 class=" p-b-10">
+			<input name="cat[]" type="checkbox" value="{{cat?.cat_id}}" style="margin:0 5px 0 0">
+			{{cat?.cat_name}}
+		</h3>
+	</div> -->
+
+	<div style="clear: both;margin: 25px 0 0 0;position: relative;display: inline-block;width: 100%;">
+		<a href="javascript:void(0)" class="btn-md btn-theme btn-block" (click)="login(cat)"style="background: #4e7f9a;color: #fff;width: 30%;margin: 0 auto;padding: 7px 0px;text-align: center;">
+			Submit Your Interest
+		</a>
 	</div>
 </div>

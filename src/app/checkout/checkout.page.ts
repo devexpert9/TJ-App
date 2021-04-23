@@ -5,6 +5,8 @@ import { UserService } from '../services/user/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal/ngx';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
+import { GlobalFooService } from '../services/user/globalFooService.service';
+
 declare var google;
 declare var window;
 @Component({
@@ -64,7 +66,7 @@ private geoCoder;
 @ViewChild('search')
 public searchElementRef: ElementRef;
 userSettings = {inputPlaceholderText:'Enter your address...'}
-  constructor(public userService: UserService,public toastController:ToastController,public loadingController:LoadingController,public router: Router, public events: Events, public activatedRoute: ActivatedRoute, private payPal: PayPal, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone)
+  constructor(private globalFooService: GlobalFooService, public userService: UserService,public toastController:ToastController,public loadingController:LoadingController,public router: Router, public events: Events, public activatedRoute: ActivatedRoute, private payPal: PayPal, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone)
   {
     events.subscribe('current_address_changed:true', data => {
       this.current_address();
@@ -148,6 +150,12 @@ userSettings = {inputPlaceholderText:'Enter your address...'}
 
   ionViewDidEnter()
   {
+    if(localStorage.getItem('comeFrom') == 'register')
+    {
+      this.router.navigate(['/interest']);
+      return;
+    }
+
     this.transaction_id = '';
     this.address_type = '0';
     this.current_address();
@@ -458,10 +466,16 @@ userSettings = {inputPlaceholderText:'Enter your address...'}
     this.userService.postData(params,'place_order').subscribe((result) => {
       if(result.status == 1)
       {
+
+        this.globalFooService.publishSomeData({
+          foo: {'data': "done", 'page': 'orderPlaced'}
+        });
+
         localStorage.removeItem('sin_wholesale_items');
         this.transaction_id = '';
         var success_msg = 'Success! Your order has been placed successfully.';
-        if(this.can_save_address == true){
+        if(this.can_save_address == true)
+        {
           this.userService.postData(this.choosed_address,'updateUserAddress').subscribe((address_added) => {
               this.stopLoading();
               this.presentToast(success_msg,'success');

@@ -340,17 +340,24 @@ export class ProductDetailsPage implements OnInit {
           this.presentToast("You can't compare more than "+this.max_compare+" products.",'danger');
         }
         else{
-            if(this.comapred_products.length == 0){
+            if(this.comapred_products.length == 0)
+            {
               this.compare_product_sub_cat = this.product.product_sub_cat;
               localStorage.setItem('sin_compare_product_sub_cat',this.compare_product_sub_cat);
               this.comapred_products.push(this.product_id);
               this.comapred_products_list.push(this.product);
+              
+              localStorage.setItem('sin_compare_products',"");
+
               localStorage.setItem('sin_compare_products',JSON.stringify(this.comapred_products_list));
             }
             else{
               if(this.compare_product_sub_cat == this.product.product_sub_cat){
                 this.comapred_products.push(this.product_id);
                 this.comapred_products_list.push(this.product);
+                
+                localStorage.setItem('sin_compare_products',"");
+
                 localStorage.setItem('sin_compare_products',JSON.stringify(this.comapred_products_list));
               }
               else{
@@ -366,6 +373,9 @@ export class ProductDetailsPage implements OnInit {
       if(index >= 0){
         this.comapred_products.splice(index,1);
         this.comapred_products_list.splice(index,1);
+        
+        localStorage.setItem('sin_compare_products',"");
+
         localStorage.setItem('sin_compare_products',JSON.stringify(this.comapred_products_list));
       }
     }
@@ -374,7 +384,7 @@ export class ProductDetailsPage implements OnInit {
   removeCompared(index){
     this.comapred_products.splice(index,1);
     this.comapred_products_list.splice(index,1);
-    localStorage.setItem('sin_compare_products',JSON.stringify(this.comapred_products_list));
+    localStorage.setItem('sin_compare_products',"");
   }
 
   addProductViewCount(){

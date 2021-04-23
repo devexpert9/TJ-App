@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { ToastController, LoadingController, Events } from '@ionic/angular';
 import { UserService } from '../services/user/user.service';
 import { config } from '../config';
@@ -16,7 +16,7 @@ featured_products:any;
 my_cart_products:any;
 my_wish_products:any;
 errors : any = ['',null,undefined];
-  constructor(public userService: UserService,public toastController:ToastController,public loadingController:LoadingController, public events: Events, public router: Router) {
+  constructor(private cd: ChangeDetectorRef,public userService: UserService,public toastController:ToastController,public loadingController:LoadingController, public events: Events, public router: Router) {
   	this.IMAGES_URL = config.IMAGES_URL;
     var token = localStorage.getItem('sin_auth_token');
     this.userId = this.userService.decryptData(token,config.ENC_SALT);
@@ -29,22 +29,33 @@ errors : any = ['',null,undefined];
   ngOnInit() {
   }
 
+  ionViewDidEnter()
+  {
+    this.getCartProductsIds();
+    var token   = localStorage.getItem('sin_auth_token');
+    this.userId = this.userService.decryptData(token,config.ENC_SALT);
+  }
+
   getCartProductsIds(){
     this.userService.postData({user_id:this.userId},'getCartProductsIds').subscribe((result) => {
+      console.log(result.wishlist);
       this.my_cart_products = result.products;
       this.my_wish_products = result.wishlist;
+      
       this.getFeaturedProducts();
     },
     err => {
       this.getFeaturedProducts();
       this.my_cart_products = [];
       this.my_wish_products = [];
+      this.cd.detectChanges();
     });
   }
 
   getFeaturedProducts(){
-    this.userService.postData({limit:'15'},'featuredProducts').subscribe((result) => {
+    this.userService.postData({limit:'150'},'featuredProducts').subscribe((result) => {
       this.featured_products = result.products;
+      this.cd.detectChanges();
     },
     err => {
       this.featured_products = [];
@@ -53,10 +64,10 @@ errors : any = ['',null,undefined];
 
   addToCart(product_id,product_sale_price,product_purchase_price)
   {
-  	if(localStorage.getItem('sin_auth_token') == '')
+  	if(this.userId == 0)
     {
-  		this.router.navigate(['/login']);
-  	}
+      this.router.navigate(['/login']);
+    }
   	else
     {
 	    this.presentLoading();

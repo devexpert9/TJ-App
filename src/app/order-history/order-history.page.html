@@ -1,30 +1,6 @@
-<!-- <ion-header class="ion-hide-lg-up">
-  <ion-toolbar color="darkred" text-uppercase>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-       Order History
-    </ion-title>
-  <ion-buttons slot="end" > 
-          <ion-icon name="search"></ion-icon>
-    </ion-buttons>
-	     <ion-buttons slot="end">
-          <ion-icon name="pin"></ion-icon>
-    </ion-buttons>
-<ion-buttons slot="end" > 
-	<ion-icon user-drop name="contact" (click)="onButtonClickdrop()"></ion-icon>
-	
-	 </ion-buttons>
-  </ion-toolbar>
-      <div drop-down-menu *ngIf="buttonClickeddrop">
-	              <a routerLink="/your-account"><ion-icon name="person"></ion-icon> My Account</a>
-	              <a routerLink="/wishlist"><ion-icon name="heart"></ion-icon>  Wishlist</a>
-	              <a routerLink="/cart"><ion-icon name="cart"></ion-icon>  Cart</a>
-	              <a routerLink="/notification"><ion-icon name="notifications"></ion-icon> Notification</a>
-	   </div>
-</ion-header>  -->
+
 <ion-content>
+	<app-header ></app-header>
 <div  class="ion-padding">
 <div header_height></div>
 <div class="container">
@@ -33,7 +9,7 @@
 		<div breadcrumb  class="ion-hide-md-down">		
 				<div breadcrumb-inner>
 					<ul list-inline list-unstyled>
-						<li><a routerLink="/home">Home</a></li>
+						<li style="float:left;"><a routerLink="/blog">Home / </a></li>
 						<li class="active"> Order History</li>
 					</ul>
 				</div><!-- /.breadcrumb-inner -->
@@ -46,10 +22,6 @@
 		     <ion-col size-lg="12" size-md="12" size-sm="12" size="12" order-title  class="ion-hide-md-down">
 			    <h5>YOUR ORDERS</h5>
 			 </ion-col>
-        	<!--  Title End--> 
-			<!-- Segment in content -->
- 
-		 <!--   Order History Start -->
 		 <ion-col size-lg="12" size-md="12" size-sm="12" size="12">
 		 
 	           	 <div product-tabs> 
@@ -67,8 +39,9 @@
 										<ion-icon name="remove-circle" class="ion-hide-lg-up"></ion-icon>
 									  </ion-segment-button>
 								</ion-segment>
-						      <div  tab-content [ngSwitch]="tabs">
-							  <ion-list *ngSwitchCase="'Orders'">
+					      	<div  tab-content [ngSwitch]="tabs">
+
+							  	<ion-list *ngSwitchCase="'Orders'" style='padding:0'>
 									<div product-tab class="table-responsive">
 									    <div mob-orders class="ion-hide-lg-up">										  
 										<ion-item lines="none" no-padding *ngFor="let order of orders; let m_index = index ">
@@ -111,7 +84,7 @@
 											No orders yet.
 										</ion-item>
 										</div>
-											<h5 class="ion-hide-md-down">ORDERS</h5>
+											<!-- <h5 class="ion-hide-md-down">ORDERS</h5> -->
 											<table class="ion-hide-md-down table table-bordered">
 												<thead>
 													<tr *ngIf="orders != ''">
@@ -157,8 +130,9 @@
 												 </tbody>
 											</table>
 									</div>
-							  </ion-list>	
-							    <ion-list *ngSwitchCase="'Open Orders'">
+							  	</ion-list>	
+
+							    <ion-list *ngSwitchCase="'Open Orders'" style='padding:0'>
 								     <div product-tab class=" table-responsive">
                                    <div mob-orders class="ion-hide-lg-up">										  
 											<ion-item lines="none" *ngFor="let order of open_orders; let om_index = index ">
@@ -189,7 +163,7 @@
                                      			No open orders found.
                                      		</ion-item>
 										  </div>
-											<h5 class="ion-hide-md-down">OPEN ORDERS</h5>
+											<!-- <h5 class="ion-hide-md-down">OPEN ORDERS</h5> -->
 											<table class="table table-bordered ion-hide-md-down">
 												<thead>
 													<tr *ngIf="open_orders != ''">
@@ -233,8 +207,9 @@
 												 </tbody>
 											</table>
 									</div>
-							  </ion-list>
-							  <ion-list *ngSwitchCase="'Cancelled Orders'">
+							  	</ion-list>
+
+							  	<ion-list *ngSwitchCase="'Cancelled Orders'" style='padding:0'>
 									 <div product-tab class=" table-responsive">
                                    <div mob-orders class="ion-hide-lg-up">										  
 										<ion-item lines="none" *ngFor="let order of cancelled_orders; let cm_index = index ">
@@ -260,7 +235,7 @@
 											No cancelled orders yet.
 										</ion-item>                                     
 									</div>
-											<h5 class="ion-hide-md-down">CANCELLED ORDERS</h5>
+											<!-- <h5 class="ion-hide-md-down">CANCELLED ORDERS</h5> -->
 											<table class="table table-bordered ion-hide-md-down">
 												<thead>
 													<tr *ngIf="cancelled_orders != ''">
@@ -296,17 +271,16 @@
 												 </tbody>
 											</table>
 									</div>
-							  </ion-list>
-                        </div>
-					      </div>
+							  	</ion-list>
+                        	</div>
+				      	</div>
 					  </ion-col> 
 		
 		 <!--   Order History Ends -->
 
 		</ion-row>
 		</div>
-		<app-recently-viewed></app-recently-viewed>
-		<app-upsell-products></app-upsell-products>
+
 <!---   Mobile Section Ends  -->
 </div>
 <app-footer></app-footer>

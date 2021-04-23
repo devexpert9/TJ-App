@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { RegisterPage } from './register.page';
 
+import { IonicSelectableModule } from 'ionic-selectable';
+
 const routes: Routes = [
   {
     path: '',
@@ -19,6 +21,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    IonicSelectableModule,
     RouterModule.forChild(routes)
   ],
   declarations: [RegisterPage]

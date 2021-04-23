@@ -1,0 +1,88 @@
+<ion-content>
+<div class="user-login-main">	
+		<div class="container-fluid px-0">
+			<div class="row no-gutters min-vh-100">
+				<div class="col-md-12">
+					<div class="user-login-inner" style="width: 83%;padding: 25px 50px;margin: 0 auto;">
+						<div class="user-login-logo mb-4"> 
+							<a (click)='goToHome()'>
+							    <img src="assets/img/user-logo.png" class="logo" alt="logo">
+							</a> 
+						</div>
+
+						<div _ngcontent-ctx-c0="" class="user-login-logo mb-4"><span style="
+						    font-size: 25px;
+						    width: 100%;
+						    border-bottom: 1px solid #73bce5;
+						    float: left;
+						    margin: 0 0 20px 0;">
+							Become A Seller
+						</span></div>
+
+						<div class="form-border">
+							<div class="col-md-12" style="clear: both;padding: 5px 11px;background: #d0e5f1;font-size: 18px;margin: 0 0 6px 0;">
+								<span>Business Details</span>
+							</div>
+							
+							<div class="col-md-12">
+								<div form-group class="col-md-6" style="float:left;">	
+									<ion-item lines="none">
+										<ion-input [(ngModel)]="shop_name" type="text" placeholder="Shop Name"></ion-input>
+									</ion-item>								
+								</div>
+
+								<div form-group class="col-md-6" style="float:left;">	
+									<ion-item lines="none">
+										<ion-input type="number" [(ngModel)]="phone"  placeholder="Store Number"></ion-input>
+									</ion-item>								
+								</div>	
+
+								<div form-group class="col-md-6" style="float:left;">	
+									<ion-item lines="none">
+										<ion-input [(ngModel)]="location" type="text" placeholder="Location/Address"></ion-input>
+									</ion-item>								
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div form-group class="col-md-6" style="float:left;">	
+									<ion-item lines="none">
+										<ion-input [(ngModel)]="country" type="text" placeholder="Country"></ion-input>
+									</ion-item>								
+								</div>
+
+								<div form-group class="col-md-6" style="float:left;">	
+									<ion-item lines="none">
+										<ion-input [(ngModel)]="state" type="text" placeholder="State"></ion-input>
+									</ion-item>								
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div form-group class="col-md-6" style="float:left;">	
+									<ion-item lines="none">
+										<ion-input [(ngModel)]="city" type="text" placeholder="City"></ion-input>
+									</ion-item>								
+								</div>
+
+								<div form-group class="col-md-6" style="float:left;">	
+									<ion-item lines="none">
+										<ion-input [(ngModel)]="postal" type="number" placeholder="Postal"></ion-input>
+									</ion-item>								
+								</div>
+							</div>
+
+							
+							<div class="col-md-12" style="clear:both">					
+								<a class="btn btn-primary btn-block text-uppercase my-4" href="javascript:void(0)" (click)="register(shop_name,phone,location,country,state,city,postal)" style="width: 30%;margin: 0 auto;">
+									Register As Seller
+								</a>
+							</div>
+							<p class="register-here-btn">Go back to <a routerLink="/blog" href="javascript:void(0)"> Website</a></p>
+						</div>			  			  
+					</div>
+				</div>	
+			</div>
+		</div>	
+	</div>
+</ion-content>

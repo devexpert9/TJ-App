@@ -1,173 +1,555 @@
-<!-- <ion-header class="ion-hide-lg-up">
-  <ion-toolbar color="darkred"  text-uppercase>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Blog
-    </ion-title>
-  <ion-buttons slot="end" > 
-          <ion-icon name="search"></ion-icon>
-    </ion-buttons>
-	     <ion-buttons slot="end">
-          <ion-icon name="pin"></ion-icon>
-    </ion-buttons>
-<ion-buttons slot="end" > 
-	<ion-icon user-drop name="contact" (click)="onButtonClickdrop()"></ion-icon>
-	
-	 </ion-buttons>
-  </ion-toolbar>
-      <div drop-down-menu *ngIf="buttonClickeddrop">
-	              <a routerLink="/your-account"><ion-icon name="person"></ion-icon> My Account</a>
-	              <a routerLink="/wishlist"><ion-icon name="heart"></ion-icon>  Wishlist</a>
-	              <a routerLink="/cart"><ion-icon name="cart"></ion-icon>  Cart</a>
-	              <a routerLink="/notification"><ion-icon name="notifications"></ion-icon> Notification</a>
-	   </div>
-</ion-header>  -->
-<ion-header class="ion-hide-md-up">
-    <ion-toolbar color="secondary">
-        <ion-menu-button slot="start">
-	  	    <img height="15px" src="assets/img/menu.png" alt=""/>
-	  	</ion-menu-button>
-        <ion-title class="ion-text-center">News Feed</ion-title>
-    </ion-toolbar>
-</ion-header>
-<ion-content>
+
+<ion-content [scrollEvents]="true" #contentPage>
 <app-header></app-header>
 <div class="main-wrapper  home-page newsfeed">
+	<div header_height></div>
+
+	<div breadcrumb  class="ion-hide-md-down">		
+		<div class="container">
+			<ul style="padding:15px;">
+				<li style="float:left;"><a routerLink="/blog">Home / </a></li>
+				<li class="active"> News Feeds</li>
+			</ul>
+		</div><!-- /.breadcrumb-inner -->
+	</div>
+
    <div mob-container class="container">
-	   <div class="row">
-			<div class="col-lg-12" mob-icon-sec>	
-				<div class="header-call-action menu-right">
-					<ul class="menu-right-ul">
-						<li><a href="javascript:void(0)"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-						<li><a href="javascript:void(0)"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-						<li><a href="javascript:void(0)"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-					</ul>
-				</div>
-			</div>			   
-			<div class="col-md-10 offset-md-1">
-				<div class="newsfeedinner mb-0">
-					<div class="newsfeed-header">
-						<div class="media">
-							<div class="message-item-img">
-								<img src="assets/img/post-4.jpg" alt="">
-							</div>
-							<div class="media-body">
-								<a href="javascript:void(0)" class="newsfeed_post-popup" (click)="presentModal()">
-									<ion-textarea class="form-control" placeholder="Share some what you are thinking?"></ion-textarea>
-								</a>
-							</div>
-						</div>
-						<div class="newsfeed-post-bottom">
-							<div class="newsfeed-attachments">
-								<ul>
-									<li class="tooltip-item" data-tooltip="Check In">
-										<span class="add-loc">
-											<i class="fa fa-map-marker"></i> 
-										</span>
-									</li>
-									<li class="tooltip-item" data-tooltip="Add Photos/Videos">
-										<i class="fa fa-image"></i>
-										<label class="fileContainer">
-											<input type="file">
-										</label>
-									</li>
-									<li class="tooltip-item" data-tooltip="Go Live ">
-										<i class="fa fa-video-camera"></i>
-										<label class="fileContainer">
-											<input type="file">
-										</label>
-									</li>
+   		<div class="row">
+   			<div class="col-lg-12">
+	   			<div class="col-lg-9" style="float:left">
+				   	<div class="row">
+						<div class="col-lg-12" mob-icon-sec>	
+							<div class="header-call-action menu-right">
+								<ul class="menu-right-ul">
+									<li><a href="javascript:void(0)"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+									<li><a href="javascript:void(0)"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+									<li><a href="javascript:void(0)"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
 								</ul>
-								<button class="post-btn" type="submit" data-ripple="">Post Status</button>
 							</div>
-						</div>
-					</div>
-				</div>
-				<div class="post-feed-main">
-					<article class="post-feed-item" *ngFor="let blog of all_blogs ">
-						<div class="activity-header">
-							<div class="activity-avatar">
-								<a href="javascript:void(0)"  routerLink="/blog-detail/{{blog.blog_id}}">
-									<img src="assets/img/post-4.jpg" alt="">
-								</a>
+						</div>			   
+						<div class="col-md-12">
+							<div product-tabs id='TopOfPost'> 
+								<ion-segment  [(ngModel)]="tabs" *ngIf="is_logged_in == 'true'">
+									<ion-segment-button value="posts">
+										<ion-label class="ion-hide-md-down">Simple Post</ion-label>
+										<ion-icon name="person" class="ion-hide-lg-up"></ion-icon>
+									</ion-segment-button>	
+
+									<ion-segment-button value="poll" class="ion-hide-md-down">
+										<ion-label class="ion-hide-md-down">Poll Post</ion-label>
+										<ion-icon name="person"  class="ion-hide-lg-up"></ion-icon>
+									</ion-segment-button>
+
+									<ion-segment-button value="product" class="ion-hide-md-down">
+										<ion-label class="ion-hide-md-down">Products Post</ion-label>
+										<ion-icon name="person"  class="ion-hide-lg-up"></ion-icon>
+									</ion-segment-button>
+
+									<ion-segment-button value="suggestion" class="ion-hide-md-down">
+										<ion-label class="ion-hide-md-down">Suggestion Post</ion-label>
+										<ion-icon name="person"  class="ion-hide-lg-up"></ion-icon>
+									</ion-segment-button>
+								</ion-segment>
+
+								<div  tab-content [ngSwitch]="tabs" *ngIf="is_logged_in == 'true'">
+									<ion-list *ngSwitchCase="'posts'">
+										<div product-tab class="table-responsive" style="overflow:hidden;height:100%;padding:0 0 20px 0">
+										 	<div class="newsfeedinner mb-0" *ngIf="is_logged_in == 'true'" style="margin-bottom:35px; display:inline-block;width:100%;">
+												<div class="newsfeed-header" form-group>
+												<div class="media">
+													<div class="message-item-img">
+														<img src="{{pic_url}}{{userImage}}" alt="" style="height:70px;width:70px">
+													</div>
+													<div class="media-body">
+														<a href="javascript:void(0)" class="newsfeed_post-popup" >
+															<ion-textarea class="form-control" placeholder="Share some what you are thinking?" [(ngModel)]="content"></ion-textarea>
+															<!-- <ckeditor placeholder="Share some what you are thinking?" [(ngModel)]="content"></ckeditor> -->
+															
+														</a>
+													</div>
+												</div>
+												<div class="newsfeed-post-bottom">
+													<div class="newsfeed-attachments">
+														<ul *ngIf="simpleAction == 'add'">
+															<li class="tooltip-item" data-tooltip="Add Photos/Videos" data-placement="right">
+																<i class="fa fa-image"></i>
+																<label class="fileContainer">
+																	<input type="file" (change)="uploadImg($event)" [(ngModel)]="file">
+																</label>
+															</li>
+
+															<li *ngIf='uploadedFile != ""'>
+																<img src="{{pic_url}}{{uploadedFile}}" alt="" style="height:70px;width:70px" *ngIf="uploadedFile.indexOf('.mp4') == -1">
+
+																<video width="100" height="100" controls *ngIf="uploadedFile.indexOf('.mp4') !== -1">
+																	<source src="{{pic_url}}{{uploadedFile}}" type="video/mp4">
+																</video>
+															</li>
+														</ul>
+														<button class="post-btn" (click)="addPost(content,file)" data-ripple="" *ngIf="simpleAction == 'add'">
+															Post Status
+														</button>
+
+														<button class="post-btn" (click)="updatePost(content,simplePostId)" data-ripple="" *ngIf="simpleAction == 'update'">
+															Update Post
+														</button>
+
+														<button class="post-btn" (click)="cancelSimple()" data-ripple="" *ngIf="simpleAction == 'update'" style="background:orange; border-color:orange;">
+															Cancel
+														</button>
+													</div>
+												</div>
+												</div>
+											</div>
+										</div>
+									</ion-list>
+								
+								<!--***********************************-->
+									<ion-list *ngSwitchCase="'poll'" style='height:210px'>
+										<div product-tab class="table-responsive" style="overflow:hidden;height:100%">
+											<div class="newsfeedinner mb-0" *ngIf="is_logged_in == 'true'" style="margin-bottom:35px; display:inline-block;width:100%;">
+												<div class="newsfeed-header" form-group>
+												<div class="media">
+													<div class="message-item-img">
+															<img src="{{pic_url}}{{userImage}}" alt="" style="height:70px;width:70px">
+													</div>
+													<div class="media-body">
+														<a href="javascript:void(0)" class="newsfeed_post-popup" (click)="presentModal()">
+															<ion-textarea class="form-control" placeholder="Enter your question" [(ngModel)]="contentPoll"></ion-textarea>
+														</a>
+													</div>
+												</div>
+												<div class="newsfeed-post-bottom" style="margin:9px 0 0 90px">
+													<div class="media-body">
+														<input type="text"  [(ngModel)]="button1" placeholder="YES" style="float:left; width:15%">
+
+														<input type="text"  [(ngModel)]="button2" placeholder="NO" style="margin:0 0 0 6px; float:left; width:15%">
+													</div>
+												</div>
+
+												<div class="newsfeed-post-bottom" style="float:left;width:100%">
+													<div class="newsfeed-attachments">
+														<button class="post-btn" (click)="addPollPost(contentPoll,button1,button2)" data-ripple="">
+															Post Status
+														</button>
+													</div>
+												</div>
+												</div>
+											</div>
+										</div>
+									</ion-list>
+
+								<!--***********************************-->
+									<ion-list *ngSwitchCase="'product'">
+										<div product-tab class="table-responsive" style="overflow:hidden;height:100%; padding:0 0 20px 0">
+										 	<div class="newsfeedinner mb-0" *ngIf="is_logged_in == 'true'" style="margin-bottom:35px; display:inline-block;width:100%;">
+												<div class="newsfeed-header" form-group>
+												<div class="media">
+													<div class="message-item-img">
+														<img src="{{pic_url}}{{userImage}}" alt="" style="height:70px;width:70px">
+													</div>
+													<div class="media-body">
+														<a href="javascript:void(0)" class="newsfeed_post-popup">
+															<ion-textarea class="form-control" placeholder="Product Description" [(ngModel)]="desc"></ion-textarea>
+
+															<!-- <ckeditor placeholder="Enter product description" [(ngModel)]="desc"></ckeditor> -->
+														</a>
+													</div>
+												</div>
+												<div class="newsfeed-post-bottom">
+													<div class="newsfeed-attachments">
+														<ul>
+															<li>
+																<label class="fileContainer">
+																	<input type="text" [(ngModel)]="product_name" placeholder="Product Name" style="color:#333;">
+																</label>
+															</li>
+															<li>
+																<label class="fileContainer">
+																	<input min="0" max="100000" type="number" [(ngModel)]="price" placeholder="Price" style="color:#333;">
+																</label>
+															</li>
+
+															<li class="tooltip-item" data-tooltip="Add Product Photo" positionV="top">
+																<i class="fa fa-image"></i>
+																<label class="fileContainer">
+																	<input type="file" (change)="uploadProImg($event)" [(ngModel)]="filepro">
+																</label>
+
+																<img src="{{pic_url}}{{uploadedFilePro}}" alt="" style="height:70px;width:70px" *ngIf='uploadedFilePro != ""'>
+															</li>
+														</ul>
+														<button class="post-btn" (click)="addProductPost(desc,product_name,price,filepro)" data-ripple="">
+															Post Status
+														</button>
+													</div>
+												</div>
+												</div>
+											</div>
+										</div>
+									</ion-list>
+
+								<!--***********************************-->
+									<ion-list *ngSwitchCase="'suggestion'">
+										<div product-tab class="table-responsive" style="overflow:hidden;height:100%; padding:0 0 20px 0">
+										 	<div class="newsfeedinner mb-0" *ngIf="is_logged_in == 'true'" style="margin-bottom:35px; display:inline-block;width:100%;">
+												<div class="newsfeed-header" form-group>
+												<div class="media">
+													<div class="message-item-img">
+														<img src="{{pic_url}}{{userImage}}" alt="" style="height:70px;width:70px">
+													</div>
+													<div class="media-body">
+														<a href="javascript:void(0)" class="newsfeed_post-popup">
+															<ion-textarea class="form-control" placeholder="Ask for any suggestion" [(ngModel)]="suggestion"></ion-textarea>
+														</a>
+													</div>
+												</div>
+												<div class="newsfeed-post-bottom">
+													<div class="newsfeed-attachments">
+														<ul>
+															<li class="tooltip-item" data-tooltip="Add Photo" positionV="top">
+																<i class="fa fa-image"></i>
+																<label class="fileContainer">
+																	<input type="file" (change)="uploadSuggesImg($event)" [(ngModel)]="fileSuggestion">
+																</label>
+
+																<img src="{{pic_url}}{{uploadedFileSuggestion}}" alt="" style="height:70px;width:70px" *ngIf='uploadedFileSuggestion != ""'>
+															</li>
+														</ul>
+														<button class="post-btn" (click)="addSuggestionPost(suggestion,fileSuggestion)" data-ripple="">
+															Post Status
+														</button>
+													</div>
+												</div>
+												</div>
+											</div>
+										</div>
+									</ion-list>
+								</div>
 							</div>
-							<div class="activity-head">
-								<h4>
-									<a routerLink="/blog-detail/{{blog.blog_id}}">
-										{{blog.blog_name}}
-									</a>
-								</h4>
-								<p><span class="time-since">Apple</span></p>
-							</div>
-						</div>
-						<div class="activity-inner">
-							<p *ngIf="atob(blog.blog_description).length <= 200" [innerHTML]="atob(blog.blog_description)"></p>
-							<p *ngIf="atob(blog.blog_description).length > 200" [innerHTML]="atob(blog.blog_description).substr(0,200)+'...'"></p>
-							<div class="post-feed-img dft">
-								<img *ngIf="errors.indexOf(blog.blog_image) >= 0" src="assets/images/products/no_image.svg">
-								<img *ngIf="errors.indexOf(blog.blog_image) == -1" src="{{IMAGES_URL}}/blog_images/{{blog.blog_image}}" alt="Image">
-								<span sharebtn-img><ion-icon name="share-social-outline"></ion-icon></span>
-							</div>
-						</div>
-						<div class="post-details-activity-bottom pb-10">
-							<ul class="like-com">
-								<li>
-									<a href="javascript:void(0)"><i class="fa fa-thumbs-up"></i> Like</a>
-									<div class="likedby-images">
-										<span><img src="assets/img/post-1.png" class="img-fluid" alt=""></span>
-										<span><img src="assets/img/post-2.png" class="img-fluid" alt=""></span>
-										<span><img src="assets/img/post-3.jpg" class="img-fluid" alt=""></span>
-										<span><img src="assets/img/post-4.jpg" class="img-fluid" alt=""></span>
-										<span class="likedbycount">15</span>
+
+						<!-- ALL POSTS STARTS FROM HERE -->
+							<div class="post-feed-main">
+								<article class="post-feed-item" *ngFor="let blog of all_blogs" style="display:inline-block; padding:0 0 10px 0; width: 100%">
+									<div class="activity-header" style="padding-bottom:0px;display: inline-block;width: 100%;">
+										<div class="activity-avatar" style="float:left">
+											<a href="javascript:void(0)">
+												<img src="{{pic_url}}{{blog.profile_picture}}" alt="" style="height:100%;width:100%">
+											</a>
+										</div>
+										<div class="activity-head" style="width: 88%;display: inline-block;">
+											<h4 style="float:left;">
+												<!-- <a routerLink="/blog-detail/{{blog.blog_id}}"> -->
+												<a href="javascript:void(0)">
+													{{blog.name}}
+													<br/>
+													<span class="time-since" style="text-transform:capitalize;color: #0488d2;font-weight: bold;">
+														{{blog.post_date | date}}
+													</span>
+												</a>
+											</h4>
+
+											<div *ngIf="is_logged_in == 'true'">
+												<p style=" float: right;border: 1px solid red;padding: 1px 10px; cursor:pointer;margin:0 0 0 15px;" *ngIf='blog.user_id == currentUserID'>
+													<a title="Delete" (click)='deletePost(blog?.post_id)' style="font-weight: bolder;color: red;">
+														<i class="fa fa-trash-o" aria-hidden="true"></i>
+													</a>
+												</p>
+
+												<p style=" float: right;border: 1px solid #0488d2;padding: 1px 10px; cursor:pointer;margin:0 0 0 15px;" *ngIf='blog.user_id == currentUserID && blog.post_type == "simple"'>
+													<a title="Edit" (click)='editPost(blog)' style="font-weight: bolder;color: #0488d2;">
+														<i class="fa fa-pencil" aria-hidden="true"></i>
+													</a>
+												</p>
+
+												<p style=" float: right;border: 1px solid #1088d2; color:#1088d2; padding: 1px 10px; cursor:pointer;" *ngIf='blog.post_type == "poll"'>
+													<span style="font-weight: bolder;">
+														{{blog?.poolingCount}}% Polling
+													</span>
+												</p>
+											</div>
+											<!-- <p *ngIf='blog.post_type == "poll"' style="float: right;border: 1px solid #1088d2;color:#1088d2;padding: 0;cursor:pointer;width: 200px;height: 14px;">
+												<span style="font-size: 2px;padding: 0;width:{{blog?.poolingCount}};margin: 0;background: #2597d8;float: left;height: 13px;">
+													{{blog?.poolingCount}}
+												</span>
+											</p> -->
+										</div>
 									</div>
-								</li>
-							</ul>
-							<div class="mini-cart-option">
-								<ul class="like-com">
-									<li class="post-button-item buy-button-item"><a class="mr-0" href="javascript:void(0)"><span class="lnr lnr-cart"></span> Buy</a></li>
-									<li class="post-button-item wishlist-button-item"><a class="mr-0" href="javascript:void(0)"><span class="lnr lnr-heart mr-0"></span> Wishlist </a></li>
-									<li class="post-button-item suggest-button-item"><a class="mr-0" href="javascript:void(0)"><span class="fa fa-paper-plane"></span> Suggest</a></li>
+
+									<!-- IN CASE OF SIMPLE POST -->
+									<div class="activity-inner" *ngIf='blog.post_type == "simple"' style="border-top:#f7ecec">
+										<div class="post-feed-img dft" style="float:left;width:30%" >
+											<img src="{{pic_url}}{{blog.file}}" alt="" style="width:100%" *ngIf="blog.file.indexOf('.mp4') == -1">
+
+											<video style="width:100%" controls *ngIf="blog.file.indexOf('.mp4') !== -1">
+												<source src="{{pic_url}}{{blog.file}}" type="video/mp4">
+											</video>
+
+										</div>
+
+										<div class="post-feed-img dft" style="float:left;width:70%;padding:0 20px">
+											<p *ngIf="blog.content.length <= 500" [innerHTML]="blog.content"></p>
+
+											<p *ngIf="blog.content.length > 500" [innerHTML]="blog.content.substr(0,500)+'...'"></p>
+										</div>
+									</div>
+
+									<!-- IN CASE OF POLL POST -->
+									<div class="activity-inner" *ngIf='blog.post_type == "poll"' style="border-top:#f7ecec">
+										<div class="post-feed-img dft" style="float:left;width:100%;text-align: center;padding:0 20px;">
+											
+											<p *ngIf="blog.content.length <= 500" [innerHTML]="blog.content"></p>
+
+											<p *ngIf="blog.content.length > 500" [innerHTML]="blog.content.substr(0,500)+'...'"></p>
+										</div>
+									</div>
+
+									<!-- IN CASE OF PRODUCT POST -->
+									<div class="activity-inner" *ngIf='blog.post_type == "product"' style="border-top:#f7ecec">
+
+										<div class="post-feed-img dft" style="float:left;width:30%" >
+											<img src="{{pic_url}}{{blog.file}}" alt="" style="width:100%">
+										</div>
+
+										<div class="post-feed-img dft" style="float:left;width:70%;padding:0 20px">
+											<p style="font-size: 23px;margin: 0 0 10px 0;padding: 0 0 10px 0;">
+												{{blog.product_name}}
+											</p>
+											<p style="color: #73bce5;font-weight: bold; font-size:20px">
+												${{blog.price}}
+											</p>
+											<p *ngIf="blog.content.length <= 500" [innerHTML]="blog.content"></p>
+
+											<p *ngIf="blog.content.length > 500" [innerHTML]="blog.content.substr(0,500)+'...'"></p>
+										</div>
+									</div>
+
+									<!-- IN CASE OF SUGGESTION POST -->
+									<div class="activity-inner" *ngIf='blog.post_type == "suggestion"' style="border-top:#f7ecec">
+
+										<div class="post-feed-img dft" style="float:left;width:100%;padding:0 20px;text-align:center;" *ngIf='blog.content != null'>
+											<p [innerHTML]="blog.content"></p>
+										</div>
+
+										<div class="post-feed-img dft" style="float:left;width:100%;text-align:center;" *ngIf='blog.file != null'>
+											<img src="{{pic_url}}{{blog.file}}" alt="" style="width:20%">
+										</div>
+
+									</div>
+
+									<div class="post-details-activity-bottom pb-10" style="float:left;width:100%;">
+										<ul class="like-com" *ngIf='blog.post_type == "simple" || blog.post_type == "product"'>
+											<li *ngIf="is_logged_in == 'true'">
+												<a href="javascript:void(0)"><i class="fa fa-thumbs-up"></i> Like</a>
+
+												<a href="javascript:void(0)"><i class="fa fa-share-square-o"></i> Share</a>
+											</li>
+
+											<li *ngIf="is_logged_in == 'false'">
+												<a routerLink='/login'>
+													<i class="fa fa-thumbs-up"></i> 
+													Like
+												</a>
+
+												<a routerLink='/login'>
+													<i class="fa fa-share-square-o"></i> 
+													Share
+												</a>
+											</li>
+										</ul>
+
+										<div *ngIf="is_logged_in == 'true'" style="margin:0 auto">
+											<ul class="like-com" *ngIf='blog.post_type == "poll"' style="margin:0 auto">
+												<li style="background:#81a8bf">
+													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;padding: 5px 17px;margin-right: 0;margin-left:0;border-right:1px solid" (click)="givePoll(blog,blog?.button1)" *ngIf="!userAlreadyExist(blog)">
+														{{blog?.button1}}
+													</a>
+
+													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;padding: 5px 17px;margin-right: 0;margin-left:0;" (click)="givePoll(blog,blog?.button2)" *ngIf="!userAlreadyExist(blog)">
+														{{blog?.button2}}
+													</a>
+
+												<ng-container *ngIf="userAlreadyExistWithButton1(blog)">
+													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;padding: 5px 17px;margin-right: 0;margin-left:0;border-right:1px solid"  >
+														{{blog?.button1}}
+													</a>
+
+													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;padding: 5px 17px;margin-right: 0;margin-left:0;border-right:1px solid;background: #c1c1c1"  >
+														{{blog?.button2}}
+													</a>
+												</ng-container>
+
+												<ng-container *ngIf="userAlreadyExistWithButton2(blog)">
+													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;padding: 5px 17px;margin-right: 0;margin-left:0;border-right:1px solid;background: #c1c1c1"  >
+														{{blog?.button1}}
+													</a>
+
+													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;padding: 5px 17px;margin-right: 0;margin-left:0;border-right:1px solid"  >
+														{{blog?.button2}}
+													</a>
+												</ng-container>
+													
+												</li>
+											</ul>
+
+											<ul class="like-com" *ngIf='blog.post_type == "suggestion"' style="margin:0 auto">
+												<li style="background:#81a8bf" *ngIf="is_logged_in == 'true'">
+													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;padding: 5px 17px;margin-right: 0;margin-left:0;border-right:1px solid" (click)="showAllPros(blog?.post_id)">
+														Suggest
+													</a>
+												</li>
+											</ul>
+										</div>
+
+										<div *ngIf="is_logged_in == 'false'" style="margin:0 auto">
+											<ul class="like-com" *ngIf='blog.post_type == "suggestion"' style="margin:0 auto">
+												<li style="background:#81a8bf">
+													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;padding: 5px 17px;margin-right: 0;margin-left:0;border-right:1px solid" routerLink='/login'>
+														Suggest
+													</a>
+												</li>
+											</ul>
+
+											<ul class="like-com" *ngIf='blog.post_type == "poll"' style="margin:0 auto">
+												<li style="background:#81a8bf">
+													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;padding: 5px 17px;margin-right: 0;margin-left:0;border-right:1px solid" routerLink='/login'>
+														{{blog?.button1}}
+													</a>
+
+													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;padding: 5px 17px;margin-right: 0;margin-left:0;" routerLink='/login'>
+														{{blog?.button2}}
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+
+									<div *ngIf='blog.post_type == "suggestion"'>
+										<div commentsArea *ngIf="blog?.count_suggestion > 0">
+											<h5 (click)='makeToggle(blog.post_id)' style="cursor:pointer;">
+												{{blog?.count_suggestion}} Suggestions
+											</h5>
+
+											<div scrollArea *ngIf='toggle == blog.post_id' style=" border-top: 2px solid #fff; padding-top:4px;">
+
+												<div style="width: 100%;float: left;text-align: right;margin: 0 0 7px 0;cursor: pointer;" (click)='HideToggle()'> [Hide Comments]</div>
+
+												<div comntRow *ngFor="let suggests of blog?.all_suggestions" style=" background: #ffffff;padding: 10px; cursor:pointer" (click)="productDetailPage(suggests?.product_id)">
+													<span  style="width:75px;height:75px;">
+														<img src="{{IMAGES_URL}}/product_images/{{suggests.product_image}}">
+													</span>
+													<div comntRit style="display:inline-block;margin:0 0 0 15px">
+														<div comntbg>
+															<h4>{{suggests?.product_name}}</h4>
+															
+														</div>
+														<small>
+															Suggested By: {{suggests?.name}} {{suggests?.last_name}}
+															<br/>
+															{{suggests?.suggested_date | date}}
+														</small>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- <div class="tag-box"></div> -->
+									<!-- <div class="comment-section"> -->
+										<!-- <ion-input type="text" placeholder="Write Your Comment..." class="commnetbar"></ion-input>
+										<button class="btn-style"><i class="fa fa-reply" aria-hidden="true"></i></button>  -->
+									<!-- </div> -->
+								</article>	
+
+								<article class="post-feed-item" *ngIf="all_blogs?.length == 0 ">
+									No any post added yet
+								</article>										
+							</div>            						
+						</div>
+				   	</div>
+
+					<!-- <ion-row>
+						<ion-col size="12" *ngIf="all_blogs != ''">
+							<div pagination-container text-right class="ion-hide-md-down">
+								<ul class="list-inline list-unstyled list-sytr">
+									<li (click)="paginate('prev')" class="prev"><a><i class="fa fa-angle-left"></i></a></li>
+									<li (click)="paginate(i+1)" *ngFor="let p of arrayOne(total_pages); let i = index " [ngClass]="current_page == i+1 ? 'active' : ''"><a>{{i+1}}</a></li>
+									<li (click)="paginate('next')" class="next"><a><i class="fa fa-angle-right"></i></a></li>
 								</ul>
 							</div>
-						</div>
-						<div class="tag-box">
-							<div class="tagword">
-								<div class="aside-title">
-									<h6>Tags</h6>
-								</div>
-								<div class="tagcloud">
-									<a href="javascript:void(0);">Business</a>
-									<a href="javascript:void(0);">Marketing</a>
-									<a href="javascript:void(0);">SEO</a>
-									<a href="javascript:void(0);">strategy</a>
-									<a href="javascript:void(0);">Map</a>
-								</div>
+						</ion-col>
+					</ion-row> -->
+
+				</div>
+
+				<div class="col-lg-3" style="float:left;border: 2px solid #e3e3e3;">
+					<h3 style="border-bottom: 1px solid #f2faff;margin: 0 0 10px 0;">Suggestions</h3>
+
+					<ul style="height:600px;overflow-y: scroll;">
+						<li *ngFor="let usr of users" style="background: #f2faff;margin-bottom:10px;display: inline-block;width: 100%;padding: 10px;">
+							<span>
+								<img src="{{pic_url}}{{usr?.profile_picture}}" style="width:40px;float:left;">
+								<h4 style="float:left;margin:0 0 0 10px">
+									{{usr?.name}} {{usr?.lastname}}
+									
+									<p style="font-size: 11px;line-height: 3px;margin: 0 0 25px 0;">
+										{{usr?.email}}
+									</p>
+								</h4>
+							</span>
+							
+							<div style="float:left;width: 100%;"  *ngIf="is_login == 'true'">
+								<a href="javascript:void(0)" (click)='follow_user(usr)' *ngIf='usr?.followedUser == "0"' style="border-color:green;color:green;border: 1px solid green;padding: 0 21px;float: right;">
+									Follow
+								</a>
+
+								<a href="javascript:void(0)" (click)='unfollow_user(usr)' *ngIf='usr?.followedUser == "1"' style="border-color:red;color:red;border: 1px solid red;padding: 0 21px;float: right;">
+									UnFollow
+								</a>
 							</div>
-							<div class="like-com">
-								<a href="javascript:void(0)"><i class="fa fa-share-square-o"></i> Share</a>
+
+							<div style="float:left;width: 100%;"  *ngIf="is_login == 'false'">
+								<a href="javascript:void(0)" routerLink='/login' style="border-color:green;color:green;border: 1px solid green;padding: 0 21px;float: right;">
+									Follow
+								</a>
 							</div>
-						</div>
-						<div class="comment-section">
-							<ion-input type="text" placeholder="Write Your Comment..." class="commnetbar"></ion-input>
-							<button class="btn-style"><i class="fa fa-reply" aria-hidden="true"></i></button> 
-						</div>
-					</article>											
-				</div>            						
-			</div>
-	   </div>
-		<ion-row>
-			<ion-col size="12" *ngIf="all_blogs != ''">
-				<div pagination-container text-right class="ion-hide-md-down">
-					<ul class="list-inline list-unstyled list-sytr">
-						<li (click)="paginate('prev')" class="prev"><a><i class="fa fa-angle-left"></i></a></li>
-						<li (click)="paginate(i+1)" *ngFor="let p of arrayOne(total_pages); let i = index " [ngClass]="current_page == i+1 ? 'active' : ''"><a>{{i+1}}</a></li>
-						<li (click)="paginate('next')" class="next"><a><i class="fa fa-angle-right"></i></a></li>
+						</li>
+					</ul>
+
+					<ul *ngIf="users?.length == 0">
+						<li>No any user(s) yet!</li>
 					</ul>
 				</div>
-			</ion-col>
-		</ion-row>
+
+				<!-- <div class="col-lg-3" style="float:left;border: 2px solid #e3e3e3;" *ngIf="is_login == 'false'">
+					<h3 style="border-bottom: 1px solid #f2faff;margin: 0 0 10px 0;">Suggestions</h3>
+
+					<ul style="height:600px;overflow-y: scroll;">
+						<li *ngFor="let usr of usersAll" style="background: #f2faff;margin-bottom:10px;display: inline-block;width: 100%;padding: 10px;">
+							<span>
+								<img src="{{pic_url}}{{usr?.profile_picture}}" style="width:40px;float:left;">
+								<h4 style="float:left;margin:0 0 0 10px">
+									{{usr?.name}} {{usr?.lastname}}
+									
+									<p style="font-size: 11px;line-height: 3px;margin: 0 0 25px 0;">
+										{{usr?.email}}
+									</p>
+								</h4>
+							</span>
+							
+							<div style="float:left;width: 100%;">
+								<a href="javascript:void(0)" routerLink="/login" style="border-color:green;color:green;border: 1px solid green;padding: 0 21px;float: right;">
+									Follow
+								</a>
+							</div>
+						</li>
+					</ul>
+
+					<ul *ngIf="users?.length == 0">
+						<li>No any user(s) yet!</li>
+					</ul>
+				</div> -->
+			</div>
+		</div>
    </div>
 </div>
 <app-footer></app-footer>

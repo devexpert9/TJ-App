@@ -1,26 +1,17 @@
-<div class="col-lg-6 col-md-4 col-sm-12" *ngFor="let recent of featured_products ">
+<div class="col-lg-3 col-md-4 col-sm-12" *ngFor="let recent of featured_products ">
 	<div class="product-item mb-30">
-	   <div class="product-thumb">
+	   	<div class="product-thumb">
 		  <a (click)="productDetails(recent.product_id)">
 			<img *ngIf="errors.indexOf(recent.product_image) >= 0" src="assets/images/products/no_image.svg">
 			<img *ngIf="errors.indexOf(recent.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{recent.product_image}}" alt="{{recent.product_name}}">
 		   </a> 
-		  <div class="box-label">
-			 <div class="label-product label_new" *ngIf="recent?.product_quantity == 0 || errors.indexOf(recent?.product_quantity) >= 0">
-				 <span>Sold out</span>
-			 </div>
-			 <!--div class="label-product label_sale">
-				<span>-10%</span>
-			 </div-->
-		  </div>
-		  <!--div class="action-links">
-			 <a href="javascript:void(0)" title="Wishlist" *ngIf="my_wish_products.indexOf(recent.product_id) == -1" (click)="addToWish(recent.product_id)"><i class="lnr lnr-heart"></i></a>
-			 <a href="javascript:void(0)" title="Added to Wishlist" *ngIf="my_wish_products.indexOf(recent.product_id) >= 0" color="darkblue" add-to-cart title="Added"><i class="lnr lnr-heart"></i></a>
-			
-			
-			 <a href="javascript:void(0)" title="Add to Cart" [disabled]="recent?.product_quantity == 0 || errors.indexOf(recent?.product_quantity) >= 0"  *ngIf="my_cart_products.indexOf(recent.product_id) == -1" (click)="addToCart(recent.product_id,recent.product_sale_price,recent.product_purchase_price)"><i class="lnr lnr-magnifier"></i></a>
-		  </div-->
-		  <div class="action-links">
+		  	<div class="box-label">
+			 	<div class="label-product label_new" *ngIf="recent?.product_quantity == 0 || errors.indexOf(recent?.product_quantity) >= 0">
+			 		<span>Sold out</span>
+			 	</div>
+		  	</div>
+		  
+		  	<div class="action-links">
 				<ion-button class="bnt" [disabled]="recent?.product_quantity == 0 || errors.indexOf(recent?.product_quantity) >= 0"  *ngIf="my_cart_products.indexOf(recent.product_id) == -1" (click)="addToCart(recent.product_id,recent.product_sale_price,recent.product_purchase_price)" title="Add Cart">
 			 		<i class="lnr lnr-magnifier"></i>
 			  	</ion-button>
@@ -37,30 +28,11 @@
 		  		<ion-button class="bnt" *ngIf="my_wish_products.indexOf(recent.product_id) >= 0" add-to-cart title="Added">
 			 		<i class="red_heart fa fa-heart"></i>
 			  	</ion-button>
-		  </div>
-			<!--ul list-unstyled>
-			  <li add-cart-button btn-group>                             
-			  <ion-button [disabled]="recent?.product_quantity == 0 || errors.indexOf(recent?.product_quantity) >= 0"  *ngIf="my_cart_products.indexOf(recent.product_id) == -1" (click)="addToCart(recent.product_id,recent.product_sale_price,recent.product_purchase_price)" add-to-cart color="darkred" title="Add Cart">
-				 <ion-icon name="cart"></ion-icon> 
-			  </ion-button>
-			  <ion-button *ngIf="my_cart_products.indexOf(recent.product_id) >= 0" add-to-cart color="darkred" title="Added">
-				 <ion-icon name="checkmark"></ion-icon> 
-			  </ion-button>
-			  </li>
-			  <li lnk wishlist>
-			  <ion-button *ngIf="my_wish_products.indexOf(recent.product_id) == -1" (click)="addToWish(recent.product_id)" color="darkblue" add-to-cart title="Wishlist">
-				<ion-icon name="heart"></ion-icon> 
-			  </ion-button>
-			  <ion-button *ngIf="my_wish_products.indexOf(recent.product_id) >= 0" color="darkblue" add-to-cart title="Added">
-				 <ion-icon red_heart name="heart"></ion-icon> 
-			  </ion-button>  
-			  </li>
-			</ul--> 
+		  	</div>
+			
 	   </div>
 	   <div class="product-caption">
-		  <div class="manufacture-product">
-			 <p><a href="javascript:void(0)">apple</a></p>
-		  </div>
+
 		  <div class="product-name">
 			 <h4><a (click)="productDetails(recent.product_id)">{{recent.product_name}}</a></h4>
 		  </div>
@@ -74,150 +46,12 @@
 			 <span class="regular-price" *ngIf="errors.indexOf(recent.product_sale_price) >= 0 || recent.product_sale_price == recent.product_purchase_price">${{recent.product_purchase_price}}</span>
 			 <span class="old-price" *ngIf="errors.indexOf(recent.product_sale_price) == -1 && recent.product_sale_price != recent.product_purchase_price" ><del>${{recent.product_purchase_price}}</del></span>
 		  </div>
-		  <button class="btn-cart" type="button" [disabled]="recent?.product_quantity == 0 || errors.indexOf(recent?.product_quantity) >= 0"  *ngIf="my_cart_products.indexOf(recent.product_id) == -1" (click)="addToCart(recent.product_id,recent.product_sale_price,recent.product_purchase_price)">add to cart</button>
+		  <button class="btn-cart" type="button" [disabled]="recent?.product_quantity == 0 || errors.indexOf(recent?.product_quantity) >= 0"  *ngIf="my_cart_products.indexOf(recent.product_id) == -1" (click)="addToCart(recent.product_id,recent.product_sale_price,recent.product_purchase_price)">
+		  	add to cart
+		  </button>
 		  <button class="btn-cart" type="button" *ngIf="my_cart_products.indexOf(recent.product_id) >= 0">
 			 <ion-icon name="checkmark"></ion-icon> 
 		  </button>
 	   </div>
 	</div>
-	<!-- end single grid item -->
  </div>
-<!--div  class="ion-padding">
-<ion-col class="ion-hide-md-down" size-lg="12" size-md="12" size-sm="12" size="12" new-product *ngIf="featured_products != ''">
-	<ion-card id="product-tabs-slider" scroll-tabs no-margin>
-		  <div more-info-tab>
-			<h3 new-product-title float-left>Featured Products</h3>	 
-		  </div>	   
-		   <div product-slider> 
-			<ion-row padding>
-			<ion-col>
-<owl-carousel
-     [options]="{items: 6, dots: false, nav:true, margin: 20, navigation: true}"
-     [items]="featured_products"
-     [carouselClasses]="['owl-theme', 'sliding']">
-			  <div size-lg="2" size-md="3" *ngFor="let recent of featured_products ">	
-				<div products>
-					<div product>
-						<div product-image>
-							<div image> 
-								   <a (click)="productDetails(recent.product_id)">
-									<img *ngIf="errors.indexOf(recent.product_image) >= 0" src="assets/images/products/no_image.svg">
-									<img *ngIf="errors.indexOf(recent.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{recent.product_image}}" alt="{{recent.product_name}}">
-								   </a> 
-							   </div>
-							<div tag new *ngIf="recent?.product_quantity == 0 || errors.indexOf(recent?.product_quantity) >= 0">
-							   <span>Sold out</span>
-							</div>
-							<!-- <div tag hot *ngIf="recent?.product_quantity != 0 && errors.indexOf(recent?.product_quantity) == -1">
-							   <span>featured</span>
-							</div> 
-						</div>
-				   <div product-info text-left>
-						  <h3 name><a (click)="productDetails(recent.product_id)">{{recent.product_name}}</a></h3>
-						  <div rating rateit-small>
-						   <ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="recent?.Average_Review" [color]="'#a01616'"></ngx-stars>
-						   </div>
-						  <div description></div>
-						  <div product-price> 
-							  <span *ngIf="errors.indexOf(recent.product_sale_price) == -1 && recent.product_sale_price != recent.product_purchase_price" price> ${{recent.product_sale_price}}  </span> 
-
-		                      <span *ngIf="errors.indexOf(recent.product_sale_price) >= 0 || recent.product_sale_price == recent.product_purchase_price" price> ${{recent.product_purchase_price}}  </span> 
-
-		                      <span *ngIf="errors.indexOf(recent.product_sale_price) == -1 && recent.product_sale_price != recent.product_purchase_price" price-before-discount>${{recent.product_purchase_price}}</span>
-						  </div>
-					</div>
-				   <div cart>
-					  <div action>
-						<ul list-unstyled>
-						  <li add-cart-button btn-group>                             
-						  <ion-button [disabled]="recent?.product_quantity == 0 || errors.indexOf(recent?.product_quantity) >= 0"  *ngIf="my_cart_products.indexOf(recent.product_id) == -1" (click)="addToCart(recent.product_id,recent.product_sale_price,recent.product_purchase_price)" add-to-cart color="darkred" title="Add Cart">
-							 <ion-icon name="cart"></ion-icon> 
-						  </ion-button>
-						  <ion-button *ngIf="my_cart_products.indexOf(recent.product_id) >= 0" add-to-cart color="darkred" title="Added">
-							 <ion-icon name="checkmark"></ion-icon> 
-						  </ion-button>
-						  </li>
-						  <li lnk wishlist>
-						  <ion-button *ngIf="my_wish_products.indexOf(recent.product_id) == -1" (click)="addToWish(recent.product_id)" color="darkblue" add-to-cart title="Wishlist">
-						 	<ion-icon name="heart"></ion-icon> 
-						  </ion-button>
-						  <ion-button *ngIf="my_wish_products.indexOf(recent.product_id) >= 0" color="darkblue" add-to-cart title="Added">
-							 <ion-icon red_heart name="heart"></ion-icon> 
-						  </ion-button>  
-						  </li>
-						</ul>
-					  </div>
-					</div>
-					<p *ngIf="recent?.product_user_type != 'Admin'" vendor-name>Sold by <a>{{recent.vendor_company}}</a></p>
-					</div>			
-				</div>
-				</div>	
-				</owl-carousel> 
-				</ion-col>
-			  </ion-row>	
-			</div>	
-    </ion-card>
-
-</ion-col>
-
-<div mob-recently-viewed padding10 class="ion-hide-lg-up"  style="background: url(assets/images/cat-bg.jpg) no-repeat top center/cover;" *ngIf="featured_products != ''">
-	<h4 mob-head text-center text-uppercase>
-	Featured Products
-	</h4> 
-	<ion-row>
-	<ion-col>
-	<owl-carousel
-     [options]="{items: 2, dots: false, nav:true, margin: 20, navigation: true}"
-     [items]="featured_products"
-     [carouselClasses]="['owl-theme', 'sliding']">
-		<div size-md="4" size-sm="6" size-xs="6" size="12" *ngFor="let recent of featured_products">
-		 <ion-card  no-margin>
-	        <img routerLink="/product-details/{{recent.product_id}}" *ngIf="errors.indexOf(recent.product_image) >= 0" src="assets/images/products/no_image.svg">
-			<img routerLink="/product-details/{{recent.product_id}}" *ngIf="errors.indexOf(recent.product_image) == -1" src="{{IMAGES_URL}}/product_images/{{recent.product_image}}" alt="{{recent.product_name}}">
-		  <ion-card-content>
-		      <ion-row>
-                  <ion-col size="9">
-                    <h2 routerLink="/product-details/{{recent.product_id}}">{{recent.product_name}}</h2>
-                  </ion-col>
-                  <ion-col size="3" *ngIf="errors.indexOf(recent.product_sale_price) == -1 && recent.product_sale_price != recent.product_purchase_price">
-					<ion-badge float-right color="darkgreymb">
-                       {{(((recent.product_purchase_price-recent.product_sale_price)/recent.product_purchase_price)*100).toFixed(0)}}%
-					</ion-badge> 
-                  </ion-col>
-			  	    <ion-col size="12">
-					    <div rating>
-					      <ngx-stars [readonly]="true" [maxStars]="5" [initialStars]="recent?.Average_Review" [color]="'#a01616'"></ngx-stars>
-						</div>
-					 </ion-col>	 
-		      </ion-row>
-              <ion-row align-items-center>
-                  <ion-col size="9">
-                      <div product-price> 
-                        <span *ngIf="errors.indexOf(recent.product_sale_price) == -1 && recent.product_sale_price != recent.product_purchase_price" price> ${{recent.product_sale_price}}  </span> 
-
-	                    <span *ngIf="errors.indexOf(recent.product_sale_price) >= 0 || recent.product_sale_price == recent.product_purchase_price" price> ${{recent.product_purchase_price}}  </span> 
-
-	                    <span *ngIf="errors.indexOf(recent.product_sale_price) == -1 && recent.product_sale_price != recent.product_purchase_price" price-before-discount>${{recent.product_purchase_price}}</span>
-                       </div>
-                  </ion-col>
-                  <ion-col size="3" *ngIf="recent?.product_quantity != 0 && errors.indexOf(recent?.product_quantity) == -1">
-                    <ion-buttons  float-right *ngIf="my_cart_products.indexOf(recent.product_id) == -1" (click)="addToCart(recent.product_id,recent.product_sale_price,recent.product_purchase_price)">
-                        <ion-icon name="cart"></ion-icon>
-                    </ion-buttons>
-                    <ion-buttons float-right *ngIf="my_cart_products.indexOf(recent.product_id) >= 0">
-                        <ion-icon name="checkmark"></ion-icon>
-                    </ion-buttons>
-                  </ion-col>
-		      </ion-row>
-		  </ion-card-content>
-		</ion-card>
-	</div>
-	</owl-carousel>
-	</ion-col>
-	<ion-col size="12" text-center >
-		<ion-button color="grey2" routerLink="/products" text-capitalize>View More
-		</ion-button>
-	</ion-col>
-	</ion-row>
-</div>
-</div-->

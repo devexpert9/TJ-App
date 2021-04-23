@@ -82,10 +82,17 @@ isBrowser:any = localStorage.getItem('isBrowser');
         var userId = this.userService.encryptData(result.data.id,this.ENC_SALT);
         
         localStorage.setItem('sin_auth_token',userId);
+        localStorage.setItem('sin_auth_userId',result.data.id);
         localStorage.setItem('sin_auth_user_name',result.data.name +' '+result.data.last_name);
         localStorage.setItem('sin_auth_user_image',result.data.profile_picture);
+        localStorage.setItem('sin_auth_user_email',result.data.email);
+        localStorage.setItem('is_login','true');
         
+        localStorage.setItem('sellerSwitched','false');
+
         this.events.publish('user_logged_in:true',result.data);
+
+        localStorage.setItem('comeFrom','login');
 
         this.userService.postData({'guest_user_id': localStorage.getItem('guestUserId'), 'real_user_id': result.data.id},'replace_guestUser_to_realUser').subscribe((result1) => {
             this.globalFooService.publishSomeData({
@@ -94,7 +101,12 @@ isBrowser:any = localStorage.getItem('isBrowser');
 
             if(result.data.type == 'user')
             {
-              this.router.navigate(['/blog']);
+              if(result.data.interests == null){
+                this.router.navigate(['/interest']);
+              }
+              else{
+                this.router.navigate(['/blog']);  
+              }
             }
             else
             {

@@ -835,12 +835,12 @@ module.exports = webpackAsyncContext;
 var map = {
 	"./about-us/about-us.module": [
 		"./src/app/about-us/about-us.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~650e2931",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~ca01a433",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
 		"common",
 		"about-us-about-us-module"
 	],
@@ -854,46 +854,47 @@ var map = {
 	],
 	"./blog-detail/blog-detail.module": [
 		"./src/app/blog-detail/blog-detail.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~650e2931",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~ca01a433",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
 		"default~blog-detail-blog-detail-module~product-details-product-details-module",
 		"common",
 		"blog-detail-blog-detail-module"
 	],
 	"./blog/blog.module": [
 		"./src/app/blog/blog.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~650e2931",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~ca01a433",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
+		"default~blog-blog-module~your-account-your-account-module",
 		"common",
 		"blog-blog-module"
 	],
 	"./cart/cart.module": [
 		"./src/app/cart/cart.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~650e2931",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~ca01a433",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
 		"common",
 		"cart-cart-module"
 	],
 	"./checkout/checkout.module": [
 		"./src/app/checkout/checkout.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~650e2931",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~ca01a433",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
 		"common",
 		"checkout-checkout-module"
 	],
@@ -903,31 +904,42 @@ var map = {
 	],
 	"./contact-us/contact-us.module": [
 		"./src/app/contact-us/contact-us.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
 		"common",
 		"contact-us-contact-us-module"
 	],
 	"./faq/faq.module": [
 		"./src/app/faq/faq.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
 		"common",
 		"faq-faq-module"
 	],
 	"./featured-products/featured-products.module": [
 		"./src/app/featured-products/featured-products.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
 		"common",
 		"featured-products-featured-products-module"
 	],
 	"./filters/filters.module": [
 		"./src/app/filters/filters.module.ts",
 		"filters-filters-module"
+	],
+	"./follow/follow.module": [
+		"./src/app/follow/follow.module.ts",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
+		"common",
+		"follow-follow-module"
 	],
 	"./footer/footer.module": [
 		"./src/app/footer/footer.module.ts",
@@ -940,20 +952,31 @@ var map = {
 	],
 	"./header/header.module": [
 		"./src/app/header/header.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~650e2931",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~ca01a433",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
 		"common"
+	],
+	"./help/help.module": [
+		"./src/app/help/help.module.ts",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
+		"common",
+		"help-help-module"
 	],
 	"./home/home.module": [
 		"./src/app/home/home.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~650e2931",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~ca01a433",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
 		"common",
 		"home-home-module"
+	],
+	"./interest/interest.module": [
+		"./src/app/interest/interest.module.ts",
+		"interest-interest-module"
 	],
 	"./invoice/invoice.module": [
 		"./src/app/invoice/invoice.module.ts",
@@ -961,93 +984,113 @@ var map = {
 	],
 	"./login/login.module": [
 		"./src/app/login/login.module.ts",
-		"common",
 		"login-login-module"
 	],
 	"./messages/messages.module": [
 		"./src/app/messages/messages.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
 		"common",
 		"messages-messages-module"
 	],
 	"./notification/notification.module": [
 		"./src/app/notification/notification.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
 		"common",
 		"notification-notification-module"
 	],
 	"./order-history/order-history.module": [
 		"./src/app/order-history/order-history.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
 		"common",
 		"order-history-order-history-module"
 	],
+	"./password-instructions/password-instructions.module": [
+		"./src/app/password-instructions/password-instructions.module.ts",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
+		"common",
+		"password-instructions-password-instructions-module"
+	],
 	"./privacy-policy/privacy-policy.module": [
 		"./src/app/privacy-policy/privacy-policy.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~650e2931",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~ca01a433",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
 		"common",
 		"privacy-policy-privacy-policy-module"
 	],
 	"./product-compare/product-compare.module": [
 		"./src/app/product-compare/product-compare.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
 		"common",
 		"product-compare-product-compare-module"
 	],
 	"./product-details/product-details.module": [
 		"./src/app/product-details/product-details.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~650e2931",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~ca01a433",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
 		"default~blog-detail-blog-detail-module~product-details-product-details-module",
 		"common",
 		"product-details-product-details-module"
 	],
 	"./products/products.module": [
 		"./src/app/products/products.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~650e2931",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~ca01a433",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
 		"common",
 		"products-products-module"
 	],
 	"./public-wishlist/public-wishlist.module": [
 		"./src/app/public-wishlist/public-wishlist.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
 		"common",
 		"public-wishlist-public-wishlist-module"
 	],
 	"./recently-viewed/recently-viewed.module": [
 		"./src/app/recently-viewed/recently-viewed.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
 		"common",
 		"recently-viewed-recently-viewed-module"
+	],
+	"./register-seller/register-seller.module": [
+		"./src/app/register-seller/register-seller.module.ts",
+		"register-seller-register-seller-module"
 	],
 	"./register/register.module": [
 		"./src/app/register/register.module.ts",
@@ -1063,21 +1106,32 @@ var map = {
 	],
 	"./reviews/reviews.module": [
 		"./src/app/reviews/reviews.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~650e2931",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~ca01a433",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
 		"common",
 		"reviews-reviews-module"
 	],
+	"./search/search.module": [
+		"./src/app/search/search.module.ts",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
+		"common",
+		"search-search-module"
+	],
 	"./sell-on-siniyetu/sell-on-siniyetu.module": [
 		"./src/app/sell-on-siniyetu/sell-on-siniyetu.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
 		"common",
 		"sell-on-siniyetu-sell-on-siniyetu-module"
 	],
@@ -1087,32 +1141,43 @@ var map = {
 	],
 	"./sitemap/sitemap.module": [
 		"./src/app/sitemap/sitemap.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
 		"common",
 		"sitemap-sitemap-module"
 	],
 	"./terms-conditions/terms-conditions.module": [
 		"./src/app/terms-conditions/terms-conditions.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
 		"common",
 		"terms-conditions-terms-conditions-module"
 	],
 	"./thankyou/thankyou.module": [
 		"./src/app/thankyou/thankyou.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~650e2931",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~ca01a433",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
 		"common",
 		"thankyou-thankyou-module"
+	],
+	"./trending/trending.module": [
+		"./src/app/trending/trending.module.ts",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
+		"common",
+		"trending-trending-module"
 	],
 	"./update-wishlist/update-wishlist.module": [
 		"./src/app/update-wishlist/update-wishlist.module.ts",
@@ -1120,7 +1185,7 @@ var map = {
 	],
 	"./upsell-products/upsell-products.module": [
 		"./src/app/upsell-products/upsell-products.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
 		"common",
 		"upsell-products-upsell-products-module"
 	],
@@ -1130,11 +1195,11 @@ var map = {
 	],
 	"./vendor-request/vendor-request.module": [
 		"./src/app/vendor-request/vendor-request.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~650e2931",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
 		"common",
 		"vendor-request-vendor-request-module"
 	],
@@ -1144,10 +1209,10 @@ var map = {
 	],
 	"./wishlist-checkout/wishlist-checkout.module": [
 		"./src/app/wishlist-checkout/wishlist-checkout.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
 		"common",
 		"wishlist-checkout-wishlist-checkout-module"
 	],
@@ -1157,21 +1222,24 @@ var map = {
 	],
 	"./wishlist/wishlist.module": [
 		"./src/app/wishlist/wishlist.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~650e2931",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~ca01a433",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
 		"common",
 		"wishlist-wishlist-module"
 	],
 	"./your-account/your-account.module": [
 		"./src/app/your-account/your-account.module.ts",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~4cebd84d",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~823697fb",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~7c83e344",
-		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~e4042699",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a5bbd172",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~34921314",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~00ee6ee8",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~a2712781",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~07cea089",
+		"default~about-us-about-us-module~blog-blog-module~blog-detail-blog-detail-module~cart-cart-module~ch~3d8cd998",
+		"default~blog-blog-module~your-account-your-account-module",
 		"common",
 		"your-account-your-account-module"
 	]
@@ -1217,7 +1285,7 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'blog',
         pathMatch: 'full'
     },
     {
@@ -1269,7 +1337,14 @@ var routes = [
     { path: 'wishlist-checkout', loadChildren: './wishlist-checkout/wishlist-checkout.module#WishlistCheckoutPageModule' },
     { path: 'video-call', loadChildren: './video-call/video-call.module#VideoCallPageModule' },
     { path: 'public-wishlist', loadChildren: './public-wishlist/public-wishlist.module#PublicWishlistPageModule' },
-    { path: 'reviews', loadChildren: './reviews/reviews.module#ReviewsPageModule' }
+    { path: 'reviews', loadChildren: './reviews/reviews.module#ReviewsPageModule' },
+    { path: 'trending', loadChildren: './trending/trending.module#TrendingPageModule' },
+    { path: 'help', loadChildren: './help/help.module#HelpPageModule' },
+    { path: 'register-seller', loadChildren: './register-seller/register-seller.module#RegisterSellerPageModule' },
+    { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
+    { path: 'follow', loadChildren: './follow/follow.module#FollowPageModule' },
+    { path: 'interest', loadChildren: './interest/interest.module#InterestPageModule' },
+    { path: 'password-instructions', loadChildren: './password-instructions/password-instructions.module#PasswordInstructionsPageModule' }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -1479,6 +1554,12 @@ var AppComponent = /** @class */ (function () {
         this.events.unsubscribe('call_logout_head:true');
         this.events.unsubscribe('user_logged_in:true');
     };
+    AppComponent.prototype.ionViewWillLoad = function () {
+        alert('hjchgj');
+        if (localStorage.getItem('comeFrom') == 'register') {
+            this.router.navigate(['/interest']);
+        }
+    };
     AppComponent.prototype.checkLogin = function () {
         var token = localStorage.getItem('sin_auth_token');
         if (this.errors.indexOf(token) == -1) {
@@ -1553,32 +1634,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
-/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _invoice_invoice_page__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./invoice/invoice.page */ "./src/app/invoice/invoice.page.ts");
-/* harmony import */ var _choose_location_choose_location_page__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./choose-location/choose-location.page */ "./src/app/choose-location/choose-location.page.ts");
-/* harmony import */ var _wishlist_listing_wishlist_listing_page__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./wishlist-listing/wishlist-listing.page */ "./src/app/wishlist-listing/wishlist-listing.page.ts");
-/* harmony import */ var _update_wishlist_update_wishlist_page__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./update-wishlist/update-wishlist.page */ "./src/app/update-wishlist/update-wishlist.page.ts");
-/* harmony import */ var _auto_popup_auto_popup_page__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./auto-popup/auto-popup.page */ "./src/app/auto-popup/auto-popup.page.ts");
-/* harmony import */ var _filters_filters_page__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./filters/filters.page */ "./src/app/filters/filters.page.ts");
-/* harmony import */ var _video_call_video_call_page__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./video-call/video-call.page */ "./src/app/video-call/video-call.page.ts");
-/* harmony import */ var _services_CustomRequestOptions__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/CustomRequestOptions */ "./src/app/services/CustomRequestOptions.ts");
-/* harmony import */ var angular_6_social_login__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! angular-6-social-login */ "./node_modules/angular-6-social-login/angular-6-social-login.umd.js");
-/* harmony import */ var angular_6_social_login__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(angular_6_social_login__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @ionic-native/facebook/ngx */ "./node_modules/@ionic-native/facebook/ngx/index.js");
-/* harmony import */ var _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @ionic-native/google-plus/ngx */ "./node_modules/@ionic-native/google-plus/ngx/index.js");
-/* harmony import */ var ng4_geoautocomplete__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ng4-geoautocomplete */ "./node_modules/ng4-geoautocomplete/index.js");
-/* harmony import */ var _ionic_native_paypal_ngx__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @ionic-native/paypal/ngx */ "./node_modules/@ionic-native/paypal/ngx/index.js");
-/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
-/* harmony import */ var ng_socket_io__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ng-socket-io */ "./node_modules/ng-socket-io/dist/index.js");
-/* harmony import */ var ng_socket_io__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(ng_socket_io__WEBPACK_IMPORTED_MODULE_25__);
-/* harmony import */ var _ionic_native_speech_recognition_ngx__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @ionic-native/speech-recognition/ngx */ "./node_modules/@ionic-native/speech-recognition/ngx/index.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
+/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _invoice_invoice_page__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./invoice/invoice.page */ "./src/app/invoice/invoice.page.ts");
+/* harmony import */ var _choose_location_choose_location_page__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./choose-location/choose-location.page */ "./src/app/choose-location/choose-location.page.ts");
+/* harmony import */ var _wishlist_listing_wishlist_listing_page__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./wishlist-listing/wishlist-listing.page */ "./src/app/wishlist-listing/wishlist-listing.page.ts");
+/* harmony import */ var _update_wishlist_update_wishlist_page__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./update-wishlist/update-wishlist.page */ "./src/app/update-wishlist/update-wishlist.page.ts");
+/* harmony import */ var _auto_popup_auto_popup_page__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./auto-popup/auto-popup.page */ "./src/app/auto-popup/auto-popup.page.ts");
+/* harmony import */ var _filters_filters_page__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./filters/filters.page */ "./src/app/filters/filters.page.ts");
+/* harmony import */ var _video_call_video_call_page__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./video-call/video-call.page */ "./src/app/video-call/video-call.page.ts");
+/* harmony import */ var _services_CustomRequestOptions__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/CustomRequestOptions */ "./src/app/services/CustomRequestOptions.ts");
+/* harmony import */ var angular_6_social_login__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! angular-6-social-login */ "./node_modules/angular-6-social-login/angular-6-social-login.umd.js");
+/* harmony import */ var angular_6_social_login__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(angular_6_social_login__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @ionic-native/facebook/ngx */ "./node_modules/@ionic-native/facebook/ngx/index.js");
+/* harmony import */ var _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @ionic-native/google-plus/ngx */ "./node_modules/@ionic-native/google-plus/ngx/index.js");
+/* harmony import */ var ng4_geoautocomplete__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ng4-geoautocomplete */ "./node_modules/ng4-geoautocomplete/index.js");
+/* harmony import */ var _ionic_native_paypal_ngx__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @ionic-native/paypal/ngx */ "./node_modules/@ionic-native/paypal/ngx/index.js");
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
+/* harmony import */ var ng_socket_io__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ng-socket-io */ "./node_modules/ng-socket-io/dist/index.js");
+/* harmony import */ var ng_socket_io__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(ng_socket_io__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var _ionic_native_speech_recognition_ngx__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @ionic-native/speech-recognition/ngx */ "./node_modules/@ionic-native/speech-recognition/ngx/index.js");
+/* harmony import */ var _password_instructions_password_instructions_page__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./password-instructions/password-instructions.page */ "./src/app/password-instructions/password-instructions.page.ts");
+/* harmony import */ var ionic_selectable__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ionic-selectable */ "./node_modules/ionic-selectable/fesm2015/ionic-selectable.js");
 
 
 
@@ -1605,17 +1687,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+// import { CKEditorModule } from 'ng2-ckeditor';
 
 var config = { url: 'https://siniyetu.tk:8080', options: {} };
 function getAuthServiceConfigs() {
-    var config = new angular_6_social_login__WEBPACK_IMPORTED_MODULE_19__["AuthServiceConfig"]([
+    var config = new angular_6_social_login__WEBPACK_IMPORTED_MODULE_18__["AuthServiceConfig"]([
         {
-            id: angular_6_social_login__WEBPACK_IMPORTED_MODULE_19__["FacebookLoginProvider"].PROVIDER_ID,
-            provider: new angular_6_social_login__WEBPACK_IMPORTED_MODULE_19__["FacebookLoginProvider"]("2375309316091367")
+            id: angular_6_social_login__WEBPACK_IMPORTED_MODULE_18__["FacebookLoginProvider"].PROVIDER_ID,
+            provider: new angular_6_social_login__WEBPACK_IMPORTED_MODULE_18__["FacebookLoginProvider"]("2375309316091367")
         },
         {
-            id: angular_6_social_login__WEBPACK_IMPORTED_MODULE_19__["GoogleLoginProvider"].PROVIDER_ID,
-            provider: new angular_6_social_login__WEBPACK_IMPORTED_MODULE_19__["GoogleLoginProvider"]("498511959569-hqhf4fm8no3sjn71rpd9g412n635invo.apps.googleusercontent.com")
+            id: angular_6_social_login__WEBPACK_IMPORTED_MODULE_18__["GoogleLoginProvider"].PROVIDER_ID,
+            provider: new angular_6_social_login__WEBPACK_IMPORTED_MODULE_18__["GoogleLoginProvider"]("498511959569-hqhf4fm8no3sjn71rpd9g412n635invo.apps.googleusercontent.com")
         }
     ]);
     return config;
@@ -1625,35 +1709,37 @@ var AppModule = /** @class */ (function () {
     }
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"], _choose_location_choose_location_page__WEBPACK_IMPORTED_MODULE_12__["ChooseLocationPage"], _wishlist_listing_wishlist_listing_page__WEBPACK_IMPORTED_MODULE_13__["WishlistListingPage"], _filters_filters_page__WEBPACK_IMPORTED_MODULE_16__["FiltersPage"], _auto_popup_auto_popup_page__WEBPACK_IMPORTED_MODULE_15__["AutoPopupPage"], _invoice_invoice_page__WEBPACK_IMPORTED_MODULE_11__["InvoicePage"], _update_wishlist_update_wishlist_page__WEBPACK_IMPORTED_MODULE_14__["UpdateWishlistPage"], _video_call_video_call_page__WEBPACK_IMPORTED_MODULE_17__["VideoCallPage"]],
-            entryComponents: [_choose_location_choose_location_page__WEBPACK_IMPORTED_MODULE_12__["ChooseLocationPage"], _wishlist_listing_wishlist_listing_page__WEBPACK_IMPORTED_MODULE_13__["WishlistListingPage"], _filters_filters_page__WEBPACK_IMPORTED_MODULE_16__["FiltersPage"], _auto_popup_auto_popup_page__WEBPACK_IMPORTED_MODULE_15__["AutoPopupPage"], _invoice_invoice_page__WEBPACK_IMPORTED_MODULE_11__["InvoicePage"], _update_wishlist_update_wishlist_page__WEBPACK_IMPORTED_MODULE_14__["UpdateWishlistPage"], _video_call_video_call_page__WEBPACK_IMPORTED_MODULE_17__["VideoCallPage"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _choose_location_choose_location_page__WEBPACK_IMPORTED_MODULE_11__["ChooseLocationPage"], _wishlist_listing_wishlist_listing_page__WEBPACK_IMPORTED_MODULE_12__["WishlistListingPage"], _password_instructions_password_instructions_page__WEBPACK_IMPORTED_MODULE_26__["PasswordInstructionsPage"], _filters_filters_page__WEBPACK_IMPORTED_MODULE_15__["FiltersPage"], _auto_popup_auto_popup_page__WEBPACK_IMPORTED_MODULE_14__["AutoPopupPage"], _invoice_invoice_page__WEBPACK_IMPORTED_MODULE_10__["InvoicePage"], _update_wishlist_update_wishlist_page__WEBPACK_IMPORTED_MODULE_13__["UpdateWishlistPage"], _video_call_video_call_page__WEBPACK_IMPORTED_MODULE_16__["VideoCallPage"]],
+            entryComponents: [_choose_location_choose_location_page__WEBPACK_IMPORTED_MODULE_11__["ChooseLocationPage"], _wishlist_listing_wishlist_listing_page__WEBPACK_IMPORTED_MODULE_12__["WishlistListingPage"], _password_instructions_password_instructions_page__WEBPACK_IMPORTED_MODULE_26__["PasswordInstructionsPage"], _filters_filters_page__WEBPACK_IMPORTED_MODULE_15__["FiltersPage"], _auto_popup_auto_popup_page__WEBPACK_IMPORTED_MODULE_14__["AutoPopupPage"], _invoice_invoice_page__WEBPACK_IMPORTED_MODULE_10__["InvoicePage"], _update_wishlist_update_wishlist_page__WEBPACK_IMPORTED_MODULE_13__["UpdateWishlistPage"], _video_call_video_call_page__WEBPACK_IMPORTED_MODULE_16__["VideoCallPage"]],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
-                _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"],
-                _angular_http__WEBPACK_IMPORTED_MODULE_7__["HttpModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"],
-                angular_6_social_login__WEBPACK_IMPORTED_MODULE_19__["SocialLoginModule"],
-                ng4_geoautocomplete__WEBPACK_IMPORTED_MODULE_22__["Ng4GeoautocompleteModule"].forRoot(),
-                ng_socket_io__WEBPACK_IMPORTED_MODULE_25__["SocketIoModule"].forRoot(config),
-                _agm_core__WEBPACK_IMPORTED_MODULE_24__["AgmCoreModule"].forRoot({
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonicModule"].forRoot(),
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"],
+                _angular_http__WEBPACK_IMPORTED_MODULE_6__["HttpModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"],
+                // CKEditorModule,
+                ionic_selectable__WEBPACK_IMPORTED_MODULE_27__["IonicSelectableModule"],
+                angular_6_social_login__WEBPACK_IMPORTED_MODULE_18__["SocialLoginModule"],
+                ng4_geoautocomplete__WEBPACK_IMPORTED_MODULE_21__["Ng4GeoautocompleteModule"].forRoot(),
+                ng_socket_io__WEBPACK_IMPORTED_MODULE_24__["SocketIoModule"].forRoot(config),
+                _agm_core__WEBPACK_IMPORTED_MODULE_23__["AgmCoreModule"].forRoot({
                     apiKey: 'AIzaSyAIkAmlsGxoP63HLptMlKqpbgAv7IZBKM4',
                     libraries: ['places']
                 })
             ],
             providers: [
-                _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
-                _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
-                _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_20__["Facebook"],
-                _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_21__["GooglePlus"],
-                _ionic_native_paypal_ngx__WEBPACK_IMPORTED_MODULE_23__["PayPal"],
-                _ionic_native_speech_recognition_ngx__WEBPACK_IMPORTED_MODULE_26__["SpeechRecognition"],
-                { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] },
-                { provide: _angular_http__WEBPACK_IMPORTED_MODULE_7__["RequestOptions"], useClass: _services_CustomRequestOptions__WEBPACK_IMPORTED_MODULE_18__["CustomRequestOptions"] },
-                { provide: angular_6_social_login__WEBPACK_IMPORTED_MODULE_19__["AuthServiceConfig"], useFactory: getAuthServiceConfigs }
+                _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__["StatusBar"],
+                _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__["SplashScreen"],
+                _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_19__["Facebook"],
+                _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_20__["GooglePlus"],
+                _ionic_native_paypal_ngx__WEBPACK_IMPORTED_MODULE_22__["PayPal"],
+                _ionic_native_speech_recognition_ngx__WEBPACK_IMPORTED_MODULE_25__["SpeechRecognition"],
+                //{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+                { provide: _angular_http__WEBPACK_IMPORTED_MODULE_6__["RequestOptions"], useClass: _services_CustomRequestOptions__WEBPACK_IMPORTED_MODULE_17__["CustomRequestOptions"] },
+                { provide: angular_6_social_login__WEBPACK_IMPORTED_MODULE_18__["AuthServiceConfig"], useFactory: getAuthServiceConfigs }
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -1670,7 +1756,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button class=\"btnclose-pop\" (click)=\"close()\" type=\"button\" end><ion-icon name=\"close\"></ion-icon></button>\n<div class=\"overlay\" style=\"\">\n\t<img src=\"assets/images/modal2.jpg\" alt=\"\">\n\t<div class=\"text-center\" style=\"color:#23303e;position: absolute; left: 50%; transform: translate(-50%, -50%); top: 50%; bottom: initial;background:rgba(0,0,0.50);padding:20px 15px\">\n\t\t<h3 style=\"font-size:34px\" class=\" p-b-10\">WELCOME TO OUR STORE</h3>\n\t\t<p style=\"font-size:34px; font-weight: 600\" class=\"flat-off p-b-10\">Flat 10% Off</p>\n\t\t<p class=\"usecouponcode p-b-10\" style=\"font-size:16px\">Use Coupon Code &nbsp;<strong>get10off</strong></p>\n\t\t<a (click)=\"productsDetails()\" class=\"btn btn-primary\">\n\t\t\tShop Now\n\t\t</a> \n\t</div>\n</div>\n"
+module.exports = "<button class=\"btnclose-pop\" (click)=\"close()\" type=\"button\" end style=\"position:fixed;right:0\">\n\t<ion-icon name=\"close\"></ion-icon>\n</button>\n<div class=\"overlay\" style=\"background:#000;padding:60px;float:left;width: 100%\">\n\t<h1 style=\"font-size: 30px;color: #fff;border-bottom: 1px solid;margin: 0 0 10px 0;\">\n\t\tPlease select your interest\n\t</h1>\n\n\t<ion-item *ngFor=\"let cat of categories;\">\n    \t<ion-label>{{cat?.cat_name}}</ion-label>\n    \t<ion-checkbox color=\"dark\" [(ngModel)]=\"cat.checked\"></ion-checkbox>\n\t</ion-item>\n\n\t<!-- <div *ngFor=\"let cat of categories;\" style=\"float:left;margin:0 20px 0 0;width: 25%\">\n\t\t<h3 class=\" p-b-10\">\n\t\t\t<input name=\"cat[]\" type=\"checkbox\" value=\"{{cat?.cat_id}}\" style=\"margin:0 5px 0 0\">\n\t\t\t{{cat?.cat_name}}\n\t\t</h3>\n\t</div> -->\n\n\t<div style=\"clear: both;margin: 25px 0 0 0;position: relative;display: inline-block;width: 100%;\">\n\t\t<a href=\"javascript:void(0)\" class=\"btn-md btn-theme btn-block\" (click)=\"login(cat)\"style=\"background: #4e7f9a;color: #fff;width: 30%;margin: 0 auto;padding: 7px 0px;text-align: center;\">\n\t\t\tSubmit Your Interest\n\t\t</a>\n\t</div>\n</div>\n"
 
 /***/ }),
 
@@ -1706,14 +1792,33 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AutoPopupPage = /** @class */ (function () {
-    function AutoPopupPage(modalCtrl, userService, loadingController, router) {
+    function AutoPopupPage(cd, modalCtrl, userService, loadingController, router) {
+        this.cd = cd;
         this.modalCtrl = modalCtrl;
         this.userService = userService;
         this.loadingController = loadingController;
         this.router = router;
+        this.errors = ['', null, undefined];
         this.getPopup();
     }
     AutoPopupPage.prototype.ngOnInit = function () {
+    };
+    AutoPopupPage.prototype.ionViewDidEnter = function () {
+        this.getCategories();
+    };
+    AutoPopupPage.prototype.getCategories = function () {
+        var _this = this;
+        this.userService.postData({}, 'getAllCategories').subscribe(function (result) {
+            _this.stopLoading();
+            _this.categories = result.data;
+            _this.cd.detectChanges();
+        }, function (err) {
+            _this.stopLoading();
+            _this.categories = [];
+        });
+    };
+    AutoPopupPage.prototype.login = function (cat) {
+        console.log(cat);
     };
     AutoPopupPage.prototype.close = function () {
         this.modalCtrl.dismiss();
@@ -1781,7 +1886,7 @@ var AutoPopupPage = /** @class */ (function () {
             template: __webpack_require__(/*! ./auto-popup.page.html */ "./src/app/auto-popup/auto-popup.page.html"),
             styles: [__webpack_require__(/*! ./auto-popup.page.scss */ "./src/app/auto-popup/auto-popup.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _services_user_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _services_user_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], AutoPopupPage);
     return AutoPopupPage;
 }());
@@ -2151,7 +2256,7 @@ var FiltersPage = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n  \t<ion-buttons slot=\"end\" (click)=\"closeModal()\">\n      <ion-icon name=\"close\"></ion-icon>\n    </ion-buttons>\n    <ion-title>Invoice</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n<div class=\"invoic-ia\">\n\t<div class=\"row mb-15\">\n\t\t<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-4\">\n\t\t\t<img src=\"assets/images/sign-logo-dark.png\" alt=\"Siniyetu\" width=\"100px\">\n\t\t</div>\n\t\t<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-8 pt-10\">\n\t\t\t<b class=\"pull-right font-smalla\">\n\t\t\t\tOrder No: {{order?.rand_order_id}}\n\t\t\t</b>\n\t\t\t<br>\n\t\t\t<b class=\"pull-right font-smalla\">\n\t\t\t\tDate : {{order?.order_date | date : 'd MMM y'}}\n\t\t\t</b>\n\t\t\t<b class=\"pull-right font-smalla\">\n\t\t\t\tPayment Method : {{order?.payment_method == 'cash' ? 'Cash on delivery' : 'Card payment'}}\n\t\t\t</b>\n\t\t</div>\n\t</div>\n    <div class=\"payment-box\">\n\t\t<h1 class=\"payment-head\">Payment Invoice</h1>\n\t\t<div class=\"box-invoice-shw\">\n\t\t\t<div class=\"itrm-invos\" *ngFor=\"let product of order?.order_products_data\">\n\t\t\t\t<h4> {{product.product_name}} </h4>\n        <ng-container *ngIf=\"product.product_variations.length > 0\">\n          <span *ngFor=\"let variation of product.product_variations;\">\n            {{variation?.name}}: {{variation?.value}}\n          </span>\n        </ng-container>\n\t\t\t\t<div class=\"dt-time\">\n\t\t\t\t\t<span><b> Quantity : </b> {{product.product_quantity}} </span>\n\t\t\t\t\t<span><b> Unit Cost : </b>\n\t\t\t\t\t\t<span *ngIf=\"errors.indexOf(product.sale_price) == -1 && product.product_sale_price != product.product_purchase_price && product.is_variation == 0\">${{product.product_sale_price}}</span>\n\n\t\t\t\t\t\t<span *ngIf=\"(errors.indexOf(product.sale_price) >= 0 || product.product_sale_price == product.product_purchase_price) && product.is_variation == 0\">${{product.product_purchase_price}}</span>\n            <span *ngIf=\"product.is_variation == 1\">${{product.product_price}}</span>\n\n\t\t\t\t\t\t<!-- <span>${{subtotalPrice(product)}}</span> -->\n\t\t\t\t\t</span>\n\n\t\t\t\t\t<span><b> Discount Per Unit: </b>\n\t\t\t\t\t\t<!-- <span *ngIf=\"errors.indexOf(product.sale_price) == -1 && product.sale_price != product.purchase_price\">${{product.sale_price}}</span> -->\n\t\t\t\t\t\t<span class=\"discountColor\" *ngIf=\"product.discount_per_piece != null && product.discount_type == '%' && product.is_variation == 0\">{{product.discount_per_piece}}% </span>\n\n\t\t\t\t\t\t<span class=\"discountColor\" *ngIf=\"product.discount_per_piece != null && product.discount_type != '%' && product.is_variation == 0\">${{product.discount_per_piece}} </span>\n\t\t\t\t\t</span>\n\n\t\t\t\t</div>\n\t\t\t\t<div class=\"tootl-cst\">\n\t\t\t\t\t<span><b> Total : </b>\n\t\t\t\t\t\t<!-- <span *ngIf=\"errors.indexOf(product.sale_price) == -1 && product.sale_price != product.purchase_price\">${{product.product_quantity*product.sale_price}}</span> -->\n\t\t\t\t\t\t<span>${{grandTotalPrice(product)}}</span>\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"clearfix\"></div>\n\t\t<div class=\"table-responsive tbl-brs\">\n\t\t\t<table class=\"table table-bordered  hide-smal-s\">\n\t\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th>Sr. No.</th>\n\t\t\t\t\t\t<th>Item</th>\n\t\t\t\t\t\t<th>Quantity</th>\n\t\t\t\t\t\t<th>Unit Cost</th>\n\t\t\t\t\t\t<th>Discount Per Unit</th>\n\t\t\t\t\t\t<th>Total</th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr *ngFor=\"let product of order?.order_products_data; let index = index \">\n\t\t\t\t\t\t<td>{{index+1}}</td>\n\t\t\t\t\t\t<td>{{product.product_name}}\n\t\t\t\t\t\t\t<ng-container *ngIf=\"product.product_variations.length > 0\">\n\t\t\t\t                <br><span *ngFor=\"let variation of product.product_variations;\">\n\t\t\t\t                  {{variation?.name}}: {{variation?.value}}\n\t\t\t\t                </span>\n\t\t\t              \t</ng-container>\n\t          \t\t\t</td>\n\t\t\t\t\t\t<td>{{product.product_quantity}}</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<span *ngIf=\"errors.indexOf(product.product_sale_price) == -1 && product.product_sale_price != product.product_purchase_price  && product.is_variation == 0\">${{product.product_sale_price}}</span>\n\n\t\t\t\t\t\t\t<span *ngIf=\"(errors.indexOf(product.product_sale_price) >= 0 || product.product_sale_price == product.product_purchase_price)  && product.is_variation == 0\">${{product.product_purchase_price}}</span>\n              <span *ngIf=\"product.is_variation == 1\">${{product.product_price}}</span>\n\n            </td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<span class=\"discountColor\" *ngIf=\"product.discount_per_piece != null && product.discount_type == '%'  && product.is_variation == 0\">{{product.discount_per_piece}}% </span>\n\n\t\t\t\t\t\t\t<span class=\"discountColor\" *ngIf=\"product.discount_per_piece != null && product.discount_type != '%'  && product.is_variation == 0\">${{product.discount_per_piece}} </span>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<!-- <span *ngIf=\"errors.indexOf(product.sale_price) == -1 && product.sale_price != product.purchase_price\">${{product.product_quantity*product.sale_price}}</span> -->\n\t\t\t\t\t\t\t<span>${{grandTotalPrice(product)}}</span>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t\t<div class=\"cost-sum shopping-cart col-sm-6 col-sm-offset-6\">\n\t\t\t\t<div class=\"table-responsive cart-shopping-total\">\n\t\t\t\t\t<table class=\"table\" border=\"0\">\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td><b>Sub Total Amount</b></td>\n\t\t\t\t\t\t\t\t<td>${{total_payable_price}}</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr *ngIf=\"order.coupon_data != ''\">\n\t\t\t\t\t\t\t\t<td><b>Coupon Applied</b></td>\n\t\t\t\t\t\t\t\t<td>{{order.coupon_data[0].coupon_code}}</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr *ngIf=\"order.coupon_data != ''\">\n\t\t\t\t\t\t\t\t<td  *ngIf=\"order.coupon_data[0].discount_type == 'Amount'\"><b>Discount <span class=\"discountColor\">({{order.coupon_data[0].discount_value}}%)</span></b></td>\n\t\t\t\t\t\t\t\t<td *ngIf=\"order.coupon_data[0].discount_type == 'Amount'\">\n\t\t\t\t\t\t\t\t<b>Discount <span class=\"discountColor\">(${{order.coupon_data[0].discount_value}})</span></b></td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td><b>Tax</b></td>\n\t\t\t\t\t\t\t\t<td>$0</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td><b>Shipping</b></td>\n\t\t\t\t\t\t\t\t<td>$0</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr class=\"cart-grand-total\">\n\t\t\t\t\t\t\t\t<td><b style=\"font-size:16px;\">Grand Total</b></td>\n\t\t\t\t\t\t\t\t<td><b style=\"font-size:16px;\">${{order?.total_amount.toFixed(2)}}</b></td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n    <div class=\"row\">\n\t\t<div class=\"col-lg-12 col-md-12 col-sm-12\">\n\t\t<!--Panel heading-->\n\t\t\t<div class=\"payment-box\">\n\t\t\t\t<h1 class=\"payment-head\">Client Information</h1>\n\t\t\t\t<!--List group-->\n\t\t\t\t<div class=\"table-responsive\">\n\t\t\t\t\t<table class=\"table table-bordered\" border=\"0\">\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t <tr>\n\t\t\t\t\t\t\t<td><b>First Name</b></td>\n\t\t\t\t\t\t\t<td>{{order?.address_first_name}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><b>Last Name</b></td>\n\t\t\t\t\t\t\t<td>{{order?.address_last_name}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<!-- <tr>\n\t\t\t\t\t\t\t<td><b>E-mail</b></td>\n\t\t\t\t\t\t\t<td>{{order?.address_first_name}}</td>\n\t\t\t\t\t\t</tr> -->\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><b>Phone</b></td>\n\t\t\t\t\t\t\t<td>{{order?.address_phone}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><b>Address</b></td>\n\t\t\t\t\t\t\t<td>{{order?.full_address}} </td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><b>City</b></td>\n\t\t\t\t\t\t\t<td>{{order?.address_city}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><b>State</b></td>\n\t\t\t\t\t\t\t<td>{{order?.address_state}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><b>Country</b></td>\n\t\t\t\t\t\t\t<td>{{order?.country_name}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><b>Zipcode</b></td>\n\t\t\t\t\t\t\t<td>{{order?.address_zip_code}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n  \t<ion-buttons slot=\"end\" (click)=\"closeModal()\">\n      <ion-icon name=\"close\"></ion-icon>\n    </ion-buttons>\n    <ion-title>Invoice</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n<div class=\"invoic-ia\">\n\t<div class=\"row mb-15\">\n\t\t<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-4\">\n\t\t\t<img src=\"assets/img/logo.png\" alt=\"Siniyetu\" width=\"100px\">\n\t\t</div>\n\t\t<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-8 pt-10\">\n\t\t\t<b class=\"pull-right font-smalla\">\n\t\t\t\tOrder No: {{order?.rand_order_id}}\n\t\t\t</b>\n\t\t\t<br>\n\t\t\t<b class=\"pull-right font-smalla\">\n\t\t\t\tDate : {{order?.order_date | date : 'd MMM y'}}\n\t\t\t</b>\n\t\t\t<b class=\"pull-right font-smalla\">\n\t\t\t\tPayment Method : {{order?.payment_method == 'cash' ? 'Cash on delivery' : 'Card payment'}}\n\t\t\t</b>\n\t\t</div>\n\t</div>\n    <div class=\"payment-box\">\n\t\t<h1 class=\"payment-head\">Payment Invoice</h1>\n\t\t<div class=\"box-invoice-shw\">\n\t\t\t<div class=\"itrm-invos\" *ngFor=\"let product of order?.order_products_data\">\n\t\t\t\t<h4> {{product.product_name}} </h4>\n        <ng-container *ngIf=\"product.product_variations.length > 0\">\n          <span *ngFor=\"let variation of product.product_variations;\">\n            {{variation?.name}}: {{variation?.value}}\n          </span>\n        </ng-container>\n\t\t\t\t<div class=\"dt-time\">\n\t\t\t\t\t<span><b> Quantity : </b> {{product.product_quantity}} </span>\n\t\t\t\t\t<span><b> Unit Cost : </b>\n\t\t\t\t\t\t<span *ngIf=\"errors.indexOf(product.sale_price) == -1 && product.product_sale_price != product.product_purchase_price && product.is_variation == 0\">${{product.product_sale_price}}</span>\n\n\t\t\t\t\t\t<span *ngIf=\"(errors.indexOf(product.sale_price) >= 0 || product.product_sale_price == product.product_purchase_price) && product.is_variation == 0\">${{product.product_purchase_price}}</span>\n            <span *ngIf=\"product.is_variation == 1\">${{product.product_price}}</span>\n\n\t\t\t\t\t\t<!-- <span>${{subtotalPrice(product)}}</span> -->\n\t\t\t\t\t</span>\n\n\t\t\t\t\t<span><b> Discount Per Unit: </b>\n\t\t\t\t\t\t<!-- <span *ngIf=\"errors.indexOf(product.sale_price) == -1 && product.sale_price != product.purchase_price\">${{product.sale_price}}</span> -->\n\t\t\t\t\t\t<span class=\"discountColor\" *ngIf=\"product.discount_per_piece != null && product.discount_type == '%' && product.is_variation == 0\">{{product.discount_per_piece}}% </span>\n\n\t\t\t\t\t\t<span class=\"discountColor\" *ngIf=\"product.discount_per_piece != null && product.discount_type != '%' && product.is_variation == 0\">${{product.discount_per_piece}} </span>\n\t\t\t\t\t</span>\n\n\t\t\t\t</div>\n\t\t\t\t<div class=\"tootl-cst\">\n\t\t\t\t\t<span><b> Total : </b>\n\t\t\t\t\t\t<!-- <span *ngIf=\"errors.indexOf(product.sale_price) == -1 && product.sale_price != product.purchase_price\">${{product.product_quantity*product.sale_price}}</span> -->\n\t\t\t\t\t\t<span>${{grandTotalPrice(product)}}</span>\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"clearfix\"></div>\n\t\t<div class=\"table-responsive tbl-brs\">\n\t\t\t<table class=\"table table-bordered  hide-smal-s\">\n\t\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th>Sr. No.</th>\n\t\t\t\t\t\t<th>Item</th>\n\t\t\t\t\t\t<th>Quantity</th>\n\t\t\t\t\t\t<th>Unit Cost</th>\n\t\t\t\t\t\t<th>Discount Per Unit</th>\n\t\t\t\t\t\t<th>Total</th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr *ngFor=\"let product of order?.order_products_data; let index = index \">\n\t\t\t\t\t\t<td>{{index+1}}</td>\n\t\t\t\t\t\t<td>{{product.product_name}}\n\t\t\t\t\t\t\t<ng-container *ngIf=\"product.product_variations.length > 0\">\n\t\t\t\t                <br><span *ngFor=\"let variation of product.product_variations;\">\n\t\t\t\t                  {{variation?.name}}: {{variation?.value}}\n\t\t\t\t                </span>\n\t\t\t              \t</ng-container>\n\t          \t\t\t</td>\n\t\t\t\t\t\t<td>{{product.product_quantity}}</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<span *ngIf=\"errors.indexOf(product.product_sale_price) == -1 && product.product_sale_price != product.product_purchase_price  && product.is_variation == 0\">${{product.product_sale_price}}</span>\n\n\t\t\t\t\t\t\t<span *ngIf=\"(errors.indexOf(product.product_sale_price) >= 0 || product.product_sale_price == product.product_purchase_price)  && product.is_variation == 0\">${{product.product_purchase_price}}</span>\n              <span *ngIf=\"product.is_variation == 1\">${{product.product_price}}</span>\n\n            </td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<span class=\"discountColor\" *ngIf=\"product.discount_per_piece != null && product.discount_type == '%'  && product.is_variation == 0\">{{product.discount_per_piece}}% </span>\n\n\t\t\t\t\t\t\t<span class=\"discountColor\" *ngIf=\"product.discount_per_piece != null && product.discount_type != '%'  && product.is_variation == 0\">${{product.discount_per_piece}} </span>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<!-- <span *ngIf=\"errors.indexOf(product.sale_price) == -1 && product.sale_price != product.purchase_price\">${{product.product_quantity*product.sale_price}}</span> -->\n\t\t\t\t\t\t\t<span>${{grandTotalPrice(product)}}</span>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t\t<div class=\"cost-sum shopping-cart col-sm-6 col-sm-offset-6\">\n\t\t\t\t<div class=\"table-responsive cart-shopping-total\">\n\t\t\t\t\t<table class=\"table\" border=\"0\">\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td><b>Sub Total Amount</b></td>\n\t\t\t\t\t\t\t\t<td>${{total_payable_price}}</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr *ngIf=\"order.coupon_data != ''\">\n\t\t\t\t\t\t\t\t<td><b>Coupon Applied</b></td>\n\t\t\t\t\t\t\t\t<td>{{order.coupon_data[0].coupon_code}}</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr *ngIf=\"order.coupon_data != ''\">\n\t\t\t\t\t\t\t\t<td  *ngIf=\"order.coupon_data[0].discount_type == 'Amount'\"><b>Discount <span class=\"discountColor\">({{order.coupon_data[0].discount_value}}%)</span></b></td>\n\t\t\t\t\t\t\t\t<td *ngIf=\"order.coupon_data[0].discount_type == 'Amount'\">\n\t\t\t\t\t\t\t\t<b>Discount <span class=\"discountColor\">(${{order.coupon_data[0].discount_value}})</span></b></td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td><b>Tax</b></td>\n\t\t\t\t\t\t\t\t<td>$0</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td><b>Shipping</b></td>\n\t\t\t\t\t\t\t\t<td>$0</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr class=\"cart-grand-total\">\n\t\t\t\t\t\t\t\t<td><b style=\"font-size:16px;\">Grand Total</b></td>\n\t\t\t\t\t\t\t\t<td><b style=\"font-size:16px;\">${{order?.total_amount.toFixed(2)}}</b></td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n    <div class=\"row\">\n\t\t<div class=\"col-lg-12 col-md-12 col-sm-12\">\n\t\t<!--Panel heading-->\n\t\t\t<div class=\"payment-box\">\n\t\t\t\t<h1 class=\"payment-head\">Client Information</h1>\n\t\t\t\t<!--List group-->\n\t\t\t\t<div class=\"table-responsive\">\n\t\t\t\t\t<table class=\"table table-bordered\" border=\"0\">\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t <tr>\n\t\t\t\t\t\t\t<td><b>First Name</b></td>\n\t\t\t\t\t\t\t<td>{{order?.address_first_name}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><b>Last Name</b></td>\n\t\t\t\t\t\t\t<td>{{order?.address_last_name}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<!-- <tr>\n\t\t\t\t\t\t\t<td><b>E-mail</b></td>\n\t\t\t\t\t\t\t<td>{{order?.address_first_name}}</td>\n\t\t\t\t\t\t</tr> -->\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><b>Phone</b></td>\n\t\t\t\t\t\t\t<td>{{order?.address_phone}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><b>Address</b></td>\n\t\t\t\t\t\t\t<td>{{order?.full_address}} </td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><b>City</b></td>\n\t\t\t\t\t\t\t<td>{{order?.address_city}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><b>State</b></td>\n\t\t\t\t\t\t\t<td>{{order?.address_state}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><b>Country</b></td>\n\t\t\t\t\t\t\t<td>{{order?.country_name}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><b>Zipcode</b></td>\n\t\t\t\t\t\t\t<td>{{order?.address_zip_code}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n</ion-content>\n"
 
 /***/ }),
 
@@ -2361,6 +2466,274 @@ var InvoicePage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/password-instructions/password-instructions.page.html":
+/*!***********************************************************************!*\
+  !*** ./src/app/password-instructions/password-instructions.page.html ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-content>\n\t<div class=\"main-wrapper  home-page\">\n     \t<div class=\"container-fluid\">\n            <div class=\"row\">\n           \t<div class=\"col-lg-12\">\n              \t<div headmn-sec class=\"section-title module-three\" style=\"margin:15px 17px !important;\">\n                     <h3><span>Suggest Any </span> Product</h3>\n              \t</div>\n              \t<div class=\"col-lg-6 col-md-6 col-sm-12\" *ngFor=\"let recent of featured_products \" style=\"float:left;\">\n                 \t<div class=\"product-item mb-30\">\n                       \t<div class=\"product-thumb\">\n                          <a (click)=\"productDetails(recent.product_id)\">\n                           <img *ngIf=\"errors.indexOf(recent.product_image) >= 0\" src=\"assets/images/products/no_image.svg\">\n                           <img *ngIf=\"errors.indexOf(recent.product_image) == -1\" src=\"{{IMAGES_URL}}/product_images/{{recent.product_image}}\" alt=\"{{recent.product_name}}\">\n                           </a> \n                           <div class=\"box-label\">\n                              <div class=\"label-product label_new\" *ngIf=\"recent?.product_quantity == 0 || errors.indexOf(recent?.product_quantity) >= 0\">\n                                 <span>Sold out</span>\n                              </div>\n                           </div>\n                        </div>\n                        <div class=\"product-caption\" style=\"padding:22px 15px 7px\">\n                      \t\t<div class=\"product-name\">\n                            \t<h4><a (click)=\"productDetails(recent.product_id)\">{{recent.product_name}}</a></h4>\n                          \t</div>\n                          \n                          \t<div class=\"price-box\">\n\t                            <span class=\"regular-price\" *ngIf=\"errors.indexOf(recent.product_sale_price) == -1 && recent.product_sale_price != recent.product_purchase_price\" ><span class=\"special-price\">${{recent.product_sale_price}} </span></span>\n\t                            <span class=\"regular-price\" *ngIf=\"errors.indexOf(recent.product_sale_price) >= 0 || recent.product_sale_price == recent.product_purchase_price\">${{recent.product_purchase_price}}</span>\n\t                            <span class=\"old-price\" *ngIf=\"errors.indexOf(recent.product_sale_price) == -1 && recent.product_sale_price != recent.product_purchase_price\" ><del>${{recent.product_purchase_price}}</del></span>\n                          \t</div>\n                          \t\n                          \t<button class=\"btn-cart\" type=\"button\" (click)=\"suggestThisProduct(recent.product_id)\" style=\"margin:4px 0 0 0;float: right;position: inherit;\">\n                           \t\tSuggest\n                          \t</button>\n                        </div>\n                     </div>\n                   </div>\n               </div>\n               \n            </div>\n         </div>\n      </div>\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/password-instructions/password-instructions.page.scss":
+/*!***********************************************************************!*\
+  !*** ./src/app/password-instructions/password-instructions.page.scss ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Bhc3N3b3JkLWluc3RydWN0aW9ucy9wYXNzd29yZC1pbnN0cnVjdGlvbnMucGFnZS5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/password-instructions/password-instructions.page.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/password-instructions/password-instructions.page.ts ***!
+  \*********************************************************************/
+/*! exports provided: PasswordInstructionsPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PasswordInstructionsPage", function() { return PasswordInstructionsPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _choose_location_choose_location_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../choose-location/choose-location.page */ "./src/app/choose-location/choose-location.page.ts");
+/* harmony import */ var _services_user_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/user/user.service */ "./src/app/services/user/user.service.ts");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../config */ "./src/app/config.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_user_globalFooService_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/user/globalFooService.service */ "./src/app/services/user/globalFooService.service.ts");
+
+
+
+
+
+
+
+
+var PasswordInstructionsPage = /** @class */ (function () {
+    function PasswordInstructionsPage(globalFooService, modalController, userService, toastController, loadingController, events, router, alertController) {
+        this.globalFooService = globalFooService;
+        this.modalController = modalController;
+        this.userService = userService;
+        this.toastController = toastController;
+        this.loadingController = loadingController;
+        this.events = events;
+        this.router = router;
+        this.alertController = alertController;
+        this.buttonClickeddrop = false;
+        this.buttonClickedcat = false;
+        this.errors = ['', null, undefined];
+        // slideOpts1: any = {initialSlide: 1, speed: 400, loop: true };
+        // slideOpts2: any = {initialSlide: 1, speed: 400, loop: true };
+        this.base_url = 'http://dev.indiit.solutions/TJ/dev/dev/public/uploads/userprofile/';
+        this.proImage_url = 'http://dev.indiit.solutions/TJ/dev/dev/public/uploads/product_images/';
+        this.current_page = 1;
+        this.sliderCount = 1;
+        this.IMAGES_URL = _config__WEBPACK_IMPORTED_MODULE_5__["config"].IMAGES_URL;
+        events.subscribe('wishlist:true', function (data) {
+            //this.getCartProductsIdaa();
+        });
+    }
+    PasswordInstructionsPage.prototype.ionViewDidEnter = function () {
+        var token = localStorage.getItem('sin_auth_token');
+        this.userId = this.userService.decryptData(token, _config__WEBPACK_IMPORTED_MODULE_5__["config"].ENC_SALT);
+        this.getFeaturedProducts();
+        this.content.scrollToTop();
+    };
+    PasswordInstructionsPage.prototype.getFeaturedProducts = function () {
+        var _this = this;
+        this.presentLoading();
+        this.userService.postData({ limit: '150' }, 'featuredProducts').subscribe(function (result) {
+            _this.stopLoading();
+            _this.featured_products = result.products;
+            // this.cd.detectChanges();
+        }, function (err) {
+            _this.featured_products = [];
+        });
+    };
+    PasswordInstructionsPage.prototype.presentAlert = function (product_id) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                localStorage.setItem('product', product_id);
+                this.userService.postData({ product_id: localStorage.getItem('product'), user_id: this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId, wish_title: null, is_new: this.userId == 0 ? 3 : 0, wishlist_id: null }, 'addWishlistNew').subscribe(function (result) {
+                    _this.stopLoading();
+                    if (result.status == 1) {
+                        _this.presentToast('Product added to wishlist.', 'success');
+                        _this.events.publish('wishlist:true', {});
+                    }
+                    else {
+                        _this.presentToast('Error,Please try after some time.', 'danger');
+                    }
+                }, function (err) {
+                    _this.stopLoading();
+                    _this.presentToast('Error,Please try after some time.', 'danger');
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    PasswordInstructionsPage.prototype.presentModal = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var modal;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.modalController.create({
+                            component: _choose_location_choose_location_page__WEBPACK_IMPORTED_MODULE_3__["ChooseLocationPage"],
+                            componentProps: { value: 123 }
+                        })];
+                    case 1:
+                        modal = _a.sent();
+                        return [4 /*yield*/, modal.present()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    PasswordInstructionsPage.prototype.presentToast = function (message, color) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var toast;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.toastController.create({
+                            message: message,
+                            duration: 3000,
+                            position: 'bottom',
+                            color: color,
+                            showCloseButton: true
+                        })];
+                    case 1:
+                        toast = _a.sent();
+                        toast.present();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    PasswordInstructionsPage.prototype.presentLoading = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var _a;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = this;
+                        return [4 /*yield*/, this.loadingController.create()];
+                    case 1:
+                        _a.loading = _b.sent();
+                        return [4 /*yield*/, this.loading.present()];
+                    case 2:
+                        _b.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    PasswordInstructionsPage.prototype.suggestThisProduct = function (proID) {
+        var _this = this;
+        var dict = {
+            'post_id': localStorage.getItem('goForSuggestPost'),
+            'product_id': proID,
+            'suggested_by_user': localStorage.getItem('sin_auth_userId'),
+        };
+        this.userService.postData(dict, 'addSuggestion').subscribe(function (result) {
+            _this.stopLoading();
+            if (result.status == 1) {
+                _this.presentToast('Suggestion added successfully', 'success');
+                localStorage.setItem('goForSuggestPost', '');
+                _this.globalFooService.publishSomeData({
+                    foo: { 'data': "done", 'page': 'suggestionDone' }
+                });
+                _this.modalController.dismiss({
+                    'dismissed': true
+                });
+                //this.router.navigate(['/blog']);
+            }
+            else {
+                _this.presentToast('Error,Please try after some time.', 'danger');
+            }
+        }, function (err) {
+            _this.presentToast('Error,Please try after some time.', 'danger');
+        });
+    };
+    PasswordInstructionsPage.prototype.arrayOne = function (n) {
+        return Array(n);
+    };
+    PasswordInstructionsPage.prototype.atob = function (string) {
+        return atob(string);
+    };
+    PasswordInstructionsPage.prototype.paginate = function (page) {
+        if (page == 'next') {
+            if (this.total_pages != this.current_page) {
+                this.current_page = Number(this.current_page) + 1;
+                this.getBlogs();
+            }
+        }
+        else if (page == 'prev') {
+            if (this.current_page != 1) {
+                this.current_page = Number(this.current_page) - 1;
+                this.getBlogs();
+            }
+        }
+        else {
+            if (this.current_page != page) {
+                this.current_page = page;
+                this.getBlogs();
+            }
+        }
+    };
+    PasswordInstructionsPage.prototype.stopLoading = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var self;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!(this.loading != undefined)) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.loading.dismiss()];
+                    case 1:
+                        _a.sent();
+                        return [3 /*break*/, 3];
+                    case 2:
+                        self = this;
+                        setTimeout(function () {
+                            self.stopLoading();
+                        }, 1000);
+                        _a.label = 3;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('slides'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonSlides"])
+    ], PasswordInstructionsPage.prototype, "slides", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('slides1'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonSlides"])
+    ], PasswordInstructionsPage.prototype, "slides1", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonContent"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonContent"])
+    ], PasswordInstructionsPage.prototype, "content", void 0);
+    PasswordInstructionsPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-password-instructions',
+            template: __webpack_require__(/*! ./password-instructions.page.html */ "./src/app/password-instructions/password-instructions.page.html"),
+            styles: [__webpack_require__(/*! ./password-instructions.page.scss */ "./src/app/password-instructions/password-instructions.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_globalFooService_service__WEBPACK_IMPORTED_MODULE_7__["GlobalFooService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _services_user_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Events"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"]])
+    ], PasswordInstructionsPage);
+    return PasswordInstructionsPage;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/CustomRequestOptions.ts":
 /*!**************************************************!*\
   !*** ./src/app/services/CustomRequestOptions.ts ***!
@@ -2433,6 +2806,44 @@ function extracted(options) {
 function validUrl(url) {
     return /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(url);
 }
+
+
+/***/ }),
+
+/***/ "./src/app/services/user/globalFooService.service.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/services/user/globalFooService.service.ts ***!
+  \***********************************************************/
+/*! exports provided: GlobalFooService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GlobalFooService", function() { return GlobalFooService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+
+
+
+var GlobalFooService = /** @class */ (function () {
+    function GlobalFooService() {
+        this.fooSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+    }
+    GlobalFooService.prototype.publishSomeData = function (data) {
+        this.fooSubject.next(data);
+    };
+    GlobalFooService.prototype.getObservable = function () {
+        return this.fooSubject;
+    };
+    GlobalFooService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        })
+    ], GlobalFooService);
+    return GlobalFooService;
+}());
+
 
 
 /***/ }),

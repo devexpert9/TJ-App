@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { ToastController, LoadingController, Events, AlertController, ModalController } from '@ionic/angular';
 import { UserService } from '../services/user/user.service';
 import { config } from '../config';
@@ -23,7 +23,7 @@ showShareDiv: any = false;
 publicUrl: any = '';
 guestUserId: any = localStorage.getItem('guestUserId');
 
-  constructor(public userService: UserService,public toastController:ToastController,public loadingController:LoadingController,public router: Router,public events: Events, public alertController: AlertController, public modalController: ModalController) {
+  constructor(private cd: ChangeDetectorRef,public userService: UserService,public toastController:ToastController,public loadingController:LoadingController,public router: Router,public events: Events, public alertController: AlertController, public modalController: ModalController) {
       this.IMAGES_URL = config.IMAGES_URL;
       events.subscribe('wish-list:true', data => {
       this.getWishList();
@@ -55,8 +55,18 @@ guestUserId: any = localStorage.getItem('guestUserId');
     this.userService.postData({user_id:this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId},'getWishlist').subscribe((result) => {
       this.stopLoading();
       console.log(result)
-      this.wishlist = result.data;
-      this.all_wishlist = result.data;
+      
+      if(result.status != 0)
+      {
+        this.wishlist = result.data;
+        this.all_wishlist = result.data;  
+      }
+      else
+      {
+        this.wishlist = [];
+        this.all_wishlist = [];  
+      }
+      
     },
     err => {
       this.stopLoading();
@@ -76,7 +86,7 @@ guestUserId: any = localStorage.getItem('guestUserId');
     }
   }
 
-  addToCart(product_id,product_sale_price,product_purchase_price)
+  addToCart(wishlist,product_id,product_sale_price,product_purchase_price)
   {
     // alert(product_id+'--'+product_sale_price+'--'+product_purchase_price);
     // if(this.userId == 0){
@@ -91,8 +101,11 @@ guestUserId: any = localStorage.getItem('guestUserId');
         'is_variation':       0,
         'product_variations': proVariation,
         'user_id':    this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId,
-        'product_qty':        '1'
+        'product_qty':        '1',
+        'wishlist'  :         wishlist
       };
+
+      //es api ch wishlist to product delete krado n w
 
       this.userService.postData(dict,'addTocart').subscribe((result) => {
           this.stopLoading();
@@ -107,6 +120,9 @@ guestUserId: any = localStorage.getItem('guestUserId');
               p_price = product_purchase_price;
             }
             this.events.publish('cart_updated:true', {items_in_cart:this.my_cart_products.length,cart_price:p_price,isAdd:true});
+            
+            this.getWishList();
+            this.cd.detectChanges();
             this.presentToast('Product added to cart.','success');
           }
           else{

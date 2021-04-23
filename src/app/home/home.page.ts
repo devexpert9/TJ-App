@@ -5,45 +5,56 @@ import { WishlistListingPage } from '../wishlist-listing/wishlist-listing.page';
 import { UserService } from '../services/user/user.service';
 import { config } from '../config';
 import { Router } from '@angular/router';
+import { GlobalFooService } from '../services/user/globalFooService.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-@ViewChild('slides') slides: IonSlides;
-@ViewChild(IonContent) content: IonContent;
+  @ViewChild('slides') slides: IonSlides;
+  @ViewChild('slides1') slides1: IonSlides;
+  @ViewChild(IonContent) content: IonContent;
 
 
-public buttonClickeddrop: boolean = false;
-public buttonClickedcat: boolean = false;
-new_products:any;
-recent_products:any;
-loading:any;
-userId:any;
-IMAGES_URL:any;
-my_cart_products:any;
-my_wish_products:any;
-all_categories:any;
-cart:any;
-top_banners:any;
-bottom_banners:any;
-side_banner:any;
-bottom_banner_last:any;
-best_deals:any;
-best_sellers:any;
-banners_blocks:any;
-errors : any = ['',null,undefined];
-slideOpts: any = {initialSlide: 1, speed: 400 };
-base_url: any = 'http://dev.indiit.solutions/TJ/dev/dev/public/uploads/userprofile/';
-proImage_url: any = 'http://dev.indiit.solutions/TJ/dev/dev/public/uploads/product_images/';
+  public buttonClickeddrop: boolean = false;
+  public buttonClickedcat: boolean = false;
+  new_products:any;
+  recent_products:any;
+  loading:any;
+  userId:any;
+  IMAGES_URL:any;
+  my_cart_products:any;
+  my_wish_products:any;
+  all_categories:any;
+  cart:any;
+  top_banners:any;
+  bottom_banners:any;
+  side_banner:any;
+  upsell_products:any;
+  bottom_banner_last:any;
+  best_deals:any;
+  best_sellers:any;
+  banners_blocks:any;
+  goForSuggestPost:any = localStorage.getItem('goForSuggestPost');
+  errors : any = ['',null,undefined];
+
+  // slideOpts1: any = {initialSlide: 1, speed: 400, loop: true };
+  // slideOpts2: any = {initialSlide: 1, speed: 400, loop: true };
+
+  base_url: any = 'http://dev.indiit.solutions/TJ/dev/dev/public/uploads/userprofile/';
+  proImage_url: any = 'http://dev.indiit.solutions/TJ/dev/dev/public/uploads/product_images/';
 
 
-total_pages:any;
-current_page:number = 1;
-all_blogs:any;
+  total_pages:any;
+  current_page:number = 1;
+  all_blogs:any;
+  featured_products:any;
+  sellers:any;
+  sliderCount:any = 1;
 
-	constructor(public modalController: ModalController, public userService: UserService, public toastController:ToastController,public loadingController:LoadingController,public events: Events,public router: Router, public alertController: AlertController) {
+	constructor(private globalFooService: GlobalFooService, public modalController: ModalController, public userService: UserService, public toastController:ToastController,public loadingController:LoadingController,public events: Events,public router: Router, public alertController: AlertController) {
     this.IMAGES_URL = config.IMAGES_URL;
     events.subscribe('wishlist:true', data => {
       this.getCartProductsIdaa();
@@ -61,10 +72,88 @@ all_blogs:any;
     this.getCartProductsIds();
     this.getCategories();
     this.getCartProducts();
+    this.getBestSellerProducts();
+    this.getFeaturedProducts();
     this.content.scrollToTop();
     this.getBlogs();
+    this.getAllShops();
   }
 
+  suggestThisProduct(proID)
+  {
+    this.presentLoading();
+    
+    let dict = {
+      'post_id': localStorage.getItem('goForSuggestPost'),
+      'product_id': proID,
+      'suggested_by_user': localStorage.getItem('sin_auth_userId'),
+    };
+
+    this.userService.postData(dict,'addSuggestion').subscribe((result) => {
+      this.stopLoading();
+      if(result.status == 1)
+      {
+        this.presentToast('Suggestion added successfully','success');
+
+        localStorage.setItem('goForSuggestPost','');
+
+        this.globalFooService.publishSomeData({
+          foo: {'data': "done", 'page': 'suggestionDone'}
+        });
+
+        this.modalController.dismiss({
+          'dismissed': true
+        });
+
+        this.router.navigate(['/blog']);
+      }
+      else
+      {
+        this.presentToast('Error,Please try after some time.','danger');
+      }
+    },
+    err => {
+      this.presentToast('Error,Please try after some time.','danger');
+    });
+  }
+
+  getFeaturedProducts(){
+    this.userService.postData({limit:'150'},'featuredProducts').subscribe((result) => {
+      this.featured_products = result.products;
+      // this.cd.detectChanges();
+    },
+    err => {
+      this.featured_products = [];
+    });
+  }
+  
+  getAllShops()
+  {
+    this.userService.postData({email:localStorage.getItem('sin_auth_user_email')},'getAllSellers').subscribe((result) => {
+      this.sellers = result.data;
+
+      if(this.sellers.length > 6){
+        this.sliderCount = 6;  
+      }
+      else
+      {
+        this.sliderCount = this.sellers.length; 
+      }
+
+    },
+    err => {
+      this.sellers = [];
+    });
+  }
+
+  getBestSellerProducts(){
+    this.userService.postData({limit:'15',user_id: this.userId },'bestSellerProducts').subscribe((result) => {
+      this.upsell_products = result.products;
+    },
+    err => {
+      this.upsell_products = [];
+    });
+  }
   getTopBanners(){
     this.userService.postData({},'top_banners').subscribe((result) => {
       this.top_banners = result.top_banners;
@@ -117,8 +206,6 @@ all_blogs:any;
     err => {
     });
   }
-
-
 
   getRecentViewed(){
     this.userService.postData({limit:'10',user_id:this.userId},'allRecentViewProducts').subscribe((result) => {
@@ -184,11 +271,12 @@ all_blogs:any;
     });
   }
 
-  addToCart(product_id,product_sale_price,product_purchase_price){
-    // if(this.userId == 0){
-    //   //this.router.navigate(['/login']);
-    // }
-    // else{
+  addToCart(product_id,product_sale_price,product_purchase_price)
+  {
+    if(this.userId == 0){
+      this.router.navigate(['/login']);
+    }
+    else{
       this.presentLoading();
       this.userService.postData({product_id:product_id,user_id:this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId,product_qty:1,is_variation: false, product_price:0, product_variations:[]},'addTocart').subscribe((result) => {
         this.stopLoading();
@@ -213,14 +301,15 @@ all_blogs:any;
         this.stopLoading();
         this.presentToast('Error,Please try after some time.','danger');
       });
-    // }
+    }
   }
 
-  addToWish(product_id){
-    // if(this.userId == 0){
-    //   this.router.navigate(['/login']);
-    // }
-    // else{
+  addToWish(product_id)
+  {
+    if(this.userId == 0){
+      this.router.navigate(['/login']);
+    }
+    else{
       this.presentAlert(product_id);
 
       // this.presentLoading();
@@ -238,7 +327,7 @@ all_blogs:any;
       //   this.stopLoading();
       //   this.presentToast('Error,Please try after some time.','danger');
       // });
-    // }
+    }
   }
 
   async presentAlert(product_id) {
@@ -266,6 +355,11 @@ all_blogs:any;
      	this.stopLoading();
      	this.presentToast('Error,Please try after some time.','danger');
     });
+  }
+
+  productDetailPage(productId)
+  {
+    this.router.navigate(['/product-details/'+productId]);
   }
 
   productDetails(catId,subcatId){
@@ -320,7 +414,67 @@ all_blogs:any;
       slidesPerView: 6,
       spaceBetween: 0,
       loop:true,
-      speed: 1000,
+      speed: 20000,
+      autoplay:true,
+      breakpoints: {
+          1024: {
+              slidesPerView: 6,
+              spaceBetween: 40
+          },
+          768: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+          },
+          640: {
+              slidesPerView: 3,
+              spaceBetween: 10
+          },
+          320: {
+              slidesPerView: 3,
+              spaceBetween: 6
+          }
+      }
+  }   
+
+  slideOpts8 = {
+      slidesPerView: this.sliderCount,
+      spaceBetween: 0,
+      loop:true,
+      speed: 20000,
+      autoplay:true,
+      breakpoints: {
+          1024: {
+              slidesPerView: 6,
+              spaceBetween: 40
+          },
+          768: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+          },
+          640: {
+              slidesPerView: 3,
+              spaceBetween: 10
+          },
+          320: {
+              slidesPerView: 3,
+              spaceBetween: 6
+          }
+      }
+  }  
+
+  next() {
+    this.slides.slideNext();
+  }
+
+  prev() {
+    this.slides.slidePrev();
+  }
+
+  slideOpts2 = {
+      slidesPerView: 6,
+      spaceBetween: 0,
+      loop:true,
+      speed: 20000,
       autoplay:true,
       breakpoints: {
           1024: {
@@ -342,17 +496,13 @@ all_blogs:any;
       }
   }
 
-  next() {
-    this.slides.slideNext();
+  next1() {
+    this.slides1.slideNext();
   }
 
-  prev() {
-    this.slides.slidePrev();
+  prev1() {
+    this.slides1.slidePrev();
   }
-
-
-
-
 
   getBlogs(){
     this.presentLoading();
@@ -401,8 +551,6 @@ all_blogs:any;
       }
     }
   }
-
-
 
   async stopLoading() {
     if(this.loading != undefined){

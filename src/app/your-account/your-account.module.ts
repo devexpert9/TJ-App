@@ -4,9 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
+import { HeaderPageModule } from '../header/header.module';
 
 import { YourAccountPage } from './your-account.page';
 import { SharedModule } from '../shared/shared.module';
+
+import { CKEditorModule } from 'ckeditor4-angular';
+
 const routes: Routes = [
   {
     path: '',
@@ -19,6 +23,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    CKEditorModule,
+    HeaderPageModule,
     RouterModule.forChild(routes),
     SharedModule
   ],

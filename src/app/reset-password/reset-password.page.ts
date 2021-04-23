@@ -37,10 +37,20 @@ export class ResetPasswordPage implements OnInit {
 	  	if(this.errors.indexOf(npwd) >= 0){
 	  		this.presentToast('Please enter password.','danger');
 	  		return false;
-	  	}else if(npwd != cpwd){
+	  	}
+	  	var passExp= /^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])(?!.*\s).{8,15}$/;
+
+	    if(!passExp.test(npwd))
+	    {
+	      this.presentToast('Password should have min. 8 characters, One UpperCase & One Lowercase & one special character.','danger');
+	        return false;
+	    }
+	  	
+	  	if(npwd != cpwd){
 	  		this.presentToast('Password not matched.','danger');
 	  		return false;
 	  	}
+	  	
 	  	this.presentLoading();
 	  	this.userService.postData({password:npwd, email: this.email},'updatePassword').subscribe((result) => {
 	  		this.stopLoading();

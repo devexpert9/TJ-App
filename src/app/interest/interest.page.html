@@ -1,0 +1,32 @@
+<ion-content>
+    <div class="login-wrapper pb-70">
+        <div class="container-fluid">
+            <div class="row login-box">
+				<div style="background: #F7F7F8;width: 100%;padding: 10px 0;border-bottom: 1px solid #c3c3c3;">
+					<h4 style="color: #000;font-size: 14px;float: left;margin: 0 0 0 22px;font-weight: bold;">
+                        What are your interests?
+                    </h4>
+                </div>
+
+                <div catCols style="height:400px;overflow-x:scroll;float: left;width: 100%;">
+                    <ul>
+                        <li *ngFor="let cat of categories;">
+                            <img src="{{proImage_url}}{{cat?.cat_image}}" alt="">
+                            <ion-label style='font-weight:bold'>
+                                {{cat?.cat_name}}
+                            </ion-label>
+                            <ion-checkbox color="dark" (click)="addCheckbox($event,cat?.cat_id)"></ion-checkbox>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-5 col-md-12 col-sm-12 col-pad-0 align-self-center" >&nbsp;</div>
+                <div class="col-lg-7 col-md-12 col-sm-12 col-pad-0 align-self-center" style="margin:7px 0">
+                	<a href="javascript:void(0)" class="btn-md btn-theme btn-block" (click)="getCheckedBoxes()" style="background:#7ac4ec;color: #fff;width: 50%;float: right;padding: 7px 0px;text-align: center;border-radius: 19px;">
+						Continue
+					</a>
+                </div>
+            </div> 
+        </div> 
+    </div>
+</ion-content>

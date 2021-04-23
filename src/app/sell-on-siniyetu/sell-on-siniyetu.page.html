@@ -1,127 +1,663 @@
-<!-- <ion-header class="ion-hide-lg-up">
-  <ion-toolbar color="darkred" text-uppercase>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-        Sell On Siniyetu
-    </ion-title>
-  <ion-buttons slot="end" > 
-          <ion-icon name="search"></ion-icon>
-    </ion-buttons>
-	     <ion-buttons slot="end">
-          <ion-icon name="pin"></ion-icon>
-    </ion-buttons>
-<ion-buttons slot="end" > 
-	<ion-icon user-drop name="contact" (click)="onButtonClickdrop()"></ion-icon>
-	
-	 </ion-buttons>
-  </ion-toolbar>
-      <div drop-down-menu *ngIf="buttonClickeddrop">
-	              <a routerLink="/your-account"><ion-icon name="person"></ion-icon> My Account</a>
-	              <a routerLink="/wishlist"><ion-icon name="heart"></ion-icon>  Wishlist</a>
-	              <a routerLink="/cart"><ion-icon name="cart"></ion-icon>  Cart</a>
-	              <a routerLink="/notification"><ion-icon name="notifications"></ion-icon> Notification</a>
-	   </div>
-</ion-header>  -->
-<ion-content>
-<div header_height></div>
-<!-- <div header-inner class="ion-hide-lg-up">
-<ion-row>
 
-<ion-col size="12">
-<ion-searchbar></ion-searchbar>
-</ion-col>
-</ion-row> -->
-<!-- <div delivery-location (click)="presentModal()">
-<ion-icon name="pin"></ion-icon> Deliver To Chandigarh 160022 <ion-icon name="arrow-down"></ion-icon>
-</div> -->
-<!-- </div> -->
-<!-- Banner Start -->
-	<div sell-banner text-center style="background: url(assets/images/sliders/05.jpg) no-repeat center;">
-			<div sell-banner-content> 
-				<div slider-header>Top Brands</div>
-				<div big-text>Over 30% of our profits come <br>from selling on Siniyetu.</div>
-				<div button-holder>
-				   <ion-button routerLink="/vendor-request" color="darkred">Start Selling</ion-button>
-				</div>
-			</div>
-	</div>
-<!--  Banner Ends  -->
-<!-- Start selling on Siniyetu today Start -->
-<div class="container-fluid">
-    <div returns-page> 
-	   <h3 section-title class="ion-hide-md-down">Start selling on Siniyetu today</h3>
-        <h4 mob-head text-center text-uppercase class="ion-hide-lg-up">
-					Start selling on Siniyetu today
-					</h4>
-	   <ion-row>
-			  <ion-col size-lg="4" size-md="4" size-sm="6" size="12">
-				 <div widget-return>
-				    <img class="ion-hide-lg-up " image-icon src="assets/images/icon1.png"/>
-					<h3 section-title>Reach hundreds of millions of customers</h3>
-				
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					<ion-button color="darkred">Return Items</ion-button>
-				 </div>
-			  </ion-col>
-			   <ion-col  size-lg="4" size-md="4" size-sm="6" size="12">
-				 <div widget-return>
-				    <img class="ion-hide-lg-up" image-icon src="assets/images/icon2.png"/>
-					<h3 section-title>Let us do the heavy lifting</h3>
-			
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					<ion-button color="darkred">Manage Returns</ion-button>
-				 </div>
-			  </ion-col>
-			   <ion-col  size-lg="4" size-md="4" size-sm="6" size="12">
-				 <div widget-return>
-				    <img class="ion-hide-lg-up" image-icon src="assets/images/icon3.png"/>
-					<h3 section-title>Get your products seen by more shoppers</h3>
-				
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					<ion-button color="darkred">Manage Returns</ion-button>
-				 </div>
-			  </ion-col>
-	  </ion-row>
-   <!--   Wide Banners Start-->
-      <div wide-banners> 
-	      <div wide-banner>
-		     <div image>
-     			 <ion-img class="img-responsive" src="assets/images/parcels-packages.jpg"></ion-img>				
-			  </div>
-			  <div strip strip-text>
-                  <div strip-inner>
-                    <h2 text-right>Ready to sell ?<br>
-                      <span shopping-needs>Earn up to 40% profit</span></h2>
-                  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+     <link rel="shortcut icon" href="assets/images/dashboard/favicon.png" type="image/x-icon">
+    <title>TJ</title> 
+    <!-- Font Awesome-->
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@icon/icofont/icofont.css">
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="assets/css/admin.css">
+</head>
+
+<body>
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper">
+ <!-- Page Header Start-->
+    <div class="page-main-header">
+        <div class="main-header-right row">
+            <div class="main-header-left d-lg-none">
+                <div class="logo-wrapper"><a href="../html/index.html"><img src="assets/images/logo.png"></a></div>
+            </div>
+            <div class="mobile-sidebar">
+                <div class="media-body text-right switch-sm">
+                    <label class="switch"><a href="#"><i id="sidebar-toggle" data-feather="align-left"></i></a></label>
                 </div>
-		  </div> 
-	  </div>
-   <!--   Wide Banners Ends-->
-   <!--Other Sec Start-->
-   <div other-sec>
-	    <h3 section-title>Just have a few items to sell? <a>Sign up to become an individual seller</a></h3>
-	    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="nav-right col">
+                <ul class="nav-menus">
+                  
+                    <li class="onhover-dropdown"><i data-feather="bell"></i><span class="badge badge-pill badge-primary pull-right notification-badge">3</span><span class="dot"></span>
+                        <ul class="notification-dropdown onhover-show-div p-0">
+                            <li>Notification <span class="badge badge-pill badge-primary pull-right">3</span></li>
+                            <li>
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h6 class="mt-0"><span><i class="shopping-color" data-feather="shopping-bag"></i></span>Your order ready for Ship..!</h6>
+                                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h6 class="mt-0 txt-success"><span><i class="download-color font-success" data-feather="download"></i></span>Download Complete</h6>
+                                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer.</p>
+                                    </div>
+                                </div>
+                            </li>
+                           
+                            <li class="txt-dark"><a href="notifications.html">All notification</a> </li>
+                        </ul>
+                    </li>
+                     
+					
+                    <li class="onhover-dropdown"><i data-feather="message-square"></i><span class="badge badge-pill badge-primary pull-right notification-badge">2</span><span class="dot"></span>
+                        <ul class="notification-dropdown onhover-show-div p-0">
+                            <li>Message <span class="badge badge-pill badge-primary pull-right">2</span></li>
+                           
+                            <li>
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h6 class="mt-0 txt-success"><span></span>Geneva McKnight</h6>
+                                        <p class="mb-0 ml-0">Lorem ipsum dolor sit amet, consectetuer.</p>
+                                    </div>
+                                </div>
+                            </li> 
+
+							<li>
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h6 class="mt-0 txt-success"><span></span>James Zavel</h6>
+                                        <p class="mb-0 ml-0">Lorem ipsum dolor sit amet, consectetuer.</p>
+                                    </div>
+                                </div>
+                            </li>
+                           
+                            <li class="txt-dark"><a href="chat.html">All Messages </a></li>
+                        </ul>
+                    </li>
+					
+                    <li class="onhover-dropdown">
+                        <div class="media align-items-center profile-drop-menu"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded mr-2" src="assets/images/dashboard/man.png" alt="header-user"> Jhon Smith
+                           
+                        </div>
+                        <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
+                            <li><a href="profile.html"><i data-feather="user"></i> Profile Settings</a></li>
+                            <li><a href="privacy-settings.html"><i data-feather="settings"></i> Privacy settings</a></li>
+                            <li><a href="#"><i data-feather="log-out"></i>Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="d-lg-none mobile-toggle pull-right"><i data-feather="more-horizontal"></i></div>
+            </div>
+        </div>
     </div>
-   <!--Other Sec Ends-->
-   </div>
-</div>	
-<!-- Start selling on Siniyetu today Ends -->
-<app-footer></app-footer>
-</ion-content>
+    <!-- Page Header Ends -->
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+ <!-- Page Sidebar Start-->
+        <div class="page-sidebar">
+            <div class="main-header-left d-none d-lg-block">
+                <div class="logo-wrapper"><a href="../html/index.html" class="dashboard-logo">
+					<img src="assets/images/logo.png"></a>
+				</div>
+            </div>
+            <div class="sidebar custom-scrollbar">
+              
+                <ul class="sidebar-menu">
+                    <li><a class="sidebar-header" href="index.html"><i data-feather="home"></i><span>Dashboard</span></a></li>
+					
+                     <li><a class="sidebar-header" href="order.html"><i data-feather="shopping-cart"></i><span>Orders</span> </a></li>
+					
+                    <li><a class="sidebar-header" href="product-list.html"><i data-feather="box"></i> <span>Products</span></a>
+                  
+                    </li>
+					 <li><a class="sidebar-header" href="collections.html"><i data-feather="shopping-cart"></i> <span>Collections</span></a>   </li>
+					 <li><a class="sidebar-header" href="inventory.html"><i data-feather="box"></i> <span>Inventory</span></a>   </li>
+					
+					 <li><a class="sidebar-header" href="reports.html"><i data-feather="bar-chart"></i><span>Reports</span></a></li>
+					<!--  <li><a class="sidebar-header" href="chat.html"><i data-feather="message-square"></i><span>Chat</span> <span class="badge badge-pill badge-primary pull-right notification-badge">2</span></a></li> -->
+					 <li><a class="sidebar-header" href="transactions.html"><i data-feather="dollar-sign"></i><span>Transactions</span></a></li>
+					   <li><a class="sidebar-header" href="post.html"><i data-feather="file"></i> <span>Posts</span></a>
+                    </li> 
+
+					<li><a class="sidebar-header" href="add-promo.html"><i data-feather="file"></i> <span>Add Promo & Discounts</span></a>
+                    </li>
+					<!--  <li><a class="sidebar-header" href="notifications.html"><i data-feather="bell"></i><span>Notifications</span></a></li>
+					 <li><a class="sidebar-header" href="profile.html"><i data-feather="user"></i><span>Profile Settings</span></a></li> -->
+					 
+					 <li><a class="sidebar-header" href="#"><i data-feather="log-out"></i><span>Log Out</span></a></li>
+                    
+                </ul>
+				<a href="javascript:void(0)" class="sidebar-togg"><i id="sidebar-toggle" data-feather="chevron-left"></i></a>
+            </div>
+        </div>
+        <!-- Page Sidebar Ends-->
+        <div class="page-body">
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="page-header-left">
+                                <h3>Dashboard
+                                  
+                                </h3>
+                            </div>
+                        </div>
+						
+                        <div class="col-lg-6 d-flex align-items-center justify-content-end">
+							<a href="#" class="editbt mr-3" data-toggle="modal" data-original-title="test" data-target="#select-tab-Modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit </a>
+                            <ol class="breadcrumb pull-right">
+								 
+                                <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item active">Dashboard</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid Ends-->
+
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="row">
+				 <div class="col-md-6 col-lg-3">
+                        <div class="card o-hidden card-box">
+                            <div class="card-body">
+                                <div class="media static-top-widget row">
+                                    <div class="icons-widgets col-4">
+                                        <div class="align-self-center text-center avatar-lg bg-primary"><i data-feather="message-square" class=""></i></div>
+                                    </div>
+                                    <div class="media-body col-8 pl-0">
+										<div class="dripicons-wallet">
+											<span class="m-0">72</span>
+                                            <h3 class="mb-0">Unread Messages</h3>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 ">
+                        <div class="card o-hidden card-box">
+                            <div class="card-body">
+                                <div class="media static-top-widget row">
+                                    <div class="icons-widgets col-4">
+                                        <div class="align-self-center text-center avatar-lg bg-secondary">
+										<i data-feather="shopping-cart" ></i></div>
+                                    </div>
+                                    <div class="media-body col-8 pl-0">
+										<div class="dripicons-wallet">
+											<span class="m-0">1050</span>
+                                            <h3 class="mb-0">New Orders</h3>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card o-hidden card-box">
+                            <div class="card-body">
+                                <div class="media static-top-widget row">
+                                    <div class="icons-widgets col-4">
+                                        <div class="align-self-center text-center avatar-lg bg-success"><!-- <i data-feather="message-square" class=""></i> -->
+											<i class="fa fa-clock-o"></i>
+										</div>
+                                    </div>
+                                    <div class="media-body col-8 pl-0">
+										<div class="dripicons-wallet">
+											<span class="m-0">142</span>
+                                            <h3 class="mb-0">Accepted Orders</h3>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card o-hidden card-box">
+                            <div class="card-body">
+                                <div class="media static-top-widget row">
+                                    <div class="icons-widgets col-4">
+                                        <div class="align-self-center text-center avatar-lg bg-warning"><i data-feather="box" class=""></i></div>
+                                    </div>
+                                    <div class="media-body col-8 pl-0">
+										<div class="dripicons-wallet">
+											<span class="m-0">72</span>
+                                            <h3 class="mb-0">New Order </h3>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 ">
+                        <div class="card o-hidden card-box">
+                            <div class="card-body">
+                                <div class="media static-top-widget row">
+                                    <div class="icons-widgets col-4">
+                                        <div class="align-self-center text-center avatar-lg bg-danger ">
+										<i data-feather="shopping-cart" ></i></div>
+                                    </div>
+                                    <div class="media-body col-8 pl-0">
+										<div class="dripicons-wallet">
+											<span class="m-0">1050</span>
+                                            <h3 class="mb-0">Rejected Orders</h3>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card o-hidden card-box">
+                            <div class="card-body">
+                                <div class="media static-top-widget row">
+                                    <div class="icons-widgets col-4">
+                                        <div class="align-self-center text-center avatar-lg bg-info"><!-- <i data-feather="message-square" class=""></i> -->
+											<i class="fa fa-clock-o"></i>
+										</div>
+                                    </div>
+                                    <div class="media-body col-8 pl-0">
+										<div class="dripicons-wallet">
+											<span class="m-0">142</span>
+                                            <h3 class="mb-0">Past Orders</h3>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					  <div class="col-md-6 col-lg-3">
+                        <div class="card o-hidden card-box">
+                            <div class="card-body">
+                                <div class="media static-top-widget row">
+                                    <div class="icons-widgets col-4">
+                                        <div class="align-self-center text-center avatar-lg bg-warning"><i data-feather="file" class=""></i></div>
+                                    </div>
+                                    <div class="media-body col-8 pl-0">
+										<div class="dripicons-wallet">
+											<span class="m-0">123</span>
+                                            <h3 class="mb-0">Post Activities</h3>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					 <div class="col-md-6 col-lg-3">
+                        <div class="card o-hidden card-box">
+                            <div class="card-body">
+                                <div class="media static-top-widget row">
+                                    <div class="icons-widgets col-4">
+                                        <div class="align-self-center text-center avatar-lg bg-danger"><i data-feather="users" class=""></i></div>
+                                    </div>
+                                    <div class="media-body col-8 pl-0">
+										<div class="dripicons-wallet">
+											<span class="m-0">123</span>
+                                            <h3 class="mb-0">Recent Sellers Activities</h3>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--div class="col-md-6 col-lg-3">
+                        <div class="card o-hidden card-box">
+                            <div class="card-body">
+                                <div class="media static-top-widget row">
+                                    <div class="icons-widgets col-4">
+                                        <div class="align-self-center text-center avatar-lg bg-danger"><i data-feather="file" class=""></i></div>
+                                    </div>
+                                    <div class="media-body col-8 pl-0">
+										<div class="dripicons-wallet">
+											<span class="m-0">52</span>
+                                            <h3 class="mb-0">Posts</h3>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div-->
+                     <div class="col-xl-3 col-md-6 xl-50">
+                        <div class="card order-graph sales-carousel">
+                            <div class="card-header">
+                                <h6>Total Sales</h6>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="small-chartjs">
+                                            <div class="flot-chart-placeholder" >
+											  <img src="assets/images/graph1.jpg"/>
+											</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="value-graph">
+                                            <h3>42% <span><i class="fa fa-angle-up font-primary"></i></span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <span>Sales Last Month</span>
+                                        <h2 class="mb-0">9054</h2>
+                                        <p>0.25% <span><i class="fa fa-angle-up"></i></span></p>
+                                       
+                                    </div>
+                                    <div class="bg-primary b-r-8">
+                                        <div class="small-box">
+                                            <i data-feather="briefcase"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 xl-50">
+                        <div class="card order-graph sales-carousel">
+                            <div class="card-header">
+                                <h6>Store Visits</h6>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="small-chartjs">
+                                            <div class="flot-chart-placeholder">
+											<img src="assets/images/graph2.jpg"/>
+											</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="value-graph">
+                                            <h3>20% <span><i class="fa fa-angle-up font-secondary"></i></span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <span>Last Month</span>
+                                        <h2 class="mb-0">2154</h2>
+                                        <p>0.13% <span><i class="fa fa-angle-up"></i></span></p>
+                                      
+                                    </div>
+                                    <div class="bg-secondary b-r-8">
+                                        <div class="small-box">
+                                            <i data-feather="box"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Notifications</h5>
+
+                            </div>
+                            <div class="card-body">
+<div class="main-notification-list">
+									   <div class="media new">
+										  <div class="main-img-user online"><img class="img-fluid" alt="avatar" src="assets/images/team/1.jpg"></div>
+										  <div class="media-body">
+											 <p><strong>Olivia James</strong> Your order ready for Ship..!</p>
+											 <span>Oct 15 12:32pm</span> <br>
+											 <span class="badge badge-success">New Order</span>
+										  </div>
+									   </div>
+									   <div class="media">
+										  <div class="main-img-user"><img class="img-fluid" alt="avatar" src="assets/images/team/2.jpg"></div>
+										  <div class="media-body">
+											 <p><strong>Download Complete</strong> Lorem ipsum dolor sit amet, consectetuer.</p>
+											 <span>Oct 13 02:56am</span> <br>
+											 <span class="badge badge-primary">New Message</span>
+										  </div>
+									   </div>
+									   <div class="media">
+										  <div class="main-img-user online"><img class="img-fluid" alt="avatar" src="assets/images/team/3.jpg"></div>
+										  <div class="media-body">
+											 <p><strong>Elizabeth Lewis</strong> added new schedule realease</p>
+											 <span>Oct 12 10:40pm</span> <br>
+											 <span class="badge badge-info">New Follower</span>
+										  </div>
+									   </div>
+									</div></div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+            <!-- Container-fluid Ends-->
+
+        </div>
+
+        <!-- footer start-->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 footer-copyright">
+                        <p class="mb-0">Copyright 2020 © TJ All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="pull-right mb-0">Lorem Ipsum is simply <i class="fa fa-heart"></i></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer end-->
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="select-tab-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title f-w-600" id="">Select Options</h5>
+                                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form class="needs-validation digital-add">
+                                                        <div class="form-row">
+														
+														<div class="col-md-4">
+																 <div class="form-group">
+																	
+																	<div class="m-checkbox-inline mt-2 mb-0 custom-checkbox-ml d-flex checkbox-animated">
+																		<label class="d-block" for="edo-ani">
+																			<input class="checkbox_animated" id="edo-ani" type="checkbox" name="rdo-ani">
+																			Orders
+																		</label>
+																	
+																	</div>
+																</div>
+														</div>	
+										
+														<div class="col-md-4">
+																 <div class="form-group">
+																	
+																	<div class="m-checkbox-inline mt-2 mb-0 custom-checkbox-ml d-flex checkbox-animated">
+																		<label class="d-block" for="edo-ani1">
+																			<input class="checkbox_animated" id="edo-ani1" type="checkbox" name="rdo-ani1">
+																			Products
+																		</label>
+																	
+																	</div>
+																</div>
+														</div>	
+														
+														<div class="col-md-4">
+																 <div class="form-group">
+																	
+																	<div class="m-checkbox-inline mt-2 mb-0 custom-checkbox-ml d-flex checkbox-animated">
+																		<label class="d-block" for="edo-ani3">
+																			<input class="checkbox_animated" id="edo-ani3" type="checkbox" name="rdo-ani3">
+																			Collections
+																		</label>
+																	
+																	</div>
+																</div>
+														</div>	
+															
+														
+														<div class="col-md-4">
+																 <div class="form-group">
+																	
+																	<div class="m-checkbox-inline mt-2 mb-0 custom-checkbox-ml d-flex checkbox-animated">
+																		<label class="d-block" for="edo-ani4">
+																			<input class="checkbox_animated" id="edo-ani4" type="checkbox" name="rdo-ani4">
+																			Inventory
+																		</label>
+																	
+																	</div>
+																</div>
+														</div>	
+										
+														<div class="col-md-4">
+																 <div class="form-group">
+																	
+																	<div class="m-checkbox-inline mt-2 mb-0 custom-checkbox-ml d-flex checkbox-animated">
+																		<label class="d-block" for="edo-ani5">
+																			<input class="checkbox_animated" id="edo-ani5" type="checkbox" name="rdo-ani5">
+																			Reports
+																		</label>
+																	
+																	</div>
+																</div>
+														</div>	
+														
+														<div class="col-md-4">
+																 <div class="form-group">
+																	
+																	<div class="m-checkbox-inline mt-2 mb-0 custom-checkbox-ml d-flex checkbox-animated">
+																		<label class="d-block" for="edo-ani6">
+																			<input class="checkbox_animated" id="edo-ani6" type="checkbox" name="rdo-ani6">
+																			Transactions
+																		</label>
+																	
+																	</div>
+																</div>
+														</div>	
+															
+															
+															<div class="col-md-4">
+																 <div class="form-group">
+																	
+																	<div class="m-checkbox-inline mt-2 mb-0 custom-checkbox-ml d-flex checkbox-animated">
+																		<label class="d-block" for="edo-ani7">
+																			<input class="checkbox_animated" id="edo-ani7" type="checkbox" name="rdo-ani7">
+																			Posts
+																		</label>
+																	
+																	</div>
+																</div>
+														</div>	
+										
+														<div class="col-md-8">
+																 <div class="form-group">
+																	
+																	<div class="m-checkbox-inline mt-2 mb-0 custom-checkbox-ml d-flex checkbox-animated">
+																		<label class="d-block" for="edo-ani8">
+																			<input class="checkbox_animated" id="edo-ani8" type="checkbox" name="rdo-ani8">
+																			Add Promo & Discounts
+																		</label>
+																	
+																	</div>
+																</div>
+														</div>	
+														
+													
+															
+															
+															
+															
+															</div>
+															
+															 <div class="modal-footer border-0">
+                                                    <button class="btn btn-red" type="button">Submit</button>
+                                                    <button class="btn btn-danger" type="button" data-dismiss="modal">Close</button>
+                                                </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+										
+										
+<!-- page-wrapper Ends-->
+<!-- latest jquery-->
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+
+<!-- Bootstrap js-->
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+
+<!-- feather icon js-->
+<script src="assets/js/icons/feather-icon/feather.min.js"></script>
+<script src="assets/js/icons/feather-icon/feather-icon.js"></script>
+
+<!-- Sidebar jquery-->
+<script src="assets/js/sidebar-menu.js"></script>
+
+<!--chartist js-->
+<script src="assets/js/chart/chartist/chartist.js"></script>
+
+<!--chartjs js-->
+<script src="assets/js/chart/chartjs/chart.min.js"></script>
+
+<!-- lazyload js-->
+<script src="assets/js/lazysizes.min.js"></script>
+
+<!--copycode js-->
+<script src="assets/js/prism/prism.min.js"></script>
+<script src="assets/js/clipboard/clipboard.min.js"></script>
+<script src="assets/js/custom-card/custom-card.js"></script>
+
+<!--counter js-->
+<script src="assets/js/counter/jquery.waypoints.min.js"></script>
+<script src="assets/js/counter/jquery.counterup.min.js"></script>
+<script src="assets/js/counter/counter-custom.js"></script>
+
+<!--peity chart js-->
+<script src="assets/js/chart/peity-chart/peity.jquery.js"></script>
+
+<!--sparkline chart js-->
+<script src="assets/js/chart/sparkline/sparkline.js"></script>
+
+<!--Customizer admin-->
+<script src="assets/js/admin-customizer.js"></script>
+
+<!--dashboard custom js-->
+<script src="assets/js/dashboard/default.js"></script>
+
+<!--right sidebar js-->
+<script src="assets/js/chat-menu.js"></script>
+
+<!--height equal js-->
+<script src="assets/js/height-equal.js"></script>
+
+<!-- lazyload js-->
+<script src="assets/js/lazysizes.min.js"></script>
+
+<!--script admin-->
+<script src="assets/js/admin-script.js"></script>
+
+</body>
+
+</html>
