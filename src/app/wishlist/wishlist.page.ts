@@ -15,6 +15,13 @@ userId:any;
 wishlist:any;
 all_wishlist:any;
 loading:any;
+
+categories:any;
+shops:any;
+
+cat:string  = ''; 
+shop:string = ''; 
+
 my_cart_products:any;
 IMAGES_URL:any;
 selectedItem: any = [];
@@ -27,16 +34,41 @@ guestUserId: any = localStorage.getItem('guestUserId');
       this.IMAGES_URL = config.IMAGES_URL;
       events.subscribe('wish-list:true', data => {
       this.getWishList();
+      this.getAllCategories();
+      this.getAllShops();
     });
   }
 
   ngOnInit() {
   }
 
+  getAllCategories()
+  {
+    this.userService.postData({user_id:this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId},'getAllCategories').subscribe((result) => {
+      this.categories = result.data;
+    },
+    err => {
+      this.categories = [];
+    });
+  }
+
+  getAllShops()
+  {
+    this.userService.postData({user_id:this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId},'getAllShops').subscribe((result) => {
+      this.shops = result.data;
+    },
+    err => {
+      this.shops = [];
+    });
+  }
+
   ionViewDidEnter(){
     var token = localStorage.getItem('sin_auth_token');
     this.userId = this.userService.decryptData(token,config.ENC_SALT);
     this.getCartProductsIds();
+
+    this.getAllCategories();
+      this.getAllShops();
   }
 
   getCartProductsIds(){
@@ -51,8 +83,47 @@ guestUserId: any = localStorage.getItem('guestUserId');
     });
   }
 
-  getWishList(){
-    this.userService.postData({user_id:this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId},'getWishlist').subscribe((result) => {
+  searchWish(cat,shop)
+  {
+
+    let dict = {
+      'user_id': this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId,
+      'cat':      cat,
+      'shop':     shop
+    };
+
+    this.presentLoading();
+    this.userService.postData(dict,'getWishlist').subscribe((result) => {
+      this.stopLoading();
+      console.log(result)
+      
+      if(result.status != 0)
+      {
+        this.wishlist = result.data;
+        this.all_wishlist = result.data;  
+      }
+      else
+      {
+        this.wishlist = [];
+        this.all_wishlist = [];  
+      }
+      
+    },
+    err => {
+      this.stopLoading();
+      this.wishlist = [];
+      this.all_wishlist = [];
+    });
+  }
+
+  getWishList()
+  {
+    let dict = {
+      'user_id': this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId,
+      'cat':      '',
+      'shop':     ''
+    };
+    this.userService.postData(dict,'getWishlist').subscribe((result) => {
       this.stopLoading();
       console.log(result)
       

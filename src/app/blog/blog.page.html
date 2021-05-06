@@ -231,6 +231,9 @@
 						<!-- ALL POSTS STARTS FROM HERE -->
 							<div class="post-feed-main">
 								<article class="post-feed-item" *ngFor="let blog of all_blogs" style="display:inline-block; padding:0 0 10px 0; width: 100%">
+								<!-- <article class="post-feed-item" *ngFor="let blog of all_blogs | sort: {property: column, order: post_date}"> -->
+
+
 									<div class="activity-header" style="padding-bottom:0px;display: inline-block;width: 100%;">
 										<div class="activity-avatar" style="float:left">
 											<a href="javascript:void(0)">
@@ -244,7 +247,8 @@
 													{{blog.name}}
 													<br/>
 													<span class="time-since" style="text-transform:capitalize;color: #0488d2;font-weight: bold;">
-														{{blog.post_date | date}}
+														<!-- {{blog.post_date}} -->
+														{{blog.post_date | timeAgo}}
 													</span>
 												</a>
 											</h4>
@@ -262,11 +266,7 @@
 													</a>
 												</p>
 
-												<p style=" float: right;border: 1px solid #1088d2; color:#1088d2; padding: 1px 10px; cursor:pointer;" *ngIf='blog.post_type == "poll"'>
-													<span style="font-weight: bolder;">
-														{{blog?.poolingCount}}% Polling
-													</span>
-												</p>
+												
 											</div>
 											<!-- <p *ngIf='blog.post_type == "poll"' style="float: right;border: 1px solid #1088d2;color:#1088d2;padding: 0;cursor:pointer;width: 200px;height: 14px;">
 												<span style="font-size: 2px;padding: 0;width:{{blog?.poolingCount}};margin: 0;background: #2597d8;float: left;height: 13px;">
@@ -360,32 +360,80 @@
 
 										<div *ngIf="is_logged_in == 'true'" style="margin:0 auto">
 											<ul class="like-com" *ngIf='blog.post_type == "poll"' style="margin:0 auto">
-												<li style="background:#81a8bf">
-													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;padding: 5px 17px;margin-right: 0;margin-left:0;border-right:1px solid" (click)="givePoll(blog,blog?.button1)" *ngIf="!userAlreadyExist(blog)">
-														{{blog?.button1}}
+												<li>
+													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;margin-right: 0;margin-left:0;border-right:1px solid" (click)="givePoll(blog,blog?.button1)" *ngIf="!userAlreadyExist(blog)">
+														<div style="float: left;padding:2px 15px;background-image: linear-gradient(#1c86c7, #b9d8ea);color: #fff;">
+															<span style="float: left;width: 100%;text-align: center;">
+																{{blog?.button1}}
+															</span>
+
+															<span style="font-weight: 600;float: left;width: 100%;text-align: center;margin: 5px 0 0 0;font-size: 20px;">
+																{{blog?.optin1_polling}}%
+															</span>
+														</div>
 													</a>
 
-													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;padding: 5px 17px;margin-right: 0;margin-left:0;" (click)="givePoll(blog,blog?.button2)" *ngIf="!userAlreadyExist(blog)">
-														{{blog?.button2}}
+													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;margin-right: 0;margin-left:0;" (click)="givePoll(blog,blog?.button2)" *ngIf="!userAlreadyExist(blog)">
+														<div style="float: left;padding:2px 15px;margin: 0 0 0 0;background-image: linear-gradient(#1c86c7, #b9d8ea);color: #fff;border-left: 1px solid #fff;">
+															<span style="float: left;width: 100%;text-align: center;">
+																{{blog?.button2}}
+															</span>
+
+															<span style="font-weight: 600;float: left;width: 100%;text-align: center;margin: 5px 0 0 0;font-size: 20px;">
+																{{blog?.optin2_polling}}%
+															</span>
+														</div>
 													</a>
 
 												<ng-container *ngIf="userAlreadyExistWithButton1(blog)">
-													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;padding: 5px 17px;margin-right: 0;margin-left:0;border-right:1px solid"  >
-														{{blog?.button1}}
+													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;margin-right: 0;margin-left:0;border-right:1px solid"  >
+														<div style="float: left;padding:2px 15px;background-image: linear-gradient(#1c86c7, #b9d8ea);color: #fff;">
+															<span style="float: left;width: 100%;text-align: center;">
+																{{blog?.button1}}
+															</span>
+
+															<span style="font-weight: 600;float: left;width: 100%;text-align: center;margin: 5px 0 0 0;font-size: 20px;">
+																{{blog?.optin1_polling}}%
+															</span>
+														</div>
 													</a>
 
-													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;padding: 5px 17px;margin-right: 0;margin-left:0;border-right:1px solid;background: #c1c1c1"  >
-														{{blog?.button2}}
+													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;margin-right: 0;margin-left:0;border-right:1px solid;background: #c1c1c1"  >
+														<div style="float: left;padding:2px 15px;margin: 0 0 0 0;border-left: 1px solid #fff;border-radius:0px 10px 10px 0px;">
+															<span style="float: left;width: 100%;text-align: center;">
+																{{blog?.button2}}
+															</span>
+
+															<span style="font-weight: 600;float: left;width: 100%;text-align: center;margin: 5px 0 0 0;font-size: 20px;">
+																{{blog?.optin2_polling}}%
+															</span>
+														</div>
 													</a>
 												</ng-container>
 
 												<ng-container *ngIf="userAlreadyExistWithButton2(blog)">
-													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;padding: 5px 17px;margin-right: 0;margin-left:0;border-right:1px solid;background: #c1c1c1"  >
-														{{blog?.button1}}
+													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;margin-right: 0;margin-left:0;border-right:1px solid;"  >
+														<div style="float: left;padding:2px 15px;border-radius:10px 0 0 10px;background: #c1c1c1">
+															<span style="float: left;width: 100%;text-align: center;">
+																{{blog?.button1}}
+															</span>
+
+															<span style="font-weight: 600;float: left;width: 100%;text-align: center;margin: 5px 0 0 0;font-size: 20px;">
+																{{blog?.optin1_polling}}%
+															</span>
+														</div>
 													</a>
 
-													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;padding: 5px 17px;margin-right: 0;margin-left:0;border-right:1px solid"  >
-														{{blog?.button2}}
+													<a href="javascript:void(0)" style="font-size: 16px;align-items: center;color: #fff;margin-right: 0;margin-left:0;border-right:1px solid"  >
+														<div style="float: left;padding:2px 15px;margin: 0 0 0 0;background-image: linear-gradient(#1c86c7, #b9d8ea);color: #fff;border-left: 1px solid #fff;">
+															<span style="float: left;width: 100%;text-align: center;">
+																{{blog?.button2}}
+															</span>
+
+															<span style="font-weight: 600;float: left;width: 100%;text-align: center;margin: 5px 0 0 0;font-size: 20px;">
+																{{blog?.optin2_polling}}%
+															</span>
+														</div>
 													</a>
 												</ng-container>
 													
@@ -426,8 +474,12 @@
 
 									<div *ngIf='blog.post_type == "suggestion"'>
 										<div commentsArea *ngIf="blog?.count_suggestion > 0">
-											<h5 (click)='makeToggle(blog.post_id)' style="cursor:pointer;">
+											<h5 (click)='makeToggle(blog.post_id)' style="cursor:pointer;" *ngIf='blog?.count_suggestion > 1'>
 												{{blog?.count_suggestion}} Suggestions
+											</h5>
+
+											<h5 (click)='makeToggle(blog.post_id)' style="cursor:pointer;" *ngIf='blog?.count_suggestion == 1'>
+												{{blog?.count_suggestion}} Suggestion
 											</h5>
 
 											<div scrollArea *ngIf='toggle == blog.post_id' style=" border-top: 2px solid #fff; padding-top:4px;">
@@ -460,8 +512,8 @@
 									<!-- </div> -->
 								</article>	
 
-								<article class="post-feed-item" *ngIf="all_blogs?.length == 0 ">
-									No any post added yet
+								<article class="post-feed-item" *ngIf="all_blogs?.length == 0 " style="text-align: center;padding: 10px 0;color: #777;">
+									No post found
 								</article>										
 							</div>            						
 						</div>

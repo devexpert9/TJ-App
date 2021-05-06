@@ -17,6 +17,7 @@ export class FollowPage implements OnInit {
   IMAGES_URL:any;
   users:any;
   sellers:any;
+  requests:any;
   userId:any;
   loading:any;
   chat_list:any; 
@@ -42,6 +43,7 @@ export class FollowPage implements OnInit {
   {
   	this.getAllUsers();
     this.getAllShops();
+    this.getAllRequests();
   }
 
   getAllUsers()
@@ -64,6 +66,68 @@ export class FollowPage implements OnInit {
     },
     err => {
       this.sellers = [];
+    });
+  }
+
+  getAllRequests()
+  {
+    this.userService.postData({user_id:localStorage.getItem('sin_auth_userId')},'getAllFollowRequests').subscribe((result) => {
+      this.requests = result.data;
+    },
+    err => {
+      this.requests = [];
+    });
+  }
+
+  accept(reqId)
+  {
+    let dict = {
+      'reqId': reqId
+    };
+
+    this.presentLoading();
+    this.userService.postData(dict,'acceptFollowRequest').subscribe((result) => {
+      this.stopLoading();
+      if(result.status == 1)
+      {
+        this.presentToast('Request accepted successfully','success');
+
+        this.getAllRequests();
+        this.cd.detectChanges();
+      }
+      else
+      {
+        this.presentToast('Error,Please try after some time.','danger');
+      }
+    },
+    err => {
+      this.presentToast('Error,Please try after some time.','danger');
+    });
+  }
+
+  reject(reqId)
+  {
+    let dict = {
+      'reqId': reqId
+    };
+
+    this.presentLoading();
+    this.userService.postData(dict,'rejectFollowRequest').subscribe((result) => {
+      this.stopLoading();
+      if(result.status == 1)
+      {
+        this.presentToast('Request rejected successfully','success');
+
+        this.getAllRequests();
+        this.cd.detectChanges();
+      }
+      else
+      {
+        this.presentToast('Error,Please try after some time.','danger');
+      }
+    },
+    err => {
+      this.presentToast('Error,Please try after some time.','danger');
     });
   }
 

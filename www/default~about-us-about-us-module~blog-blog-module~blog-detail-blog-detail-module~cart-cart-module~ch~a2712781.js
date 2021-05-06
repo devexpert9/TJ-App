@@ -813,11 +813,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _featured_products_featured_products_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../featured-products/featured-products.page */ "./src/app/featured-products/featured-products.page.ts");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var time_ago_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! time-ago-pipe */ "./node_modules/time-ago-pipe/esm5/time-ago-pipe.js");
-/* harmony import */ var ngx_owl_carousel__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-owl-carousel */ "./node_modules/ngx-owl-carousel/index.js");
-/* harmony import */ var ngx_owl_carousel__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(ngx_owl_carousel__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var ngx_stars__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ngx-stars */ "./node_modules/ngx-stars/fesm5/ngx-stars.js");
+/* harmony import */ var ngx_owl_carousel__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-owl-carousel */ "./node_modules/ngx-owl-carousel/index.js");
+/* harmony import */ var ngx_owl_carousel__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(ngx_owl_carousel__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var ngx_stars__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ngx-stars */ "./node_modules/ngx-stars/fesm5/ngx-stars.js");
+/* harmony import */ var time_ago_pipe__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! time-ago-pipe */ "./node_modules/time-ago-pipe/esm5/time-ago-pipe.js");
 
 
 
@@ -840,15 +840,15 @@ var SharedModule = /** @class */ (function () {
                 _angular_common__WEBPACK_IMPORTED_MODULE_7__["CommonModule"],
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonicModule"].forRoot(),
                 _angular_router__WEBPACK_IMPORTED_MODULE_8__["RouterModule"],
-                ngx_owl_carousel__WEBPACK_IMPORTED_MODULE_10__["OwlModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_11__["FormsModule"],
-                ngx_stars__WEBPACK_IMPORTED_MODULE_12__["NgxStarsModule"],
+                ngx_owl_carousel__WEBPACK_IMPORTED_MODULE_9__["OwlModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"],
+                ngx_stars__WEBPACK_IMPORTED_MODULE_11__["NgxStarsModule"],
             ],
             declarations: [
-                _footer_footer_page__WEBPACK_IMPORTED_MODULE_3__["FooterPage"], _recently_viewed_recently_viewed_page__WEBPACK_IMPORTED_MODULE_4__["RecentlyViewedPage"], _upsell_products_upsell_products_page__WEBPACK_IMPORTED_MODULE_5__["UpsellProductsPage"], _featured_products_featured_products_page__WEBPACK_IMPORTED_MODULE_6__["FeaturedProductsPage"], time_ago_pipe__WEBPACK_IMPORTED_MODULE_9__["TimeAgoPipe"]
+                _footer_footer_page__WEBPACK_IMPORTED_MODULE_3__["FooterPage"], _recently_viewed_recently_viewed_page__WEBPACK_IMPORTED_MODULE_4__["RecentlyViewedPage"], _upsell_products_upsell_products_page__WEBPACK_IMPORTED_MODULE_5__["UpsellProductsPage"], _featured_products_featured_products_page__WEBPACK_IMPORTED_MODULE_6__["FeaturedProductsPage"], time_ago_pipe__WEBPACK_IMPORTED_MODULE_12__["TimeAgoPipe"]
             ],
             exports: [
-                _footer_footer_page__WEBPACK_IMPORTED_MODULE_3__["FooterPage"], _recently_viewed_recently_viewed_page__WEBPACK_IMPORTED_MODULE_4__["RecentlyViewedPage"], _upsell_products_upsell_products_page__WEBPACK_IMPORTED_MODULE_5__["UpsellProductsPage"], _featured_products_featured_products_page__WEBPACK_IMPORTED_MODULE_6__["FeaturedProductsPage"], time_ago_pipe__WEBPACK_IMPORTED_MODULE_9__["TimeAgoPipe"]
+                _footer_footer_page__WEBPACK_IMPORTED_MODULE_3__["FooterPage"], _recently_viewed_recently_viewed_page__WEBPACK_IMPORTED_MODULE_4__["RecentlyViewedPage"], _upsell_products_upsell_products_page__WEBPACK_IMPORTED_MODULE_5__["UpsellProductsPage"], _featured_products_featured_products_page__WEBPACK_IMPORTED_MODULE_6__["FeaturedProductsPage"], time_ago_pipe__WEBPACK_IMPORTED_MODULE_12__["TimeAgoPipe"]
             ]
         })
     ], SharedModule);

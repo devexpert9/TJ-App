@@ -424,10 +424,10 @@ export class ProductDetailsPage implements OnInit {
   }
 
   addToCart(product_id,product_sale_price,product_purchase_price,quantity=null){
-    // if(this.userId == 0){
-    //   this.router.navigate(['/login']);
-    // }
-    // else{
+    if(this.userId == 0){
+      this.router.navigate(['/login']);
+    }
+    else{
       if(this.product_variations == ''){
         this.productAddToCart(product_id,product_sale_price,product_purchase_price,quantity=null);
       }else{
@@ -438,7 +438,7 @@ export class ProductDetailsPage implements OnInit {
           this.productAddToCart(product_id,product_sale_price,product_purchase_price,quantity=null)
         }
       }
-    // }
+    }
   }
 
   productAddToCart(product_id,product_sale_price,product_purchase_price,quantity=null){
@@ -489,46 +489,35 @@ export class ProductDetailsPage implements OnInit {
   //     });
   //   }
   // }
-  addToWish(product_id){
+  addToWish(product_id)
+  {
     if(this.userId == 0){
       this.router.navigate(['/login']);
     }
     else{
       this.presentAlert(product_id);
-
-      // this.presentLoading();
-      // this.userService.postData({product_id:product_id,user_id:this.userId},'addTowish').subscribe((result) => {
-      //   this.stopLoading();
-      //   if(result.status == 1){
-      //     this.my_wish_products.push(product_id);
-      //     this.presentToast('Product added to wishlist.','success');
-      //   }
-      //   else{
-      //     this.presentToast('Error,Please try after some time.','danger');
-      //   }
-      // },
-      // err => {
-      //   this.stopLoading();
-      //   this.presentToast('Error,Please try after some time.','danger');
-      // });
     }
   }
 
-  async presentAlert(product_id) {
-    localStorage.setItem('product', product_id);
+  removeFromWish(product_id)
+  {
+    if(this.userId == 0)
+    {
+      this.router.navigate(['/login']);
+    }
+    else{
+      this.presentAlertRemove(product_id);
+    }
+  }
 
-    // const modal = await this.modalController.create({
-    //   component: WishlistListingPage,
-    //   componentProps: { value: product_id }
-    // });
-    // return await modal.present();
+  async presentAlert(product_id) 
+  {
+    localStorage.setItem('product', product_id);
     this.userService.postData({ product_id: localStorage.getItem('product'), user_id: this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId, wish_title: null, is_new: this.userId == 0 ? 3 : 0 , wishlist_id: null }, 'addWishlistNew').subscribe((result) => {
   	    this.stopLoading();
   	    if(result.status == 1){
-  	      // this.my_wish_products.push(product_id);
   	       this.presentToast('Product added to wishlist.','success');
   	       this.events.publish('wishlist:true',{});
-  	      // this.modalCtrl.dismiss();
   	    }
   	    else{
   	       this.presentToast('Error,Please try after some time.','danger');
@@ -539,6 +528,27 @@ export class ProductDetailsPage implements OnInit {
      	this.presentToast('Error,Please try after some time.','danger');
     });
   }
+
+  async presentAlertRemove(product_id)
+  {
+    localStorage.setItem('product', product_id);
+    this.userService.postData({ product_id: localStorage.getItem('product'), user_id: this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId, wish_title: null, is_new: this.userId == 0 ? 3 : 0, wishlist_id: null }, 'removeFromWishlist').subscribe((result) => {
+        this.stopLoading();
+        if(result.status == 1)
+        {
+           this.presentToast('Product removed from wishlist.','success');
+           this.events.publish('wishlist:true',{});
+        }
+        else{
+           this.presentToast('Error,Please try after some time.','danger');
+        }
+    },
+    err => {
+      this.stopLoading();
+      this.presentToast('Error,Please try after some time.','danger');
+    });
+  }
+  
   messages(){
     var vendor_type = 0;
     if(this.product.product_user_type == 'Admin'){

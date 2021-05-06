@@ -33,6 +33,33 @@
 	</div>
 
 	<!-- Lists -->
+	<div class="form-border" style="float:left;width:100%;margin:20px 0">
+		<div form-group style="float:left;margin: 0 10px 0 0;">
+			Filter By Category
+			<select [(ngModel)]="cat" style="height: 38px;width: auto;padding: 0 10px;">
+				<option value="">All</option>
+				<option *ngFor='let cat of categories' value="{{cat?.cat_id}}" style="text-transform:capitalize;">
+					{{cat?.cat_name}}
+				</option>
+			</select>
+		</div>
+
+		<div form-group style="float:left;margin: 0 10px 0 0;">
+			Filter By Shop
+			<select [(ngModel)]="shop" style="height: 38px;width: auto;padding: 0 10px;">
+				<option value=''>All</option>
+				<option *ngFor='let shop of shops' value="{{shop?.id}}" style="text-transform:capitalize;">
+					{{shop?.shop_name}}
+				</option>
+			</select>
+		</div>
+
+		<div form-group style="float:left;">
+			<a class="btn btn-primary btn-block text-uppercase my-4" href="javascript:void(0)" (click)="searchWish(cat,shop)" style="margin:0!important">
+				Search
+			</a>
+		</div>
+	</div>
 
 	<ng-container *ngFor="let item of wishlist;let i = index;">
 		<h4 style="margin:15px 0" catHdng>
@@ -123,7 +150,7 @@
 	 	</div>
 
 	 	<div *ngIf="item?.products?.length == 0" style="padding: 14px;">
-			<span>No products in wishlist yet</span>
+			<span>No any product found in wishlist</span>
 		</div>
 	</ng-container>
 

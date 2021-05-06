@@ -27,6 +27,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     SharedModule,
     HeaderPageModule,
+
     //CKEditorModule
   ],
   declarations: [BlogPage],

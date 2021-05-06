@@ -143,7 +143,7 @@ var SearchPage = /** @class */ (function () {
         this.total_products = 0;
         this.searchImage = '';
         this.searchTerm = '';
-        this.searchType = '';
+        this.searchType = 'all';
         this.search = '';
         this.IMAGES_URL = _config__WEBPACK_IMPORTED_MODULE_5__["config"].IMAGES_URL;
         events.subscribe('wishlist:true', function (data) {

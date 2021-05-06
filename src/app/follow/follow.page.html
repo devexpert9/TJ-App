@@ -18,6 +18,7 @@
 		  	<ion-segment [(ngModel)]="tabs" class="">
 			  	<ion-segment-button value="Buyer">Buyers</ion-segment-button>
 			  	<ion-segment-button value="Shops">Shops</ion-segment-button>
+			  	<ion-segment-button value="Requests">Requests</ion-segment-button>
 			</ion-segment>
 		    <div  tab-content [ngSwitch]="tabs">
 				<ion-list *ngSwitchCase="'Buyer'">
@@ -28,13 +29,25 @@
 								<h4>{{usr?.name}} {{usr?.lastname}}</h4>
 							</span>
 							
-							<a href="javascript:void(0)" (click)='follow_user(usr)' *ngIf='usr?.followedUser == "0"' style="border-color:green;color:green;">
+							<a href="javascript:void(0)" *ngIf='usr?.approved == "0"' style="border-color:orange;color:orange;">
+								Requested
+							</a>
+
+							<a href="javascript:void(0)" (click)='unfollow_user(usr)' *ngIf='usr?.approved == "1"'>
+								UnFollow
+							</a>
+
+							<a href="javascript:void(0)" (click)='follow_user(usr)' *ngIf='usr?.approved == "NA" || usr?.approved == "2"' style="border-color:green;color:green;">
+								Follow
+							</a>
+
+							<!-- <a href="javascript:void(0)" (click)='follow_user(usr)' *ngIf='usr?.followedUser == "0"' style="border-color:green;color:green;">
 								Follow
 							</a>
 
 							<a href="javascript:void(0)" (click)='unfollow_user(usr)' *ngIf='usr?.followedUser == "1"'>
 								UnFollow
-							</a>
+							</a> -->
 						</li>
 					</ul>
 
@@ -66,6 +79,48 @@
 
 					<ul *ngIf="sellers?.length == 0">
 						<li>No any shop(s) yet!</li>
+					</ul>
+				</ion-list>
+
+				<!-- GET ALL REQUEST -->
+				<ion-list *ngSwitchCase="'Requests'">
+					<span *ngIf="requests?.length > 0">
+						<ul style="height:400px;overflow-y: scroll;">
+							<li *ngFor="let usr of requests">
+								<div *ngIf='usr?.approved == "0"' style="float:left;width:100%">
+									<span style="float:left">
+										<img src="{{pic_url}}{{usr?.profile_picture}}" alt="">
+										<h4>{{usr?.name}} {{usr?.last_name}}</h4>
+									</span>
+									
+									<div *ngIf='usr?.approved == "0"' style="right: 27px; position: absolute;">
+										<a href="javascript:void(0)" (click)='accept(usr?.id)' style="padding:0;color:green;border:none;margin-right:​9px!important;">
+											<i class="fa fa-check-square-o" aria-hidden="true"></i>
+										</a>
+
+										<a href="javascript:void(0)" (click)='reject(usr?.id)' style="padding:0;color:red;border:none;">
+											&nbsp;<i class="fa fa-times" aria-hidden="true"></i>
+										</a>
+									</div>
+
+									<div *ngIf='usr?.approved == "1"' style="position:absolute;right:25px">
+										<a href="javascript:void(0)" style="color:green;border: none;font-weight: bold;">
+											Accepted
+										</a>
+									</div>
+
+									<div *ngIf='usr?.approved == "2"' style="position:absolute;right:25px">
+										<a href="javascript:void(0)" style="color:red;border: none;font-weight: bold;">
+											Rejected
+										</a>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</span>
+
+					<ul *ngIf="requests?.length == 0">
+						<li>No request yet!</li>
 					</ul>
 				</ion-list>
 			</div>

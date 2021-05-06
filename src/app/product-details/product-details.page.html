@@ -224,8 +224,8 @@
 												   <ion-button *ngIf="my_wish_products.indexOf(product_id) == -1" (click)="addToWish(product_id)" color="darkred" title="Wishlist"  style='position:inherit;'>
 												 		<ion-icon name="heart"></ion-icon> <span class="">ADD TO Wishlist</span>
 													</ion-button>
-													<ion-button *ngIf="my_wish_products.indexOf(product_id) >= 0" color="darkred" title="Added" style='position:inherit;'>
-														<ion-icon red_heart name="heart">In Wishlist</ion-icon>
+													<ion-button *ngIf="my_wish_products.indexOf(product_id) >= 0" color="darkred" title="Added" (click)="removeFromWish(product_id)" style='position:inherit;'>
+														<ion-icon red_heart name="heart"></ion-icon>  <span class="">In Wishlist</span>
 													</ion-button>
 												</ion-col>
 											</ion-row>
@@ -700,7 +700,9 @@
 <!--  Product Detail Ends   -->
 </div>
 <!-- *ngIf="product?.wholesale_price != 0 && product?.wholesale_products != 0 && errors.indexOf(product?.wholesale_products) == -1" -->
-<div  class="row chat-window col-xs-12 col-md-3" id="{{timestamp}}" style="padding-left:0px;" >
+
+<!-- Chat Functionality Below -->
+<!-- <div  class="row chat-window col-xs-12 col-md-3" id="{{timestamp}}" style="padding-left:0px;" >
     <div class="col-xs-12 col-md-12" style="padding-left: 0px;">
     	<div class="panel panel-default">
             <div class="panel-heading top-bar">
@@ -727,16 +729,13 @@
 	                        <div class="messages {{chat.user_type == 'user' ? 'msg_sent' : 'msg_receive'}}">
 	                            <p *ngIf="chat.type == 'text'">{{chat.message}}</p>
 	                            <p *ngIf="chat.type == 'audio'">
-	                            <!-- (click)="playAudio(chat.message)" -->
-	                            	<!-- <img width="100px" src="assets/images/mp3.png"> -->
+	                           
 	                            	<audio style="width:100%" controls><source [src]="sanitizer.bypassSecurityTrustResourceUrl(chat.message)" type="audio/mpeg">Your browser does not support the audio tag.</audio>
 	                            </p>
 	                            <span fnt_design>{{chat.date | timeAgo}}</span>
 	                        </div>
 	                    </div>
-	                    <!-- <div class="col-md-2 col-xs-2 avatar">
-	                        <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
-	                    </div> -->
+	                   
 	                </div>
                 </ng-container>
             </div>
@@ -753,7 +752,7 @@
             </div>
 		</div>
     </div>
-</div>
+</div> -->
 
 
 <app-footer></app-footer>

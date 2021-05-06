@@ -159,6 +159,7 @@ allowedProMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'ima
 
     this.currentUserID = localStorage.getItem('sin_auth_userId');
     this.is_login = localStorage.getItem('is_login');
+    this.is_logged_in  = localStorage.getItem('is_login');
     this.userImage = localStorage.getItem('sin_auth_user_image');
     this.getAllUsers();
     this.getBlogs();
@@ -259,28 +260,62 @@ allowedProMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'ima
     
   getBlogs()
   {
-    let dict = {
-      // 'user_id': localStorage.getItem('sin_auth_userId')
-      'user_id': null
-    };
+    // alert(this.is_login);
+    if(this.is_login == 'false' || this.is_login == null)
+    {
+      let dict = {
+        // 'user_id': localStorage.getItem('sin_auth_userId')
+        'user_id': null
+      };
 
-    // this.presentLoading();
-    this.userService.postData(dict,'getPosts').subscribe((result) => {
-      // this.stopLoading();
-      if(result.status == 1)
-      {
-        this.all_blogs = result.data.reverse();
-        this.cd.detectChanges();
-      }
-      else
-      {
-        this.all_blogs = [];
+      // this.presentLoading();
+      this.userService.postData(dict,'getPosts').subscribe((result) => {
+        // this.stopLoading();
+        if(result.status == 1)
+        {
+          this.all_blogs = result.data.reverse();
+          this.cd.detectChanges();
+        }
+        else
+        {
+          this.all_blogs = [];
+          this.presentToast('Error,Please try after some time.','danger');
+        }
+      },
+      err => {
         this.presentToast('Error,Please try after some time.','danger');
-      }
-    },
-    err => {
-      this.presentToast('Error,Please try after some time.','danger');
-    });
+      });
+    }
+    else //-- IF LOGGED IN TRUE---------------------
+    {
+      let dict = {
+        'user_id': localStorage.getItem('sin_auth_userId')
+      };
+      
+      this.userService.postData(dict,'getPostsFollow').subscribe((result) => {
+        if(result.status == 1)
+        {
+          this.all_blogs = result.data;
+
+          this.all_blogs = this.all_blogs.sort((a, b) => b.post_id - a.post_id);
+          // alert("SORT");
+          console.log(this.all_blogs);
+
+          this.cd.detectChanges();
+        }
+        else
+        {
+          this.all_blogs = [];
+          this.presentToast('Error,Please try after some time.','danger');
+        }
+      },
+      err => {
+        this.presentToast('Error,Please try after some time.','danger');
+      });
+    }
+    
+
+    
   }
 
   deletePost(post_id)
@@ -465,7 +500,7 @@ allowedProMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'ima
     let dict = {
       'user_id': localStorage.getItem('sin_auth_userId'),
       'content': content,
-      'file': this.uploadedFile,      
+      'file': this.uploadedFile,
       'post_type': 'simple',
       'product_name': '',
       'price': '',

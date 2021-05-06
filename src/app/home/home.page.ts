@@ -311,41 +311,29 @@ export class HomePage {
     }
     else{
       this.presentAlert(product_id);
-
-      // this.presentLoading();
-      // this.userService.postData({product_id:product_id,user_id:this.userId},'addTowish').subscribe((result) => {
-      //   this.stopLoading();
-      //   if(result.status == 1){
-      //     this.my_wish_products.push(product_id);
-      //     this.presentToast('Product added to wishlist.','success');
-      //   }
-      //   else{
-      //     this.presentToast('Error,Please try after some time.','danger');
-      //   }
-      // },
-      // err => {
-      //   this.stopLoading();
-      //   this.presentToast('Error,Please try after some time.','danger');
-      // });
+    }
+  }
+  
+  removeFromWish(product_id)
+  {
+    if(this.userId == 0)
+    {
+      this.router.navigate(['/login']);
+    }
+    else{
+      this.presentAlertRemove(product_id);
     }
   }
 
-  async presentAlert(product_id) {
+  async presentAlert(product_id)
+  {
     localStorage.setItem('product', product_id);
-    //
-    // const modal = await this.modalController.create({
-    //   component: WishlistListingPage,
-    //   componentProps: { value: product_id },
-    //   cssClass: 'wishListModal'
-    // });
-    // return await modal.present();
     this.userService.postData({ product_id: localStorage.getItem('product'), user_id: this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId, wish_title: null, is_new: this.userId == 0 ? 3 : 0, wishlist_id: null }, 'addWishlistNew').subscribe((result) => {
   	    this.stopLoading();
-  	    if(result.status == 1){
-  	      // this.my_wish_products.push(product_id);
+  	    if(result.status == 1)
+        {
   	       this.presentToast('Product added to wishlist.','success');
   	       this.events.publish('wishlist:true',{});
-  	       //this.modalCtrl.dismiss();
   	    }
   	    else{
   	       this.presentToast('Error,Please try after some time.','danger');
@@ -357,8 +345,29 @@ export class HomePage {
     });
   }
 
+  async presentAlertRemove(product_id)
+  {
+    localStorage.setItem('product', product_id);
+    this.userService.postData({ product_id: localStorage.getItem('product'), user_id: this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId, wish_title: null, is_new: this.userId == 0 ? 3 : 0, wishlist_id: null }, 'removeFromWishlist').subscribe((result) => {
+        this.stopLoading();
+        if(result.status == 1)
+        {
+           this.presentToast('Product removed from wishlist.','success');
+           this.events.publish('wishlist:true',{});
+        }
+        else{
+           this.presentToast('Error,Please try after some time.','danger');
+        }
+    },
+    err => {
+      this.stopLoading();
+      this.presentToast('Error,Please try after some time.','danger');
+    });
+  }
+
   productDetailPage(productId)
   {
+    alert(productId);
     this.router.navigate(['/product-details/'+productId]);
   }
 

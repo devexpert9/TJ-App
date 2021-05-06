@@ -525,6 +525,8 @@ allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/
       this.presentToast('Please enter your search.','danger');
       return false;
     }
+
+    // this.searchType = ''
     //this.router.navigate(['/products'],{queryParams : {cat : (this.cats_array.length > 0 ? this.cats_array[0].cat_id : ''), subcat: (this.cats_array.length > 0 ? this.cats_array[0].sub_cat_id : ''), search: this.searchTerm}});
     this.globalFooService.publishSomeData({
       foo: {'data': "search", 'page': 'searchPerform'}
@@ -556,7 +558,12 @@ allowedMimes:any = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/
 
   getWishlistProducts()
   {
-    this.userService.postData({user_id:this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId},'getWishlist').subscribe((result) => {
+    let dict = {
+      'user_id': this.userId == 0 ? localStorage.getItem('guestUserId') : this.userId,
+      'cat':      '',
+      'shop':     ''
+    };
+    this.userService.postData(dict,'getWishlist').subscribe((result) => {
       this.stopLoading();
       console.log(result);
       if(result.status == 1)

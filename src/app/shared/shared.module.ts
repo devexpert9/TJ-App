@@ -6,10 +6,11 @@ import { UpsellProductsPage } from '../upsell-products/upsell-products.page';
 import { FeaturedProductsPage } from '../featured-products/featured-products.page';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { TimeAgoPipe } from 'time-ago-pipe';
+
 import { OwlModule } from 'ngx-owl-carousel';
 import { FormsModule } from '@angular/forms';
 import { NgxStarsModule } from 'ngx-stars';
+import {TimeAgoPipe} from 'time-ago-pipe';
 
 @NgModule({
   imports: [

@@ -498,7 +498,8 @@ var CartPage = /** @class */ (function () {
             if (this.errors.indexOf(item.product_sale_price) == -1 && item.product_sale_price != item.product_purchase_price) {
                 if (item.discount_per_piece != null) {
                     if (item.discount_type == '%') {
-                        return (Number(item.product_sale_price) - ((Number(item.discount_per_piece) / Number(item.product_sale_price)) * 100)).toFixed(2);
+                        // return (Number(item.product_sale_price) - ((Number(item.discount_per_piece) / Number(item.product_sale_price)) * 100 )).toFixed(2);
+                        return (Number(item.product_sale_price) - ((Number(item.discount_per_piece) * Number(item.product_sale_price) / 100))).toFixed(2);
                     }
                     else {
                         return (Number(item.product_sale_price) - Number(item.discount_per_piece)).toFixed(2);
@@ -511,7 +512,7 @@ var CartPage = /** @class */ (function () {
             else {
                 if (item.discount_per_piece != null) {
                     if (item.discount_type == '%') {
-                        return (Number(item.product_purchase_price) - ((Number(item.discount_per_piece) / Number(item.product_purchase_price)) * 100)).toFixed(2);
+                        return (Number(item.product_purchase_price) - ((Number(item.discount_per_piece) * Number(item.product_purchase_price) / 100))).toFixed(2);
                     }
                     else {
                         return (Number(item.product_purchase_price) - Number(item.discount_per_piece)).toFixed(2);
@@ -535,7 +536,7 @@ var CartPage = /** @class */ (function () {
             if (this.errors.indexOf(item.product_sale_price) == -1 && item.product_sale_price != item.product_purchase_price) {
                 if (item.discount_per_piece != null) {
                     if (item.discount_type == '%') {
-                        return ((Number(item.product_sale_price) - ((Number(item.discount_per_piece) / Number(item.product_sale_price)) * 100)) * item.product_quantity).toFixed(2);
+                        return ((Number(item.product_sale_price) - ((Number(item.discount_per_piece) * Number(item.product_sale_price)) / 100)) * item.product_quantity).toFixed(2);
                     }
                     else {
                         return ((Number(item.product_sale_price) - Number(item.discount_per_piece)) * item.product_quantity).toFixed(2);
@@ -548,7 +549,7 @@ var CartPage = /** @class */ (function () {
             else {
                 if (item.discount_per_piece != null) {
                     if (item.discount_type == '%') {
-                        return ((Number(item.product_purchase_price) - ((Number(item.discount_per_piece) / Number(item.product_purchase_price)) * 100)) * item.product_quantity).toFixed(2);
+                        return ((Number(item.product_purchase_price) - ((Number(item.discount_per_piece) * Number(item.product_purchase_price)) / 100)) * item.product_quantity).toFixed(2);
                     }
                     else {
                         return ((Number(item.product_purchase_price) - Number(item.discount_per_piece)) * item.product_quantity).toFixed(2);

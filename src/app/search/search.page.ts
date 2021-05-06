@@ -53,7 +53,7 @@ export class SearchPage implements OnInit {
   searchImage: any = '';
 
   searchTerm:any = '';
-  searchType:any = '';
+  searchType:any = 'all';
   search:any = '';
 
   constructor(private globalFooService: GlobalFooService,public actionSheetController: ActionSheetController , public modalController: ModalController,public userService: UserService,public toastController:ToastController,public loadingController:LoadingController,public alertController: AlertController, public events: Events,public activatedRoute: ActivatedRoute,public router: Router, public _zone: NgZone)
